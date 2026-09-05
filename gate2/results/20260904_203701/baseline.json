@@ -1,0 +1,294 @@
+{
+  "benchmark": "Gate 2 local heavy Refiner deterministic-pipeline smoke",
+  "timestamp": "2026-09-04T12:37:01.679041+00:00",
+  "status": "fail",
+  "scope": "six hand-authored smoke cases; not an AASR-Bench reproduction",
+  "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+  "model_role": "offline/heavy baseline only",
+  "load_sec": 1.5959406211040914,
+  "summary": {
+    "cases": 6,
+    "exact_matches": 3,
+    "improved": 1,
+    "regressed": 0,
+    "accepted": 3,
+    "safety_pass": true,
+    "utility_pass": false,
+    "mean_inference_sec": 0.26844252017326653,
+    "mean_source_cer": 0.5525252525252525,
+    "mean_committed_cer": 0.5070707070707071
+  },
+  "cases": [
+    {
+      "id": "self_correction_time",
+      "k": 2,
+      "source_spans": [
+        "会议安排在周三下午三点。",
+        "不对，改到周四下午四点。"
+      ],
+      "source_window": "会议安排在周三下午三点。不对，改到周四下午四点。",
+      "read_only_prefix": "",
+      "expected": "会议安排在周四下午四点。",
+      "pass_through": false,
+      "trusted_memory": [],
+      "raw_model_text": "会议安排在周四16:00。",
+      "clean_window": "会议安排在周四16:00。",
+      "model_keys": [],
+      "inference_sec": 0.5834692530333996,
+      "patches": [
+        {
+          "start_char": 6,
+          "end_char": 11,
+          "expected_source": "三下午三点",
+          "replacement": "四16:00"
+        },
+        {
+          "start_char": 12,
+          "end_char": 24,
+          "expected_source": "不对，改到周四下午四点。",
+          "replacement": ""
+        }
+      ],
+      "patch_hash": "ee1d372a7916e9c42869ebd7bbd0ca947d1597bf6a16abdc9fe067d2a43f52e3",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large",
+          "unsupported_sensitive_token"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "会议安排在周三下午三点。不对，改到周四下午四点。",
+      "source_cer": 0.9090909090909091,
+      "model_cer": 0.36363636363636365,
+      "committed_cer": 0.9090909090909091,
+      "exact_match": false
+    },
+    {
+      "id": "location_alias",
+      "k": 1,
+      "source_spans": [
+        "地点在三号楼，呃不对，是四号楼，就是研发中心那栋。"
+      ],
+      "source_window": "地点在三号楼，呃不对，是四号楼，就是研发中心那栋。",
+      "read_only_prefix": "",
+      "expected": "地点在四号楼，即研发中心所在楼栋。",
+      "pass_through": false,
+      "trusted_memory": [
+        {
+          "evidence_id": "ev-location",
+          "tenant_id": "tenant-demo",
+          "text": "四号楼，别名研发中心",
+          "status": "confirmed",
+          "trust": 1.0,
+          "source_type": "user"
+        }
+      ],
+      "raw_model_text": "地点在4号楼，就是研发中心那栋。",
+      "clean_window": "地点在4号楼，就是研发中心那栋。",
+      "model_keys": [],
+      "inference_sec": 0.24553462397307158,
+      "patches": [
+        {
+          "start_char": 3,
+          "end_char": 13,
+          "expected_source": "三号楼，呃不对，是四",
+          "replacement": "4"
+        }
+      ],
+      "patch_hash": "e181d8ac8be02c01838d52b4cdac1b14040b6091ea7c2cd1ab5fa39c10cad829",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "unsupported_sensitive_token"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "地点在三号楼，呃不对，是四号楼，就是研发中心那栋。",
+      "source_cer": 0.8,
+      "model_cer": 0.4,
+      "committed_cer": 0.8,
+      "exact_match": false
+    },
+    {
+      "id": "filler_repetition",
+      "k": 1,
+      "source_spans": [
+        "这个这个方案，嗯，我们后面再讨论。"
+      ],
+      "source_window": "这个这个方案，嗯，我们后面再讨论。",
+      "read_only_prefix": "",
+      "expected": "这个方案我们后面再讨论。",
+      "pass_through": false,
+      "trusted_memory": [],
+      "raw_model_text": "这个方案，我们后面再讨论。",
+      "clean_window": "这个方案，我们后面再讨论。",
+      "model_keys": [],
+      "inference_sec": 0.1532314931973815,
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 2,
+          "expected_source": "这个",
+          "replacement": ""
+        },
+        {
+          "start_char": 6,
+          "end_char": 8,
+          "expected_source": "，嗯",
+          "replacement": ""
+        }
+      ],
+      "patch_hash": "80b7a3f01ee839fc89ad2673a468f8e68a3c868a8340185ca471a9c15b3d7ff8",
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "revision_event": {
+        "event": "replace_window",
+        "window_id": "win_7f94f79d4812",
+        "base_version": 0,
+        "result_version": 1,
+        "base_hash": "bdd4b27d9ad64afa97dba949856892c26c46c9faa06d7c877359361c6636c7b5",
+        "result_hash": "5d6ef9d8016e8ac1eacb44cb4d5fcf86f4d51267d838f81016e23f1bc1061303",
+        "text": "这个方案，我们后面再讨论。",
+        "patch_hash": "80b7a3f01ee839fc89ad2673a468f8e68a3c868a8340185ca471a9c15b3d7ff8",
+        "idempotent_replay": false
+      },
+      "final_text": "这个方案，我们后面再讨论。",
+      "source_cer": 0.2727272727272727,
+      "model_cer": 0.0,
+      "committed_cer": 0.0,
+      "exact_match": true
+    },
+    {
+      "id": "pass_through_clean",
+      "k": 1,
+      "source_spans": [
+        "今天下午项目组召开技术评审会。"
+      ],
+      "source_window": "今天下午项目组召开技术评审会。",
+      "read_only_prefix": "",
+      "expected": "今天下午项目组召开技术评审会。",
+      "pass_through": true,
+      "trusted_memory": [],
+      "raw_model_text": "今天下午项目组召开技术评审会。",
+      "clean_window": "今天下午项目组召开技术评审会。",
+      "model_keys": [],
+      "inference_sec": 0.19079394731670618,
+      "patches": [],
+      "patch_hash": "7ff169a95d7eb268d8dbbaf0b9b58bd3718fb81db608dd625494bbe5c4261c1f",
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "revision_event": {
+        "event": "replace_window",
+        "window_id": "win_7f94f79d4812",
+        "base_version": 0,
+        "result_version": 1,
+        "base_hash": "17744996ea96a228ad0d0e99ba1134016b776bd3b3173221b7727cc7045f0d88",
+        "result_hash": "17744996ea96a228ad0d0e99ba1134016b776bd3b3173221b7727cc7045f0d88",
+        "text": "今天下午项目组召开技术评审会。",
+        "patch_hash": "7ff169a95d7eb268d8dbbaf0b9b58bd3718fb81db608dd625494bbe5c4261c1f",
+        "idempotent_replay": false
+      },
+      "final_text": "今天下午项目组召开技术评审会。",
+      "source_cer": 0.0,
+      "model_cer": 0.0,
+      "committed_cer": 0.0,
+      "exact_match": true
+    },
+    {
+      "id": "unsupported_number_guard",
+      "k": 1,
+      "source_spans": [
+        "预算暂定为三万元。"
+      ],
+      "source_window": "预算暂定为三万元。",
+      "read_only_prefix": "",
+      "expected": "预算暂定为三万元。",
+      "pass_through": true,
+      "trusted_memory": [],
+      "raw_model_text": "预算暂定为3万元。",
+      "clean_window": "预算暂定为3万元。",
+      "model_keys": [],
+      "inference_sec": 0.1336541073396802,
+      "patches": [
+        {
+          "start_char": 5,
+          "end_char": 6,
+          "expected_source": "三",
+          "replacement": "3"
+        }
+      ],
+      "patch_hash": "83b2ddc3556b01275acbcf1d8c1e139e544641623f59d482b82fdde1b3084800",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "unsupported_sensitive_token",
+          "pass_through_changed_without_evidence"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "预算暂定为三万元。",
+      "source_cer": 0.0,
+      "model_cer": 0.125,
+      "committed_cer": 0.0,
+      "exact_match": true
+    },
+    {
+      "id": "multi_span_final_intent",
+      "k": 3,
+      "source_spans": [
+        "发布会先定在北京。",
+        "后来考虑改到上海。",
+        "最后确认还是在北京举办。"
+      ],
+      "source_window": "发布会先定在北京。后来考虑改到上海。最后确认还是在北京举办。",
+      "read_only_prefix": "",
+      "expected": "发布会最终确认在北京举办。",
+      "pass_through": false,
+      "trusted_memory": [],
+      "raw_model_text": "发布会先定在北京，后来考虑改到上海，最后确认还是在北京举办。",
+      "clean_window": "发布会先定在北京，后来考虑改到上海，最后确认还是在北京举办。",
+      "model_keys": [],
+      "inference_sec": 0.30397169617936015,
+      "patches": [
+        {
+          "start_char": 8,
+          "end_char": 9,
+          "expected_source": "。",
+          "replacement": "，"
+        },
+        {
+          "start_char": 17,
+          "end_char": 18,
+          "expected_source": "。",
+          "replacement": "，"
+        }
+      ],
+      "patch_hash": "a41d2247c68144f15b407ead9575ce6908a409a4b8231149f220eb832b346c30",
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "revision_event": {
+        "event": "replace_window",
+        "window_id": "win_185f53e478d5",
+        "base_version": 0,
+        "result_version": 1,
+        "base_hash": "b950c9d2da1d8134145e81149ae9a511b40dc9506c0a777be3cebcade5db8197",
+        "result_hash": "d5497b47f1d71302ecf45e0525b62ea8cb9e8dca4eaef57196621b4d9c9d700d",
+        "text": "发布会先定在北京，后来考虑改到上海，最后确认还是在北京举办。",
+        "patch_hash": "a41d2247c68144f15b407ead9575ce6908a409a4b8231149f220eb832b346c30",
+        "idempotent_replay": false
+      },
+      "final_text": "发布会先定在北京，后来考虑改到上海，最后确认还是在北京举办。",
+      "source_cer": 1.3333333333333333,
+      "model_cer": 1.3333333333333333,
+      "committed_cer": 1.3333333333333333,
+      "exact_match": false
+    }
+  ]
+}

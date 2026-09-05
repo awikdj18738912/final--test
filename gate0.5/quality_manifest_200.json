@@ -1,0 +1,2065 @@
+{
+  "manifest": "Gate 0.5 AISHELL-1 stratified quality evaluation",
+  "created_at": "2026-09-04T12:05:35.094942+00:00",
+  "source": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/manifests/test_zh-CN.json",
+  "source_sha256": "7860051c209ebb96d11709c88b3ae212e2cad072e3f5e4592a38003db977cb33",
+  "seed": 20260904,
+  "selection": {
+    "duration_strata": {
+      "short_lt_5s": "duration < 5",
+      "medium_5_10s": "5 <= duration < 10",
+      "long_ge_10s": "duration >= 10"
+    },
+    "targets": {
+      "short_lt_5s": 80,
+      "medium_5_10s": 80,
+      "long_ge_10s": 40
+    },
+    "method": "speaker-balanced round-robin within each stratum, then deterministic global shuffle",
+    "purpose": "controlled backend comparison; long samples are intentionally over-sampled, not a population CER estimate"
+  },
+  "population": {
+    "utterances": 7176,
+    "speakers": 20,
+    "strata": {
+      "short_lt_5s": 3994,
+      "medium_5_10s": 3111,
+      "long_ge_10s": 71
+    }
+  },
+  "summary": {
+    "utterances": 200,
+    "speakers": 20,
+    "audio_sec": 1263.5138,
+    "audio_hours": 0.351,
+    "strata": {
+      "long_ge_10s": 40,
+      "medium_5_10s": 80,
+      "short_lt_5s": 80
+    },
+    "speaker_counts": {
+      "S0764": 8,
+      "S0765": 8,
+      "S0766": 8,
+      "S0767": 8,
+      "S0768": 14,
+      "S0769": 9,
+      "S0770": 14,
+      "S0901": 13,
+      "S0902": 8,
+      "S0903": 9,
+      "S0904": 8,
+      "S0905": 9,
+      "S0906": 12,
+      "S0907": 8,
+      "S0908": 11,
+      "S0912": 8,
+      "S0913": 12,
+      "S0914": 12,
+      "S0915": 13,
+      "S0916": 8
+    }
+  },
+  "samples": [
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0140.wav",
+      "duration": 12.0,
+      "text": "新产业发展快地用地集约求且需求大的地区",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0913W0140"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0365.wav",
+      "duration": 5.218,
+      "text": "彭博一英里接力赛区别于其他跑步活动的是",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0767W0365"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0219.wav",
+      "duration": 13.927,
+      "text": "健全农作物种质资源和畜禽遗传资源保存体系",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0906W0219"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0343.wav",
+      "duration": 5.123875,
+      "text": "北京市排球协会与天津排协已经初步达成合作意向",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0904W0343"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0285.wav",
+      "duration": 10.006,
+      "text": "而苹果的另一位联合创始人沃兹尼亚克还活跃在科技圈",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0901W0285"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0180.wav",
+      "duration": 3.6590625,
+      "text": "瑞银分析师丁晓预测",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0769W0180"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0217.wav",
+      "duration": 9.4290625,
+      "text": "城市综合交通体系规划应明确公共交通优先发展原则",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0914W0217"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0234.wav",
+      "duration": 6.735,
+      "text": "必须符合一些基本的条件企业必须连续三年盈利",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0769W0234"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0158.wav",
+      "duration": 4.758,
+      "text": "房地产业将在明年有所洗牌",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0770W0158"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0168.wav",
+      "duration": 4.205,
+      "text": "一智能家居产品的销售渠道",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0916W0168"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0480.wav",
+      "duration": 4.1230625,
+      "text": "手握电动栅栏遥控器",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0915W0480"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0273.wav",
+      "duration": 4.316875,
+      "text": "美国国际贸易委员会称",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0768W0273"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0246.wav",
+      "duration": 3.5710625,
+      "text": "建立健全重要农产品储备制度",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0913W0246"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0264.wav",
+      "duration": 5.3050625,
+      "text": "这样难免会出现某个客户的维修问题特别复杂",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0913W0264"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0440.wav",
+      "duration": 10.156,
+      "text": "村小老师自掏腰包八零零零元为贫困生设奖学金",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0769W0440"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0453.wav",
+      "duration": 10.428,
+      "text": "村民一零年在沙洲植树造林已成林却被指种错地方",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0770W0453"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0211.wav",
+      "duration": 5.2060625,
+      "text": "科技创新和推广新应用能力不强",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0901W0211"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0354.wav",
+      "duration": 6.3940625,
+      "text": "更加多维度的助推跑步事业在中国的发展",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0913W0354"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0246.wav",
+      "duration": 4.817,
+      "text": "落实鲜活农产品运输绿化通道政策",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0902W0246"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0400.wav",
+      "duration": 5.3469375,
+      "text": "朱婷得到七分同样全队最高",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0914W0400"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0210.wav",
+      "duration": 12.0,
+      "text": "城市化快速发展期的重要特征就是基础设施投资需求量大",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0770W0210"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0489.wav",
+      "duration": 10.073,
+      "text": "温州高速车祸九二包大米遭哄抢续带头者被拘",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0906W0489"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0252.wav",
+      "duration": 3.708,
+      "text": "另一个让南京市民特别关心的是",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0915W0252"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0374.wav",
+      "duration": 6.379875,
+      "text": "多国大神级搏击王者论剑昆仑武道之巅",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0907W0374"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0185.wav",
+      "duration": 4.616125,
+      "text": "规划建筑面积为四十万平方米",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0768W0185"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0150.wav",
+      "duration": 6.6760625,
+      "text": "在某一方面找到自己的企业竞争力",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0770W0150"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0202.wav",
+      "duration": 11.6159375,
+      "text": "转化成由资产产生的现金流作担保可自由流通的证券",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0915W0202"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0211.wav",
+      "duration": 2.89,
+      "text": "在自愿基础上组建联合社",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0904W0211"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0495.wav",
+      "duration": 3.354,
+      "text": "可以考虑一下空中赏月",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0908W0495"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0213.wav",
+      "duration": 4.6070625,
+      "text": "积极稳妥推进户籍制度改革",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0908W0213"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0225.wav",
+      "duration": 3.4620625,
+      "text": "城投债作为一个信用产品",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0769W0225"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0433.wav",
+      "duration": 5.746125,
+      "text": "千面娇娃绝地反击拿下最后一席歌王头衔",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0767W0433"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0475.wav",
+      "duration": 3.239,
+      "text": "盲目捐款没有益处",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0907W0475"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0205.wav",
+      "duration": 10.808,
+      "text": "下一步将进一步完善城投债卷发行制度和防范风险机制",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0768W0205"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0474.wav",
+      "duration": 6.4099375,
+      "text": "记者从首都机场公安分局航站区派出所获悉",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0764W0474"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0166.wav",
+      "duration": 2.086,
+      "text": "去行政化",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0764W0166"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0192.wav",
+      "duration": 10.139,
+      "text": "考试过程需要消耗相关材料或需聘请专业面试考官的",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0768W0192"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0320.wav",
+      "duration": 9.1960625,
+      "text": "由于向为民已获任威灵电机的董事会主席",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0913W0320"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0227.wav",
+      "duration": 10.7840625,
+      "text": "收益用于公共交通基础设施建设和弥补运营亏损",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0914W0227"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0251.wav",
+      "duration": 8.5610625,
+      "text": "鼓励优先类支持允许类天然气利用项目发展",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0770W0251"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0156.wav",
+      "duration": 5.747,
+      "text": "预计还有其他城市将发布同类型松绑政策",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0906W0156"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0208.wav",
+      "duration": 6.1079375,
+      "text": "以实施现代农业人才支撑计划为抓手",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0903W0208"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0251.wav",
+      "duration": 10.6960625,
+      "text": "通过投资入股产权回购回租建公建配套等方式",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0913W0251"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0397.wav",
+      "duration": 5.8249375,
+      "text": "这次赛事是昆仑决二零一五欧洲之旅的第三站",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0767W0397"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0388.wav",
+      "duration": 5.36,
+      "text": "女排三零阿根廷朱婷复出扣杀状态神勇",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0916W0388"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0359.wav",
+      "duration": 3.3730625,
+      "text": "播求头部的伤口进一步扩大",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0906W0359"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0146.wav",
+      "duration": 10.78,
+      "text": "按新用途新权利类型市场价办理用地手续",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0913W0146"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0185.wav",
+      "duration": 7.0,
+      "text": "相关部门对公积金贷款政策的第三次放松",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0908W0185"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0236.wav",
+      "duration": 5.818,
+      "text": "对化学品生产经营企业进行环境隐患排查",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0912W0236"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0123.wav",
+      "duration": 10.734,
+      "text": "公积金政策利好首套自住住房贷款需求的消息纷至沓来",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0908W0123"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0307.wav",
+      "duration": 4.9199375,
+      "text": "中国企业与世界企业同在同一起跑线上",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0901W0307"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0171.wav",
+      "duration": 5.156,
+      "text": "如今房地产市场已经供需相对平衡",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0769W0171"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0370.wav",
+      "duration": 3.0700625,
+      "text": "不少粉丝都表达了谴责",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0766W0370"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0416.wav",
+      "duration": 2.4599375,
+      "text": "感情一日千里",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0906W0416"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0494.wav",
+      "duration": 4.056875,
+      "text": "石柱村泥石流塌方现场",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0903W0494"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0330.wav",
+      "duration": 8.906,
+      "text": "每日经济新闻记者杨建江南嘉捷六万一千一百三十一三",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0765W0330"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0486.wav",
+      "duration": 9.5959375,
+      "text": "港媒中国科学家研究蜈蚣毒液发现新止痛药",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0908W0486"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0414.wav",
+      "duration": 7.0439375,
+      "text": "刚与阮经天传出情变不久的许玮甯近日接拍恐怖片",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0765W0414"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0376.wav",
+      "duration": 7.76,
+      "text": "用作雪车雪橇大项和滑雪大项中的高山滑雪比赛场地",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0912W0376"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0265.wav",
+      "duration": 5.73,
+      "text": "苹果股价一度每分钟跌幅已破百分之三",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0903W0265"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0123.wav",
+      "duration": 5.714,
+      "text": "对房地产市场的利好影响将是长期的",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0905W0123"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0254.wav",
+      "duration": 3.579,
+      "text": "我们在科技创新方面的进步非常显着",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0904W0254"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0346.wav",
+      "duration": 5.400875,
+      "text": "作为有史以来天赋最高的花样滑冰运动员之一",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0901W0346"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0458.wav",
+      "duration": 10.2849375,
+      "text": "游客骑着明孝陵驮碑龟趺拍照市民大煞风景",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0915W0458"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0167.wav",
+      "duration": 6.495,
+      "text": "广州五月二手房均价为一千元每平方米",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0905W0167"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0434.wav",
+      "duration": 3.534875,
+      "text": "八月一七日上午一一时",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0765W0434"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0257.wav",
+      "duration": 5.918,
+      "text": "苹果公司一直在秘密从事电汽汽车的研发",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0912W0257"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0354.wav",
+      "duration": 10.488,
+      "text": "取得瑞士卢加诺竞走挑战赛男子二十公里竞走银牌",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0908W0354"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0452.wav",
+      "duration": 14.6999375,
+      "text": "白云区钟落潭竹一村民白云区钟落潭竹一村的村民跟记者报料",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0768W0452"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0380.wav",
+      "duration": 4.723125,
+      "text": "为振兴三大球贡献自己的一份力量",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0903W0380"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0421.wav",
+      "duration": 4.3899375,
+      "text": "究竟是演戏还是积怨已深",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0770W0421"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0132.wav",
+      "duration": 10.217,
+      "text": "境外机构和个人在中国投资购买房地产的限制放松",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0915W0132"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0393.wav",
+      "duration": 4.906,
+      "text": "早前意外崴伤脚踝的朱婷强势复出",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0913W0393"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0226.wav",
+      "duration": 5.4230625,
+      "text": "也具有间接的经济效益或社会效益",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0768W0226"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0483.wav",
+      "duration": 6.636,
+      "text": "当事水产摊贩已退还郑女士一零零元购虾款",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0904W0483"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0328.wav",
+      "duration": 4.3269375,
+      "text": "另一白电巨头青岛海尔",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0908W0328"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0283.wav",
+      "duration": 3.032,
+      "text": "而从二零一三年开始",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0765W0283"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0158.wav",
+      "duration": 3.899,
+      "text": "分析用户的消费行为和生活方式",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0766W0158"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0474.wav",
+      "duration": 3.9658125,
+      "text": "一个人的精神生命就将走向衰老",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0766W0474"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0170.wav",
+      "duration": 2.912,
+      "text": "同比上涨约六成",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0767W0170"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0416.wav",
+      "duration": 2.8669375,
+      "text": "她看了不少恐怖片",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0765W0416"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0246.wav",
+      "duration": 4.0959375,
+      "text": "引导天然气合理消费",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0770W0246"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0481.wav",
+      "duration": 5.2478125,
+      "text": "眼睛警惕地注视着进出校门的车辆和学生",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0915W0481"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0327.wav",
+      "duration": 3.991,
+      "text": "国产服务器即使是自主设计",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0769W0327"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0238.wav",
+      "duration": 5.290875,
+      "text": "加强畜禽遗传资源和农业野生植物资源保护",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0904W0238"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0232.wav",
+      "duration": 6.2440625,
+      "text": "并对地方政府债务进行监控和风险防范等",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0770W0232"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0332.wav",
+      "duration": 7.8769375,
+      "text": "美的最近还把洗碗机事业部合并到美的的厨房电器事业部",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0913W0332"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0367.wav",
+      "duration": 3.218,
+      "text": "一分分和对手拼到最后",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0905W0367"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0123.wav",
+      "duration": 5.9289375,
+      "text": "缴存者还可以在租房装修离退休时提取",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0902W0123"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0280.wav",
+      "duration": 5.3239375,
+      "text": "零售商最终都会向消费者妥协",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0907W0280"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0156.wav",
+      "duration": 10.857,
+      "text": "尤其组合贷的咨询量较上月月初一周上涨百分之五左右",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0901W0156"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0481.wav",
+      "duration": 5.71675,
+      "text": "村民多次向温岭市有关部门投诉反映",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0769W0481"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0142.wav",
+      "duration": 5.07,
+      "text": "兰州楼市出现明显的区域分化",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0915W0142"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0251.wav",
+      "duration": 5.1900625,
+      "text": "针对近期各种环境事件暴露出的问题",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0912W0251"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0318.wav",
+      "duration": 4.907,
+      "text": "浪潮的特点在于定制化策略",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0770W0318"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0325.wav",
+      "duration": 4.0799375,
+      "text": "跟世界产业的差距不是在缩小",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0912W0325"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0344.wav",
+      "duration": 4.845,
+      "text": "曾春蕾和张常宁均拿到十六分",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0914W0344"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0289.wav",
+      "duration": 6.9730625,
+      "text": "本报记者纪佳鹏北京报道北京时间八月十二日",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0901W0289"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0409.wav",
+      "duration": 4.0551875,
+      "text": "问到他们在法国拍戏定情的细节",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0906W0409"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0450.wav",
+      "duration": 10.099125,
+      "text": "清华附小昨迎百年校庆校长诠释成志教育理念",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0901W0450"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0257.wav",
+      "duration": 7.5229375,
+      "text": "那么苹果市价约为七四四十亿美元",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0905W0257"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0347.wav",
+      "duration": 8.462875,
+      "text": "在队长惠若琪因为身体原因无缘世界杯的情况下",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0915W0347"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0458.wav",
+      "duration": 10.313,
+      "text": "温州少年峡谷失踪续二零万馀元赔偿款执行到位",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0905W0458"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0455.wav",
+      "duration": 6.4350625,
+      "text": "但曾经的中国网球一姐李娜仍然没有淡出媒体的关注",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0766W0455"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0328.wav",
+      "duration": 5.4968125,
+      "text": "有两家表示能够诊断或者反馈黑客入侵后的情况",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0907W0328"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0477.wav",
+      "duration": 5.583,
+      "text": "董某某所受损伤程度属二重伤二级",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0916W0477"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0239.wav",
+      "duration": 2.501,
+      "text": "加强农业生态环境治理",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0904W0239"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0453.wav",
+      "duration": 10.876,
+      "text": "温州七人涉嫌百倍抬杠非法经营期货三二亿被批货",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0903W0453"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0450.wav",
+      "duration": 5.1230625,
+      "text": "渝蓉高速四川段因烂尾被称为最拖沓高速",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0902W0450"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0495.wav",
+      "duration": 10.274875,
+      "text": "游客要退团张家界低价团导游称信不信你走走不了",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0914W0495"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0463.wav",
+      "duration": 6.6850625,
+      "text": "日照市公安局官方微博通报了这一事件的调查情况",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0914W0463"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0158.wav",
+      "duration": 3.0299375,
+      "text": "涨幅据十大城市之首",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0902W0158"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0322.wav",
+      "duration": 6.4460625,
+      "text": "而不少品牌的电话手表量销售量更是突破百万大关",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0902W0322"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0449.wav",
+      "duration": 10.7270625,
+      "text": "温州老人卖房筹四八零零万建养老院赠政府遭闲置",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0906W0449"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0257.wav",
+      "duration": 4.589,
+      "text": "这估计很难让掉进钱眼儿的四大银行接受",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0916W0257"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0434.wav",
+      "duration": 5.77,
+      "text": "现代快报记者从省邮政管理局了解到",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0764W0434"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0378.wav",
+      "duration": 10.0800625,
+      "text": "莎宾娜也凭借兼具清纯和性感气质的漂亮外形走红日本",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0908W0378"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0291.wav",
+      "duration": 3.593,
+      "text": "英特尔需要找到新的增长点",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0764W0291"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0387.wav",
+      "duration": 7.3981875,
+      "text": "因为服用禁药被停赛的选手在禁赛期满起的三年内",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0901W0387"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0139.wav",
+      "duration": 4.55,
+      "text": "不用花那么大的成本去解决安全的问题",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0916W0139"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0396.wav",
+      "duration": 6.4921875,
+      "text": "对于隋文静韩聪彭程张昊领衔的中国双人滑军团",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0766W0396"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0447.wav",
+      "duration": 11.214125,
+      "text": "游客晋吉岛乘船颠骨折诉旅社索赔二零馀万元",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0914W0447"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0470.wav",
+      "duration": 10.2111875,
+      "text": "村委会在农田搭起违法建筑每年收租金一四万元",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0768W0470"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0214.wav",
+      "duration": 10.608,
+      "text": "为各地的基础建设设提供有制度保障的融资渠道",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0770W0214"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0276.wav",
+      "duration": 4.668,
+      "text": "双目标不仅包括保持中高速增长",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0904W0276"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0220.wav",
+      "duration": 10.0,
+      "text": "城投债劵作为融资平台公司最透明的直接融资工具",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0770W0220"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0402.wav",
+      "duration": 7.014125,
+      "text": "借着北京将要举办二零二二年冬奥会的东风",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0770W0402"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0244.wav",
+      "duration": 4.5,
+      "text": "规划对十二五的投资规模未做预测",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0764W0244"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0144.wav",
+      "duration": 6.867,
+      "text": "一线城市在价格较高的基础上整体回升并领涨全国",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0764W0144"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0477.wav",
+      "duration": 10.635,
+      "text": "渐冻男孩驾驶电动轮椅上班医生曾诊断活不过十八岁",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0901W0477"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0208.wav",
+      "duration": 10.051,
+      "text": "中国证卷报随着欧美等国主权债务危机陆续爆发",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0768W0208"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0240.wav",
+      "duration": 10.52,
+      "text": "加大对秸秆机械化还田和收集打捆机具配套的支持力度",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0906W0240"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0390.wav",
+      "duration": 6.0090625,
+      "text": "另外还有两名来自加拿大和美国的外籍华侨",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0903W0390"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0472.wav",
+      "duration": 6.0608125,
+      "text": "港媒中国发布金牌月嫂标准实用性遭质疑",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0908W0472"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0438.wav",
+      "duration": 6.0,
+      "text": "京华时报讯记者卫张宁昨天上午",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0914W0438"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0230.wav",
+      "duration": 7.8209375,
+      "text": "健全兽药质量安全监管和动物防疫技术支撑体系",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0906W0230"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0469.wav",
+      "duration": 4.0700625,
+      "text": "参考消息网八月一五日报道",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0908W0469"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0472.wav",
+      "duration": 6.322,
+      "text": "陆续有人从乐清赶往平阳法院",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0906W0472"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0317.wav",
+      "duration": 4.693,
+      "text": "能否找到厨电行业下一个未知的增量",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0916W0317"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0415.wav",
+      "duration": 10.0810625,
+      "text": "相约家人到谢霆锋家中上演十二道锋味私房菜",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0770W0415"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0172.wav",
+      "duration": 4.288,
+      "text": "中原地产市场总监张大伟认为",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0913W0172"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0437.wav",
+      "duration": 10.139875,
+      "text": "游客日照海鲜店被打受伤警方称言语冲突引发互殴",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0914W0437"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0347.wav",
+      "duration": 7.2260625,
+      "text": "也对地面技术和防摔技术上做了很多针对性的训练",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0768W0347"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0456.wav",
+      "duration": 6.0290625,
+      "text": "杀害中传女学生犯罪嫌疑人从小家庭教育严格",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0765W0456"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0145.wav",
+      "duration": 11.4049375,
+      "text": "互联网行动计划实实施用地实行过渡期政策",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0913W0145"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0492.wav",
+      "duration": 6.8930625,
+      "text": "港媒称内地为国际市场修改动画片妖怪不能吃唐僧肉",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0907W0492"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0202.wav",
+      "duration": 4.594,
+      "text": "第二批三网融合试点工作业已启动",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0764W0202"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0440.wav",
+      "duration": 3.672875,
+      "text": "案件正在进一步调查中",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0768W0440"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0193.wav",
+      "duration": 10.7259375,
+      "text": "多方面原因造成今年上半年部分中小企业生产经营困难",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0915W0193"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0159.wav",
+      "duration": 4.09,
+      "text": "五月份多地楼市的成交量明显上涨",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0902W0159"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0123.wav",
+      "duration": 5.78,
+      "text": "即由商业银行向市民发放执行公积金利率的贷款",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0904",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0904W0123"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0422.wav",
+      "duration": 3.062,
+      "text": "这样做反而更实际",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0905W0422"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0216.wav",
+      "duration": 3.811,
+      "text": "从事当地的基础设施建设",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0767W0216"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0150.wav",
+      "duration": 4.6159375,
+      "text": "对各地分支机构实行垂直管理",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0907W0150"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0424.wav",
+      "duration": 2.8210625,
+      "text": "据香港媒体报道",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0905W0424"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0194.wav",
+      "duration": 4.3559375,
+      "text": "由各省根据实际成本制定",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0768W0194"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0132.wav",
+      "duration": 3.913,
+      "text": "再次降低公积金贷款的门槛",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0903W0132"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0287.wav",
+      "duration": 3.9490625,
+      "text": "乔帮主在首批苹果产品的开发中",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0901W0287"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0280.wav",
+      "duration": 4.3929375,
+      "text": "他还吐槽过乔布斯电影中的桥段",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0901W0280"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0455.wav",
+      "duration": 4.900875,
+      "text": "昌平法院开庭审理了这起案件",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0914W0455"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0206.wav",
+      "duration": 4.4299375,
+      "text": "这决定了我国城市化动力十分强劲",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0767W0206"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0483.wav",
+      "duration": 3.827125,
+      "text": "目前仍有八名失踪人员下落不明",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0902W0483"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0446.wav",
+      "duration": 3.7880625,
+      "text": "用支付宝扫一下就能付款",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0906W0446"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0368.wav",
+      "duration": 7.5,
+      "text": "主教练对于这支以老带新的队伍也充满了自信",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0768W0368"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0360.wav",
+      "duration": 6.2109375,
+      "text": "花样滑冰大奖赛中国杯常年在北京和上海之间轮换",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0765W0360"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0248.wav",
+      "duration": 4.568,
+      "text": "加快建设环境监测预警体系",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0912W0248"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0171.wav",
+      "duration": 3.985,
+      "text": "购房者受惠于政策利好的同时",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0901W0171"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0484.wav",
+      "duration": 3.3779375,
+      "text": "都说下属有困难找领导",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0769W0484"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0467.wav",
+      "duration": 10.5649375,
+      "text": "村妇将一零万元现金埋地底四年多已腐烂成碎块",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0768W0467"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0770/BAC009S0770W0426.wav",
+      "duration": 10.823,
+      "text": "曾江谢贤四哥及胡枫修哥大谈往日情时",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0770",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0770W0426"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0265.wav",
+      "duration": 4.8399375,
+      "text": "导致技术支持时间超过了预期分配时间",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0913",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0913W0265"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0902/BAC009S0902W0356.wav",
+      "duration": 5.3510625,
+      "text": "还有记者爆料说居住在纽约的日本人透露",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0902",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0902W0356"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0193.wav",
+      "duration": 6.708,
+      "text": "对于保障全国生态安全具有不可代替的战略作用",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0906",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0906W0193"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0481.wav",
+      "duration": 5.847875,
+      "text": "新洲一名高中新生因为没去教室上晚自习",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0916W0481"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0330.wav",
+      "duration": 4.24,
+      "text": "空调业务总营收接近七百亿元",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0914W0330"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0426.wav",
+      "duration": 2.6889375,
+      "text": "陈展鹏风骚到场",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0903W0426"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0916/BAC009S0916W0295.wav",
+      "duration": 5.822,
+      "text": "该公司于上个月简单地宣布了智能手表相关的情况",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0916",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0916W0295"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0407.wav",
+      "duration": 5.349125,
+      "text": "将自导自演一部名为睡魔的科幻大片",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0915W0407"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0306.wav",
+      "duration": 5.5959375,
+      "text": "同比增长十一五十六点四百分之二",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0766W0306"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0290.wav",
+      "duration": 9.4310625,
+      "text": "认定从中国进口的乘用车和轻型卡车轮胎存在倾销行为",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0768",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0768W0290"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0447.wav",
+      "duration": 7.5131875,
+      "text": "菜单显示该饭店的荞麦窝窝头卖三八元一个",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0905W0447"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0229.wav",
+      "duration": 3.771,
+      "text": "二零一一年一月至七月",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0915W0229"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0489.wav",
+      "duration": 2.859875,
+      "text": "演员这个职业就是这样",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0766W0489"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0903/BAC009S0903W0397.wav",
+      "duration": 7.043,
+      "text": "这一届北京市业馀排球联赛一定会精彩纷呈",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0903",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0903W0397"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0288.wav",
+      "duration": 11.1069375,
+      "text": "苹果股价下跌百分之五分析师出现重大分歧搜狐科技",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0901",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0901W0288"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0328.wav",
+      "duration": 4.788125,
+      "text": "未来给我们的机会和空间是有限的",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0912W0328"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0914/BAC009S0914W0280.wav",
+      "duration": 4.897,
+      "text": "可有效降低信息泄漏的风险其次",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0914",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0914W0280"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0464.wav",
+      "duration": 7.349125,
+      "text": "村庄现两名村支书假支书无名有实村内掌权",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0769",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0769W0464"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0167.wav",
+      "duration": 10.956,
+      "text": "作为美国新型共享式办公与创新环境的运营品牌",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "long_ge_10s",
+      "utterance_id": "BAC009S0915W0167"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0339.wav",
+      "duration": 4.475125,
+      "text": "也恰恰符合播求的个人风格",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0767W0339"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0764/BAC009S0764W0369.wav",
+      "duration": 5.0,
+      "text": "很多六七十岁的跑者看到这个研究结果时",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0764",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0764W0369"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0912/BAC009S0912W0201.wav",
+      "duration": 3.9930625,
+      "text": "严格控制新上石化项目",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0912",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0912W0201"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0412.wav",
+      "duration": 4.594,
+      "text": "搜狐娱乐讯十月九日",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0907W0412"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0765/BAC009S0765W0184.wav",
+      "duration": 4.288,
+      "text": "今久整合营销集团迎来了它的生日",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0765",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0765W0184"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0915/BAC009S0915W0377.wav",
+      "duration": 4.136,
+      "text": "主教练郎平获得最佳教练",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0915",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0915W0377"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0908/BAC009S0908W0133.wav",
+      "duration": 6.877,
+      "text": "是对过去住房公积金制度不作为方式的纠正",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0908",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0908W0133"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0905/BAC009S0905W0400.wav",
+      "duration": 3.647,
+      "text": "广州日报社记者许胚日前",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0905",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0905W0400"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0907/BAC009S0907W0202.wav",
+      "duration": 4.9599375,
+      "text": "扶持农业信贷担保组织发展",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0907",
+      "stratum": "short_lt_5s",
+      "utterance_id": "BAC009S0907W0202"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0211.wav",
+      "duration": 7.353,
+      "text": "我们应该建立风险可控的规范化的地方政府融资机制",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0767",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0767W0211"
+    },
+    {
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0766/BAC009S0766W0411.wav",
+      "duration": 5.358125,
+      "text": "日前在初赛收官战中返场的她加盟猜评团",
+      "lang": "zh-CN",
+      "target_lang": "zh-CN",
+      "speaker": "S0766",
+      "stratum": "medium_5_10s",
+      "utterance_id": "BAC009S0766W0411"
+    }
+  ]
+}

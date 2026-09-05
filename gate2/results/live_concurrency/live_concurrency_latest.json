@@ -1,0 +1,1519 @@
+{
+  "benchmark": "Gate1 + Gate2 paced real-audio concurrency staircase",
+  "timestamp": "2026-09-05T09:16:43.590080+00:00",
+  "status": "pass",
+  "service": "http://127.0.0.1:8012",
+  "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+  "audio_sec_limit": 10.0,
+  "frame_ms": 250,
+  "levels": [
+    {
+      "concurrency": 1,
+      "status": "pass",
+      "wall_sec": 4.663055,
+      "completed_sessions": 1,
+      "errors": [],
+      "raw_final_visible_sec": {
+        "p50": 4.302979,
+        "p95": 4.302979,
+        "max": 4.302979
+      },
+      "complete_sec": {
+        "p50": 4.577588,
+        "p95": 4.577588,
+        "max": 4.577588
+      },
+      "post_final_revision_sec": {
+        "p50": 0.274609,
+        "p95": 0.274609,
+        "max": 0.274609
+      },
+      "refiner_rpc_max_ms": {
+        "p50": 273.882,
+        "p95": 273.882,
+        "max": 273.882
+      },
+      "sessions": [
+        {
+          "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+          "timestamp": "2026-09-05T09:16:33.300419+00:00",
+          "status": "pass",
+          "service": "http://127.0.0.1:8012",
+          "health": {
+            "status": "ok",
+            "realtime": {
+              "role": "realtime",
+              "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+              "active_sessions": 0,
+              "warmup_sec": 5.059
+            },
+            "gpu1_role": "refiner",
+            "sessions": 3,
+            "jobs": 0,
+            "offline": null,
+            "refiner": {
+              "role": "refiner",
+              "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+              "load_sec": 1.552,
+              "warmup_sec": 0.522,
+              "max_new_tokens": 256
+            }
+          },
+          "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+          "audio_sec": 4.45,
+          "frame_ms": 250,
+          "raw_final_visible_sec": 4.302979,
+          "complete_sec": 4.577588,
+          "refinement_events": 1,
+          "revision_events": 1,
+          "final_raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+          "final_visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+          "session_snapshot": {
+            "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+            "tenant_id": "live-smoke-d5607c5c",
+            "language": "Chinese",
+            "quality_level": "balanced",
+            "created_at": 1788599788.7192388,
+            "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+            "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+            "result_version": 6,
+            "input_seq_no": 18,
+            "active": false,
+            "final": true,
+            "latency_ms": {
+              "worker_start": 0.79,
+              "worker_rpc_total": 306.539,
+              "worker_rpc_max": 79.527,
+              "first_result": 823.108,
+              "final_result": 4293.642,
+              "refiner_rpc_total": 273.882,
+              "refiner_rpc_max": 273.882,
+              "refiner_rpc_count": 1.0,
+              "refiner_inference_total": 250.156,
+              "refiner_inference_max": 250.156,
+              "refiner_inference_count": 1.0,
+              "refiner_queue_total": 23.726,
+              "refiner_queue_max": 23.726,
+              "refiner_queue_count": 1.0,
+              "revision_total": 274.199,
+              "revision_max": 274.199,
+              "revision_count": 1.0
+            },
+            "refinement_enabled": true,
+            "refinement_disabled_reason": null,
+            "refinement_results": [
+              {
+                "event": "revision",
+                "source_window_id": "win_a7d95da69a1d8ca1",
+                "source_span_id": "seg_0001",
+                "validation": {
+                  "accepted": true,
+                  "reasons": []
+                },
+                "model_finish_reason": "stop",
+                "refiner_inference_ms": 250.156,
+                "refiner_rpc_ms": 273.882
+              }
+            ]
+          },
+          "events": [
+            {
+              "event": "ready",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "sample_rate": 16000,
+              "format": "pcm_s16le_mono",
+              "chunk_size_sec": 1.0,
+              "refinement_enabled": true,
+              "refiner_window_k": 1,
+              "received_sec": 0.009895
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "window_id": "full_transcript",
+              "base_version": 0,
+              "result_version": 1,
+              "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "is_final": false,
+              "text": "装这个监控。",
+              "raw_text": "装这个监控。",
+              "received_sec": 0.832406
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "window_id": "full_transcript",
+              "base_version": 1,
+              "result_version": 2,
+              "base_hash": "1a44b355a78318848b2851081d06e8fe288b0160c2d64d439b613b9499491731",
+              "is_final": false,
+              "text": "装这个监控，其，其实。",
+              "raw_text": "装这个监控，其，其实。",
+              "received_sec": 1.808837
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "window_id": "full_transcript",
+              "base_version": 2,
+              "result_version": 3,
+              "base_hash": "a87303b167016c09bc689a6bfa7f2d04f72992eab49ca88081e2184dc5c3eaf2",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥。",
+              "received_sec": 2.813536
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "window_id": "full_transcript",
+              "base_version": 3,
+              "result_version": 4,
+              "base_hash": "b0c0b38f86e09be06c2b9a7705560be525b682db4690a07fbacd90d20a5f1913",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "received_sec": 3.802627
+            },
+            {
+              "event": "final",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "window_id": "full_transcript",
+              "base_version": 4,
+              "result_version": 5,
+              "base_hash": "77ce471bac4f865078987fc6629cf1b2b67bc9e06747d3927d54b99a9830b755",
+              "is_final": true,
+              "text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "received_sec": 4.302979
+            },
+            {
+              "event": "revision",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "window_id": "full_transcript",
+              "base_version": 5,
+              "result_version": 6,
+              "base_hash": "e8a8b1c017ac0cca92618466663e241bb968a1a677d55678e9f6541045a4334c",
+              "is_final": true,
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "source_window_id": "win_a7d95da69a1d8ca1",
+              "source_span_id": "seg_0001",
+              "source_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "clean_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "patches": [
+                {
+                  "start_char": 7,
+                  "end_char": 8,
+                  "expected_source": "其",
+                  "replacement": ""
+                },
+                {
+                  "start_char": 9,
+                  "end_char": 10,
+                  "expected_source": "也",
+                  "replacement": ""
+                }
+              ],
+              "validation": {
+                "accepted": true,
+                "reasons": []
+              },
+              "model_finish_reason": "stop",
+              "model_keys": [],
+              "refiner_inference_ms": 250.156,
+              "refiner_rpc_ms": 273.882,
+              "received_sec": 4.577468
+            },
+            {
+              "event": "complete",
+              "session_id": "ses_aa72454c104047ccbe47b2853234d530",
+              "result_version": 6,
+              "is_final": true,
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "refinement_disabled_reason": null,
+              "refinement_results": 1,
+              "received_sec": 4.577588
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 2,
+      "status": "pass",
+      "wall_sec": 4.864197,
+      "completed_sessions": 2,
+      "errors": [],
+      "raw_final_visible_sec": {
+        "p50": 4.301498,
+        "p95": 4.350735,
+        "max": 4.350735
+      },
+      "complete_sec": {
+        "p50": 4.552019,
+        "p95": 4.799195,
+        "max": 4.799195
+      },
+      "post_final_revision_sec": {
+        "p50": 0.250521,
+        "p95": 0.44846,
+        "max": 0.44846
+      },
+      "refiner_rpc_max_ms": {
+        "p50": 249.997,
+        "p95": 448.077,
+        "max": 448.077
+      },
+      "sessions": [
+        {
+          "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+          "timestamp": "2026-09-05T09:16:37.917141+00:00",
+          "status": "pass",
+          "service": "http://127.0.0.1:8012",
+          "health": {
+            "status": "ok",
+            "realtime": {
+              "role": "realtime",
+              "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+              "active_sessions": 0,
+              "warmup_sec": 5.059
+            },
+            "gpu1_role": "refiner",
+            "sessions": 4,
+            "jobs": 0,
+            "offline": null,
+            "refiner": {
+              "role": "refiner",
+              "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+              "load_sec": 1.552,
+              "warmup_sec": 0.522,
+              "max_new_tokens": 256
+            }
+          },
+          "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+          "audio_sec": 4.45,
+          "frame_ms": 250,
+          "raw_final_visible_sec": 4.301498,
+          "complete_sec": 4.552019,
+          "refinement_events": 1,
+          "revision_events": 1,
+          "final_raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+          "final_visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+          "session_snapshot": {
+            "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+            "tenant_id": "live-smoke-d4994b44",
+            "language": "Chinese",
+            "quality_level": "balanced",
+            "created_at": 1788599793.3616164,
+            "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+            "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+            "result_version": 6,
+            "input_seq_no": 18,
+            "active": false,
+            "final": true,
+            "latency_ms": {
+              "worker_start": 1.383,
+              "worker_rpc_total": 257.32,
+              "worker_rpc_max": 58.569,
+              "first_result": 785.133,
+              "final_result": 4299.422,
+              "refiner_rpc_total": 249.997,
+              "refiner_rpc_max": 249.997,
+              "refiner_rpc_count": 1.0,
+              "refiner_inference_total": 248.154,
+              "refiner_inference_max": 248.154,
+              "refiner_inference_count": 1.0,
+              "refiner_queue_total": 1.844,
+              "refiner_queue_max": 1.844,
+              "refiner_queue_count": 1.0,
+              "revision_total": 250.307,
+              "revision_max": 250.307,
+              "revision_count": 1.0
+            },
+            "refinement_enabled": true,
+            "refinement_disabled_reason": null,
+            "refinement_results": [
+              {
+                "event": "revision",
+                "source_window_id": "win_6d110b0a5c33b724",
+                "source_span_id": "seg_0001",
+                "validation": {
+                  "accepted": true,
+                  "reasons": []
+                },
+                "model_finish_reason": "stop",
+                "refiner_inference_ms": 248.154,
+                "refiner_rpc_ms": 249.997
+              }
+            ]
+          },
+          "events": [
+            {
+              "event": "ready",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "sample_rate": 16000,
+              "format": "pcm_s16le_mono",
+              "chunk_size_sec": 1.0,
+              "refinement_enabled": true,
+              "refiner_window_k": 1,
+              "received_sec": 0.003158
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "window_id": "full_transcript",
+              "base_version": 0,
+              "result_version": 1,
+              "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "is_final": false,
+              "text": "装这个监控。",
+              "raw_text": "装这个监控。",
+              "received_sec": 0.787155
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "window_id": "full_transcript",
+              "base_version": 1,
+              "result_version": 2,
+              "base_hash": "1a44b355a78318848b2851081d06e8fe288b0160c2d64d439b613b9499491731",
+              "is_final": false,
+              "text": "装这个监控，其，其实。",
+              "raw_text": "装这个监控，其，其实。",
+              "received_sec": 1.808947
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "window_id": "full_transcript",
+              "base_version": 2,
+              "result_version": 3,
+              "base_hash": "a87303b167016c09bc689a6bfa7f2d04f72992eab49ca88081e2184dc5c3eaf2",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥。",
+              "received_sec": 2.811228
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "window_id": "full_transcript",
+              "base_version": 3,
+              "result_version": 4,
+              "base_hash": "b0c0b38f86e09be06c2b9a7705560be525b682db4690a07fbacd90d20a5f1913",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "received_sec": 3.801223
+            },
+            {
+              "event": "final",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "window_id": "full_transcript",
+              "base_version": 4,
+              "result_version": 5,
+              "base_hash": "77ce471bac4f865078987fc6629cf1b2b67bc9e06747d3927d54b99a9830b755",
+              "is_final": true,
+              "text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "received_sec": 4.301498
+            },
+            {
+              "event": "revision",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "window_id": "full_transcript",
+              "base_version": 5,
+              "result_version": 6,
+              "base_hash": "e8a8b1c017ac0cca92618466663e241bb968a1a677d55678e9f6541045a4334c",
+              "is_final": true,
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "source_window_id": "win_6d110b0a5c33b724",
+              "source_span_id": "seg_0001",
+              "source_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "clean_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "patches": [
+                {
+                  "start_char": 7,
+                  "end_char": 8,
+                  "expected_source": "其",
+                  "replacement": ""
+                },
+                {
+                  "start_char": 9,
+                  "end_char": 10,
+                  "expected_source": "也",
+                  "replacement": ""
+                }
+              ],
+              "validation": {
+                "accepted": true,
+                "reasons": []
+              },
+              "model_finish_reason": "stop",
+              "model_keys": [],
+              "refiner_inference_ms": 248.154,
+              "refiner_rpc_ms": 249.997,
+              "received_sec": 4.551934
+            },
+            {
+              "event": "complete",
+              "session_id": "ses_391c485c15824f4cbbc409733cb1a08d",
+              "result_version": 6,
+              "is_final": true,
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "refinement_disabled_reason": null,
+              "refinement_results": 1,
+              "received_sec": 4.552019
+            }
+          ]
+        },
+        {
+          "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+          "timestamp": "2026-09-05T09:16:38.164667+00:00",
+          "status": "pass",
+          "service": "http://127.0.0.1:8012",
+          "health": {
+            "status": "ok",
+            "realtime": {
+              "role": "realtime",
+              "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+              "active_sessions": 0,
+              "warmup_sec": 5.059
+            },
+            "gpu1_role": "refiner",
+            "sessions": 4,
+            "jobs": 0,
+            "offline": null,
+            "refiner": {
+              "role": "refiner",
+              "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+              "load_sec": 1.552,
+              "warmup_sec": 0.522,
+              "max_new_tokens": 256
+            }
+          },
+          "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+          "audio_sec": 4.45,
+          "frame_ms": 250,
+          "raw_final_visible_sec": 4.350735,
+          "complete_sec": 4.799195,
+          "refinement_events": 1,
+          "revision_events": 1,
+          "final_raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+          "final_visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+          "session_snapshot": {
+            "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+            "tenant_id": "live-smoke-d3698213",
+            "language": "Chinese",
+            "quality_level": "balanced",
+            "created_at": 1788599793.3619385,
+            "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+            "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+            "result_version": 6,
+            "input_seq_no": 18,
+            "active": false,
+            "final": true,
+            "latency_ms": {
+              "worker_start": 0.886,
+              "worker_rpc_total": 503.321,
+              "worker_rpc_max": 118.477,
+              "first_result": 819.83,
+              "final_result": 4348.698,
+              "refiner_rpc_total": 448.077,
+              "refiner_rpc_max": 448.077,
+              "refiner_rpc_count": 1.0,
+              "refiner_inference_total": 247.175,
+              "refiner_inference_max": 247.175,
+              "refiner_inference_count": 1.0,
+              "refiner_queue_total": 200.902,
+              "refiner_queue_max": 200.902,
+              "refiner_queue_count": 1.0,
+              "revision_total": 448.248,
+              "revision_max": 448.248,
+              "revision_count": 1.0
+            },
+            "refinement_enabled": true,
+            "refinement_disabled_reason": null,
+            "refinement_results": [
+              {
+                "event": "revision",
+                "source_window_id": "win_e862c8df71b63890",
+                "source_span_id": "seg_0001",
+                "validation": {
+                  "accepted": true,
+                  "reasons": []
+                },
+                "model_finish_reason": "stop",
+                "refiner_inference_ms": 247.175,
+                "refiner_rpc_ms": 448.077
+              }
+            ]
+          },
+          "events": [
+            {
+              "event": "ready",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "sample_rate": 16000,
+              "format": "pcm_s16le_mono",
+              "chunk_size_sec": 1.0,
+              "refinement_enabled": true,
+              "refiner_window_k": 1,
+              "received_sec": 0.003011
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "window_id": "full_transcript",
+              "base_version": 0,
+              "result_version": 1,
+              "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "is_final": false,
+              "text": "装这个监控。",
+              "raw_text": "装这个监控。",
+              "received_sec": 0.821717
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "window_id": "full_transcript",
+              "base_version": 1,
+              "result_version": 2,
+              "base_hash": "1a44b355a78318848b2851081d06e8fe288b0160c2d64d439b613b9499491731",
+              "is_final": false,
+              "text": "装这个监控，其，其实。",
+              "raw_text": "装这个监控，其，其实。",
+              "received_sec": 1.865763
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "window_id": "full_transcript",
+              "base_version": 2,
+              "result_version": 3,
+              "base_hash": "a87303b167016c09bc689a6bfa7f2d04f72992eab49ca88081e2184dc5c3eaf2",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥。",
+              "received_sec": 2.871017
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "window_id": "full_transcript",
+              "base_version": 3,
+              "result_version": 4,
+              "base_hash": "b0c0b38f86e09be06c2b9a7705560be525b682db4690a07fbacd90d20a5f1913",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "received_sec": 3.850447
+            },
+            {
+              "event": "final",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "window_id": "full_transcript",
+              "base_version": 4,
+              "result_version": 5,
+              "base_hash": "77ce471bac4f865078987fc6629cf1b2b67bc9e06747d3927d54b99a9830b755",
+              "is_final": true,
+              "text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "received_sec": 4.350735
+            },
+            {
+              "event": "revision",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "window_id": "full_transcript",
+              "base_version": 5,
+              "result_version": 6,
+              "base_hash": "e8a8b1c017ac0cca92618466663e241bb968a1a677d55678e9f6541045a4334c",
+              "is_final": true,
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "source_window_id": "win_e862c8df71b63890",
+              "source_span_id": "seg_0001",
+              "source_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "clean_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "patches": [
+                {
+                  "start_char": 7,
+                  "end_char": 8,
+                  "expected_source": "其",
+                  "replacement": ""
+                },
+                {
+                  "start_char": 9,
+                  "end_char": 10,
+                  "expected_source": "也",
+                  "replacement": ""
+                }
+              ],
+              "validation": {
+                "accepted": true,
+                "reasons": []
+              },
+              "model_finish_reason": "stop",
+              "model_keys": [],
+              "refiner_inference_ms": 247.175,
+              "refiner_rpc_ms": 448.077,
+              "received_sec": 4.799162
+            },
+            {
+              "event": "complete",
+              "session_id": "ses_1e65cac9898b42c7b1a782effcf00efe",
+              "result_version": 6,
+              "is_final": true,
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "refinement_disabled_reason": null,
+              "refinement_results": 1,
+              "received_sec": 4.799195
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "status": "pass",
+      "wall_sec": 5.425218,
+      "completed_sessions": 4,
+      "errors": [],
+      "raw_final_visible_sec": {
+        "p50": 4.350455,
+        "p95": 4.448377,
+        "max": 4.448377
+      },
+      "complete_sec": {
+        "p50": 4.799979,
+        "p95": 5.29984,
+        "max": 5.29984
+      },
+      "post_final_revision_sec": {
+        "p50": 0.449524,
+        "p95": 0.851463,
+        "max": 0.851463
+      },
+      "refiner_rpc_max_ms": {
+        "p50": 448.92,
+        "p95": 850.807,
+        "max": 850.807
+      },
+      "sessions": [
+        {
+          "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+          "timestamp": "2026-09-05T09:16:42.840487+00:00",
+          "status": "pass",
+          "service": "http://127.0.0.1:8012",
+          "health": {
+            "status": "ok",
+            "realtime": {
+              "role": "realtime",
+              "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+              "active_sessions": 0,
+              "warmup_sec": 5.059
+            },
+            "gpu1_role": "refiner",
+            "sessions": 6,
+            "jobs": 0,
+            "offline": null,
+            "refiner": {
+              "role": "refiner",
+              "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+              "load_sec": 1.552,
+              "warmup_sec": 0.522,
+              "max_new_tokens": 256
+            }
+          },
+          "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+          "audio_sec": 4.45,
+          "frame_ms": 250,
+          "raw_final_visible_sec": 4.301052,
+          "complete_sec": 4.552307,
+          "refinement_events": 1,
+          "revision_events": 1,
+          "final_raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+          "final_visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+          "session_snapshot": {
+            "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+            "tenant_id": "live-smoke-80e350e9",
+            "language": "Chinese",
+            "quality_level": "balanced",
+            "created_at": 1788599798.2846105,
+            "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+            "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+            "result_version": 6,
+            "input_seq_no": 18,
+            "active": false,
+            "final": true,
+            "latency_ms": {
+              "worker_start": 2.538,
+              "worker_rpc_total": 251.865,
+              "worker_rpc_max": 59.253,
+              "first_result": 782.425,
+              "final_result": 4298.843,
+              "refiner_rpc_total": 250.687,
+              "refiner_rpc_max": 250.687,
+              "refiner_rpc_count": 1.0,
+              "refiner_inference_total": 249.004,
+              "refiner_inference_max": 249.004,
+              "refiner_inference_count": 1.0,
+              "refiner_queue_total": 1.683,
+              "refiner_queue_max": 1.683,
+              "refiner_queue_count": 1.0,
+              "revision_total": 250.965,
+              "revision_max": 250.965,
+              "revision_count": 1.0
+            },
+            "refinement_enabled": true,
+            "refinement_disabled_reason": null,
+            "refinement_results": [
+              {
+                "event": "revision",
+                "source_window_id": "win_c4180f517c69a1e0",
+                "source_span_id": "seg_0001",
+                "validation": {
+                  "accepted": true,
+                  "reasons": []
+                },
+                "model_finish_reason": "stop",
+                "refiner_inference_ms": 249.004,
+                "refiner_rpc_ms": 250.687
+              }
+            ]
+          },
+          "events": [
+            {
+              "event": "ready",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "sample_rate": 16000,
+              "format": "pcm_s16le_mono",
+              "chunk_size_sec": 1.0,
+              "refinement_enabled": true,
+              "refiner_window_k": 1,
+              "received_sec": 0.00461
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "window_id": "full_transcript",
+              "base_version": 0,
+              "result_version": 1,
+              "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "is_final": false,
+              "text": "装这个监控。",
+              "raw_text": "装这个监控。",
+              "received_sec": 0.784695
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "window_id": "full_transcript",
+              "base_version": 1,
+              "result_version": 2,
+              "base_hash": "1a44b355a78318848b2851081d06e8fe288b0160c2d64d439b613b9499491731",
+              "is_final": false,
+              "text": "装这个监控，其，其实。",
+              "raw_text": "装这个监控，其，其实。",
+              "received_sec": 1.806385
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "window_id": "full_transcript",
+              "base_version": 2,
+              "result_version": 3,
+              "base_hash": "a87303b167016c09bc689a6bfa7f2d04f72992eab49ca88081e2184dc5c3eaf2",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥。",
+              "received_sec": 2.811575
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "window_id": "full_transcript",
+              "base_version": 3,
+              "result_version": 4,
+              "base_hash": "b0c0b38f86e09be06c2b9a7705560be525b682db4690a07fbacd90d20a5f1913",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "received_sec": 3.801458
+            },
+            {
+              "event": "final",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "window_id": "full_transcript",
+              "base_version": 4,
+              "result_version": 5,
+              "base_hash": "77ce471bac4f865078987fc6629cf1b2b67bc9e06747d3927d54b99a9830b755",
+              "is_final": true,
+              "text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "received_sec": 4.301052
+            },
+            {
+              "event": "revision",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "window_id": "full_transcript",
+              "base_version": 5,
+              "result_version": 6,
+              "base_hash": "e8a8b1c017ac0cca92618466663e241bb968a1a677d55678e9f6541045a4334c",
+              "is_final": true,
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "source_window_id": "win_c4180f517c69a1e0",
+              "source_span_id": "seg_0001",
+              "source_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "clean_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "patches": [
+                {
+                  "start_char": 7,
+                  "end_char": 8,
+                  "expected_source": "其",
+                  "replacement": ""
+                },
+                {
+                  "start_char": 9,
+                  "end_char": 10,
+                  "expected_source": "也",
+                  "replacement": ""
+                }
+              ],
+              "validation": {
+                "accepted": true,
+                "reasons": []
+              },
+              "model_finish_reason": "stop",
+              "model_keys": [],
+              "refiner_inference_ms": 249.004,
+              "refiner_rpc_ms": 250.687,
+              "received_sec": 4.552281
+            },
+            {
+              "event": "complete",
+              "session_id": "ses_8be27ea5bb3440dc9f97f93f418f2b51",
+              "result_version": 6,
+              "is_final": true,
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "refinement_disabled_reason": null,
+              "refinement_results": 1,
+              "received_sec": 4.552307
+            }
+          ]
+        },
+        {
+          "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+          "timestamp": "2026-09-05T09:16:43.341405+00:00",
+          "status": "pass",
+          "service": "http://127.0.0.1:8012",
+          "health": {
+            "status": "ok",
+            "realtime": {
+              "role": "realtime",
+              "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+              "active_sessions": 0,
+              "warmup_sec": 5.059
+            },
+            "gpu1_role": "refiner",
+            "sessions": 6,
+            "jobs": 0,
+            "offline": null,
+            "refiner": {
+              "role": "refiner",
+              "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+              "load_sec": 1.552,
+              "warmup_sec": 0.522,
+              "max_new_tokens": 256
+            }
+          },
+          "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+          "audio_sec": 4.45,
+          "frame_ms": 250,
+          "raw_final_visible_sec": 4.399498,
+          "complete_sec": 5.04998,
+          "refinement_events": 1,
+          "revision_events": 1,
+          "final_raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+          "final_visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+          "session_snapshot": {
+            "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+            "tenant_id": "live-smoke-af68dd2c",
+            "language": "Chinese",
+            "quality_level": "balanced",
+            "created_at": 1788599798.2852662,
+            "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+            "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+            "result_version": 6,
+            "input_seq_no": 18,
+            "active": false,
+            "final": true,
+            "latency_ms": {
+              "worker_start": 1.266,
+              "worker_rpc_total": 739.181,
+              "worker_rpc_max": 178.841,
+              "first_result": 848.71,
+              "final_result": 4396.776,
+              "refiner_rpc_total": 649.874,
+              "refiner_rpc_max": 649.874,
+              "refiner_rpc_count": 1.0,
+              "refiner_inference_total": 249.304,
+              "refiner_inference_max": 249.304,
+              "refiner_inference_count": 1.0,
+              "refiner_queue_total": 400.57,
+              "refiner_queue_max": 400.57,
+              "refiner_queue_count": 1.0,
+              "revision_total": 650.127,
+              "revision_max": 650.127,
+              "revision_count": 1.0
+            },
+            "refinement_enabled": true,
+            "refinement_disabled_reason": null,
+            "refinement_results": [
+              {
+                "event": "revision",
+                "source_window_id": "win_bac143f87d766a92",
+                "source_span_id": "seg_0001",
+                "validation": {
+                  "accepted": true,
+                  "reasons": []
+                },
+                "model_finish_reason": "stop",
+                "refiner_inference_ms": 249.304,
+                "refiner_rpc_ms": 649.874
+              }
+            ]
+          },
+          "events": [
+            {
+              "event": "ready",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "sample_rate": 16000,
+              "format": "pcm_s16le_mono",
+              "chunk_size_sec": 1.0,
+              "refinement_enabled": true,
+              "refiner_window_k": 1,
+              "received_sec": 0.004054
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "window_id": "full_transcript",
+              "base_version": 0,
+              "result_version": 1,
+              "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "is_final": false,
+              "text": "装这个监控。",
+              "raw_text": "装这个监控。",
+              "received_sec": 0.851261
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "window_id": "full_transcript",
+              "base_version": 1,
+              "result_version": 2,
+              "base_hash": "1a44b355a78318848b2851081d06e8fe288b0160c2d64d439b613b9499491731",
+              "is_final": false,
+              "text": "装这个监控，其，其实。",
+              "raw_text": "装这个监控，其，其实。",
+              "received_sec": 1.915887
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "window_id": "full_transcript",
+              "base_version": 2,
+              "result_version": 3,
+              "base_hash": "a87303b167016c09bc689a6bfa7f2d04f72992eab49ca88081e2184dc5c3eaf2",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥。",
+              "received_sec": 2.931395
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "window_id": "full_transcript",
+              "base_version": 3,
+              "result_version": 4,
+              "base_hash": "b0c0b38f86e09be06c2b9a7705560be525b682db4690a07fbacd90d20a5f1913",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "received_sec": 3.90022
+            },
+            {
+              "event": "final",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "window_id": "full_transcript",
+              "base_version": 4,
+              "result_version": 5,
+              "base_hash": "77ce471bac4f865078987fc6629cf1b2b67bc9e06747d3927d54b99a9830b755",
+              "is_final": true,
+              "text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "received_sec": 4.399498
+            },
+            {
+              "event": "revision",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "window_id": "full_transcript",
+              "base_version": 5,
+              "result_version": 6,
+              "base_hash": "e8a8b1c017ac0cca92618466663e241bb968a1a677d55678e9f6541045a4334c",
+              "is_final": true,
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "source_window_id": "win_bac143f87d766a92",
+              "source_span_id": "seg_0001",
+              "source_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "clean_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "patches": [
+                {
+                  "start_char": 7,
+                  "end_char": 8,
+                  "expected_source": "其",
+                  "replacement": ""
+                },
+                {
+                  "start_char": 9,
+                  "end_char": 10,
+                  "expected_source": "也",
+                  "replacement": ""
+                }
+              ],
+              "validation": {
+                "accepted": true,
+                "reasons": []
+              },
+              "model_finish_reason": "stop",
+              "model_keys": [],
+              "refiner_inference_ms": 249.304,
+              "refiner_rpc_ms": 649.874,
+              "received_sec": 5.049859
+            },
+            {
+              "event": "complete",
+              "session_id": "ses_63440a3c67d84dbfb8d94f2317cb0efe",
+              "result_version": 6,
+              "is_final": true,
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "refinement_disabled_reason": null,
+              "refinement_results": 1,
+              "received_sec": 5.04998
+            }
+          ]
+        },
+        {
+          "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+          "timestamp": "2026-09-05T09:16:43.088873+00:00",
+          "status": "pass",
+          "service": "http://127.0.0.1:8012",
+          "health": {
+            "status": "ok",
+            "realtime": {
+              "role": "realtime",
+              "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+              "active_sessions": 0,
+              "warmup_sec": 5.059
+            },
+            "gpu1_role": "refiner",
+            "sessions": 6,
+            "jobs": 0,
+            "offline": null,
+            "refiner": {
+              "role": "refiner",
+              "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+              "load_sec": 1.552,
+              "warmup_sec": 0.522,
+              "max_new_tokens": 256
+            }
+          },
+          "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+          "audio_sec": 4.45,
+          "frame_ms": 250,
+          "raw_final_visible_sec": 4.350455,
+          "complete_sec": 4.799979,
+          "refinement_events": 1,
+          "revision_events": 1,
+          "final_raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+          "final_visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+          "session_snapshot": {
+            "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+            "tenant_id": "live-smoke-3b084692",
+            "language": "Chinese",
+            "quality_level": "balanced",
+            "created_at": 1788599798.2850642,
+            "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+            "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+            "result_version": 6,
+            "input_seq_no": 18,
+            "active": false,
+            "final": true,
+            "latency_ms": {
+              "worker_start": 1.748,
+              "worker_rpc_total": 496.464,
+              "worker_rpc_max": 119.058,
+              "first_result": 814.953,
+              "final_result": 4347.867,
+              "refiner_rpc_total": 448.92,
+              "refiner_rpc_max": 448.92,
+              "refiner_rpc_count": 1.0,
+              "refiner_inference_total": 247.206,
+              "refiner_inference_max": 247.206,
+              "refiner_inference_count": 1.0,
+              "refiner_queue_total": 201.714,
+              "refiner_queue_max": 201.714,
+              "refiner_queue_count": 1.0,
+              "revision_total": 449.167,
+              "revision_max": 449.167,
+              "revision_count": 1.0
+            },
+            "refinement_enabled": true,
+            "refinement_disabled_reason": null,
+            "refinement_results": [
+              {
+                "event": "revision",
+                "source_window_id": "win_9fb699c1eb394779",
+                "source_span_id": "seg_0001",
+                "validation": {
+                  "accepted": true,
+                  "reasons": []
+                },
+                "model_finish_reason": "stop",
+                "refiner_inference_ms": 247.206,
+                "refiner_rpc_ms": 448.92
+              }
+            ]
+          },
+          "events": [
+            {
+              "event": "ready",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "sample_rate": 16000,
+              "format": "pcm_s16le_mono",
+              "chunk_size_sec": 1.0,
+              "refinement_enabled": true,
+              "refiner_window_k": 1,
+              "received_sec": 0.004734
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "window_id": "full_transcript",
+              "base_version": 0,
+              "result_version": 1,
+              "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "is_final": false,
+              "text": "装这个监控。",
+              "raw_text": "装这个监控。",
+              "received_sec": 0.817419
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "window_id": "full_transcript",
+              "base_version": 1,
+              "result_version": 2,
+              "base_hash": "1a44b355a78318848b2851081d06e8fe288b0160c2d64d439b613b9499491731",
+              "is_final": false,
+              "text": "装这个监控，其，其实。",
+              "raw_text": "装这个监控，其，其实。",
+              "received_sec": 1.86067
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "window_id": "full_transcript",
+              "base_version": 2,
+              "result_version": 3,
+              "base_hash": "a87303b167016c09bc689a6bfa7f2d04f72992eab49ca88081e2184dc5c3eaf2",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥。",
+              "received_sec": 2.871238
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "window_id": "full_transcript",
+              "base_version": 3,
+              "result_version": 4,
+              "base_hash": "b0c0b38f86e09be06c2b9a7705560be525b682db4690a07fbacd90d20a5f1913",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "received_sec": 3.850642
+            },
+            {
+              "event": "final",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "window_id": "full_transcript",
+              "base_version": 4,
+              "result_version": 5,
+              "base_hash": "77ce471bac4f865078987fc6629cf1b2b67bc9e06747d3927d54b99a9830b755",
+              "is_final": true,
+              "text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "received_sec": 4.350455
+            },
+            {
+              "event": "revision",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "window_id": "full_transcript",
+              "base_version": 5,
+              "result_version": 6,
+              "base_hash": "e8a8b1c017ac0cca92618466663e241bb968a1a677d55678e9f6541045a4334c",
+              "is_final": true,
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "source_window_id": "win_9fb699c1eb394779",
+              "source_span_id": "seg_0001",
+              "source_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "clean_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "patches": [
+                {
+                  "start_char": 7,
+                  "end_char": 8,
+                  "expected_source": "其",
+                  "replacement": ""
+                },
+                {
+                  "start_char": 9,
+                  "end_char": 10,
+                  "expected_source": "也",
+                  "replacement": ""
+                }
+              ],
+              "validation": {
+                "accepted": true,
+                "reasons": []
+              },
+              "model_finish_reason": "stop",
+              "model_keys": [],
+              "refiner_inference_ms": 247.206,
+              "refiner_rpc_ms": 448.92,
+              "received_sec": 4.799894
+            },
+            {
+              "event": "complete",
+              "session_id": "ses_d36b1d5f018b40b7abc5e75080064383",
+              "result_version": 6,
+              "is_final": true,
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "refinement_disabled_reason": null,
+              "refinement_results": 1,
+              "received_sec": 4.799979
+            }
+          ]
+        },
+        {
+          "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+          "timestamp": "2026-09-05T09:16:43.589965+00:00",
+          "status": "pass",
+          "service": "http://127.0.0.1:8012",
+          "health": {
+            "status": "ok",
+            "realtime": {
+              "role": "realtime",
+              "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+              "active_sessions": 0,
+              "warmup_sec": 5.059
+            },
+            "gpu1_role": "refiner",
+            "sessions": 6,
+            "jobs": 0,
+            "offline": null,
+            "refiner": {
+              "role": "refiner",
+              "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+              "load_sec": 1.552,
+              "warmup_sec": 0.522,
+              "max_new_tokens": 256
+            }
+          },
+          "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+          "audio_sec": 4.45,
+          "frame_ms": 250,
+          "raw_final_visible_sec": 4.448377,
+          "complete_sec": 5.29984,
+          "refinement_events": 1,
+          "revision_events": 1,
+          "final_raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+          "final_visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+          "session_snapshot": {
+            "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+            "tenant_id": "live-smoke-cb222060",
+            "language": "Chinese",
+            "quality_level": "balanced",
+            "created_at": 1788599798.2855139,
+            "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+            "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+            "result_version": 6,
+            "input_seq_no": 18,
+            "active": false,
+            "final": true,
+            "latency_ms": {
+              "worker_start": 1.397,
+              "worker_rpc_total": 983.616,
+              "worker_rpc_max": 238.412,
+              "first_result": 882.428,
+              "final_result": 4446.056,
+              "refiner_rpc_total": 850.807,
+              "refiner_rpc_max": 850.807,
+              "refiner_rpc_count": 1.0,
+              "refiner_inference_total": 249.556,
+              "refiner_inference_max": 249.556,
+              "refiner_inference_count": 1.0,
+              "refiner_queue_total": 601.25,
+              "refiner_queue_max": 601.25,
+              "refiner_queue_count": 1.0,
+              "revision_total": 851.086,
+              "revision_max": 851.086,
+              "revision_count": 1.0
+            },
+            "refinement_enabled": true,
+            "refinement_disabled_reason": null,
+            "refinement_results": [
+              {
+                "event": "revision",
+                "source_window_id": "win_b3d24db1e7592747",
+                "source_span_id": "seg_0001",
+                "validation": {
+                  "accepted": true,
+                  "reasons": []
+                },
+                "model_finish_reason": "stop",
+                "refiner_inference_ms": 249.556,
+                "refiner_rpc_ms": 850.807
+              }
+            ]
+          },
+          "events": [
+            {
+              "event": "ready",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "sample_rate": 16000,
+              "format": "pcm_s16le_mono",
+              "chunk_size_sec": 1.0,
+              "refinement_enabled": true,
+              "refiner_window_k": 1,
+              "received_sec": 0.004392
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "window_id": "full_transcript",
+              "base_version": 0,
+              "result_version": 1,
+              "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "is_final": false,
+              "text": "装这个监控。",
+              "raw_text": "装这个监控。",
+              "received_sec": 0.884731
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "window_id": "full_transcript",
+              "base_version": 1,
+              "result_version": 2,
+              "base_hash": "1a44b355a78318848b2851081d06e8fe288b0160c2d64d439b613b9499491731",
+              "is_final": false,
+              "text": "装这个监控，其，其实。",
+              "raw_text": "装这个监控，其，其实。",
+              "received_sec": 1.970434
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "window_id": "full_transcript",
+              "base_version": 2,
+              "result_version": 3,
+              "base_hash": "a87303b167016c09bc689a6bfa7f2d04f72992eab49ca88081e2184dc5c3eaf2",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥。",
+              "received_sec": 2.991121
+            },
+            {
+              "event": "partial",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "window_id": "full_transcript",
+              "base_version": 3,
+              "result_version": 4,
+              "base_hash": "b0c0b38f86e09be06c2b9a7705560be525b682db4690a07fbacd90d20a5f1913",
+              "is_final": false,
+              "text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点。",
+              "received_sec": 3.949454
+            },
+            {
+              "event": "final",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "window_id": "full_transcript",
+              "base_version": 4,
+              "result_version": 5,
+              "base_hash": "77ce471bac4f865078987fc6629cf1b2b67bc9e06747d3927d54b99a9830b755",
+              "is_final": true,
+              "text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "received_sec": 4.448377
+            },
+            {
+              "event": "revision",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "window_id": "full_transcript",
+              "base_version": 5,
+              "result_version": 6,
+              "base_hash": "e8a8b1c017ac0cca92618466663e241bb968a1a677d55678e9f6541045a4334c",
+              "is_final": true,
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "source_window_id": "win_b3d24db1e7592747",
+              "source_span_id": "seg_0001",
+              "source_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "clean_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "patches": [
+                {
+                  "start_char": 7,
+                  "end_char": 8,
+                  "expected_source": "其",
+                  "replacement": ""
+                },
+                {
+                  "start_char": 9,
+                  "end_char": 10,
+                  "expected_source": "也",
+                  "replacement": ""
+                }
+              ],
+              "validation": {
+                "accepted": true,
+                "reasons": []
+              },
+              "model_finish_reason": "stop",
+              "model_keys": [],
+              "refiner_inference_ms": 249.556,
+              "refiner_rpc_ms": 850.807,
+              "received_sec": 5.299755
+            },
+            {
+              "event": "complete",
+              "session_id": "ses_53bf2e96364b42d3bc895117eb8b7201",
+              "result_version": 6,
+              "is_final": true,
+              "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+              "text": "装这个监控，其实也是为了偷窥，一点小利益。",
+              "refinement_disabled_reason": null,
+              "refinement_results": 1,
+              "received_sec": 5.29984
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

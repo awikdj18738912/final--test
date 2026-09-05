@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "purpose": "Warm single-session capacity baseline for Qwen3-ASR streaming.",
+  "audio": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0452.wav",
+  "language": "Chinese",
+  "gpu": 0,
+  "gpu_memory_utilization": 0.78,
+  "max_model_len": 8192,
+  "max_new_tokens": 256,
+  "repetitions": 3,
+  "models": [
+    {
+      "id": "qwen3-asr-1.7b",
+      "path": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B"
+    },
+    {
+      "id": "qwen3-asr-0.6b",
+      "path": "/home/aim0/data/models/ASR/Qwen3-ASR-0.6B"
+    }
+  ],
+  "variants": [
+    {
+      "id": "chunk_0.5_push_0.25",
+      "chunk_size_sec": 0.5,
+      "input_push_sec": 0.25
+    },
+    {
+      "id": "chunk_1.0_push_0.25",
+      "chunk_size_sec": 1.0,
+      "input_push_sec": 0.25
+    },
+    {
+      "id": "chunk_1.5_push_0.5",
+      "chunk_size_sec": 1.5,
+      "input_push_sec": 0.5
+    },
+    {
+      "id": "chunk_2.0_push_0.5",
+      "chunk_size_sec": 2.0,
+      "input_push_sec": 0.5
+    }
+  ],
+  "acceptance": {
+    "realtime_ttfp_p95_sec": 1.5,
+    "compute_rtf_p95": 1.0
+  }
+}

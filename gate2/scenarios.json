@@ -1,0 +1,58 @@
+{
+  "suite": "Gate 2 clean-window smoke scenarios",
+  "tenant_id": "tenant-demo",
+  "scenarios": [
+    {
+      "id": "self_correction_time",
+      "source_spans": ["会议安排在周三下午三点。", "不对，改到周四下午四点。"],
+      "expected": "会议安排在周四下午四点。",
+      "correction_type": "self_correction",
+      "k": 2,
+      "trusted_memory": []
+    },
+    {
+      "id": "location_alias",
+      "source_spans": ["地点在三号楼，呃不对，是四号楼，就是研发中心那栋。"],
+      "expected": "地点在四号楼，即研发中心所在楼栋。",
+      "correction_type": "self_correction",
+      "k": 1,
+      "trusted_memory": [
+        {"evidence_id": "ev-location", "text": "四号楼，别名研发中心", "status": "confirmed", "trust": 1.0}
+      ]
+    },
+    {
+      "id": "filler_repetition",
+      "source_spans": ["这个这个方案，嗯，我们后面再讨论。"],
+      "expected": "这个方案我们后面再讨论。",
+      "correction_type": "filler_repetition",
+      "k": 1,
+      "trusted_memory": []
+    },
+    {
+      "id": "pass_through_clean",
+      "source_spans": ["今天下午项目组召开技术评审会。"],
+      "expected": "今天下午项目组召开技术评审会。",
+      "correction_type": "pass_through",
+      "k": 1,
+      "pass_through": true,
+      "trusted_memory": []
+    },
+    {
+      "id": "unsupported_number_guard",
+      "source_spans": ["预算暂定为三万元。"],
+      "expected": "预算暂定为三万元。",
+      "correction_type": "pass_through",
+      "k": 1,
+      "pass_through": true,
+      "trusted_memory": []
+    },
+    {
+      "id": "multi_span_final_intent",
+      "source_spans": ["发布会先定在北京。", "后来考虑改到上海。", "最后确认还是在北京举办。"],
+      "expected": "发布会最终确认在北京举办。",
+      "correction_type": "multi_correction",
+      "k": 3,
+      "trusted_memory": []
+    }
+  ]
+}

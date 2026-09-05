@@ -1,0 +1,536 @@
+{
+  "benchmark": "Gate 0.5 stratified streaming quality evaluation",
+  "timestamp": "2026-09-04T12:05:55.238658+00:00",
+  "status": "pass",
+  "backend": {
+    "backend": "paraformer-online",
+    "model_path": "/home/aim0/data/models/funasr/iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+    "load_sec": 2.8595,
+    "chunk_sec": 0.6,
+    "chunk_size": [
+      0,
+      10,
+      5
+    ],
+    "encoder_chunk_look_back": 4,
+    "decoder_chunk_look_back": 1,
+    "funasr": "1.2.9",
+    "modelscope": "1.34.0",
+    "torch": "2.5.1"
+  },
+  "environment": {
+    "python": "3.10.20 (main, Jun 11 2026, 15:17:37) [GCC 14.3.0]"
+  },
+  "manifest": "/home/aim0/桌面/tan/Idea/gate0.5/quality_manifest_200.json",
+  "manifest_source_sha256": "7860051c209ebb96d11709c88b3ae212e2cad072e3f5e4592a38003db977cb33",
+  "requested_samples": 6,
+  "warmup": {
+    "text": "新产业发展快利用地集约求且需求大的地区",
+    "elapsed_sec": 1.3035924416035414,
+    "compute_ttfp_sec": 0.27528789173811674,
+    "input_audio_at_first_text_sec": 1.2,
+    "wall_sec": 1.3036
+  },
+  "samples": [
+    {
+      "index": 1,
+      "utterance_id": "BAC009S0913W0140",
+      "speaker": "S0913",
+      "stratum": "long_ge_10s",
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0140.wav",
+      "manifest_duration_sec": 12.0,
+      "reference": "新产业发展快地用地集约求且需求大的地区",
+      "text": "新产业发展快利用地集约求且需求大的地区",
+      "elapsed_sec": 1.1253368742763996,
+      "compute_ttfp_sec": 0.09881645394489169,
+      "input_audio_at_first_text_sec": 1.2,
+      "status": "pass",
+      "normalized_reference": "新产业发展快地用地集约求且需求大的地区",
+      "normalized_hypothesis": "新产业发展快利用地集约求且需求大的地区",
+      "reference_chars": 19,
+      "edit_distance": 1,
+      "cer": 0.05263157894736842,
+      "audio_sec": 12.0,
+      "compute_rtf": 0.09377807285636663,
+      "sample_wall_sec": 1.1268130759708583
+    },
+    {
+      "index": 2,
+      "utterance_id": "BAC009S0767W0365",
+      "speaker": "S0767",
+      "stratum": "medium_5_10s",
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0767/BAC009S0767W0365.wav",
+      "manifest_duration_sec": 5.218,
+      "reference": "彭博一英里接力赛区别于其他跑步活动的是",
+      "text": "彭博一英里接力赛区别于其他跑步活动的是",
+      "elapsed_sec": 0.5198052292689681,
+      "compute_ttfp_sec": 0.09953903732821345,
+      "input_audio_at_first_text_sec": 1.2,
+      "status": "pass",
+      "normalized_reference": "彭博一英里接力赛区别于其他跑步活动的是",
+      "normalized_hypothesis": "彭博一英里接力赛区别于其他跑步活动的是",
+      "reference_chars": 19,
+      "edit_distance": 0,
+      "cer": 0.0,
+      "audio_sec": 5.218,
+      "compute_rtf": 0.09961771354330551,
+      "sample_wall_sec": 0.5480190343223512
+    },
+    {
+      "index": 3,
+      "utterance_id": "BAC009S0906W0219",
+      "speaker": "S0906",
+      "stratum": "long_ge_10s",
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0906/BAC009S0906W0219.wav",
+      "manifest_duration_sec": 13.927,
+      "reference": "健全农作物种质资源和畜禽遗传资源保存体系",
+      "text": "健全农作物种质资源和畜禽遗传资源保存体系",
+      "elapsed_sec": 1.3019545720890164,
+      "compute_ttfp_sec": 0.10124517697840929,
+      "input_audio_at_first_text_sec": 1.2,
+      "status": "pass",
+      "normalized_reference": "健全农作物种质资源和畜禽遗传资源保存体系",
+      "normalized_hypothesis": "健全农作物种质资源和畜禽遗传资源保存体系",
+      "reference_chars": 20,
+      "edit_distance": 0,
+      "cer": 0.0,
+      "audio_sec": 13.927,
+      "compute_rtf": 0.09348420852222421,
+      "sample_wall_sec": 1.3032603738829494
+    },
+    {
+      "index": 4,
+      "utterance_id": "BAC009S0904W0343",
+      "speaker": "S0904",
+      "stratum": "medium_5_10s",
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0904/BAC009S0904W0343.wav",
+      "manifest_duration_sec": 5.123875,
+      "reference": "北京市排球协会与天津排协已经初步达成合作意向",
+      "text": "北京市排球协会与天津排协已经初步达成合作意向",
+      "elapsed_sec": 0.5243459781631827,
+      "compute_ttfp_sec": 0.09934967895969748,
+      "input_audio_at_first_text_sec": 1.2,
+      "status": "pass",
+      "normalized_reference": "北京市排球协会与天津排协已经初步达成合作意向",
+      "normalized_hypothesis": "北京市排球协会与天津排协已经初步达成合作意向",
+      "reference_chars": 22,
+      "edit_distance": 0,
+      "cer": 0.0,
+      "audio_sec": 5.123875,
+      "compute_rtf": 0.10233387390660052,
+      "sample_wall_sec": 0.5388469472527504
+    },
+    {
+      "index": 5,
+      "utterance_id": "BAC009S0901W0285",
+      "speaker": "S0901",
+      "stratum": "long_ge_10s",
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0901/BAC009S0901W0285.wav",
+      "manifest_duration_sec": 10.006,
+      "reference": "而苹果的另一位联合创始人沃兹尼亚克还活跃在科技圈",
+      "text": "而苹果的另一位联合创始人沃兹尼亚克还活跃在科技圈",
+      "elapsed_sec": 0.9387865117751062,
+      "compute_ttfp_sec": 0.09949553571641445,
+      "input_audio_at_first_text_sec": 1.2,
+      "status": "pass",
+      "normalized_reference": "而苹果的另一位联合创始人沃兹尼亚克还活跃在科技圈",
+      "normalized_hypothesis": "而苹果的另一位联合创始人沃兹尼亚克还活跃在科技圈",
+      "reference_chars": 24,
+      "edit_distance": 0,
+      "cer": 0.0,
+      "audio_sec": 10.006,
+      "compute_rtf": 0.0938223577628529,
+      "sample_wall_sec": 0.9792485260404646
+    },
+    {
+      "index": 6,
+      "utterance_id": "BAC009S0769W0180",
+      "speaker": "S0769",
+      "stratum": "short_lt_5s",
+      "audio_filepath": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0769/BAC009S0769W0180.wav",
+      "manifest_duration_sec": 3.6590625,
+      "reference": "瑞银分析师丁晓预测",
+      "text": "瑞银分析师丁晓预测",
+      "elapsed_sec": 0.3971702130511403,
+      "compute_ttfp_sec": 0.09997373120859265,
+      "input_audio_at_first_text_sec": 1.2,
+      "status": "pass",
+      "normalized_reference": "瑞银分析师丁晓预测",
+      "normalized_hypothesis": "瑞银分析师丁晓预测",
+      "reference_chars": 9,
+      "edit_distance": 0,
+      "cer": 0.0,
+      "audio_sec": 3.6590625,
+      "compute_rtf": 0.10854425499732248,
+      "sample_wall_sec": 0.4187402920797467
+    }
+  ],
+  "progress": {
+    "completed": 6,
+    "total": 6
+  },
+  "summary": {
+    "samples_passed": 6,
+    "samples_total": 6,
+    "success_rate": 1.0,
+    "reference_chars": 113,
+    "edit_distance": 1,
+    "corpus_cer": 0.00885,
+    "macro_cer": {
+      "count": 6,
+      "mean": 0.008772,
+      "p50": 0.0,
+      "p95": 0.039474,
+      "p99": 0.05,
+      "min": 0.0,
+      "max": 0.052632
+    },
+    "compute_rtf": {
+      "count": 6,
+      "mean": 0.098597,
+      "p50": 0.09672,
+      "p95": 0.106992,
+      "p99": 0.108234,
+      "min": 0.093484,
+      "max": 0.108544
+    },
+    "elapsed_sec": {
+      "count": 6,
+      "mean": 0.801233,
+      "p50": 0.731566,
+      "p95": 1.2578,
+      "p99": 1.293124,
+      "min": 0.39717,
+      "max": 1.301955
+    },
+    "audio_sec": 49.9339,
+    "by_stratum": {
+      "long_ge_10s": {
+        "samples_passed": 3,
+        "samples_total": 3,
+        "success_rate": 1.0,
+        "reference_chars": 63,
+        "edit_distance": 1,
+        "corpus_cer": 0.015873,
+        "macro_cer": {
+          "count": 3,
+          "mean": 0.017544,
+          "p50": 0.0,
+          "p95": 0.047368,
+          "p99": 0.051579,
+          "min": 0.0,
+          "max": 0.052632
+        },
+        "compute_rtf": {
+          "count": 3,
+          "mean": 0.093695,
+          "p50": 0.093778,
+          "p95": 0.093818,
+          "p99": 0.093821,
+          "min": 0.093484,
+          "max": 0.093822
+        },
+        "elapsed_sec": {
+          "count": 3,
+          "mean": 1.122026,
+          "p50": 1.125337,
+          "p95": 1.284293,
+          "p99": 1.298422,
+          "min": 0.938787,
+          "max": 1.301955
+        },
+        "audio_sec": 35.933
+      },
+      "medium_5_10s": {
+        "samples_passed": 2,
+        "samples_total": 2,
+        "success_rate": 1.0,
+        "reference_chars": 41,
+        "edit_distance": 0,
+        "corpus_cer": 0.0,
+        "macro_cer": {
+          "count": 2,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "compute_rtf": {
+          "count": 2,
+          "mean": 0.100976,
+          "p50": 0.100976,
+          "p95": 0.102198,
+          "p99": 0.102307,
+          "min": 0.099618,
+          "max": 0.102334
+        },
+        "elapsed_sec": {
+          "count": 2,
+          "mean": 0.522076,
+          "p50": 0.522076,
+          "p95": 0.524119,
+          "p99": 0.524301,
+          "min": 0.519805,
+          "max": 0.524346
+        },
+        "audio_sec": 10.3419
+      },
+      "short_lt_5s": {
+        "samples_passed": 1,
+        "samples_total": 1,
+        "success_rate": 1.0,
+        "reference_chars": 9,
+        "edit_distance": 0,
+        "corpus_cer": 0.0,
+        "macro_cer": {
+          "count": 1,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "compute_rtf": {
+          "count": 1,
+          "mean": 0.108544,
+          "p50": 0.108544,
+          "p95": 0.108544,
+          "p99": 0.108544,
+          "min": 0.108544,
+          "max": 0.108544
+        },
+        "elapsed_sec": {
+          "count": 1,
+          "mean": 0.39717,
+          "p50": 0.39717,
+          "p95": 0.39717,
+          "p99": 0.39717,
+          "min": 0.39717,
+          "max": 0.39717
+        },
+        "audio_sec": 3.6591
+      }
+    },
+    "by_speaker": {
+      "S0767": {
+        "samples_passed": 1,
+        "samples_total": 1,
+        "success_rate": 1.0,
+        "reference_chars": 19,
+        "edit_distance": 0,
+        "corpus_cer": 0.0,
+        "macro_cer": {
+          "count": 1,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "compute_rtf": {
+          "count": 1,
+          "mean": 0.099618,
+          "p50": 0.099618,
+          "p95": 0.099618,
+          "p99": 0.099618,
+          "min": 0.099618,
+          "max": 0.099618
+        },
+        "elapsed_sec": {
+          "count": 1,
+          "mean": 0.519805,
+          "p50": 0.519805,
+          "p95": 0.519805,
+          "p99": 0.519805,
+          "min": 0.519805,
+          "max": 0.519805
+        },
+        "audio_sec": 5.218
+      },
+      "S0769": {
+        "samples_passed": 1,
+        "samples_total": 1,
+        "success_rate": 1.0,
+        "reference_chars": 9,
+        "edit_distance": 0,
+        "corpus_cer": 0.0,
+        "macro_cer": {
+          "count": 1,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "compute_rtf": {
+          "count": 1,
+          "mean": 0.108544,
+          "p50": 0.108544,
+          "p95": 0.108544,
+          "p99": 0.108544,
+          "min": 0.108544,
+          "max": 0.108544
+        },
+        "elapsed_sec": {
+          "count": 1,
+          "mean": 0.39717,
+          "p50": 0.39717,
+          "p95": 0.39717,
+          "p99": 0.39717,
+          "min": 0.39717,
+          "max": 0.39717
+        },
+        "audio_sec": 3.6591
+      },
+      "S0901": {
+        "samples_passed": 1,
+        "samples_total": 1,
+        "success_rate": 1.0,
+        "reference_chars": 24,
+        "edit_distance": 0,
+        "corpus_cer": 0.0,
+        "macro_cer": {
+          "count": 1,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "compute_rtf": {
+          "count": 1,
+          "mean": 0.093822,
+          "p50": 0.093822,
+          "p95": 0.093822,
+          "p99": 0.093822,
+          "min": 0.093822,
+          "max": 0.093822
+        },
+        "elapsed_sec": {
+          "count": 1,
+          "mean": 0.938787,
+          "p50": 0.938787,
+          "p95": 0.938787,
+          "p99": 0.938787,
+          "min": 0.938787,
+          "max": 0.938787
+        },
+        "audio_sec": 10.006
+      },
+      "S0904": {
+        "samples_passed": 1,
+        "samples_total": 1,
+        "success_rate": 1.0,
+        "reference_chars": 22,
+        "edit_distance": 0,
+        "corpus_cer": 0.0,
+        "macro_cer": {
+          "count": 1,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "compute_rtf": {
+          "count": 1,
+          "mean": 0.102334,
+          "p50": 0.102334,
+          "p95": 0.102334,
+          "p99": 0.102334,
+          "min": 0.102334,
+          "max": 0.102334
+        },
+        "elapsed_sec": {
+          "count": 1,
+          "mean": 0.524346,
+          "p50": 0.524346,
+          "p95": 0.524346,
+          "p99": 0.524346,
+          "min": 0.524346,
+          "max": 0.524346
+        },
+        "audio_sec": 5.1239
+      },
+      "S0906": {
+        "samples_passed": 1,
+        "samples_total": 1,
+        "success_rate": 1.0,
+        "reference_chars": 20,
+        "edit_distance": 0,
+        "corpus_cer": 0.0,
+        "macro_cer": {
+          "count": 1,
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "compute_rtf": {
+          "count": 1,
+          "mean": 0.093484,
+          "p50": 0.093484,
+          "p95": 0.093484,
+          "p99": 0.093484,
+          "min": 0.093484,
+          "max": 0.093484
+        },
+        "elapsed_sec": {
+          "count": 1,
+          "mean": 1.301955,
+          "p50": 1.301955,
+          "p95": 1.301955,
+          "p99": 1.301955,
+          "min": 1.301955,
+          "max": 1.301955
+        },
+        "audio_sec": 13.927
+      },
+      "S0913": {
+        "samples_passed": 1,
+        "samples_total": 1,
+        "success_rate": 1.0,
+        "reference_chars": 19,
+        "edit_distance": 1,
+        "corpus_cer": 0.052632,
+        "macro_cer": {
+          "count": 1,
+          "mean": 0.052632,
+          "p50": 0.052632,
+          "p95": 0.052632,
+          "p99": 0.052632,
+          "min": 0.052632,
+          "max": 0.052632
+        },
+        "compute_rtf": {
+          "count": 1,
+          "mean": 0.093778,
+          "p50": 0.093778,
+          "p95": 0.093778,
+          "p99": 0.093778,
+          "min": 0.093778,
+          "max": 0.093778
+        },
+        "elapsed_sec": {
+          "count": 1,
+          "mean": 1.125337,
+          "p50": 1.125337,
+          "p95": 1.125337,
+          "p99": 1.125337,
+          "min": 1.125337,
+          "max": 1.125337
+        },
+        "audio_sec": 12.0
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "stage": "refiner",
+  "timestamp": "2026-09-04T04:34:52.897515+00:00",
+  "status": "pass",
+  "gpu": 1,
+  "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+  "execution": "serialized_arbiter",
+  "input": "我明天，不是后天去开会。",
+  "raw_text": "请将以下口语转为简洁的书面语，只输出改写后的文本：我明天去开会。",
+  "text": "我明天去开会。",
+  "load_sec": 1.573,
+  "inference_sec": 0.781,
+  "ttfp_sec": 0.781,
+  "rtf": null,
+  "memory": {
+    "peak_used_mib": 2499,
+    "peak_used_gib": 2.44,
+    "peak_free_gib": 21.56,
+    "samples": 11
+  },
+  "config": {
+    "dtype": "bfloat16",
+    "max_new_tokens": 128
+  }
+}

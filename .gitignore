@@ -1,0 +1,29 @@
+# Python caches and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Local environments and editor metadata
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+
+# Runtime files
+*.log
+*.pid
+*.sock
+
+# Interrupted benchmark outputs
+*.partial.json
+
+# OS metadata
+.DS_Store
+Thumbs.db

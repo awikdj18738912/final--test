@@ -1,0 +1,1476 @@
+{
+  "benchmark": "AASR-Bench deterministic text-stream K-window approximation",
+  "timestamp": "2026-09-04T12:56:35.726920+00:00",
+  "status": "pass",
+  "scope": "oral-text boundary simulation only; no audio/VAD timing, evolving ASR hypotheses, LLM rubric judge, or end-to-end streaming latency",
+  "reference_semantics": "AgenticASR StreamingRefinementSession window replacement",
+  "data": "/home/aim0/data/datasets/ASR/AASR-Bench/data/benchmark.jsonl",
+  "data_sha256": "09ea7a9977b9e6633ca1c8e1cb3f5e717f5c35b5364d8355ba37d92eff92eecc",
+  "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+  "model_role": "offline/heavy baseline only",
+  "language": "zh",
+  "ks": [
+    1,
+    2,
+    3
+  ],
+  "max_chunk_chars": 80,
+  "batch_size": 8,
+  "load_sec": 1.5244959043338895,
+  "selected_samples": 12,
+  "unique_window_requests": 69,
+  "generated_windows": 69,
+  "samples": [
+    {
+      "source_record_id": "recheck.jsonl:10",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class",
+        "imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 1,
+      "estimated_model_calls": 3,
+      "estimated_amortized_inference_sec": 0.673806,
+      "oral": "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "clean": "如果咱们把 Loss Function 换成 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "model_text": "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class样本不平衡问题时，能把22.5%的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "committed_text": "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "normalized_oral": "如果咱们把这个lossfunction换成crossentropy啊不对应该是focalloss的话那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "normalized_model": "如果咱们把lossfunction换成focalloss那我们可能在处理这种class样本不平衡问题时能把225的误报率给压下去这样在新苑园区测试的数据表现应该会更稳一些",
+      "normalized_committed": "如果咱们把lossfunction换成focalloss那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "reference_chars": 96,
+      "source_edit_distance": 43,
+      "model_edit_distance": 11,
+      "committed_edit_distance": 25,
+      "model_instability": 0.494118,
+      "committed_instability": 0.619469,
+      "model_revisions": [
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class",
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class样本不平衡问题时，能把22.5%的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。"
+      ],
+      "committed_revisions": [
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class",
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:10",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class",
+        "imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 1,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.449204,
+      "oral": "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "clean": "如果咱们把 Loss Function 换成 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "model_text": "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "committed_text": "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "normalized_oral": "如果咱们把这个lossfunction换成crossentropy啊不对应该是focalloss的话那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "normalized_model": "如果咱们把lossfunction换成focalloss那我们可能在处理这种classimbalance样本不平衡问题时能把225的误报率给压下去这样在新苑园区测试的数据表现应该会更稳一些",
+      "normalized_committed": "如果咱们把这个lossfunction换成crossentropy啊不对应该是focalloss的话那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "reference_chars": 96,
+      "source_edit_distance": 43,
+      "model_edit_distance": 2,
+      "committed_edit_distance": 43,
+      "model_instability": 0.542553,
+      "committed_instability": 0.681481,
+      "model_revisions": [
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class",
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。"
+      ],
+      "committed_revisions": [
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class",
+        "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:10",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class",
+        "imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 1,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.449204,
+      "oral": "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "clean": "如果咱们把 Loss Function 换成 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "model_text": "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "committed_text": "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "normalized_oral": "如果咱们把这个lossfunction换成crossentropy啊不对应该是focalloss的话那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "normalized_model": "如果咱们把lossfunction换成focalloss那我们可能在处理这种classimbalance样本不平衡问题时能把225的误报率给压下去这样在新苑园区测试的数据表现应该会更稳一些",
+      "normalized_committed": "如果咱们把这个lossfunction换成crossentropy啊不对应该是focalloss的话那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "reference_chars": 96,
+      "source_edit_distance": 43,
+      "model_edit_distance": 2,
+      "committed_edit_distance": 43,
+      "model_instability": 0.542553,
+      "committed_instability": 0.681481,
+      "model_revisions": [
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class",
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。"
+      ],
+      "committed_revisions": [
+        "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class",
+        "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:601",
+      "scene": "passthrough",
+      "k": 1,
+      "chunks": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 1,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.224602,
+      "oral": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "clean": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "model_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "committed_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "normalized_oral": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_model": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_committed": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "reference_chars": 26,
+      "source_edit_distance": 0,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 0,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ],
+      "committed_revisions": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:601",
+      "scene": "passthrough",
+      "k": 2,
+      "chunks": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 1,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.224602,
+      "oral": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "clean": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "model_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "committed_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "normalized_oral": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_model": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_committed": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "reference_chars": 26,
+      "source_edit_distance": 0,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 0,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ],
+      "committed_revisions": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:601",
+      "scene": "passthrough",
+      "k": 3,
+      "chunks": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 1,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.224602,
+      "oral": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "clean": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "model_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "committed_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "normalized_oral": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_model": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_committed": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "reference_chars": 26,
+      "source_edit_distance": 0,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 0,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ],
+      "committed_revisions": [
+        "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:701",
+      "scene": "vibe_coding",
+      "k": 1,
+      "chunks": [
+        "诶，如果咱们能把 Prisma 迁移到 Elixir 里面，嗯，也就是把原先 Astro 里面那两千三百个数据表全部导出来，我想想啊，如果能绕过",
+        "ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 3,
+      "estimated_amortized_inference_sec": 0.673806,
+      "oral": "诶，如果咱们能把 Prisma 迁移到 Elixir 里面，嗯，也就是把原先 Astro 里面那两千三百个数据表全部导出来，我想想啊，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "clean": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epoch 运行完吧。",
+      "model_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "committed_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "normalized_oral": "诶如果咱们能把prisma迁移到elixir里面嗯也就是把原先astro里面那两千三百个数据表全部导出来我想想啊如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_model": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_committed": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "reference_chars": 97,
+      "source_edit_distance": 11,
+      "model_edit_distance": 1,
+      "committed_edit_distance": 1,
+      "model_instability": 0.438776,
+      "committed_instability": 0.438776,
+      "model_revisions": [
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过",
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ],
+      "committed_revisions": [
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过",
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:701",
+      "scene": "vibe_coding",
+      "k": 2,
+      "chunks": [
+        "诶，如果咱们能把 Prisma 迁移到 Elixir 里面，嗯，也就是把原先 Astro 里面那两千三百个数据表全部导出来，我想想啊，如果能绕过",
+        "ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.449204,
+      "oral": "诶，如果咱们能把 Prisma 迁移到 Elixir 里面，嗯，也就是把原先 Astro 里面那两千三百个数据表全部导出来，我想想啊，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "clean": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epoch 运行完吧。",
+      "model_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "committed_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "normalized_oral": "诶如果咱们能把prisma迁移到elixir里面嗯也就是把原先astro里面那两千三百个数据表全部导出来我想想啊如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_model": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_committed": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "reference_chars": 97,
+      "source_edit_distance": 11,
+      "model_edit_distance": 1,
+      "committed_edit_distance": 1,
+      "model_instability": 0.438776,
+      "committed_instability": 0.438776,
+      "model_revisions": [
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过",
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ],
+      "committed_revisions": [
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过",
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:701",
+      "scene": "vibe_coding",
+      "k": 3,
+      "chunks": [
+        "诶，如果咱们能把 Prisma 迁移到 Elixir 里面，嗯，也就是把原先 Astro 里面那两千三百个数据表全部导出来，我想想啊，如果能绕过",
+        "ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.449204,
+      "oral": "诶，如果咱们能把 Prisma 迁移到 Elixir 里面，嗯，也就是把原先 Astro 里面那两千三百个数据表全部导出来，我想想啊，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "clean": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epoch 运行完吧。",
+      "model_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "committed_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "normalized_oral": "诶如果咱们能把prisma迁移到elixir里面嗯也就是把原先astro里面那两千三百个数据表全部导出来我想想啊如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_model": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_committed": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "reference_chars": 97,
+      "source_edit_distance": 11,
+      "model_edit_distance": 1,
+      "committed_edit_distance": 1,
+      "model_instability": 0.438776,
+      "committed_instability": 0.438776,
+      "model_revisions": [
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过",
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ],
+      "committed_revisions": [
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过",
+        "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:201",
+      "scene": "daily_chat",
+      "k": 1,
+      "chunks": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！",
+        "然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。",
+        "感觉现在的压力比之前大多了。"
+      ],
+      "chunk_count": 5,
+      "update_count": 5,
+      "unique_windows": 5,
+      "accepted_windows": 4,
+      "estimated_model_calls": 9,
+      "estimated_amortized_inference_sec": 1.528047,
+      "oral": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "clean": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3100元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "model_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "committed_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "normalized_oral": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块然后我那个要是能把怎么说呢如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "normalized_model": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹我打算买极米投影仪价格是3310元如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "normalized_committed": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "reference_chars": 94,
+      "source_edit_distance": 37,
+      "model_edit_distance": 4,
+      "committed_edit_distance": 24,
+      "model_instability": 0.771739,
+      "committed_instability": 0.814159,
+      "model_revisions": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。"
+      ],
+      "committed_revisions": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！如果能把周子墨那份方案改完，我就能休息下。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:201",
+      "scene": "daily_chat",
+      "k": 2,
+      "chunks": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！",
+        "然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。",
+        "感觉现在的压力比之前大多了。"
+      ],
+      "chunk_count": 5,
+      "update_count": 5,
+      "unique_windows": 7,
+      "accepted_windows": 4,
+      "estimated_model_calls": 8,
+      "estimated_amortized_inference_sec": 1.531246,
+      "oral": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "clean": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3100元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "model_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "committed_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "normalized_oral": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块然后我那个要是能把怎么说呢如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "normalized_model": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹我打算买极米投影仪价格是3310元如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "normalized_committed": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "reference_chars": 94,
+      "source_edit_distance": 37,
+      "model_edit_distance": 4,
+      "committed_edit_distance": 24,
+      "model_instability": 0.815217,
+      "committed_instability": 1.044248,
+      "model_revisions": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3310元。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。"
+      ],
+      "committed_revisions": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:201",
+      "scene": "daily_chat",
+      "k": 3,
+      "chunks": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！",
+        "然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。",
+        "感觉现在的压力比之前大多了。"
+      ],
+      "chunk_count": 5,
+      "update_count": 5,
+      "unique_windows": 6,
+      "accepted_windows": 3,
+      "estimated_model_calls": 7,
+      "estimated_amortized_inference_sec": 1.434332,
+      "oral": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "clean": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3100元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "model_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "committed_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "normalized_oral": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块然后我那个要是能把怎么说呢如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "normalized_model": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹我打算买极米投影仪价格是3310元如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "normalized_committed": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块然后我那个要是能把怎么说呢如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "reference_chars": 94,
+      "source_edit_distance": 37,
+      "model_edit_distance": 4,
+      "committed_edit_distance": 37,
+      "model_instability": 0.836957,
+      "committed_instability": 0.833333,
+      "model_revisions": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3310元。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3310元。要是能把周子墨那份方案改完，我就能休息下。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。我打算买极米投影仪，价格是3310元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。"
+      ],
+      "committed_revisions": [
+        "我感觉现在与其在建国门那边死磕，不如换个环境。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。",
+        "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。"
+      ]
+    },
+    {
+      "source_record_id": "explanation.jsonl:2001",
+      "scene": "explanation",
+      "k": 1,
+      "chunks": [
+        "下午导航去皮都.",
+        ".",
+        ".",
+        "不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香.",
+        ".",
+        ".",
+        "不是，藿香正气液，藿是草字头下面一个霍元甲的霍。"
+      ],
+      "chunk_count": 7,
+      "update_count": 7,
+      "unique_windows": 7,
+      "accepted_windows": 6,
+      "estimated_model_calls": 13,
+      "estimated_amortized_inference_sec": 1.252804,
+      "oral": "下午导航去皮都...不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香...不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "clean": "下午导航去郫都，顺便帮我在药店买一盒藿香正气液。",
+      "model_text": "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .藿香正气液",
+      "committed_text": "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "normalized_oral": "下午导航去皮都不对郫都郫是郫县豆瓣的郫都是都市的都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "normalized_model": "下午导航去皮都郫都顺便帮我在药店买一盒霍香藿香正气液",
+      "normalized_committed": "下午导航去皮都郫都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "reference_chars": 22,
+      "source_edit_distance": 36,
+      "model_edit_distance": 4,
+      "committed_edit_distance": 20,
+      "model_instability": 0.730769,
+      "committed_instability": 0.833333,
+      "model_revisions": [
+        "下午导航去皮都。",
+        "下午导航去皮都。.",
+        "下午导航去皮都。. .",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。.",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .藿香正气液"
+      ],
+      "committed_revisions": [
+        "下午导航去皮都。",
+        "下午导航去皮都。.",
+        "下午导航去皮都。. .",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。.",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .不是，藿香正气液，藿是草字头下面一个霍元甲的霍。"
+      ]
+    },
+    {
+      "source_record_id": "explanation.jsonl:2001",
+      "scene": "explanation",
+      "k": 2,
+      "chunks": [
+        "下午导航去皮都.",
+        ".",
+        ".",
+        "不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香.",
+        ".",
+        ".",
+        "不是，藿香正气液，藿是草字头下面一个霍元甲的霍。"
+      ],
+      "chunk_count": 7,
+      "update_count": 7,
+      "unique_windows": 11,
+      "accepted_windows": 10,
+      "estimated_model_calls": 12,
+      "estimated_amortized_inference_sec": 1.133407,
+      "oral": "下午导航去皮都...不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香...不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "clean": "下午导航去郫都，顺便帮我在药店买一盒藿香正气液。",
+      "model_text": "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。.藿香正气液",
+      "committed_text": "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "normalized_oral": "下午导航去皮都不对郫都郫是郫县豆瓣的郫都是都市的都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "normalized_model": "下午导航去皮都郫都顺便帮我在药店买一盒霍香藿香正气液",
+      "normalized_committed": "下午导航去皮都郫都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "reference_chars": 22,
+      "source_edit_distance": 36,
+      "model_edit_distance": 4,
+      "committed_edit_distance": 20,
+      "model_instability": 0.884615,
+      "committed_instability": 0.928571,
+      "model_revisions": [
+        "下午导航去皮都。",
+        "下午导航去皮都。",
+        "下午导航去皮都。.",
+        "下午导航去皮都。.郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，就是帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。.",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。.藿香正气液"
+      ],
+      "committed_revisions": [
+        "下午导航去皮都。",
+        "下午导航去皮都。",
+        "下午导航去皮都。.",
+        "下午导航去皮都。.郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，就是帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。.",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .不是，藿香正气液，藿是草字头下面一个霍元甲的霍。"
+      ]
+    },
+    {
+      "source_record_id": "explanation.jsonl:2001",
+      "scene": "explanation",
+      "k": 3,
+      "chunks": [
+        "下午导航去皮都.",
+        ".",
+        ".",
+        "不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香.",
+        ".",
+        ".",
+        "不是，藿香正气液，藿是草字头下面一个霍元甲的霍。"
+      ],
+      "chunk_count": 7,
+      "update_count": 7,
+      "unique_windows": 10,
+      "accepted_windows": 9,
+      "estimated_model_calls": 11,
+      "estimated_amortized_inference_sec": 0.989169,
+      "oral": "下午导航去皮都...不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香...不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "clean": "下午导航去郫都，顺便帮我在药店买一盒藿香正气液。",
+      "model_text": "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。藿香正气液",
+      "committed_text": "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "normalized_oral": "下午导航去皮都不对郫都郫是郫县豆瓣的郫都是都市的都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "normalized_model": "下午导航去皮都郫都顺便帮我在药店买一盒霍香藿香正气液",
+      "normalized_committed": "下午导航去皮都郫都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "reference_chars": 22,
+      "source_edit_distance": 36,
+      "model_edit_distance": 4,
+      "committed_edit_distance": 20,
+      "model_instability": 0.730769,
+      "committed_instability": 0.833333,
+      "model_revisions": [
+        "下午导航去皮都。",
+        "下午导航去皮都。",
+        "下午导航去皮都。",
+        "下午导航去皮都。郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。.郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。藿香正气液"
+      ],
+      "committed_revisions": [
+        "下午导航去皮都。",
+        "下午导航去皮都。",
+        "下午导航去皮都。",
+        "下午导航去皮都。郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。.郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。",
+        "下午导航去皮都。. .郫都，顺便帮我在药店买一盒霍香。. .不是，藿香正气液，藿是草字头下面一个霍元甲的霍。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:18",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "这个Learning Rate设成零点零一，啊不对，零点零零一才行。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 0,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.144238,
+      "oral": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "clean": "Learning Rate设成0.001才行。",
+      "model_text": "Learning Rate设成0.001才行。",
+      "committed_text": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "normalized_oral": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "normalized_model": "learningrate设成0001才行",
+      "normalized_committed": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "reference_chars": 20,
+      "source_edit_distance": 14,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 14,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "Learning Rate设成0.001才行。"
+      ],
+      "committed_revisions": [
+        "这个Learning Rate设成零点零一，啊不对，零点零零一才行。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:18",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "这个Learning Rate设成零点零一，啊不对，零点零零一才行。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 0,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.144238,
+      "oral": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "clean": "Learning Rate设成0.001才行。",
+      "model_text": "Learning Rate设成0.001才行。",
+      "committed_text": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "normalized_oral": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "normalized_model": "learningrate设成0001才行",
+      "normalized_committed": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "reference_chars": 20,
+      "source_edit_distance": 14,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 14,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "Learning Rate设成0.001才行。"
+      ],
+      "committed_revisions": [
+        "这个Learning Rate设成零点零一，啊不对，零点零零一才行。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:18",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "这个Learning Rate设成零点零一，啊不对，零点零零一才行。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 0,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.144238,
+      "oral": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "clean": "Learning Rate设成0.001才行。",
+      "model_text": "Learning Rate设成0.001才行。",
+      "committed_text": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "normalized_oral": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "normalized_model": "learningrate设成0001才行",
+      "normalized_committed": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "reference_chars": 20,
+      "source_edit_distance": 14,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 14,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "Learning Rate设成0.001才行。"
+      ],
+      "committed_revisions": [
+        "这个Learning Rate设成零点零一，啊不对，零点零零一才行。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:17",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "我怀疑怀疑这个 Learning Rate 设太高，或者说…重新看下，应该是 Gradient 梯度爆炸，梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "Size 调成五百一十二试试。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 3,
+      "estimated_amortized_inference_sec": 0.517723,
+      "oral": "我怀疑怀疑这个 Learning Rate 设太高，或者说…重新看下，应该是 Gradient 梯度爆炸，梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成五百一十二试试。",
+      "clean": "我怀疑这个 Learning Rate 设太高，应该是 Gradient 梯度爆炸，导致 Loss 没法收敛，得把 Batch Size 调成 512 试试。",
+      "model_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size调成512试试。",
+      "committed_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size调成512试试。",
+      "normalized_oral": "我怀疑怀疑这个learningrate设太高或者说重新看下应该是gradient梯度爆炸梯度爆炸导致loss没法收敛得把batchsize调成五百一十二试试",
+      "normalized_model": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "normalized_committed": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "reference_chars": 63,
+      "source_edit_distance": 18,
+      "model_edit_distance": 6,
+      "committed_edit_distance": 6,
+      "model_instability": 0.15942,
+      "committed_instability": 0.15942,
+      "model_revisions": [
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size调成512试试。"
+      ],
+      "committed_revisions": [
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size调成512试试。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:17",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "我怀疑怀疑这个 Learning Rate 设太高，或者说…重新看下，应该是 Gradient 梯度爆炸，梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "Size 调成五百一十二试试。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.288476,
+      "oral": "我怀疑怀疑这个 Learning Rate 设太高，或者说…重新看下，应该是 Gradient 梯度爆炸，梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成五百一十二试试。",
+      "clean": "我怀疑这个 Learning Rate 设太高，应该是 Gradient 梯度爆炸，导致 Loss 没法收敛，得把 Batch Size 调成 512 试试。",
+      "model_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。",
+      "committed_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。",
+      "normalized_oral": "我怀疑怀疑这个learningrate设太高或者说重新看下应该是gradient梯度爆炸梯度爆炸导致loss没法收敛得把batchsize调成五百一十二试试",
+      "normalized_model": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "normalized_committed": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "reference_chars": 63,
+      "source_edit_distance": 18,
+      "model_edit_distance": 6,
+      "committed_edit_distance": 6,
+      "model_instability": 0.15942,
+      "committed_instability": 0.15942,
+      "model_revisions": [
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。"
+      ],
+      "committed_revisions": [
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:17",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "我怀疑怀疑这个 Learning Rate 设太高，或者说…重新看下，应该是 Gradient 梯度爆炸，梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "Size 调成五百一十二试试。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.288476,
+      "oral": "我怀疑怀疑这个 Learning Rate 设太高，或者说…重新看下，应该是 Gradient 梯度爆炸，梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成五百一十二试试。",
+      "clean": "我怀疑这个 Learning Rate 设太高，应该是 Gradient 梯度爆炸，导致 Loss 没法收敛，得把 Batch Size 调成 512 试试。",
+      "model_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。",
+      "committed_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。",
+      "normalized_oral": "我怀疑怀疑这个learningrate设太高或者说重新看下应该是gradient梯度爆炸梯度爆炸导致loss没法收敛得把batchsize调成五百一十二试试",
+      "normalized_model": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "normalized_committed": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "reference_chars": 63,
+      "source_edit_distance": 18,
+      "model_edit_distance": 6,
+      "committed_edit_distance": 6,
+      "model_instability": 0.15942,
+      "committed_instability": 0.15942,
+      "model_revisions": [
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。"
+      ],
+      "committed_revisions": [
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch",
+        "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:100",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "张老师，我觉得这次实验把 Batch Size 设成五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢，如果我们尝试在 Fine tuning",
+        "阶段引入 LORA，可能能把收敛速度提升百分之十五左右。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 3,
+      "estimated_amortized_inference_sec": 0.68774,
+      "oral": "张老师，我觉得这次实验把 Batch Size 设成五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢，如果我们尝试在 Fine tuning 阶段引入 LORA，可能能把收敛速度提升百分之十五左右。",
+      "clean": "张老师，我觉得这次实验把 Batch Size 设成1024，然后如果我们尝试在 Fine-tuning 阶段引入 LoRA，可能能把收敛速度提升15%左右。",
+      "model_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning阶段引入 Lora，可能能把收敛速度提升 15% 左右。",
+      "committed_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning阶段引入 Lora，可能能把收敛速度提升 15% 左右。",
+      "normalized_oral": "张老师我觉得这次实验把batchsize设成五百一十二哦不是应该是一千零二十四然后那个怎么说呢如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升百分之十五左右",
+      "normalized_model": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "normalized_committed": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "reference_chars": 67,
+      "source_edit_distance": 28,
+      "model_edit_distance": 2,
+      "committed_edit_distance": 2,
+      "model_instability": 0.338462,
+      "committed_instability": 0.338462,
+      "model_revisions": [
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning",
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning阶段引入 Lora，可能能把收敛速度提升 15% 左右。"
+      ],
+      "committed_revisions": [
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning",
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning阶段引入 Lora，可能能把收敛速度提升 15% 左右。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:100",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "张老师，我觉得这次实验把 Batch Size 设成五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢，如果我们尝试在 Fine tuning",
+        "阶段引入 LORA，可能能把收敛速度提升百分之十五左右。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.458493,
+      "oral": "张老师，我觉得这次实验把 Batch Size 设成五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢，如果我们尝试在 Fine tuning 阶段引入 LORA，可能能把收敛速度提升百分之十五左右。",
+      "clean": "张老师，我觉得这次实验把 Batch Size 设成1024，然后如果我们尝试在 Fine-tuning 阶段引入 LoRA，可能能把收敛速度提升15%左右。",
+      "model_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。",
+      "committed_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。",
+      "normalized_oral": "张老师我觉得这次实验把batchsize设成五百一十二哦不是应该是一千零二十四然后那个怎么说呢如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升百分之十五左右",
+      "normalized_model": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "normalized_committed": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "reference_chars": 67,
+      "source_edit_distance": 28,
+      "model_edit_distance": 2,
+      "committed_edit_distance": 2,
+      "model_instability": 0.338462,
+      "committed_instability": 0.338462,
+      "model_revisions": [
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning",
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。"
+      ],
+      "committed_revisions": [
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning",
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:100",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "张老师，我觉得这次实验把 Batch Size 设成五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢，如果我们尝试在 Fine tuning",
+        "阶段引入 LORA，可能能把收敛速度提升百分之十五左右。"
+      ],
+      "chunk_count": 2,
+      "update_count": 2,
+      "unique_windows": 2,
+      "accepted_windows": 2,
+      "estimated_model_calls": 2,
+      "estimated_amortized_inference_sec": 0.458493,
+      "oral": "张老师，我觉得这次实验把 Batch Size 设成五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢，如果我们尝试在 Fine tuning 阶段引入 LORA，可能能把收敛速度提升百分之十五左右。",
+      "clean": "张老师，我觉得这次实验把 Batch Size 设成1024，然后如果我们尝试在 Fine-tuning 阶段引入 LoRA，可能能把收敛速度提升15%左右。",
+      "model_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。",
+      "committed_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。",
+      "normalized_oral": "张老师我觉得这次实验把batchsize设成五百一十二哦不是应该是一千零二十四然后那个怎么说呢如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升百分之十五左右",
+      "normalized_model": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "normalized_committed": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "reference_chars": 67,
+      "source_edit_distance": 28,
+      "model_edit_distance": 2,
+      "committed_edit_distance": 2,
+      "model_instability": 0.338462,
+      "committed_instability": 0.338462,
+      "model_revisions": [
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning",
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。"
+      ],
+      "committed_revisions": [
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning",
+        "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:11",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，",
+        "应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，",
+        "整体的Accuracy大概提升了百分之四点二左右。"
+      ],
+      "chunk_count": 3,
+      "update_count": 3,
+      "unique_windows": 3,
+      "accepted_windows": 1,
+      "estimated_model_calls": 5,
+      "estimated_amortized_inference_sec": 1.124015,
+      "oral": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。",
+      "clean": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-18，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了4.2%左右。",
+      "model_text": "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet-18层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来整体的Accuracy大概提升了4.2%左右。",
+      "committed_text": "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。",
+      "normalized_oral": "其实这个pipeline大概逻辑是先是对原始数据集做一次dataaugmentation然后把这些样本喂给那个嗯resnet五十层啊不对应该是resnet一百八层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了百分之四点二左右",
+      "normalized_model": "其实这个pipeline大概逻辑是对原始数据集做一次dataaugmentation然后把这些样本喂给resnet50层应该是resnet18层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了42左右",
+      "normalized_committed": "其实这个pipeline大概逻辑是对原始数据集做一次dataaugmentation然后把这些样本喂给resnet50层应该是resnet一百八层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了百分之四点二左右",
+      "reference_chars": 122,
+      "source_edit_distance": 28,
+      "model_edit_distance": 15,
+      "committed_edit_distance": 24,
+      "model_instability": 0.548872,
+      "committed_instability": 0.565217,
+      "model_revisions": [
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。",
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet-18层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来",
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet-18层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来整体的Accuracy大概提升了4.2%左右。"
+      ],
+      "committed_revisions": [
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。",
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，",
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:11",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，",
+        "应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，",
+        "整体的Accuracy大概提升了百分之四点二左右。"
+      ],
+      "chunk_count": 3,
+      "update_count": 3,
+      "unique_windows": 3,
+      "accepted_windows": 1,
+      "estimated_model_calls": 4,
+      "estimated_amortized_inference_sec": 0.894769,
+      "oral": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。",
+      "clean": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-18，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了4.2%左右。",
+      "model_text": "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet-18层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了4.2%左右。",
+      "committed_text": "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。",
+      "normalized_oral": "其实这个pipeline大概逻辑是先是对原始数据集做一次dataaugmentation然后把这些样本喂给那个嗯resnet五十层啊不对应该是resnet一百八层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了百分之四点二左右",
+      "normalized_model": "其实这个pipeline大概逻辑是对原始数据集做一次dataaugmentation然后把这些样本喂给resnet50层应该是resnet18层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了42左右",
+      "normalized_committed": "其实这个pipeline大概逻辑是对原始数据集做一次dataaugmentation然后把这些样本喂给resnet50层应该是resnet一百八层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了百分之四点二左右",
+      "reference_chars": 122,
+      "source_edit_distance": 28,
+      "model_edit_distance": 15,
+      "committed_edit_distance": 24,
+      "model_instability": 0.601504,
+      "committed_instability": 0.710145,
+      "model_revisions": [
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。",
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-18，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来",
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet-18层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了4.2%左右。"
+      ],
+      "committed_revisions": [
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。",
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，",
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:11",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，",
+        "应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，",
+        "整体的Accuracy大概提升了百分之四点二左右。"
+      ],
+      "chunk_count": 3,
+      "update_count": 3,
+      "unique_windows": 3,
+      "accepted_windows": 1,
+      "estimated_model_calls": 3,
+      "estimated_amortized_inference_sec": 0.68774,
+      "oral": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。",
+      "clean": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-18，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了4.2%左右。",
+      "model_text": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-18，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了4.2%左右。",
+      "committed_text": "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。",
+      "normalized_oral": "其实这个pipeline大概逻辑是先是对原始数据集做一次dataaugmentation然后把这些样本喂给那个嗯resnet五十层啊不对应该是resnet一百八层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了百分之四点二左右",
+      "normalized_model": "其实这个pipeline大概逻辑是先是对原始数据集做一次dataaugmentation然后把这些样本喂给resnet18用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了42左右",
+      "normalized_committed": "其实这个pipeline大概逻辑是先是对原始数据集做一次dataaugmentation然后把这些样本喂给那个嗯resnet五十层啊不对应该是resnet一百八层用来提取特征最后再通过一个attentionmechanism把全局信息给聚合起来整体的accuracy大概提升了百分之四点二左右",
+      "reference_chars": 122,
+      "source_edit_distance": 28,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 28,
+      "model_instability": 0.532787,
+      "committed_instability": 0.60274,
+      "model_revisions": [
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。",
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-18，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来",
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-18，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了4.2%左右。"
+      ],
+      "committed_revisions": [
+        "其实这个Pipeline大概逻辑是对原始数据集做一次Data Augmentation，然后把这些样本喂给ResNet-50层。",
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，",
+        "其实这个Pipeline大概逻辑是，先是对原始数据集做一次Data Augmentation，然后把这些样本喂给那个，嗯，ResNet五十层，啊不对，应该是ResNet一百八层，用来提取特征，最后再通过一个Attention Mechanism把全局信息给聚合起来，整体的Accuracy大概提升了百分之四点二左右。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:12",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！",
+        "诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，",
+        "那个momentum参数给得太高，导致结果不稳定呀。"
+      ],
+      "chunk_count": 3,
+      "update_count": 3,
+      "unique_windows": 3,
+      "accepted_windows": 2,
+      "estimated_model_calls": 5,
+      "estimated_amortized_inference_sec": 1.035143,
+      "oral": "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，那个momentum参数给得太高，导致结果不稳定呀。",
+      "clean": "实验结果其实得看learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。",
+      "model_text": "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中momentum参数给得太高，导致结果不稳定呀。",
+      "committed_text": "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中momentum参数给得太高，导致结果不稳定呀。",
+      "normalized_oral": "我想想啊这个实验结果其实得看这个learningrate初始设成零点一不对零点零一等等错了是零点零零一诶如果你把batchsize调到五百一十二其实能缓解梯度爆炸问题吧怎么说呢主要是因为这个optimizer在收敛过程中那个momentum参数给得太高导致结果不稳定呀",
+      "normalized_model": "这个实验结果其实得看这个learningrate初始设成0001如果你把batchsize调到512其实能缓解梯度爆炸问题主要是因为这个optimizer在收敛过程中momentum参数给得太高导致结果不稳定呀",
+      "normalized_committed": "我想想啊这个实验结果其实得看这个learningrate初始设成零点一不对零点零一等等错了是零点零零一如果你把batchsize调到512其实能缓解梯度爆炸问题主要是因为这个optimizer在收敛过程中momentum参数给得太高导致结果不稳定呀",
+      "reference_chars": 100,
+      "source_edit_distance": 41,
+      "model_edit_distance": 7,
+      "committed_edit_distance": 30,
+      "model_instability": 0.695238,
+      "committed_instability": 0.58871,
+      "model_revisions": [
+        "这个实验结果其实得看这个learning rate，初始设成0.001！",
+        "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中",
+        "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中momentum参数给得太高，导致结果不稳定呀。"
+      ],
+      "committed_revisions": [
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！",
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中",
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中momentum参数给得太高，导致结果不稳定呀。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:12",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！",
+        "诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，",
+        "那个momentum参数给得太高，导致结果不稳定呀。"
+      ],
+      "chunk_count": 3,
+      "update_count": 3,
+      "unique_windows": 3,
+      "accepted_windows": 1,
+      "estimated_model_calls": 4,
+      "estimated_amortized_inference_sec": 0.828115,
+      "oral": "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，那个momentum参数给得太高，导致结果不稳定呀。",
+      "clean": "实验结果其实得看learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。",
+      "model_text": "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为这个optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。",
+      "committed_text": "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为这个optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。",
+      "normalized_oral": "我想想啊这个实验结果其实得看这个learningrate初始设成零点一不对零点零一等等错了是零点零零一诶如果你把batchsize调到五百一十二其实能缓解梯度爆炸问题吧怎么说呢主要是因为这个optimizer在收敛过程中那个momentum参数给得太高导致结果不稳定呀",
+      "normalized_model": "这个实验结果其实得看这个learningrate初始设成0001如果你把batchsize调到512其实能缓解梯度爆炸问题吧主要是因为这个optimizer在收敛过程中momentum参数给得太高导致结果不稳定呀",
+      "normalized_committed": "我想想啊这个实验结果其实得看这个learningrate初始设成零点一不对零点零一等等错了是零点零零一如果你把batchsize调到512其实能缓解梯度爆炸问题吧主要是因为这个optimizer在收敛过程中momentum参数给得太高导致结果不稳定呀",
+      "reference_chars": 100,
+      "source_edit_distance": 41,
+      "model_edit_distance": 6,
+      "committed_edit_distance": 29,
+      "model_instability": 0.698113,
+      "committed_instability": 0.728,
+      "model_revisions": [
+        "这个实验结果其实得看这个learning rate，初始设成0.001！",
+        "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中。",
+        "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为这个optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。"
+      ],
+      "committed_revisions": [
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！",
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，",
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为这个optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:12",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！",
+        "诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，",
+        "那个momentum参数给得太高，导致结果不稳定呀。"
+      ],
+      "chunk_count": 3,
+      "update_count": 3,
+      "unique_windows": 3,
+      "accepted_windows": 0,
+      "estimated_model_calls": 3,
+      "estimated_amortized_inference_sec": 0.621086,
+      "oral": "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，那个momentum参数给得太高，导致结果不稳定呀。",
+      "clean": "实验结果其实得看learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。",
+      "model_text": "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为这个optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。",
+      "committed_text": "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，那个momentum参数给得太高，导致结果不稳定呀。",
+      "normalized_oral": "我想想啊这个实验结果其实得看这个learningrate初始设成零点一不对零点零一等等错了是零点零零一诶如果你把batchsize调到五百一十二其实能缓解梯度爆炸问题吧怎么说呢主要是因为这个optimizer在收敛过程中那个momentum参数给得太高导致结果不稳定呀",
+      "normalized_model": "这个实验结果其实得看这个learningrate初始设成0001如果你把batchsize调到512其实能缓解梯度爆炸问题吧主要是因为这个optimizer在收敛过程中momentum参数给得太高导致结果不稳定呀",
+      "normalized_committed": "我想想啊这个实验结果其实得看这个learningrate初始设成零点一不对零点零一等等错了是零点零零一诶如果你把batchsize调到五百一十二其实能缓解梯度爆炸问题吧怎么说呢主要是因为这个optimizer在收敛过程中那个momentum参数给得太高导致结果不稳定呀",
+      "reference_chars": 100,
+      "source_edit_distance": 41,
+      "model_edit_distance": 6,
+      "committed_edit_distance": 41,
+      "model_instability": 0.698113,
+      "committed_instability": 0.619403,
+      "model_revisions": [
+        "这个实验结果其实得看这个learning rate，初始设成0.001！",
+        "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题，主要是因为这个optimizer在收敛过程中。",
+        "这个实验结果其实得看这个learning rate，初始设成0.001！如果你把batch size调到512，其实能缓解梯度爆炸问题吧，主要是因为这个optimizer在收敛过程中，momentum参数给得太高，导致结果不稳定呀。"
+      ],
+      "committed_revisions": [
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！",
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，",
+        "我想想啊，这个实验结果其实得看这个learning rate，初始设成零点一…不对，零点零一…等等错了，是零点零零一！诶，如果你把batch size调到五百一十二，其实能缓解梯度爆炸问题吧，怎么说呢，主要是因为这个optimizer在收敛过程中，那个momentum参数给得太高，导致结果不稳定呀。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:29",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 0,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.178968,
+      "oral": "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。",
+      "clean": "我觉得这个 Attention 机制得优化，之前调到 0.3 才收敛，得重新跑跑实验。",
+      "model_text": "我觉得这个Attention机制得优化，之前调到0.3才收敛，得重新跑跑实验。",
+      "committed_text": "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。",
+      "normalized_oral": "对了我觉得这个attention机制attention机制得优化之前调到零点五不对零点三零点三才收敛得重新跑跑实验",
+      "normalized_model": "我觉得这个attention机制得优化之前调到03才收敛得重新跑跑实验",
+      "normalized_committed": "对了我觉得这个attention机制attention机制得优化之前调到零点五不对零点三零点三才收敛得重新跑跑实验",
+      "reference_chars": 35,
+      "source_edit_distance": 24,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 24,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "我觉得这个Attention机制得优化，之前调到0.3才收敛，得重新跑跑实验。"
+      ],
+      "committed_revisions": [
+        "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:29",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 0,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.178968,
+      "oral": "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。",
+      "clean": "我觉得这个 Attention 机制得优化，之前调到 0.3 才收敛，得重新跑跑实验。",
+      "model_text": "我觉得这个Attention机制得优化，之前调到0.3才收敛，得重新跑跑实验。",
+      "committed_text": "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。",
+      "normalized_oral": "对了我觉得这个attention机制attention机制得优化之前调到零点五不对零点三零点三才收敛得重新跑跑实验",
+      "normalized_model": "我觉得这个attention机制得优化之前调到03才收敛得重新跑跑实验",
+      "normalized_committed": "对了我觉得这个attention机制attention机制得优化之前调到零点五不对零点三零点三才收敛得重新跑跑实验",
+      "reference_chars": 35,
+      "source_edit_distance": 24,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 24,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "我觉得这个Attention机制得优化，之前调到0.3才收敛，得重新跑跑实验。"
+      ],
+      "committed_revisions": [
+        "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:29",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。"
+      ],
+      "chunk_count": 1,
+      "update_count": 1,
+      "unique_windows": 1,
+      "accepted_windows": 0,
+      "estimated_model_calls": 1,
+      "estimated_amortized_inference_sec": 0.178968,
+      "oral": "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。",
+      "clean": "我觉得这个 Attention 机制得优化，之前调到 0.3 才收敛，得重新跑跑实验。",
+      "model_text": "我觉得这个Attention机制得优化，之前调到0.3才收敛，得重新跑跑实验。",
+      "committed_text": "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。",
+      "normalized_oral": "对了我觉得这个attention机制attention机制得优化之前调到零点五不对零点三零点三才收敛得重新跑跑实验",
+      "normalized_model": "我觉得这个attention机制得优化之前调到03才收敛得重新跑跑实验",
+      "normalized_committed": "对了我觉得这个attention机制attention机制得优化之前调到零点五不对零点三零点三才收敛得重新跑跑实验",
+      "reference_chars": 35,
+      "source_edit_distance": 24,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 24,
+      "model_instability": 0.0,
+      "committed_instability": 0.0,
+      "model_revisions": [
+        "我觉得这个Attention机制得优化，之前调到0.3才收敛，得重新跑跑实验。"
+      ],
+      "committed_revisions": [
+        "对了，我觉得这个 Attention 机制，Attention 机制得优化，之前调到零点五，不对，零点三，零点三才收敛，得重新跑跑实验。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:16",
+      "scene": "academic",
+      "k": 1,
+      "chunks": [
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，",
+        "是一乘十的负四次方！",
+        "然后我我我打算把这个数据集扩充，扩充到五千个样本，这样能提升Generalization能力，但那个，那个维度应该是两百五十六，不对，五百一十二，等等错了，",
+        "是一千零二十四！",
+        "这这这部分可能得重新推导一下。"
+      ],
+      "chunk_count": 5,
+      "update_count": 5,
+      "unique_windows": 5,
+      "accepted_windows": 4,
+      "estimated_model_calls": 9,
+      "estimated_amortized_inference_sec": 1.651296,
+      "oral": "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘十的负四次方！然后我我我打算把这个数据集扩充，扩充到五千个样本，这样能提升Generalization能力，但那个，那个维度应该是两百五十六，不对，五百一十二，等等错了，是一千零二十四！这这这部分可能得重新推导一下。",
+      "clean": "关于这个模型架构，我打算在Encoder部分引入一种注意力机制。学习率设成1e-4！然后我打算把这个数据集扩充到5000个样本，这样能提升Generalization能力，但维度应该是1024！这部分可能得重新推导一下。",
+      "model_text": "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。",
+      "committed_text": "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。",
+      "normalized_oral": "关于这个模型架构我打算在encoder部分引入引入一种注意力机制我想想其实是想用那个那个学习率设成零点零一不对零点零零一等等错了是一乘十的负四次方然后我我我打算把这个数据集扩充扩充到五千个样本这样能提升generalization能力但那个那个维度应该是两百五十六不对五百一十二等等错了是一千零二十四这这这部分可能得重新推导一下",
+      "normalized_model": "关于这个模型架构我打算在encoder部分引入一种注意力机制其实是想用学习率设成0001是一乘10的4次方我打算把这个数据集扩充到512个样本这样能提升generalization能力但维度应该是512是1024这部分可能得重新推导一下",
+      "normalized_committed": "关于这个模型架构我打算在encoder部分引入引入一种注意力机制我想想其实是想用那个那个学习率设成零点零一不对零点零零一等等错了是一乘10的4次方我打算把这个数据集扩充到512个样本这样能提升generalization能力但维度应该是512是1024这部分可能得重新推导一下",
+      "reference_chars": 102,
+      "source_edit_distance": 74,
+      "model_edit_distance": 23,
+      "committed_edit_distance": 43,
+      "model_instability": 0.627119,
+      "committed_instability": 0.536232,
+      "model_revisions": [
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。"
+      ],
+      "committed_revisions": [
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:16",
+      "scene": "academic",
+      "k": 2,
+      "chunks": [
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，",
+        "是一乘十的负四次方！",
+        "然后我我我打算把这个数据集扩充，扩充到五千个样本，这样能提升Generalization能力，但那个，那个维度应该是两百五十六，不对，五百一十二，等等错了，",
+        "是一千零二十四！",
+        "这这这部分可能得重新推导一下。"
+      ],
+      "chunk_count": 5,
+      "update_count": 5,
+      "unique_windows": 7,
+      "accepted_windows": 6,
+      "estimated_model_calls": 8,
+      "estimated_amortized_inference_sec": 1.458799,
+      "oral": "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘十的负四次方！然后我我我打算把这个数据集扩充，扩充到五千个样本，这样能提升Generalization能力，但那个，那个维度应该是两百五十六，不对，五百一十二，等等错了，是一千零二十四！这这这部分可能得重新推导一下。",
+      "clean": "关于这个模型架构，我打算在Encoder部分引入一种注意力机制。学习率设成1e-4！然后我打算把这个数据集扩充到5000个样本，这样能提升Generalization能力，但维度应该是1024！这部分可能得重新推导一下。",
+      "model_text": "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。",
+      "committed_text": "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。",
+      "normalized_oral": "关于这个模型架构我打算在encoder部分引入引入一种注意力机制我想想其实是想用那个那个学习率设成零点零一不对零点零零一等等错了是一乘十的负四次方然后我我我打算把这个数据集扩充扩充到五千个样本这样能提升generalization能力但那个那个维度应该是两百五十六不对五百一十二等等错了是一千零二十四这这这部分可能得重新推导一下",
+      "normalized_model": "关于这个模型架构我打算在encoder部分引入一种注意力机制其实是想用学习率设成0001是一乘10的4次方我打算把这个数据集扩充到512个样本这样能提升generalization能力但维度应该是512是1024这部分可能得重新推导一下",
+      "normalized_committed": "关于这个模型架构我打算在encoder部分引入引入一种注意力机制我想想其实是想用那个那个学习率设成零点零一不对零点零零一等等错了是一乘10的4次方我打算把这个数据集扩充到512个样本这样能提升generalization能力但维度应该是512是1024这部分可能得重新推导一下",
+      "reference_chars": 102,
+      "source_edit_distance": 74,
+      "model_edit_distance": 23,
+      "committed_edit_distance": 43,
+      "model_instability": 0.813559,
+      "committed_instability": 0.985507,
+      "model_revisions": [
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成1e-4！",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！然后我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但那个维度应该是512。",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但维度应该是1024。",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。"
+      ],
+      "committed_revisions": [
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成1e-4！",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！然后我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但那个维度应该是512。",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但维度应该是1024。",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。是1024！这部分可能得重新推导一下。"
+      ]
+    },
+    {
+      "source_record_id": "recheck.jsonl:16",
+      "scene": "academic",
+      "k": 3,
+      "chunks": [
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，",
+        "是一乘十的负四次方！",
+        "然后我我我打算把这个数据集扩充，扩充到五千个样本，这样能提升Generalization能力，但那个，那个维度应该是两百五十六，不对，五百一十二，等等错了，",
+        "是一千零二十四！",
+        "这这这部分可能得重新推导一下。"
+      ],
+      "chunk_count": 5,
+      "update_count": 5,
+      "unique_windows": 6,
+      "accepted_windows": 5,
+      "estimated_model_calls": 7,
+      "estimated_amortized_inference_sec": 1.266302,
+      "oral": "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘十的负四次方！然后我我我打算把这个数据集扩充，扩充到五千个样本，这样能提升Generalization能力，但那个，那个维度应该是两百五十六，不对，五百一十二，等等错了，是一千零二十四！这这这部分可能得重新推导一下。",
+      "clean": "关于这个模型架构，我打算在Encoder部分引入一种注意力机制。学习率设成1e-4！然后我打算把这个数据集扩充到5000个样本，这样能提升Generalization能力，但维度应该是1024！这部分可能得重新推导一下。",
+      "model_text": "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但维度应该是1024，这部分可能得重新推导一下。",
+      "committed_text": "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但维度应该是1024，这部分可能得重新推导一下。",
+      "normalized_oral": "关于这个模型架构我打算在encoder部分引入引入一种注意力机制我想想其实是想用那个那个学习率设成零点零一不对零点零零一等等错了是一乘十的负四次方然后我我我打算把这个数据集扩充扩充到五千个样本这样能提升generalization能力但那个那个维度应该是两百五十六不对五百一十二等等错了是一千零二十四这这这部分可能得重新推导一下",
+      "normalized_model": "关于这个模型架构我打算在encoder部分引入一种注意力机制其实是想用学习率设成0001是一乘10的4次方我打算把这个数据集扩充到1024个样本这样能提升generalization能力但维度应该是1024这部分可能得重新推导一下",
+      "normalized_committed": "关于这个模型架构我打算在encoder部分引入引入一种注意力机制我想想其实是想用那个那个学习率设成零点零一不对零点零零一等等错了是一乘10的4次方我打算把这个数据集扩充到1024个样本这样能提升generalization能力但维度应该是1024这部分可能得重新推导一下",
+      "reference_chars": 102,
+      "source_edit_distance": 74,
+      "model_edit_distance": 19,
+      "committed_edit_distance": 39,
+      "model_instability": 0.773913,
+      "committed_instability": 0.955556,
+      "model_revisions": [
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成1e-4！",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成1e-4！然后我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！然后我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但那个维度应该是1024！",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成0.001。是一乘10的-4次方！我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但维度应该是1024，这部分可能得重新推导一下。"
+      ],
+      "committed_revisions": [
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成1e-4！",
+        "关于这个模型架构，我打算在Encoder部分引入一种注意力机制，其实是想用学习率设成1e-4！然后我打算把这个数据集扩充到512个样本，这样能提升Generalization能力，但维度应该是512。",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！然后我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但那个维度应该是1024！",
+        "关于这个模型架构，我打算在Encoder部分引入，引入一种注意力机制，我想想，其实是想用那个，那个学习率设成零点零一，不对，零点零零一，等等错了，是一乘10的-4次方！我打算把这个数据集扩充到1024个样本，这样能提升Generalization能力，但维度应该是1024，这部分可能得重新推导一下。"
+      ]
+    }
+  ],
+  "summary": {
+    "1": {
+      "samples": 12,
+      "reference_chars": 844,
+      "source_corpus_cer": 0.419431,
+      "model_corpus_cer": 0.086493,
+      "committed_corpus_cer": 0.25237,
+      "model_improved": 11,
+      "model_regressed": 0,
+      "committed_improved": 9,
+      "committed_regressed": 0,
+      "passthrough_samples": 1,
+      "model_passthrough_over_edit_rate": 0.0,
+      "committed_passthrough_over_edit_rate": 0.0,
+      "mean_chunks": 2.833333,
+      "mean_updates": 2.833333,
+      "mean_estimated_model_calls": 4.666667,
+      "mean_estimated_amortized_inference_sec": 0.807682,
+      "mean_model_instability": 0.400376,
+      "mean_committed_instability": 0.407815,
+      "window_accept_rate": 0.735294
+    },
+    "2": {
+      "samples": 12,
+      "reference_chars": 844,
+      "source_corpus_cer": 0.419431,
+      "model_corpus_cer": 0.074645,
+      "committed_corpus_cer": 0.272512,
+      "model_improved": 11,
+      "model_regressed": 0,
+      "committed_improved": 8,
+      "committed_regressed": 0,
+      "passthrough_samples": 1,
+      "model_passthrough_over_edit_rate": 0.0,
+      "committed_passthrough_over_edit_rate": 0.0,
+      "mean_chunks": 2.833333,
+      "mean_updates": 2.833333,
+      "mean_estimated_model_calls": 3.916667,
+      "mean_estimated_amortized_inference_sec": 0.66996,
+      "mean_model_instability": 0.441018,
+      "mean_committed_instability": 0.501217,
+      "window_accept_rate": 0.714286
+    },
+    "3": {
+      "samples": 12,
+      "reference_chars": 844,
+      "source_corpus_cer": 0.419431,
+      "model_corpus_cer": 0.052133,
+      "committed_corpus_cer": 0.302133,
+      "model_improved": 11,
+      "model_regressed": 0,
+      "committed_improved": 5,
+      "committed_regressed": 0,
+      "passthrough_samples": 1,
+      "model_passthrough_over_edit_rate": 0.0,
+      "committed_passthrough_over_edit_rate": 0.0,
+      "mean_chunks": 2.833333,
+      "mean_updates": 2.833333,
+      "mean_estimated_model_calls": 3.5,
+      "mean_estimated_amortized_inference_sec": 0.599318,
+      "mean_model_instability": 0.420979,
+      "mean_committed_instability": 0.455209,
+      "window_accept_rate": 0.666667
+    }
+  }
+}

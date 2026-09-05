@@ -1,0 +1,292 @@
+{
+  "benchmark": "Gate 0.5 FunASR Paraformer online",
+  "timestamp": "2026-09-04T06:39:38.820109+00:00",
+  "status": "pass",
+  "backend": {
+    "implementation": "FunASR AutoModel online cache API",
+    "model_id": "iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+    "model_path": "/home/aim0/data/models/funasr/iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+    "revision": "master",
+    "device": "cuda:0",
+    "chunk_size": [
+      0,
+      10,
+      5
+    ],
+    "input_chunk_sec": 0.6,
+    "encoder_chunk_look_back": 4,
+    "decoder_chunk_look_back": 1
+  },
+  "environment": {
+    "funasr": "1.2.9",
+    "modelscope": "1.34.0",
+    "torch": "2.5.1",
+    "torchaudio": "2.5.1",
+    "python": "3.10.20 (main, Jun 11 2026, 15:17:37) [GCC 14.3.0]"
+  },
+  "audio": {
+    "path": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0321.wav",
+    "utterance_id": "BAC009S0913W0321",
+    "duration_sec": 4.5,
+    "sample_rate": 16000,
+    "reference": "    威灵  电机  今后  兼并  美芝  压缩  机  "
+  },
+  "load_sec": 2.8763,
+  "warmup": {
+    "status": "pass",
+    "text": "威灵电基今后煎饼每日压缩机",
+    "elapsed_sec": 0.6165183498524129,
+    "first_text_sec": 0.26735110487788916,
+    "input_audio_at_first_text_sec": 1.2,
+    "rtf": 0.13700407774498066
+  },
+  "buffered_samples": [
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 0.4411765648983419,
+      "first_text_sec": 0.09655247395858169,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.09803923664407597
+    },
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 0.44226810382679105,
+      "first_text_sec": 0.09640876622870564,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.098281800850398
+    },
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 0.441047937143594,
+      "first_text_sec": 0.09607837023213506,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.09801065269857645
+    }
+  ],
+  "paced_samples": [
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 4.261417435016483,
+      "first_text_sec": 0.6578830303624272,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.9469816522258852
+    },
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 4.262510390020907,
+      "first_text_sec": 0.65870799170807,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.9472245311157571
+    },
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 4.260949317831546,
+      "first_text_sec": 0.6592244058847427,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.946877626184788
+    }
+  ],
+  "concurrency_samples": [
+    {
+      "concurrency": 1,
+      "status": "pass",
+      "wall_elapsed_sec": 4.260102763772011,
+      "streams": [
+        {
+          "first_text_sec": 0.6575924721546471,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.260098753962666,
+          "rtf": 0.9466886119917035,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 1,
+          "p50": 0.6576,
+          "p95": 0.6576,
+          "p99": 0.6576,
+          "min": 0.6576,
+          "max": 0.6576,
+          "mean": 0.6576
+        },
+        "end_to_final_sec": {
+          "count": 1,
+          "p50": 4.2601,
+          "p95": 4.2601,
+          "p99": 4.2601,
+          "min": 4.2601,
+          "max": 4.2601,
+          "mean": 4.2601
+        }
+      }
+    },
+    {
+      "concurrency": 2,
+      "status": "pass",
+      "wall_elapsed_sec": 4.317830577958375,
+      "streams": [
+        {
+          "first_text_sec": 0.6584731992334127,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.317817328963429,
+          "rtf": 0.959514961991873,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7147451220080256,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.317817328963429,
+          "rtf": 0.959514961991873,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 2,
+          "p50": 0.6866,
+          "p95": 0.7119,
+          "p99": 0.7142,
+          "min": 0.6585,
+          "max": 0.7147,
+          "mean": 0.6866
+        },
+        "end_to_final_sec": {
+          "count": 2,
+          "p50": 4.3178,
+          "p95": 4.3178,
+          "p99": 4.3178,
+          "min": 4.3178,
+          "max": 4.3178,
+          "mean": 4.3178
+        }
+      }
+    },
+    {
+      "concurrency": 4,
+      "status": "pass",
+      "wall_elapsed_sec": 4.434769016690552,
+      "streams": [
+        {
+          "first_text_sec": 0.6579095050692558,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.434749386738986,
+          "rtf": 0.9854998637197746,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7147436630912125,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.434749386738986,
+          "rtf": 0.9854998637197746,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7721009748056531,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.434749386738986,
+          "rtf": 0.9854998637197746,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.8290204307995737,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.434749386738986,
+          "rtf": 0.9854998637197746,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 4,
+          "p50": 0.7434,
+          "p95": 0.8205,
+          "p99": 0.8273,
+          "min": 0.6579,
+          "max": 0.829,
+          "mean": 0.7434
+        },
+        "end_to_final_sec": {
+          "count": 4,
+          "p50": 4.4347,
+          "p95": 4.4347,
+          "p99": 4.4347,
+          "min": 4.4347,
+          "max": 4.4347,
+          "mean": 4.4347
+        }
+      }
+    }
+  ],
+  "summary": {
+    "compute_rtf": {
+      "count": 3,
+      "p50": 0.098,
+      "p95": 0.0983,
+      "p99": 0.0983,
+      "min": 0.098,
+      "max": 0.0983,
+      "mean": 0.0981
+    },
+    "buffered_ttfp_sec": {
+      "count": 3,
+      "p50": 0.0964,
+      "p95": 0.0965,
+      "p99": 0.0965,
+      "min": 0.0961,
+      "max": 0.0966,
+      "mean": 0.0963
+    },
+    "e2e_ttfp_sec": {
+      "count": 3,
+      "p50": 0.6587,
+      "p95": 0.6592,
+      "p99": 0.6592,
+      "min": 0.6579,
+      "max": 0.6592,
+      "mean": 0.6586
+    },
+    "e2e_end_to_final_sec": {
+      "count": 3,
+      "p50": 4.2614,
+      "p95": 4.2624,
+      "p99": 4.2625,
+      "min": 4.2609,
+      "max": 4.2625,
+      "mean": 4.2616
+    },
+    "cer": {
+      "count": 3,
+      "p50": 0.3846,
+      "p95": 0.3846,
+      "p99": 0.3846,
+      "min": 0.3846,
+      "max": 0.3846,
+      "mean": 0.3846
+    },
+    "memory": {
+      "peak_used_mib": 1265,
+      "peak_used_gib": 1.235,
+      "samples": 136
+    },
+    "metric_definition": {
+      "compute_rtf": "Buffered-input elapsed time divided by audio duration; decoder throughput only.",
+      "e2e_ttfp_sec": "First non-empty text while audio chunks arrive at real-time timestamps.",
+      "e2e_end_to_final_sec": "Paced input start to final online result; this is not an offline 2-pass result.",
+      "cer": "Character error rate after removing whitespace and punctuation from AISHELL reference and hypothesis."
+    }
+  }
+}

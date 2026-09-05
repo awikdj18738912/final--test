@@ -1,0 +1,27 @@
+{
+  "stage": "offline",
+  "timestamp": "2026-09-04T04:26:32.941508+00:00",
+  "status": "pass",
+  "gpu": 1,
+  "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+  "audio": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0321.wav",
+  "audio_sec": 4.5,
+  "language": "Chinese",
+  "text": "未灵电机今后兼并美之压缩机。",
+  "load_sec": 60.878,
+  "inference_sec": 4.809,
+  "ttfp_sec": 4.809,
+  "rtf": 1.0686,
+  "memory": {
+    "peak_used_mib": 10763,
+    "peak_used_gib": 10.511,
+    "peak_free_gib": 13.489,
+    "samples": 271
+  },
+  "config": {
+    "gpu_memory_utilization": 0.5,
+    "max_model_len": 8192,
+    "chunk_size_sec": null,
+    "input_push_sec": null
+  }
+}

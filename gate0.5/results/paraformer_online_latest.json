@@ -1,0 +1,684 @@
+{
+  "benchmark": "Gate 0.5 FunASR Paraformer online",
+  "timestamp": "2026-09-04T11:29:13.649265+00:00",
+  "status": "pass",
+  "backend": {
+    "implementation": "FunASR AutoModel online cache API",
+    "model_id": "iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+    "model_path": "/home/aim0/data/models/funasr/iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+    "revision": "master",
+    "device": "cuda:0",
+    "chunk_size": [
+      0,
+      10,
+      5
+    ],
+    "input_chunk_sec": 0.6,
+    "encoder_chunk_look_back": 4,
+    "decoder_chunk_look_back": 1
+  },
+  "environment": {
+    "funasr": "1.2.9",
+    "modelscope": "1.34.0",
+    "torch": "2.5.1",
+    "torchaudio": "2.5.1",
+    "python": "3.10.20 (main, Jun 11 2026, 15:17:37) [GCC 14.3.0]"
+  },
+  "audio": {
+    "path": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0452.wav",
+    "utterance_id": "BAC009S0768W0452",
+    "duration_sec": 5.0,
+    "sample_rate": 16000,
+    "reference": "白云区钟落潭竹一村民",
+    "reference_source": "--reference-text",
+    "max_audio_sec": 5.0
+  },
+  "load_sec": 2.8421,
+  "warmup": {
+    "status": "pass",
+    "text": "白云区中洛潭竹一村民",
+    "elapsed_sec": 0.6959221609868109,
+    "first_text_sec": 0.27951082214713097,
+    "input_audio_at_first_text_sec": 1.2,
+    "rtf": 0.13918443219736218
+  },
+  "buffered_samples": [
+    {
+      "status": "pass",
+      "text": "白云区中洛潭竹一村民",
+      "elapsed_sec": 0.5085252500139177,
+      "first_text_sec": 0.09835361689329147,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.10170505000278354
+    },
+    {
+      "status": "pass",
+      "text": "白云区中洛潭竹一村民",
+      "elapsed_sec": 0.5066602150909603,
+      "first_text_sec": 0.09712874423712492,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.10133204301819206
+    },
+    {
+      "status": "pass",
+      "text": "白云区中洛潭竹一村民",
+      "elapsed_sec": 0.5067784828133881,
+      "first_text_sec": 0.09756596805527806,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.10135569656267762
+    }
+  ],
+  "paced_samples": [
+    {
+      "status": "pass",
+      "text": "白云区中洛潭竹一村民",
+      "elapsed_sec": 4.861979330889881,
+      "first_text_sec": 0.6575040817260742,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.9723958661779761
+    },
+    {
+      "status": "pass",
+      "text": "白云区中洛潭竹一村民",
+      "elapsed_sec": 4.860652960371226,
+      "first_text_sec": 0.6590913189575076,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.9721305920742452
+    },
+    {
+      "status": "pass",
+      "text": "白云区中洛潭竹一村民",
+      "elapsed_sec": 4.8600459368899465,
+      "first_text_sec": 0.658797892741859,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.9720091873779892
+    }
+  ],
+  "concurrency_samples": [
+    {
+      "concurrency": 1,
+      "status": "pass",
+      "wall_elapsed_sec": 4.859932070598006,
+      "streams": [
+        {
+          "first_text_sec": 0.6598632987588644,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.859928270801902,
+          "rtf": 0.9719856541603804,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 1,
+          "p50": 0.6599,
+          "p95": 0.6599,
+          "p99": 0.6599,
+          "min": 0.6599,
+          "max": 0.6599,
+          "mean": 0.6599
+        },
+        "end_to_final_sec": {
+          "count": 1,
+          "p50": 4.8599,
+          "p95": 4.8599,
+          "p99": 4.8599,
+          "min": 4.8599,
+          "max": 4.8599,
+          "mean": 4.8599
+        }
+      },
+      "repeat": 1
+    },
+    {
+      "concurrency": 1,
+      "status": "pass",
+      "wall_elapsed_sec": 4.86215062905103,
+      "streams": [
+        {
+          "first_text_sec": 0.6588943530805409,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.862146239262074,
+          "rtf": 0.9724292478524148,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 1,
+          "p50": 0.6589,
+          "p95": 0.6589,
+          "p99": 0.6589,
+          "min": 0.6589,
+          "max": 0.6589,
+          "mean": 0.6589
+        },
+        "end_to_final_sec": {
+          "count": 1,
+          "p50": 4.8621,
+          "p95": 4.8621,
+          "p99": 4.8621,
+          "min": 4.8621,
+          "max": 4.8621,
+          "mean": 4.8621
+        }
+      },
+      "repeat": 2
+    },
+    {
+      "concurrency": 1,
+      "status": "pass",
+      "wall_elapsed_sec": 4.861091903876513,
+      "streams": [
+        {
+          "first_text_sec": 0.6603748230263591,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.861088164150715,
+          "rtf": 0.972217632830143,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 1,
+          "p50": 0.6604,
+          "p95": 0.6604,
+          "p99": 0.6604,
+          "min": 0.6604,
+          "max": 0.6604,
+          "mean": 0.6604
+        },
+        "end_to_final_sec": {
+          "count": 1,
+          "p50": 4.8611,
+          "p95": 4.8611,
+          "p99": 4.8611,
+          "min": 4.8611,
+          "max": 4.8611,
+          "mean": 4.8611
+        }
+      },
+      "repeat": 3
+    },
+    {
+      "concurrency": 2,
+      "status": "pass",
+      "wall_elapsed_sec": 4.921857330016792,
+      "streams": [
+        {
+          "first_text_sec": 0.660444111097604,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.921845260076225,
+          "rtf": 0.9843690520152449,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7184738139621913,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.921845260076225,
+          "rtf": 0.9843690520152449,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 2,
+          "p50": 0.6895,
+          "p95": 0.7156,
+          "p99": 0.7179,
+          "min": 0.6604,
+          "max": 0.7185,
+          "mean": 0.6895
+        },
+        "end_to_final_sec": {
+          "count": 2,
+          "p50": 4.9218,
+          "p95": 4.9218,
+          "p99": 4.9218,
+          "min": 4.9218,
+          "max": 4.9218,
+          "mean": 4.9218
+        }
+      },
+      "repeat": 1
+    },
+    {
+      "concurrency": 2,
+      "status": "pass",
+      "wall_elapsed_sec": 4.9201444229111075,
+      "streams": [
+        {
+          "first_text_sec": 0.6601444939151406,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.920132813043892,
+          "rtf": 0.9840265626087785,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7190365460701287,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.920132813043892,
+          "rtf": 0.9840265626087785,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 2,
+          "p50": 0.6896,
+          "p95": 0.7161,
+          "p99": 0.7184,
+          "min": 0.6601,
+          "max": 0.719,
+          "mean": 0.6896
+        },
+        "end_to_final_sec": {
+          "count": 2,
+          "p50": 4.9201,
+          "p95": 4.9201,
+          "p99": 4.9201,
+          "min": 4.9201,
+          "max": 4.9201,
+          "mean": 4.9201
+        }
+      },
+      "repeat": 2
+    },
+    {
+      "concurrency": 2,
+      "status": "pass",
+      "wall_elapsed_sec": 4.927303467877209,
+      "streams": [
+        {
+          "first_text_sec": 0.6581801921129227,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.927289628889412,
+          "rtf": 0.9854579257778824,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7151750200428069,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 4.927289628889412,
+          "rtf": 0.9854579257778824,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 2,
+          "p50": 0.6867,
+          "p95": 0.7123,
+          "p99": 0.7146,
+          "min": 0.6582,
+          "max": 0.7152,
+          "mean": 0.6867
+        },
+        "end_to_final_sec": {
+          "count": 2,
+          "p50": 4.9273,
+          "p95": 4.9273,
+          "p99": 4.9273,
+          "min": 4.9273,
+          "max": 4.9273,
+          "mean": 4.9273
+        }
+      },
+      "repeat": 3
+    },
+    {
+      "concurrency": 4,
+      "status": "pass",
+      "wall_elapsed_sec": 5.0507453372702,
+      "streams": [
+        {
+          "first_text_sec": 0.6597520508803427,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050720847211778,
+          "rtf": 1.0101441694423556,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7193462839350104,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050720847211778,
+          "rtf": 1.0101441694423556,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7768988539464772,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050720847211778,
+          "rtf": 1.0101441694423556,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.8343780352734029,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050720847211778,
+          "rtf": 1.0101441694423556,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 4,
+          "p50": 0.7481,
+          "p95": 0.8258,
+          "p99": 0.8327,
+          "min": 0.6598,
+          "max": 0.8344,
+          "mean": 0.7476
+        },
+        "end_to_final_sec": {
+          "count": 4,
+          "p50": 5.0507,
+          "p95": 5.0507,
+          "p99": 5.0507,
+          "min": 5.0507,
+          "max": 5.0507,
+          "mean": 5.0507
+        }
+      },
+      "repeat": 1
+    },
+    {
+      "concurrency": 4,
+      "status": "pass",
+      "wall_elapsed_sec": 5.050601028837264,
+      "streams": [
+        {
+          "first_text_sec": 0.6594196362420917,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050579838920385,
+          "rtf": 1.010115967784077,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7194287329912186,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050579838920385,
+          "rtf": 1.010115967784077,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7771285809576511,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050579838920385,
+          "rtf": 1.010115967784077,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.8356348080560565,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.050579838920385,
+          "rtf": 1.010115967784077,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 4,
+          "p50": 0.7483,
+          "p95": 0.8269,
+          "p99": 0.8339,
+          "min": 0.6594,
+          "max": 0.8356,
+          "mean": 0.7479
+        },
+        "end_to_final_sec": {
+          "count": 4,
+          "p50": 5.0506,
+          "p95": 5.0506,
+          "p99": 5.0506,
+          "min": 5.0506,
+          "max": 5.0506,
+          "mean": 5.0506
+        }
+      },
+      "repeat": 2
+    },
+    {
+      "concurrency": 4,
+      "status": "pass",
+      "wall_elapsed_sec": 5.04862395208329,
+      "streams": [
+        {
+          "first_text_sec": 0.6609308742918074,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.048585653305054,
+          "rtf": 1.0097171306610107,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7192140752449632,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.048585653305054,
+          "rtf": 1.0097171306610107,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.7768936930224299,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.048585653305054,
+          "rtf": 1.0097171306610107,
+          "status": "pass"
+        },
+        {
+          "first_text_sec": 0.8345875721424818,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "白云区中洛潭竹一村民",
+          "elapsed_sec": 5.048585653305054,
+          "rtf": 1.0097171306610107,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 4,
+          "p50": 0.7481,
+          "p95": 0.8259,
+          "p99": 0.8329,
+          "min": 0.6609,
+          "max": 0.8346,
+          "mean": 0.7479
+        },
+        "end_to_final_sec": {
+          "count": 4,
+          "p50": 5.0486,
+          "p95": 5.0486,
+          "p99": 5.0486,
+          "min": 5.0486,
+          "max": 5.0486,
+          "mean": 5.0486
+        }
+      },
+      "repeat": 3
+    }
+  ],
+  "concurrency_summary": [
+    {
+      "concurrency": 1,
+      "runs_passed": 3,
+      "runs_total": 3,
+      "streams_passed": 3,
+      "streams_total": 3,
+      "success_rate": 1.0,
+      "ttfp_sec": {
+        "count": 3,
+        "p50": 0.6599,
+        "p95": 0.6603,
+        "p99": 0.6604,
+        "min": 0.6589,
+        "max": 0.6604,
+        "mean": 0.6597
+      },
+      "end_to_final_sec": {
+        "count": 3,
+        "p50": 4.8611,
+        "p95": 4.862,
+        "p99": 4.8621,
+        "min": 4.8599,
+        "max": 4.8621,
+        "mean": 4.8611
+      },
+      "cer": {
+        "count": 3,
+        "p50": 0.2,
+        "p95": 0.2,
+        "p99": 0.2,
+        "min": 0.2,
+        "max": 0.2,
+        "mean": 0.2
+      }
+    },
+    {
+      "concurrency": 2,
+      "runs_passed": 3,
+      "runs_total": 3,
+      "streams_passed": 6,
+      "streams_total": 6,
+      "success_rate": 1.0,
+      "ttfp_sec": {
+        "count": 6,
+        "p50": 0.6878,
+        "p95": 0.7189,
+        "p99": 0.719,
+        "min": 0.6582,
+        "max": 0.719,
+        "mean": 0.6886
+      },
+      "end_to_final_sec": {
+        "count": 6,
+        "p50": 4.9218,
+        "p95": 4.9273,
+        "p99": 4.9273,
+        "min": 4.9201,
+        "max": 4.9273,
+        "mean": 4.9231
+      },
+      "cer": {
+        "count": 6,
+        "p50": 0.2,
+        "p95": 0.2,
+        "p99": 0.2,
+        "min": 0.2,
+        "max": 0.2,
+        "mean": 0.2
+      }
+    },
+    {
+      "concurrency": 4,
+      "runs_passed": 3,
+      "runs_total": 3,
+      "streams_passed": 12,
+      "streams_total": 12,
+      "success_rate": 1.0,
+      "ttfp_sec": {
+        "count": 12,
+        "p50": 0.7482,
+        "p95": 0.8351,
+        "p99": 0.8355,
+        "min": 0.6594,
+        "max": 0.8356,
+        "mean": 0.7478
+      },
+      "end_to_final_sec": {
+        "count": 12,
+        "p50": 5.0506,
+        "p95": 5.0507,
+        "p99": 5.0507,
+        "min": 5.0486,
+        "max": 5.0507,
+        "mean": 5.05
+      },
+      "cer": {
+        "count": 12,
+        "p50": 0.2,
+        "p95": 0.2,
+        "p99": 0.2,
+        "min": 0.2,
+        "max": 0.2,
+        "mean": 0.2
+      }
+    }
+  ],
+  "summary": {
+    "compute_rtf": {
+      "count": 3,
+      "p50": 0.1014,
+      "p95": 0.1017,
+      "p99": 0.1017,
+      "min": 0.1013,
+      "max": 0.1017,
+      "mean": 0.1015
+    },
+    "buffered_ttfp_sec": {
+      "count": 3,
+      "p50": 0.0976,
+      "p95": 0.0983,
+      "p99": 0.0983,
+      "min": 0.0971,
+      "max": 0.0984,
+      "mean": 0.0977
+    },
+    "e2e_ttfp_sec": {
+      "count": 3,
+      "p50": 0.6588,
+      "p95": 0.6591,
+      "p99": 0.6591,
+      "min": 0.6575,
+      "max": 0.6591,
+      "mean": 0.6585
+    },
+    "e2e_end_to_final_sec": {
+      "count": 3,
+      "p50": 4.8607,
+      "p95": 4.8618,
+      "p99": 4.862,
+      "min": 4.86,
+      "max": 4.862,
+      "mean": 4.8609
+    },
+    "cer": {
+      "count": 3,
+      "p50": 0.2,
+      "p95": 0.2,
+      "p99": 0.2,
+      "min": 0.2,
+      "max": 0.2,
+      "mean": 0.2
+    },
+    "memory": {
+      "peak_used_mib": 1265,
+      "peak_used_gib": 1.235,
+      "samples": 283
+    },
+    "metric_definition": {
+      "compute_rtf": "Buffered-input elapsed time divided by audio duration; decoder throughput only.",
+      "e2e_ttfp_sec": "First non-empty text while audio chunks arrive at real-time timestamps.",
+      "e2e_end_to_final_sec": "Paced input start to final online result; this is not an offline 2-pass result.",
+      "cer": "Character error rate after removing whitespace and punctuation from AISHELL reference and hypothesis."
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "comparison": "Gate 0.5 paired stratified ASR quality",
+  "timestamp": "2026-09-04T12:15:42.572017+00:00",
+  "manifest": "/home/aim0/桌面/tan/Idea/gate0.5/quality_manifest_200.json",
+  "manifest_source_sha256": "7860051c209ebb96d11709c88b3ae212e2cad072e3f5e4592a38003db977cb33",
+  "bootstrap": {
+    "iterations": 10000,
+    "seed": 20260904,
+    "unit": "utterance"
+  },
+  "backends": {
+    "qwen_1_7b": {
+      "result_path": "/home/aim0/桌面/tan/Idea/gate0.5/results/quality/qwen17/qwen-streaming_latest.json",
+      "model_path": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "samples": 200,
+      "corpus_cer": 0.02561,
+      "macro_cer_mean": 0.023331,
+      "compute_rtf_mean": 0.061015,
+      "compute_rtf_p95": 0.068639,
+      "by_stratum_corpus_cer": {
+        "long_ge_10s": 0.052995,
+        "medium_5_10s": 0.015323,
+        "short_lt_5s": 0.016842
+      }
+    },
+    "qwen_0_6b": {
+      "result_path": "/home/aim0/桌面/tan/Idea/gate0.5/results/quality/qwen06/qwen-streaming_latest.json",
+      "model_path": "/home/aim0/data/models/ASR/Qwen3-ASR-0.6B",
+      "samples": 200,
+      "corpus_cer": 0.037963,
+      "macro_cer_mean": 0.034082,
+      "compute_rtf_mean": 0.038776,
+      "compute_rtf_p95": 0.043029,
+      "by_stratum_corpus_cer": {
+        "long_ge_10s": 0.074885,
+        "medium_5_10s": 0.028648,
+        "short_lt_5s": 0.018947
+      }
+    },
+    "paraformer_online": {
+      "result_path": "/home/aim0/桌面/tan/Idea/gate0.5/results/quality/para/paraformer-online_latest.json",
+      "model_path": "/home/aim0/data/models/funasr/iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+      "samples": 200,
+      "corpus_cer": 0.047002,
+      "macro_cer_mean": 0.042057,
+      "compute_rtf_mean": 0.098819,
+      "compute_rtf_p95": 0.106089,
+      "by_stratum_corpus_cer": {
+        "long_ge_10s": 0.087558,
+        "medium_5_10s": 0.036642,
+        "short_lt_5s": 0.026316
+      }
+    }
+  },
+  "paired_comparisons": [
+    {
+      "a": "qwen_1_7b",
+      "b": "qwen_0_6b",
+      "definition": "negative CER delta favors a; win means fewer character edits for a on that utterance",
+      "utterances": 200,
+      "a_wins": 29,
+      "ties": 161,
+      "b_wins": 10,
+      "corpus_cer_delta_a_minus_b": -0.012353,
+      "paired_bootstrap_95_ci": [
+        -0.019042,
+        -0.006297
+      ]
+    },
+    {
+      "a": "qwen_1_7b",
+      "b": "paraformer_online",
+      "definition": "negative CER delta favors a; win means fewer character edits for a on that utterance",
+      "utterances": 200,
+      "a_wins": 53,
+      "ties": 133,
+      "b_wins": 14,
+      "corpus_cer_delta_a_minus_b": -0.021392,
+      "paired_bootstrap_95_ci": [
+        -0.030211,
+        -0.013125
+      ]
+    },
+    {
+      "a": "qwen_0_6b",
+      "b": "paraformer_online",
+      "definition": "negative CER delta favors a; win means fewer character edits for a on that utterance",
+      "utterances": 200,
+      "a_wins": 39,
+      "ties": 139,
+      "b_wins": 22,
+      "corpus_cer_delta_a_minus_b": -0.009039,
+      "paired_bootstrap_95_ci": [
+        -0.017089,
+        -0.001225
+      ]
+    }
+  ]
+}

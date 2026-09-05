@@ -1,0 +1,40 @@
+version: 1
+
+hardware:
+  topology: static_dual_gpu
+  gpu0: 0
+  gpu1: 1
+  training_exclusive: true
+
+paths:
+  qwen_asr_17b: /home/aim0/data/models/ASR/Qwen3-ASR-1.7B
+  qwen_asr_06b: /home/aim0/data/models/ASR/Qwen3-ASR-0.6B
+  refiner_heavy: /home/aim0/data/models/ASR/AgenticASR-Refiner
+  default_audio: /home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0321.wav
+
+gpu0_realtime_asr:
+  model: qwen_asr_17b
+  gpu_memory_utilization: 0.78
+  max_model_len: 8192
+  max_inference_batch_size: 1
+  max_new_tokens: 256
+  # Gate0 warm single-session result: e2e TTFP p95 0.773s on 14.7s AISHELL.
+  # This remains a recommended starting point until 1/2/4-session profiling.
+  chunk_size_sec: 1.0
+  input_push_sec: 0.25
+
+gpu1_offline_asr:
+  model: qwen_asr_17b
+  gpu_memory_utilization: 0.50
+  max_model_len: 8192
+  max_inference_batch_size: 1
+  max_new_tokens: 256
+
+gpu1_refiner:
+  model: refiner_heavy
+  execution: serialized_arbiter
+  dtype: bfloat16
+  max_new_tokens: 128
+
+headroom:
+  gpu1_min_free_gib: 3

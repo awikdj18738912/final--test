@@ -1,0 +1,205 @@
+{
+  "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+  "timestamp": "2026-09-05T09:01:05.222226+00:00",
+  "status": "pass",
+  "service": "http://127.0.0.1:8012",
+  "health": {
+    "status": "ok",
+    "realtime": {
+      "role": "realtime",
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "active_sessions": 0,
+      "warmup_sec": 5.142
+    },
+    "gpu1_role": "refiner",
+    "sessions": 0,
+    "jobs": 0,
+    "offline": null,
+    "refiner": {
+      "role": "refiner",
+      "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+      "load_sec": 1.575,
+      "warmup_sec": 0.536,
+      "max_new_tokens": 256
+    }
+  },
+  "audio": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0452.wav",
+  "audio_sec": 5.0,
+  "frame_ms": 250,
+  "raw_final_visible_sec": 4.81497,
+  "complete_sec": 4.815058,
+  "refinement_events": 1,
+  "revision_events": 0,
+  "final_raw_text": "白云区，中落潭竹一村民。",
+  "final_visible_text": "白云区，中落潭竹一村民。",
+  "session_snapshot": {
+    "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+    "tenant_id": "live-smoke-ef3526e3",
+    "language": "Chinese",
+    "quality_level": "balanced",
+    "created_at": 1788598860.4031878,
+    "raw_text": "白云区，中落潭竹一村民。",
+    "text": "白云区，中落潭竹一村民。",
+    "result_version": 6,
+    "input_seq_no": 20,
+    "active": false,
+    "final": true,
+    "latency_ms": {
+      "worker_start": 0.995,
+      "worker_rpc_total": 321.54,
+      "worker_rpc_max": 81.546,
+      "first_result": 802.382,
+      "refiner_rpc_total": 84.169,
+      "refiner_rpc_max": 84.169,
+      "refiner_rpc_count": 1.0,
+      "refiner_inference_total": 59.543,
+      "refiner_inference_max": 59.543,
+      "refiner_inference_count": 1.0,
+      "refiner_queue_total": 24.626,
+      "refiner_queue_max": 24.626,
+      "refiner_queue_count": 1.0,
+      "revision_total": 84.503,
+      "revision_max": 84.503,
+      "revision_count": 1.0,
+      "final_result": 4804.07
+    },
+    "refinement_enabled": false,
+    "refinement_disabled_reason": "ASR revised committed source text",
+    "refinement_results": [
+      {
+        "event": "refiner_reject",
+        "source_window_id": "win_f7a52d63d3290e5b",
+        "source_span_id": "seg_0001",
+        "validation": {
+          "accepted": false,
+          "reasons": [
+            "generation_max_tokens"
+          ]
+        },
+        "model_finish_reason": "length",
+        "refiner_inference_ms": 59.543,
+        "refiner_rpc_ms": 84.169
+      }
+    ]
+  },
+  "events": [
+    {
+      "event": "ready",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "sample_rate": 16000,
+      "format": "pcm_s16le_mono",
+      "chunk_size_sec": 1.0,
+      "refinement_enabled": true,
+      "refiner_window_k": 1,
+      "received_sec": 0.011806
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "window_id": "full_transcript",
+      "base_version": 0,
+      "result_version": 1,
+      "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "is_final": false,
+      "text": "白云。",
+      "raw_text": "白云。",
+      "received_sec": 0.813595
+    },
+    {
+      "event": "refiner_reject",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "base_version": 1,
+      "result_version": 1,
+      "base_hash": "7db07b05c3b617f5857bde469daf07e48abe033781663daa0687a7ea3c4ee039",
+      "is_final": false,
+      "text": "白云。",
+      "source_window_id": "win_f7a52d63d3290e5b",
+      "source_span_id": "seg_0001",
+      "source_text": "白云。",
+      "clean_text": "白云。",
+      "patches": [],
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "generation_max_tokens"
+        ]
+      },
+      "model_finish_reason": "length",
+      "model_keys": [],
+      "refiner_inference_ms": 59.543,
+      "refiner_rpc_ms": 84.169,
+      "received_sec": 0.898259
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "window_id": "full_transcript",
+      "base_version": 1,
+      "result_version": 2,
+      "base_hash": "7db07b05c3b617f5857bde469daf07e48abe033781663daa0687a7ea3c4ee039",
+      "is_final": false,
+      "text": "白云区。",
+      "raw_text": "白云区。",
+      "received_sec": 1.798013
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "window_id": "full_transcript",
+      "base_version": 2,
+      "result_version": 3,
+      "base_hash": "e0be07ef68803ffef25f710e47060fbd1fed1395a53b030b41af3bc8546368eb",
+      "is_final": false,
+      "text": "白云区，中落。",
+      "raw_text": "白云区，中落。",
+      "received_sec": 2.814012
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "window_id": "full_transcript",
+      "base_version": 3,
+      "result_version": 4,
+      "base_hash": "fca9951a145705a4f3d4bd52197902be35d2831a9b44fe3d27be635858e798db",
+      "is_final": false,
+      "text": "白云区，中落潭竹一村。",
+      "raw_text": "白云区，中落潭竹一村。",
+      "received_sec": 3.834377
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "window_id": "full_transcript",
+      "base_version": 4,
+      "result_version": 5,
+      "base_hash": "0069d6913d66a7675b8126889f03b4b8a36674f5c4be1a359b80b830a6142570",
+      "is_final": false,
+      "text": "白云区，中落潭竹一村民。",
+      "raw_text": "白云区，中落潭竹一村民。",
+      "received_sec": 4.814458
+    },
+    {
+      "event": "final",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "window_id": "full_transcript",
+      "base_version": 5,
+      "result_version": 6,
+      "base_hash": "059eda81418047d651903e8bfff0af84bb67df8d7cd22f7d97831a4a0bf1a00b",
+      "is_final": true,
+      "text": "白云区，中落潭竹一村民。",
+      "raw_text": "白云区，中落潭竹一村民。",
+      "received_sec": 4.81497
+    },
+    {
+      "event": "complete",
+      "session_id": "ses_3e5a509595a1454ba5a78e8d24ec0ded",
+      "result_version": 6,
+      "is_final": true,
+      "raw_text": "白云区，中落潭竹一村民。",
+      "text": "白云区，中落潭竹一村民。",
+      "refinement_disabled_reason": "ASR revised committed source text",
+      "refinement_results": 1,
+      "received_sec": 4.815058
+    }
+  ]
+}

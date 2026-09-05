@@ -1,0 +1,196 @@
+{
+  "gate": "Gate 0",
+  "timestamp": "2026-09-04T04:26:43.468092+00:00",
+  "status": "pass",
+  "topology": "GPU0 realtime ASR; GPU1 serialized offline ASR and Refiner; training exclusive",
+  "serialized_arbiter": true,
+  "stages": {
+    "preflight": {
+      "stage": "preflight",
+      "timestamp": "2026-09-04T04:22:58.294790+00:00",
+      "status": "pass",
+      "platform": {
+        "system": "Linux",
+        "release": "6.17.0-35-generic",
+        "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]"
+      },
+      "packages": {
+        "qwen-asr": "0.0.6",
+        "vllm": "0.14.0",
+        "torch": "2.9.1",
+        "torchaudio": "2.9.1",
+        "transformers": "4.57.6",
+        "soundfile": "0.13.1",
+        "numpy": "2.2.6",
+        "fastapi": "0.133.1",
+        "uvicorn": "0.41.0",
+        "websockets": "16.0"
+      },
+      "imports": {
+        "qwen_asr": true,
+        "vllm": true
+      },
+      "torch": {
+        "imported": true,
+        "version": "2.9.1+cu128",
+        "cuda_version": "12.8",
+        "cuda_available": true,
+        "device_count": 2,
+        "devices": [
+          "NVIDIA GeForce RTX 3090",
+          "NVIDIA GeForce RTX 3090"
+        ]
+      },
+      "nvidia": {
+        "ok": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 3090",
+            "driver": "580.159.04",
+            "memory_used_mib": 18,
+            "memory_total_mib": 24576,
+            "compute_capability": "8.6"
+          },
+          {
+            "index": 1,
+            "name": "NVIDIA GeForce RTX 3090",
+            "driver": "580.159.04",
+            "memory_used_mib": 18,
+            "memory_total_mib": 24576,
+            "compute_capability": "8.6"
+          }
+        ],
+        "stderr": ""
+      },
+      "paths": {
+        "qwen_asr_17b": true,
+        "qwen_asr_06b": true,
+        "refiner": true,
+        "audio": true
+      },
+      "compute_processes": [],
+      "exit_code": 0
+    },
+    "realtime": {
+      "stage": "realtime",
+      "timestamp": "2026-09-04T04:25:12.652916+00:00",
+      "status": "pass",
+      "gpu": 0,
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "audio": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0321.wav",
+      "audio_sec": 4.5,
+      "language": "Chinese",
+      "text": "未灵电机今后兼并美之压缩机。",
+      "load_sec": 115.847,
+      "inference_sec": 5.23,
+      "ttfp_sec": 4.848,
+      "rtf": 1.1621,
+      "memory": {
+        "peak_used_mib": 17523,
+        "peak_used_gib": 17.112,
+        "peak_free_gib": 6.888,
+        "samples": 506
+      },
+      "config": {
+        "gpu_memory_utilization": 0.78,
+        "max_model_len": 8192,
+        "chunk_size_sec": 2.0,
+        "input_push_sec": 0.5
+      },
+      "exit_code": 0
+    },
+    "offline": {
+      "stage": "offline",
+      "timestamp": "2026-09-04T04:26:32.941508+00:00",
+      "status": "pass",
+      "gpu": 1,
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "audio": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0321.wav",
+      "audio_sec": 4.5,
+      "language": "Chinese",
+      "text": "未灵电机今后兼并美之压缩机。",
+      "load_sec": 60.878,
+      "inference_sec": 4.809,
+      "ttfp_sec": 4.809,
+      "rtf": 1.0686,
+      "memory": {
+        "peak_used_mib": 10763,
+        "peak_used_gib": 10.511,
+        "peak_free_gib": 13.489,
+        "samples": 271
+      },
+      "config": {
+        "gpu_memory_utilization": 0.5,
+        "max_model_len": 8192,
+        "chunk_size_sec": null,
+        "input_push_sec": null
+      },
+      "exit_code": 0
+    },
+    "refiner": {
+      "stage": "refiner",
+      "timestamp": "2026-09-04T04:26:42.412738+00:00",
+      "status": "pass",
+      "gpu": 1,
+      "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+      "execution": "serialized_arbiter",
+      "input": "我明天，不是后天去开会。",
+      "text": "请将以下口语转为简洁的书面语，只输出改写后的文本：我明天去开会。",
+      "load_sec": 1.558,
+      "inference_sec": 0.864,
+      "ttfp_sec": 0.864,
+      "rtf": null,
+      "memory": {
+        "peak_used_mib": 2499,
+        "peak_used_gib": 2.44,
+        "peak_free_gib": 21.56,
+        "samples": 11
+      },
+      "config": {
+        "dtype": "bfloat16",
+        "max_new_tokens": 128
+      },
+      "exit_code": 0
+    },
+    "training_check": {
+      "stage": "training_check",
+      "timestamp": "2026-09-04T04:26:43.462547+00:00",
+      "status": "pass",
+      "training_exclusive_ready": true,
+      "message": "Both GPUs are visible and no CUDA compute process is active.",
+      "nvidia": {
+        "ok": true,
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA GeForce RTX 3090",
+            "driver": "580.159.04",
+            "memory_used_mib": 15,
+            "memory_total_mib": 24576,
+            "compute_capability": "8.6"
+          },
+          {
+            "index": 1,
+            "name": "NVIDIA GeForce RTX 3090",
+            "driver": "580.159.04",
+            "memory_used_mib": 15,
+            "memory_total_mib": 24576,
+            "compute_capability": "8.6"
+          }
+        ],
+        "stderr": ""
+      },
+      "compute_processes": [],
+      "exit_code": 0
+    }
+  },
+  "stage_pass": {
+    "preflight": true,
+    "realtime": true,
+    "offline": true,
+    "refiner": true,
+    "training_check": true
+  },
+  "output_dir": "/home/aim0/桌面/tan/Idea/gate0/results/20260904_122246"
+}

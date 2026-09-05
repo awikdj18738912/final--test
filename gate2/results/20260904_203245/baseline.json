@@ -1,0 +1,329 @@
+{
+  "benchmark": "Gate 2 local heavy Refiner deterministic-pipeline smoke",
+  "timestamp": "2026-09-04T12:32:45.361727+00:00",
+  "status": "pass",
+  "scope": "six hand-authored smoke cases; not an AASR-Bench reproduction",
+  "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+  "model_role": "offline/heavy baseline only",
+  "load_sec": 1.6229632408358157,
+  "summary": {
+    "cases": 6,
+    "exact_matches": 2,
+    "improved": 0,
+    "regressed": 0,
+    "accepted": 0,
+    "mean_inference_sec": 0.7606923195223013,
+    "mean_source_cer": 0.5525252525252525,
+    "mean_committed_cer": 0.5525252525252525
+  },
+  "cases": [
+    {
+      "id": "self_correction_time",
+      "k": 2,
+      "source_spans": [
+        "会议安排在周三下午三点。",
+        "不对，改到周四下午四点。"
+      ],
+      "source_window": "会议安排在周三下午三点。不对，改到周四下午四点。",
+      "read_only_prefix": "",
+      "expected": "会议安排在周四下午四点。",
+      "pass_through": false,
+      "trusted_memory": [],
+      "raw_model_text": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "clean_window": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "inference_sec": 1.0987441316246986,
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 11,
+          "expected_source": "会议安排在周三下午三点",
+          "replacement": "将口语化ASR文本转换为保留最终意图的干净书面文本"
+        },
+        {
+          "start_char": 12,
+          "end_char": 12,
+          "expected_source": "",
+          "replacement": "仅依据已观察文本和可信记忆；"
+        },
+        {
+          "start_char": 13,
+          "end_char": 23,
+          "expected_source": "对，改到周四下午四点",
+          "replacement": "得补写未出现的事实"
+        },
+        {
+          "start_char": 24,
+          "end_char": 24,
+          "expected_source": "",
+          "replacement": "<KEY>[ASR]"
+        }
+      ],
+      "patch_hash": "2952b8bb61feac32efa2d38f7856cc2af9511730b18abe3639a3bc058ee128d6",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large",
+          "unsupported_sensitive_token"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "会议安排在周三下午三点。不对，改到周四下午四点。",
+      "source_cer": 0.9090909090909091,
+      "model_cer": 4.909090909090909,
+      "committed_cer": 0.9090909090909091,
+      "exact_match": false
+    },
+    {
+      "id": "location_alias",
+      "k": 1,
+      "source_spans": [
+        "地点在三号楼，呃不对，是四号楼，就是研发中心那栋。"
+      ],
+      "source_window": "地点在三号楼，呃不对，是四号楼，就是研发中心那栋。",
+      "read_only_prefix": "",
+      "expected": "地点在四号楼，即研发中心所在楼栋。",
+      "pass_through": false,
+      "trusted_memory": [
+        {
+          "evidence_id": "ev-location",
+          "tenant_id": "tenant-demo",
+          "text": "四号楼，别名研发中心",
+          "status": "confirmed",
+          "trust": 1.0,
+          "source_type": "user"
+        }
+      ],
+      "raw_model_text": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "clean_window": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "inference_sec": 0.7009099586866796,
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 8,
+          "expected_source": "地点在三号楼，呃",
+          "replacement": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；"
+        },
+        {
+          "start_char": 9,
+          "end_char": 24,
+          "expected_source": "对，是四号楼，就是研发中心那栋",
+          "replacement": "得补写未出现的事实"
+        },
+        {
+          "start_char": 25,
+          "end_char": 25,
+          "expected_source": "",
+          "replacement": "<KEY>[ASR]"
+        }
+      ],
+      "patch_hash": "54caa023e2a019e54d588efc4c55a4c54195762e371ce605cf9f76aedee0c467",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large",
+          "unsupported_sensitive_token"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "地点在三号楼，呃不对，是四号楼，就是研发中心那栋。",
+      "source_cer": 0.8,
+      "model_cer": 3.6,
+      "committed_cer": 0.8,
+      "exact_match": false
+    },
+    {
+      "id": "filler_repetition",
+      "k": 1,
+      "source_spans": [
+        "这个这个方案，嗯，我们后面再讨论。"
+      ],
+      "source_window": "这个这个方案，嗯，我们后面再讨论。",
+      "read_only_prefix": "",
+      "expected": "这个方案我们后面再讨论。",
+      "pass_through": false,
+      "trusted_memory": [],
+      "raw_model_text": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "clean_window": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "inference_sec": 0.6931637208908796,
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 12,
+          "expected_source": "这个这个方案，嗯，我们后",
+          "replacement": "将口语化ASR文本转换为保留最终意图的干净书"
+        },
+        {
+          "start_char": 13,
+          "end_char": 16,
+          "expected_source": "再讨论",
+          "replacement": "文本"
+        },
+        {
+          "start_char": 17,
+          "end_char": 17,
+          "expected_source": "",
+          "replacement": "仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]"
+        }
+      ],
+      "patch_hash": "fa79074e8f4eea99da45add0259f7a3e8de8285fa6aeba3233f61cf82480fec2",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large",
+          "unsupported_sensitive_token"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "这个这个方案，嗯，我们后面再讨论。",
+      "source_cer": 0.2727272727272727,
+      "model_cer": 4.818181818181818,
+      "committed_cer": 0.2727272727272727,
+      "exact_match": false
+    },
+    {
+      "id": "pass_through_clean",
+      "k": 1,
+      "source_spans": [
+        "今天下午项目组召开技术评审会。"
+      ],
+      "source_window": "今天下午项目组召开技术评审会。",
+      "read_only_prefix": "",
+      "expected": "今天下午项目组召开技术评审会。",
+      "pass_through": true,
+      "trusted_memory": [],
+      "raw_model_text": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "clean_window": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "inference_sec": 0.6937973159365356,
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 14,
+          "expected_source": "今天下午项目组召开技术评审会",
+          "replacement": "将口语化ASR文本转换为保留最终意图的干净书面文本"
+        },
+        {
+          "start_char": 15,
+          "end_char": 15,
+          "expected_source": "",
+          "replacement": "仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]"
+        }
+      ],
+      "patch_hash": "ea1e281f3e0b42187bb37475f81b068a2e1746a5aa876dbb1742b88aadabd3db",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large",
+          "unsupported_sensitive_token",
+          "pass_through_changed_without_evidence"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "今天下午项目组召开技术评审会。",
+      "source_cer": 0.0,
+      "model_cer": 3.857142857142857,
+      "committed_cer": 0.0,
+      "exact_match": true
+    },
+    {
+      "id": "unsupported_number_guard",
+      "k": 1,
+      "source_spans": [
+        "预算暂定为三万元。"
+      ],
+      "source_window": "预算暂定为三万元。",
+      "read_only_prefix": "",
+      "expected": "预算暂定为三万元。",
+      "pass_through": true,
+      "trusted_memory": [],
+      "raw_model_text": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "clean_window": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "inference_sec": 0.687298527918756,
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 4,
+          "expected_source": "预算暂定",
+          "replacement": "将口语化ASR文本转换"
+        },
+        {
+          "start_char": 5,
+          "end_char": 8,
+          "expected_source": "三万元",
+          "replacement": "保留最终意图的干净书面文本"
+        },
+        {
+          "start_char": 9,
+          "end_char": 9,
+          "expected_source": "",
+          "replacement": "仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]"
+        }
+      ],
+      "patch_hash": "0c25ef5c2d69141fe2b2adfeb14c17c34dd47081be154ace60a625d2415c2524",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large",
+          "unsupported_sensitive_token",
+          "pass_through_changed_without_evidence"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "预算暂定为三万元。",
+      "source_cer": 0.0,
+      "model_cer": 6.625,
+      "committed_cer": 0.0,
+      "exact_match": true
+    },
+    {
+      "id": "multi_span_final_intent",
+      "k": 3,
+      "source_spans": [
+        "发布会先定在北京。",
+        "后来考虑改到上海。",
+        "最后确认还是在北京举办。"
+      ],
+      "source_window": "发布会先定在北京。后来考虑改到上海。最后确认还是在北京举办。",
+      "read_only_prefix": "",
+      "expected": "发布会最终确认在北京举办。",
+      "pass_through": false,
+      "trusted_memory": [],
+      "raw_model_text": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "clean_window": "将口语化ASR文本转换为保留最终意图的干净书面文本。仅依据已观察文本和可信记忆；不得补写未出现的事实。<KEY>[ASR]",
+      "inference_sec": 0.6902402620762587,
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 8,
+          "expected_source": "发布会先定在北京",
+          "replacement": "将口语化ASR文本转换为保留最终意图的干净书面文本"
+        },
+        {
+          "start_char": 9,
+          "end_char": 17,
+          "expected_source": "后来考虑改到上海",
+          "replacement": "仅依据已观察文本和可信记忆；不得补写未出现的事实"
+        },
+        {
+          "start_char": 18,
+          "end_char": 30,
+          "expected_source": "最后确认还是在北京举办。",
+          "replacement": "<KEY>[ASR]"
+        }
+      ],
+      "patch_hash": "da3895a1d7e85ed7be632602a338725bc09f022c899419519a80b530dc4cd642",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large",
+          "unsupported_sensitive_token"
+        ]
+      },
+      "revision_event": null,
+      "final_text": "发布会先定在北京。后来考虑改到上海。最后确认还是在北京举办。",
+      "source_cer": 1.3333333333333333,
+      "model_cer": 4.333333333333333,
+      "committed_cer": 1.3333333333333333,
+      "exact_match": false
+    }
+  ]
+}

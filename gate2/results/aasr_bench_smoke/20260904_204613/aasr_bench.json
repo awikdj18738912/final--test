@@ -1,0 +1,557 @@
+{
+  "benchmark": "AASR-Bench deterministic text metrics with safety commit",
+  "timestamp": "2026-09-04T12:46:13.107045+00:00",
+  "status": "pass",
+  "scope": "oral-to-clean Refiner evaluation; no audio ASR and no LLM rubric judge",
+  "license_note": "dataset card asserts no license; local research cache only, do not redistribute",
+  "data": "/home/aim0/data/datasets/ASR/AASR-Bench/data/benchmark.jsonl",
+  "data_sha256": "09ea7a9977b9e6633ca1c8e1cb3f5e717f5c35b5364d8355ba37d92eff92eecc",
+  "language": "zh",
+  "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+  "model_role": "offline/heavy baseline only",
+  "load_sec": 1.5862348820082843,
+  "batch_size": 4,
+  "requested_samples": 8,
+  "samples": [
+    {
+      "source_record_id": "recheck.jsonl:10",
+      "scene": "academic",
+      "language": "zh",
+      "oral": "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "clean": "如果咱们把 Loss Function 换成 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "raw_model_text": "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。<KEY>[Loss Function、Focal Loss、class imbalance]",
+      "model_text": "如果咱们把 Loss Function 换成 Focal Loss，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那 22.5% 的误报率给压下去，这样在新苑园区测试的数据表现应该会更稳一些。",
+      "model_keys": [
+        "Loss Function",
+        "Focal Loss",
+        "class imbalance"
+      ],
+      "decision": "reject",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "unsupported_sensitive_token"
+        ]
+      },
+      "patches": [
+        {
+          "start_char": 5,
+          "end_char": 7,
+          "expected_source": "这个",
+          "replacement": ""
+        },
+        {
+          "start_char": 25,
+          "end_char": 47,
+          "expected_source": "Cross Entropy，啊不对，应该是 ",
+          "replacement": ""
+        },
+        {
+          "start_char": 57,
+          "end_char": 60,
+          "expected_source": " 的话",
+          "replacement": ""
+        },
+        {
+          "start_char": 100,
+          "end_char": 118,
+          "expected_source": "百分之十五，哦不对，百分之二十二点五",
+          "replacement": " 22.5%"
+        },
+        {
+          "start_char": 131,
+          "end_char": 138,
+          "expected_source": "那个新，新苑，",
+          "replacement": ""
+        },
+        {
+          "start_char": 144,
+          "end_char": 145,
+          "expected_source": "得",
+          "replacement": "的"
+        }
+      ],
+      "committed_text": "如果咱们把这个 Loss Function 换成 Cross Entropy，啊不对，应该是 Focal Loss 的话，那我们可能在处理这种 class imbalance 样本不平衡问题时，能把那百分之十五，哦不对，百分之二十二点五 的误报率给压下去，这样在那个新，新苑，新苑园区测试得数据表现应该会更稳一些。",
+      "normalized_oral": "如果咱们把这个lossfunction换成crossentropy啊不对应该是focalloss的话那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "normalized_model": "如果咱们把lossfunction换成focalloss那我们可能在处理这种classimbalance样本不平衡问题时能把那225的误报率给压下去这样在新苑园区测试的数据表现应该会更稳一些",
+      "normalized_committed": "如果咱们把这个lossfunction换成crossentropy啊不对应该是focalloss的话那我们可能在处理这种classimbalance样本不平衡问题时能把那百分之十五哦不对百分之二十二点五的误报率给压下去这样在那个新新苑新苑园区测试得数据表现应该会更稳一些",
+      "reference_chars": 96,
+      "source_edit_distance": 43,
+      "model_edit_distance": 3,
+      "committed_edit_distance": 43,
+      "batch_inference_sec": 1.8373425151221454,
+      "amortized_inference_sec": 0.45933562878053635
+    },
+    {
+      "source_record_id": "recheck.jsonl:601",
+      "scene": "passthrough",
+      "language": "zh",
+      "oral": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "clean": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "raw_model_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "model_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "model_keys": [],
+      "decision": "keep",
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "patches": [],
+      "committed_text": "帮我把明早 8:30 的闹钟改成 7:15，顺便提醒我带上充电宝。",
+      "normalized_oral": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_model": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "normalized_committed": "帮我把明早830的闹钟改成715顺便提醒我带上充电宝",
+      "reference_chars": 26,
+      "source_edit_distance": 0,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 0,
+      "batch_inference_sec": 1.8373425151221454,
+      "amortized_inference_sec": 0.45933562878053635
+    },
+    {
+      "source_record_id": "recheck.jsonl:701",
+      "scene": "vibe_coding",
+      "language": "zh",
+      "oral": "诶，如果咱们能把 Prisma 迁移到 Elixir 里面，嗯，也就是把原先 Astro 里面那两千三百个数据表全部导出来，我想想啊，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "clean": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来，如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epoch 运行完吧。",
+      "raw_model_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。<KEY>[Prisma、Elixir、Astro、ConnectionRefused、epochs]",
+      "model_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "model_keys": [
+        "Prisma",
+        "Elixir",
+        "Astro",
+        "ConnectionRefused",
+        "epochs"
+      ],
+      "decision": "replace",
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 2,
+          "expected_source": "诶，",
+          "replacement": ""
+        },
+        {
+          "start_char": 30,
+          "end_char": 32,
+          "expected_source": "嗯，",
+          "replacement": ""
+        },
+        {
+          "start_char": 48,
+          "end_char": 52,
+          "expected_source": "两千三百",
+          "replacement": "2300"
+        },
+        {
+          "start_char": 61,
+          "end_char": 67,
+          "expected_source": "，我想想啊，",
+          "replacement": "。"
+        }
+      ],
+      "committed_text": "如果咱们能把 Prisma 迁移到 Elixir 里面，也就是把原先 Astro 里面那2300个数据表全部导出来。如果能绕过 ConnectionRefused 这个报错的话，那我们就能直接在一次 epochs 运行完吧。",
+      "normalized_oral": "诶如果咱们能把prisma迁移到elixir里面嗯也就是把原先astro里面那两千三百个数据表全部导出来我想想啊如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_model": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "normalized_committed": "如果咱们能把prisma迁移到elixir里面也就是把原先astro里面那2300个数据表全部导出来如果能绕过connectionrefused这个报错的话那我们就能直接在一次epochs运行完吧",
+      "reference_chars": 97,
+      "source_edit_distance": 11,
+      "model_edit_distance": 1,
+      "committed_edit_distance": 1,
+      "batch_inference_sec": 1.8373425151221454,
+      "amortized_inference_sec": 0.45933562878053635
+    },
+    {
+      "source_record_id": "recheck.jsonl:201",
+      "scene": "daily_chat",
+      "language": "zh",
+      "oral": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "clean": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3100元。如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "raw_model_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3310元。<KEY>[建国门、韩嘉悦、万象城]",
+      "model_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买极米投影仪，价格是3310元。",
+      "model_keys": [
+        "建国门",
+        "韩嘉悦",
+        "万象城"
+      ],
+      "decision": "reject",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "unsupported_sensitive_token"
+        ]
+      },
+      "patches": [
+        {
+          "start_char": 54,
+          "end_char": 56,
+          "expected_source": "那个",
+          "replacement": ""
+        },
+        {
+          "start_char": 65,
+          "end_char": 128,
+          "expected_source": "两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下",
+          "replacement": "3310元"
+        },
+        {
+          "start_char": 129,
+          "end_char": 143,
+          "expected_source": "感觉现在的压力比之前大多了。",
+          "replacement": ""
+        }
+      ],
+      "committed_text": "我感觉现在与其在建国门那边死磕，不如换个环境。最近跟韩嘉悦去逛万象城，发现那边比建国门更热闹。对了，我打算买那个极米投影仪，价格是两千八百块，不对，两千九百块，等等错了，是三千一百块！然后我那个…要是能把…怎么说呢…如果能把周子墨那份方案改完，我就能休息下。感觉现在的压力比之前大多了。",
+      "normalized_oral": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块然后我那个要是能把怎么说呢如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "normalized_model": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买极米投影仪价格是3310元",
+      "normalized_committed": "我感觉现在与其在建国门那边死磕不如换个环境最近跟韩嘉悦去逛万象城发现那边比建国门更热闹对了我打算买那个极米投影仪价格是两千八百块不对两千九百块等等错了是三千一百块然后我那个要是能把怎么说呢如果能把周子墨那份方案改完我就能休息下感觉现在的压力比之前大多了",
+      "reference_chars": 94,
+      "source_edit_distance": 37,
+      "model_edit_distance": 34,
+      "committed_edit_distance": 37,
+      "batch_inference_sec": 1.8373425151221454,
+      "amortized_inference_sec": 0.45933562878053635
+    },
+    {
+      "source_record_id": "explanation.jsonl:2001",
+      "scene": "explanation",
+      "language": "zh",
+      "oral": "下午导航去皮都...不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香...不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "clean": "下午导航去郫都，顺便帮我在药店买一盒藿香正气液。",
+      "raw_model_text": "下午导航去郫都，顺便帮我在药店买一盒霍元甲的霍元甲的霍元甲的霍元甲的霍元甲的霍元甲的<KEY>[郫都、霍元甲]",
+      "model_text": "下午导航去郫都，顺便帮我在药店买一盒霍元甲的霍元甲的霍元甲的霍元甲的霍元甲的霍元甲的",
+      "model_keys": [
+        "郫都",
+        "霍元甲"
+      ],
+      "decision": "reject",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large"
+        ]
+      },
+      "patches": [
+        {
+          "start_char": 5,
+          "end_char": 13,
+          "expected_source": "皮都...不对，",
+          "replacement": ""
+        },
+        {
+          "start_char": 14,
+          "end_char": 30,
+          "expected_source": "都，郫是郫县豆瓣的郫，都是都市的",
+          "replacement": ""
+        },
+        {
+          "start_char": 43,
+          "end_char": 65,
+          "expected_source": "香...不是，藿香正气液，藿是草字头下面一个",
+          "replacement": "元甲的"
+        },
+        {
+          "start_char": 70,
+          "end_char": 71,
+          "expected_source": "。",
+          "replacement": "元甲的霍元甲的霍元甲的霍元甲的"
+        }
+      ],
+      "committed_text": "下午导航去皮都...不对，郫都，郫是郫县豆瓣的郫，都是都市的都，顺便帮我在药店买一盒霍香...不是，藿香正气液，藿是草字头下面一个霍元甲的霍。",
+      "normalized_oral": "下午导航去皮都不对郫都郫是郫县豆瓣的郫都是都市的都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "normalized_model": "下午导航去郫都顺便帮我在药店买一盒霍元甲的霍元甲的霍元甲的霍元甲的霍元甲的霍元甲的",
+      "normalized_committed": "下午导航去皮都不对郫都郫是郫县豆瓣的郫都是都市的都顺便帮我在药店买一盒霍香不是藿香正气液藿是草字头下面一个霍元甲的霍",
+      "reference_chars": 22,
+      "source_edit_distance": 36,
+      "model_edit_distance": 24,
+      "committed_edit_distance": 36,
+      "batch_inference_sec": 1.2756867217831314,
+      "amortized_inference_sec": 0.31892168044578284
+    },
+    {
+      "source_record_id": "recheck.jsonl:18",
+      "scene": "academic",
+      "language": "zh",
+      "oral": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "clean": "Learning Rate设成0.001才行。",
+      "raw_model_text": "Learning Rate设成0.001才行。<KEY>[Learning Rate]",
+      "model_text": "Learning Rate设成0.001才行。",
+      "model_keys": [
+        "Learning Rate"
+      ],
+      "decision": "reject",
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "unsupported_sensitive_token"
+        ]
+      },
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 2,
+          "expected_source": "这个",
+          "replacement": ""
+        },
+        {
+          "start_char": 17,
+          "end_char": 31,
+          "expected_source": "零点零一，啊不对，零点零零一",
+          "replacement": "0.001"
+        }
+      ],
+      "committed_text": "这个Learning Rate设成零点零一，啊不对，零点零零一才行。",
+      "normalized_oral": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "normalized_model": "learningrate设成0001才行",
+      "normalized_committed": "这个learningrate设成零点零一啊不对零点零零一才行",
+      "reference_chars": 20,
+      "source_edit_distance": 14,
+      "model_edit_distance": 0,
+      "committed_edit_distance": 14,
+      "batch_inference_sec": 1.2756867217831314,
+      "amortized_inference_sec": 0.31892168044578284
+    },
+    {
+      "source_record_id": "recheck.jsonl:17",
+      "scene": "academic",
+      "language": "zh",
+      "oral": "我怀疑怀疑这个 Learning Rate 设太高，或者说…重新看下，应该是 Gradient 梯度爆炸，梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成五百一十二试试。",
+      "clean": "我怀疑这个 Learning Rate 设太高，应该是 Gradient 梯度爆炸，导致 Loss 没法收敛，得把 Batch Size 调成 512 试试。",
+      "raw_model_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。<KEY>[Learning Rate、Gradient、Loss、Batch Size]",
+      "model_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。",
+      "model_keys": [
+        "Learning Rate",
+        "Gradient",
+        "Loss",
+        "Batch Size"
+      ],
+      "decision": "replace",
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "patches": [
+        {
+          "start_char": 1,
+          "end_char": 3,
+          "expected_source": "怀疑",
+          "replacement": ""
+        },
+        {
+          "start_char": 28,
+          "end_char": 30,
+          "expected_source": "说…",
+          "replacement": ""
+        },
+        {
+          "start_char": 48,
+          "end_char": 53,
+          "expected_source": "梯度爆炸，",
+          "replacement": ""
+        },
+        {
+          "start_char": 86,
+          "end_char": 91,
+          "expected_source": "五百一十二",
+          "replacement": "512"
+        }
+      ],
+      "committed_text": "我怀疑这个 Learning Rate 设太高，或者重新看下，应该是 Gradient 梯度爆炸导致 Loss 没法收敛，得把 Batch Size 调成512试试。",
+      "normalized_oral": "我怀疑怀疑这个learningrate设太高或者说重新看下应该是gradient梯度爆炸梯度爆炸导致loss没法收敛得把batchsize调成五百一十二试试",
+      "normalized_model": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "normalized_committed": "我怀疑这个learningrate设太高或者重新看下应该是gradient梯度爆炸导致loss没法收敛得把batchsize调成512试试",
+      "reference_chars": 63,
+      "source_edit_distance": 18,
+      "model_edit_distance": 6,
+      "committed_edit_distance": 6,
+      "batch_inference_sec": 1.2756867217831314,
+      "amortized_inference_sec": 0.31892168044578284
+    },
+    {
+      "source_record_id": "recheck.jsonl:100",
+      "scene": "academic",
+      "language": "zh",
+      "oral": "张老师，我觉得这次实验把 Batch Size 设成五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢，如果我们尝试在 Fine tuning 阶段引入 LORA，可能能把收敛速度提升百分之十五左右。",
+      "clean": "张老师，我觉得这次实验把 Batch Size 设成1024，然后如果我们尝试在 Fine-tuning 阶段引入 LoRA，可能能把收敛速度提升15%左右。",
+      "raw_model_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。<KEY>[Batch Size、Fine-tuning、Lora]",
+      "model_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。",
+      "model_keys": [
+        "Batch Size",
+        "Fine-tuning",
+        "Lora"
+      ],
+      "decision": "replace",
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "patches": [
+        {
+          "start_char": 26,
+          "end_char": 55,
+          "expected_source": "五百一十二，哦不是，应该是一千零二十四，然后那个，怎么说呢",
+          "replacement": "1024"
+        },
+        {
+          "start_char": 68,
+          "end_char": 69,
+          "expected_source": " ",
+          "replacement": "-"
+        },
+        {
+          "start_char": 82,
+          "end_char": 85,
+          "expected_source": "ORA",
+          "replacement": "ora"
+        },
+        {
+          "start_char": 96,
+          "end_char": 101,
+          "expected_source": "百分之十五",
+          "replacement": "15%"
+        }
+      ],
+      "committed_text": "张老师，我觉得这次实验把 Batch Size 设成1024，如果我们尝试在 Fine-tuning 阶段引入 Lora，可能能把收敛速度提升15%左右。",
+      "normalized_oral": "张老师我觉得这次实验把batchsize设成五百一十二哦不是应该是一千零二十四然后那个怎么说呢如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升百分之十五左右",
+      "normalized_model": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "normalized_committed": "张老师我觉得这次实验把batchsize设成1024如果我们尝试在finetuning阶段引入lora可能能把收敛速度提升15左右",
+      "reference_chars": 67,
+      "source_edit_distance": 28,
+      "model_edit_distance": 2,
+      "committed_edit_distance": 2,
+      "batch_inference_sec": 1.2756867217831314,
+      "amortized_inference_sec": 0.31892168044578284
+    }
+  ],
+  "progress": {
+    "completed": 8,
+    "total": 8
+  },
+  "summary": {
+    "samples": 8,
+    "reference_chars": 485,
+    "source_corpus_cer": 0.385567,
+    "model_corpus_cer": 0.14433,
+    "committed_corpus_cer": 0.286598,
+    "model_improved": 7,
+    "model_regressed": 0,
+    "committed_improved": 3,
+    "committed_regressed": 0,
+    "accepted": 4,
+    "keep": 1,
+    "rejected": 4,
+    "model_substantive_change": 7,
+    "committed_substantive_change": 3,
+    "mean_amortized_inference_sec": 0.389129,
+    "by_scene": {
+      "academic": {
+        "samples": 4,
+        "reference_chars": 246,
+        "source_corpus_cer": 0.418699,
+        "model_corpus_cer": 0.044715,
+        "committed_corpus_cer": 0.264228,
+        "model_improved": 4,
+        "model_regressed": 0,
+        "committed_improved": 2,
+        "committed_regressed": 0,
+        "accepted": 2,
+        "keep": 0,
+        "rejected": 2,
+        "model_substantive_change": 4,
+        "committed_substantive_change": 2,
+        "mean_amortized_inference_sec": 0.354025
+      },
+      "daily_chat": {
+        "samples": 1,
+        "reference_chars": 94,
+        "source_corpus_cer": 0.393617,
+        "model_corpus_cer": 0.361702,
+        "committed_corpus_cer": 0.393617,
+        "model_improved": 1,
+        "model_regressed": 0,
+        "committed_improved": 0,
+        "committed_regressed": 0,
+        "accepted": 0,
+        "keep": 0,
+        "rejected": 1,
+        "model_substantive_change": 1,
+        "committed_substantive_change": 0,
+        "mean_amortized_inference_sec": 0.459336
+      },
+      "explanation": {
+        "samples": 1,
+        "reference_chars": 22,
+        "source_corpus_cer": 1.636364,
+        "model_corpus_cer": 1.090909,
+        "committed_corpus_cer": 1.636364,
+        "model_improved": 1,
+        "model_regressed": 0,
+        "committed_improved": 0,
+        "committed_regressed": 0,
+        "accepted": 0,
+        "keep": 0,
+        "rejected": 1,
+        "model_substantive_change": 1,
+        "committed_substantive_change": 0,
+        "mean_amortized_inference_sec": 0.318922
+      },
+      "passthrough": {
+        "samples": 1,
+        "reference_chars": 26,
+        "source_corpus_cer": 0.0,
+        "model_corpus_cer": 0.0,
+        "committed_corpus_cer": 0.0,
+        "model_improved": 0,
+        "model_regressed": 0,
+        "committed_improved": 0,
+        "committed_regressed": 0,
+        "accepted": 1,
+        "keep": 1,
+        "rejected": 0,
+        "model_substantive_change": 0,
+        "committed_substantive_change": 0,
+        "mean_amortized_inference_sec": 0.459336
+      },
+      "vibe_coding": {
+        "samples": 1,
+        "reference_chars": 97,
+        "source_corpus_cer": 0.113402,
+        "model_corpus_cer": 0.010309,
+        "committed_corpus_cer": 0.010309,
+        "model_improved": 1,
+        "model_regressed": 0,
+        "committed_improved": 1,
+        "committed_regressed": 0,
+        "accepted": 1,
+        "keep": 0,
+        "rejected": 0,
+        "model_substantive_change": 1,
+        "committed_substantive_change": 1,
+        "mean_amortized_inference_sec": 0.459336
+      }
+    },
+    "pass_through": {
+      "samples": 1,
+      "reference_chars": 26,
+      "source_corpus_cer": 0.0,
+      "model_corpus_cer": 0.0,
+      "committed_corpus_cer": 0.0,
+      "model_improved": 0,
+      "model_regressed": 0,
+      "committed_improved": 0,
+      "committed_regressed": 0,
+      "accepted": 1,
+      "keep": 1,
+      "rejected": 0,
+      "model_substantive_change": 0,
+      "committed_substantive_change": 0,
+      "mean_amortized_inference_sec": 0.459336,
+      "model_over_edit_rate": 0.0,
+      "committed_over_edit_rate": 0.0
+    }
+  }
+}

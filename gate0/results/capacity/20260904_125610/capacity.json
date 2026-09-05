@@ -1,0 +1,891 @@
+{
+  "benchmark": "Gate 0 warm streaming capacity",
+  "timestamp": "2026-09-04T04:58:30.122606+00:00",
+  "status": "pass",
+  "metric_definition": {
+    "compute_rtf": "Fast buffered-input elapsed time divided by audio duration; measures decode throughput only.",
+    "compute_ttfp_sec": "Time to first text when buffered audio is delivered immediately; diagnostic only.",
+    "e2e_ttfp_sec": "Time to first text while input frames are paced by their audio timestamps; client-visible single-session latency."
+  },
+  "matrix": {
+    "schema_version": 1,
+    "purpose": "Warm single-session capacity baseline for Qwen3-ASR streaming.",
+    "audio": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0452.wav",
+    "language": "Chinese",
+    "gpu": 0,
+    "gpu_memory_utilization": 0.78,
+    "max_model_len": 8192,
+    "max_new_tokens": 256,
+    "repetitions": 3,
+    "models": [
+      {
+        "id": "qwen3-asr-1.7b",
+        "path": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B"
+      },
+      {
+        "id": "qwen3-asr-0.6b",
+        "path": "/home/aim0/data/models/ASR/Qwen3-ASR-0.6B"
+      }
+    ],
+    "variants": [
+      {
+        "id": "chunk_0.5_push_0.25",
+        "chunk_size_sec": 0.5,
+        "input_push_sec": 0.25
+      },
+      {
+        "id": "chunk_1.0_push_0.25",
+        "chunk_size_sec": 1.0,
+        "input_push_sec": 0.25
+      },
+      {
+        "id": "chunk_1.5_push_0.5",
+        "chunk_size_sec": 1.5,
+        "input_push_sec": 0.5
+      },
+      {
+        "id": "chunk_2.0_push_0.5",
+        "chunk_size_sec": 2.0,
+        "input_push_sec": 0.5
+      }
+    ],
+    "acceptance": {
+      "realtime_ttfp_p95_sec": 1.5,
+      "compute_rtf_p95": 1.0
+    },
+    "audio_sec": 14.6999
+  },
+  "models": [
+    {
+      "id": "qwen3-asr-1.7b",
+      "path": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "load_sec": 46.3509,
+      "variants": [
+        {
+          "model_id": "qwen3-asr-1.7b",
+          "variant": {
+            "id": "chunk_0.5_push_0.25",
+            "chunk_size_sec": 0.5,
+            "input_push_sec": 0.25
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 6.1763690947555006,
+            "compute_ttfp_sec": 4.185524445027113,
+            "input_audio_at_first_text_sec": 0.5,
+            "compute_rtf": 0.42016294931563486
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 1.2225762498565018,
+                "compute_ttfp_sec": 0.020787933841347694,
+                "input_audio_at_first_text_sec": 0.5,
+                "compute_rtf": 0.08316880598005956
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.27112972503528,
+                "input_audio_at_first_text_sec": 0.5,
+                "text": "嗯。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 1.2248904719017446,
+                "compute_ttfp_sec": 0.022873119916766882,
+                "input_audio_at_first_text_sec": 0.5,
+                "compute_rtf": 0.0833262367205129
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.2707031089812517,
+                "input_audio_at_first_text_sec": 0.5,
+                "text": "嗯。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 1.2251001177355647,
+                "compute_ttfp_sec": 0.022845840081572533,
+                "input_audio_at_first_text_sec": 0.5,
+                "compute_rtf": 0.0833404984024976
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.27123422315344214,
+                "input_audio_at_first_text_sec": 0.5,
+                "text": "嗯。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0833,
+              "p95": 0.0833,
+              "min": 0.0832,
+              "max": 0.0833,
+              "mean": 0.0833
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.0228,
+              "p95": 0.0229,
+              "min": 0.0208,
+              "max": 0.0229,
+              "mean": 0.0222
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 0.2711,
+              "p95": 0.2712,
+              "min": 0.2707,
+              "max": 0.2712,
+              "mean": 0.271
+            },
+            "memory": {
+              "peak_used_mib": 17535,
+              "peak_used_gib": 17.124,
+              "peak_free_gib": 6.876,
+              "samples": 22
+            }
+          },
+          "meets_target": true
+        },
+        {
+          "model_id": "qwen3-asr-1.7b",
+          "variant": {
+            "id": "chunk_1.0_push_0.25",
+            "chunk_size_sec": 1.0,
+            "input_push_sec": 0.25
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 0.6590577587485313,
+            "compute_ttfp_sec": 0.01972306566312909,
+            "input_audio_at_first_text_sec": 1.0,
+            "compute_rtf": 0.04483405176032424
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.6605746420100331,
+                "compute_ttfp_sec": 0.021017291117459536,
+                "input_audio_at_first_text_sec": 1.0,
+                "compute_rtf": 0.044937241536573413
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.771953352726996,
+                "input_audio_at_first_text_sec": 1.0,
+                "text": "白云。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.6632271907292306,
+                "compute_ttfp_sec": 0.023517432156950235,
+                "input_audio_at_first_text_sec": 1.0,
+                "compute_rtf": 0.045117687794878764
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.7717954060062766,
+                "input_audio_at_first_text_sec": 1.0,
+                "text": "白云。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.6633027601055801,
+                "compute_ttfp_sec": 0.023126337211579084,
+                "input_audio_at_first_text_sec": 1.0,
+                "compute_rtf": 0.04512282859063721
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.7727721938863397,
+                "input_audio_at_first_text_sec": 1.0,
+                "text": "白云。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0451,
+              "p95": 0.0451,
+              "min": 0.0449,
+              "max": 0.0451,
+              "mean": 0.0451
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.0231,
+              "p95": 0.0235,
+              "min": 0.021,
+              "max": 0.0235,
+              "mean": 0.0226
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 0.772,
+              "p95": 0.7727,
+              "min": 0.7718,
+              "max": 0.7728,
+              "mean": 0.7722
+            },
+            "memory": {
+              "peak_used_mib": 17535,
+              "peak_used_gib": 17.124,
+              "peak_free_gib": 6.876,
+              "samples": 21
+            }
+          },
+          "meets_target": true
+        },
+        {
+          "model_id": "qwen3-asr-1.7b",
+          "variant": {
+            "id": "chunk_1.5_push_0.5",
+            "chunk_size_sec": 1.5,
+            "input_push_sec": 0.5
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 0.4802799723111093,
+            "compute_ttfp_sec": 0.02505218517035246,
+            "input_audio_at_first_text_sec": 1.5,
+            "compute_rtf": 0.03267224587254941
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.481209222227335,
+                "compute_ttfp_sec": 0.02679955493658781,
+                "input_audio_at_first_text_sec": 1.5,
+                "compute_rtf": 0.0327354604213341
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.0272318562492728,
+                "input_audio_at_first_text_sec": 1.5,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.4834310971200466,
+                "compute_ttfp_sec": 0.027863322757184505,
+                "input_audio_at_first_text_sec": 1.5,
+                "compute_rtf": 0.032886609015857826
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.0278410078026354,
+                "input_audio_at_first_text_sec": 1.5,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.48245172714814544,
+                "compute_ttfp_sec": 0.02769642509520054,
+                "input_audio_at_first_text_sec": 1.5,
+                "compute_rtf": 0.03281998492497981
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.0272601041942835,
+                "input_audio_at_first_text_sec": 1.5,
+                "text": "白云区。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0328,
+              "p95": 0.0329,
+              "min": 0.0327,
+              "max": 0.0329,
+              "mean": 0.0328
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.0277,
+              "p95": 0.0278,
+              "min": 0.0268,
+              "max": 0.0279,
+              "mean": 0.0275
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 1.0273,
+              "p95": 1.0278,
+              "min": 1.0272,
+              "max": 1.0278,
+              "mean": 1.0274
+            },
+            "memory": {
+              "peak_used_mib": 17535,
+              "peak_used_gib": 17.124,
+              "peak_free_gib": 6.876,
+              "samples": 22
+            }
+          },
+          "meets_target": true
+        },
+        {
+          "model_id": "qwen3-asr-1.7b",
+          "variant": {
+            "id": "chunk_2.0_push_0.5",
+            "chunk_size_sec": 2.0,
+            "input_push_sec": 0.5
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 0.4030354511924088,
+            "compute_ttfp_sec": 0.02581061702221632,
+            "input_audio_at_first_text_sec": 2.0,
+            "compute_rtf": 0.027417494203115407
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.40096486499533057,
+                "compute_ttfp_sec": 0.026329360902309418,
+                "input_audio_at_first_text_sec": 2.0,
+                "compute_rtf": 0.02727663740035157
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.5280418610200286,
+                "input_audio_at_first_text_sec": 2.0,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.4044413850642741,
+                "compute_ttfp_sec": 0.02836425695568323,
+                "input_audio_at_first_text_sec": 2.0,
+                "compute_rtf": 0.027513136369748108
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.5278676520101726,
+                "input_audio_at_first_text_sec": 2.0,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民，白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.4043097859248519,
+                "compute_ttfp_sec": 0.02816457999870181,
+                "input_audio_at_first_text_sec": 2.0,
+                "compute_rtf": 0.02750418400927568
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.527831920888275,
+                "input_audio_at_first_text_sec": 2.0,
+                "text": "白云区。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0275,
+              "p95": 0.0275,
+              "min": 0.0273,
+              "max": 0.0275,
+              "mean": 0.0274
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.0282,
+              "p95": 0.0283,
+              "min": 0.0263,
+              "max": 0.0284,
+              "mean": 0.0276
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 1.5279,
+              "p95": 1.528,
+              "min": 1.5278,
+              "max": 1.528,
+              "mean": 1.5279
+            },
+            "memory": {
+              "peak_used_mib": 17535,
+              "peak_used_gib": 17.124,
+              "peak_free_gib": 6.876,
+              "samples": 28
+            }
+          },
+          "meets_target": false
+        }
+      ]
+    },
+    {
+      "id": "qwen3-asr-0.6b",
+      "path": "/home/aim0/data/models/ASR/Qwen3-ASR-0.6B",
+      "load_sec": 43.1073,
+      "variants": [
+        {
+          "model_id": "qwen3-asr-0.6b",
+          "variant": {
+            "id": "chunk_0.5_push_0.25",
+            "chunk_size_sec": 0.5,
+            "input_push_sec": 0.25
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 5.5782047640532255,
+            "compute_ttfp_sec": 4.236666446086019,
+            "input_audio_at_first_text_sec": 0.5,
+            "compute_rtf": 0.37947132523884713
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.6495022121816874,
+                "compute_ttfp_sec": 0.01363665098324418,
+                "input_audio_at_first_text_sec": 0.5,
+                "compute_rtf": 0.04418401181513101
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.2643172745592892,
+                "input_audio_at_first_text_sec": 0.5,
+                "text": "嗯。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.6478234068490565,
+                "compute_ttfp_sec": 0.013267716858536005,
+                "input_audio_at_first_text_sec": 0.5,
+                "compute_rtf": 0.04406980688516917
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.2642005868256092,
+                "input_audio_at_first_text_sec": 0.5,
+                "text": "嗯。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.6475399220362306,
+                "compute_ttfp_sec": 0.013291985727846622,
+                "input_audio_at_first_text_sec": 0.5,
+                "compute_rtf": 0.044050522122031505
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.2643928648903966,
+                "input_audio_at_first_text_sec": 0.5,
+                "text": "嗯。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0441,
+              "p95": 0.0442,
+              "min": 0.0441,
+              "max": 0.0442,
+              "mean": 0.0441
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.0133,
+              "p95": 0.0136,
+              "min": 0.0133,
+              "max": 0.0136,
+              "mean": 0.0134
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 0.2643,
+              "p95": 0.2644,
+              "min": 0.2642,
+              "max": 0.2644,
+              "mean": 0.2643
+            },
+            "memory": {
+              "peak_used_mib": 17463,
+              "peak_used_gib": 17.054,
+              "peak_free_gib": 6.946,
+              "samples": 14
+            }
+          },
+          "meets_target": true
+        },
+        {
+          "model_id": "qwen3-asr-0.6b",
+          "variant": {
+            "id": "chunk_1.0_push_0.25",
+            "chunk_size_sec": 1.0,
+            "input_push_sec": 0.25
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 0.3546014749445021,
+            "compute_ttfp_sec": 0.012863852083683014,
+            "input_audio_at_first_text_sec": 1.0,
+            "compute_rtf": 0.024122651878247924
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.35674696415662766,
+                "compute_ttfp_sec": 0.015283637214452028,
+                "input_audio_at_first_text_sec": 1.0,
+                "compute_rtf": 0.02426860414587665
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.7663629399612546,
+                "input_audio_at_first_text_sec": 1.0,
+                "text": "白云。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.3537719380110502,
+                "compute_ttfp_sec": 0.013649970758706331,
+                "input_audio_at_first_text_sec": 1.0,
+                "compute_rtf": 0.024066220554410534
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.7651462899520993,
+                "input_audio_at_first_text_sec": 1.0,
+                "text": "白云。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.35316361812874675,
+                "compute_ttfp_sec": 0.013773830141872168,
+                "input_audio_at_first_text_sec": 1.0,
+                "compute_rtf": 0.02402483807354601
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 0.7654467187821865,
+                "input_audio_at_first_text_sec": 1.0,
+                "text": "白云。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0241,
+              "p95": 0.0242,
+              "min": 0.024,
+              "max": 0.0243,
+              "mean": 0.0241
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.0138,
+              "p95": 0.0151,
+              "min": 0.0136,
+              "max": 0.0153,
+              "mean": 0.0142
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 0.7654,
+              "p95": 0.7663,
+              "min": 0.7651,
+              "max": 0.7664,
+              "mean": 0.7657
+            },
+            "memory": {
+              "peak_used_mib": 17463,
+              "peak_used_gib": 17.054,
+              "peak_free_gib": 6.946,
+              "samples": 17
+            }
+          },
+          "meets_target": true
+        },
+        {
+          "model_id": "qwen3-asr-0.6b",
+          "variant": {
+            "id": "chunk_1.5_push_0.5",
+            "chunk_size_sec": 1.5,
+            "input_push_sec": 0.5
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中洛潭竹一村民。白云区中洛潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 0.2548877499066293,
+            "compute_ttfp_sec": 0.016402303241193295,
+            "input_audio_at_first_text_sec": 1.5,
+            "compute_rtf": 0.01733937643657528
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中洛潭竹一村民。白云区中洛潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.2516052359715104,
+                "compute_ttfp_sec": 0.015846251044422388,
+                "input_audio_at_first_text_sec": 1.5,
+                "compute_rtf": 0.017116075219470176
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.0173226851038635,
+                "input_audio_at_first_text_sec": 1.5,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中洛潭竹一村民。白云区中洛潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.2551295980811119,
+                "compute_ttfp_sec": 0.01603161683306098,
+                "input_audio_at_first_text_sec": 1.5,
+                "compute_rtf": 0.01735582876329317
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.0177953550592065,
+                "input_audio_at_first_text_sec": 1.5,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中洛潭竹一村民。白云区中洛潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.2518707448616624,
+                "compute_ttfp_sec": 0.016365883871912956,
+                "input_audio_at_first_text_sec": 1.5,
+                "compute_rtf": 0.017134137125526035
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.0184317301027477,
+                "input_audio_at_first_text_sec": 1.5,
+                "text": "白云区。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0171,
+              "p95": 0.0173,
+              "min": 0.0171,
+              "max": 0.0174,
+              "mean": 0.0172
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.016,
+              "p95": 0.0163,
+              "min": 0.0158,
+              "max": 0.0164,
+              "mean": 0.0161
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 1.0178,
+              "p95": 1.0184,
+              "min": 1.0173,
+              "max": 1.0184,
+              "mean": 1.0178
+            },
+            "memory": {
+              "peak_used_mib": 17463,
+              "peak_used_gib": 17.054,
+              "peak_free_gib": 6.946,
+              "samples": 19
+            }
+          },
+          "meets_target": true
+        },
+        {
+          "model_id": "qwen3-asr-0.6b",
+          "variant": {
+            "id": "chunk_2.0_push_0.5",
+            "chunk_size_sec": 2.0,
+            "input_push_sec": 0.5
+          },
+          "warmup": {
+            "status": "pass",
+            "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+            "elapsed_sec": 0.21400101017206907,
+            "compute_ttfp_sec": 0.017249232158064842,
+            "input_audio_at_first_text_sec": 2.0,
+            "compute_rtf": 0.014557953744501912
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.21159007400274277,
+                "compute_ttfp_sec": 0.015788062009960413,
+                "input_audio_at_first_text_sec": 2.0,
+                "compute_rtf": 0.014393943783961173
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.5185315599665046,
+                "input_audio_at_first_text_sec": 2.0,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 2,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.2137461337260902,
+                "compute_ttfp_sec": 0.015960628166794777,
+                "input_audio_at_first_text_sec": 2.0,
+                "compute_rtf": 0.014540615137043283
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.5181683860719204,
+                "input_audio_at_first_text_sec": 2.0,
+                "text": "白云区。"
+              }
+            },
+            {
+              "iteration": 3,
+              "fast": {
+                "status": "pass",
+                "text": "白云区，中落潭竹一村民。白云区中落潭竹一村的村民跟记者爆料。",
+                "elapsed_sec": 0.21299951616674662,
+                "compute_ttfp_sec": 0.01619335636496544,
+                "input_audio_at_first_text_sec": 2.0,
+                "compute_rtf": 0.014489824610937741
+              },
+              "paced": {
+                "status": "pass",
+                "e2e_ttfp_sec": 1.518337321933359,
+                "input_audio_at_first_text_sec": 2.0,
+                "text": "白云区。"
+              }
+            }
+          ],
+          "summary": {
+            "compute_rtf": {
+              "count": 3,
+              "p50": 0.0145,
+              "p95": 0.0145,
+              "min": 0.0144,
+              "max": 0.0145,
+              "mean": 0.0145
+            },
+            "compute_ttfp_sec": {
+              "count": 3,
+              "p50": 0.016,
+              "p95": 0.0162,
+              "min": 0.0158,
+              "max": 0.0162,
+              "mean": 0.016
+            },
+            "e2e_ttfp_sec": {
+              "count": 3,
+              "p50": 1.5183,
+              "p95": 1.5185,
+              "min": 1.5182,
+              "max": 1.5185,
+              "mean": 1.5183
+            },
+            "memory": {
+              "peak_used_mib": 17463,
+              "peak_used_gib": 17.054,
+              "peak_free_gib": 6.946,
+              "samples": 25
+            }
+          },
+          "meets_target": false
+        }
+      ]
+    }
+  ],
+  "output_dir": "/home/aim0/桌面/tan/Idea/gate0/results/capacity/20260904_125610"
+}

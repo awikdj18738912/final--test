@@ -1,0 +1,282 @@
+{
+  "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+  "timestamp": "2026-09-05T09:15:21.238612+00:00",
+  "status": "pass",
+  "service": "http://127.0.0.1:8012",
+  "health": {
+    "status": "ok",
+    "realtime": {
+      "role": "realtime",
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "active_sessions": 0,
+      "warmup_sec": 5.059
+    },
+    "gpu1_role": "refiner",
+    "sessions": 2,
+    "jobs": 0,
+    "offline": null,
+    "refiner": {
+      "role": "refiner",
+      "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+      "load_sec": 1.552,
+      "warmup_sec": 0.522,
+      "max_new_tokens": 256
+    }
+  },
+  "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000012_38miTB0gDQs_TEST_NET_Y0000000012_38miTB0gDQs_S00164.wav",
+  "audio_sec": 7.98,
+  "frame_ms": 250,
+  "raw_final_visible_sec": 7.836743,
+  "complete_sec": 7.975038,
+  "refinement_events": 2,
+  "revision_events": 2,
+  "final_raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+  "final_visible_text": "我想杀死他，为小小报仇。我真的是不动的呀。",
+  "session_snapshot": {
+    "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+    "tenant_id": "live-smoke-2e81dc3a",
+    "language": "Chinese",
+    "quality_level": "balanced",
+    "created_at": 1788599713.2593813,
+    "raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+    "text": "我想杀死他，为小小报仇。我真的是不动的呀。",
+    "result_version": 10,
+    "input_seq_no": 32,
+    "active": false,
+    "final": true,
+    "latency_ms": {
+      "worker_start": 0.762,
+      "worker_rpc_total": 575.173,
+      "worker_rpc_max": 87.672,
+      "first_result": 783.19,
+      "refiner_rpc_total": 316.178,
+      "refiner_rpc_max": 178.34,
+      "refiner_rpc_count": 2.0,
+      "refiner_inference_total": 291.173,
+      "refiner_inference_max": 155.196,
+      "refiner_inference_count": 2.0,
+      "refiner_queue_total": 25.006,
+      "refiner_queue_max": 23.145,
+      "refiner_queue_count": 2.0,
+      "revision_total": 316.695,
+      "revision_max": 178.497,
+      "revision_count": 2.0,
+      "final_result": 7827.141
+    },
+    "refinement_enabled": true,
+    "refinement_disabled_reason": null,
+    "refinement_results": [
+      {
+        "event": "revision",
+        "source_window_id": "win_187694cc5191a848",
+        "source_span_id": "seg_0001",
+        "validation": {
+          "accepted": true,
+          "reasons": []
+        },
+        "model_finish_reason": "stop",
+        "refiner_inference_ms": 155.196,
+        "refiner_rpc_ms": 178.34
+      },
+      {
+        "event": "revision",
+        "source_window_id": "win_36eb8fcc8211cb54",
+        "source_span_id": "seg_0002",
+        "validation": {
+          "accepted": true,
+          "reasons": []
+        },
+        "model_finish_reason": "stop",
+        "refiner_inference_ms": 135.977,
+        "refiner_rpc_ms": 137.838
+      }
+    ]
+  },
+  "events": [
+    {
+      "event": "ready",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "sample_rate": 16000,
+      "format": "pcm_s16le_mono",
+      "chunk_size_sec": 1.0,
+      "refinement_enabled": true,
+      "refiner_window_k": 1,
+      "received_sec": 0.009937
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 0,
+      "result_version": 1,
+      "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "is_final": false,
+      "text": "我不想。",
+      "raw_text": "我不想。",
+      "received_sec": 0.7926
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 1,
+      "result_version": 2,
+      "base_hash": "51c6ac979af7bada73563d06453a3091699981bb7cfaf91c301df739f45009f6",
+      "is_final": false,
+      "text": "我不想杀他。的。",
+      "raw_text": "我不想杀他。的。",
+      "received_sec": 1.814519
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 2,
+      "result_version": 3,
+      "base_hash": "f2fa74c77de6b83b4735b752efe10a5bd472d93f0eb6cdbc27c324870711d892",
+      "is_final": false,
+      "text": "我不想杀他的，不对。",
+      "raw_text": "我不想杀他的，不对。",
+      "received_sec": 2.809967
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 3,
+      "result_version": 4,
+      "base_hash": "ea9e9885e1778339c7c915d33e8d99f21c1300e682bc2bd853eb9508489d6454",
+      "is_final": false,
+      "text": "我不想杀他，的不对，我想杀死他。",
+      "raw_text": "我不想杀他，的不对，我想杀死他。",
+      "received_sec": 3.840009
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 4,
+      "result_version": 5,
+      "base_hash": "c0acc636335ed97b674a04c7cc0767e55860c59a463f33289cfc71821b309a88",
+      "is_final": false,
+      "text": "我不想杀他，的不对，我想杀死他，为小小。",
+      "raw_text": "我不想杀他，的不对，我想杀死他，为小小。",
+      "received_sec": 4.829264
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 5,
+      "result_version": 6,
+      "base_hash": "855d2273937f01e80456eface086d0a445df24712e0606a06e2c7a78e55a74a5",
+      "is_final": false,
+      "text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是。",
+      "raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是。",
+      "received_sec": 5.829481
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 6,
+      "result_version": 7,
+      "base_hash": "615f3329efe70e55df7cf57441cfe96079aa7ad45a802739368e3e05a4512333",
+      "is_final": false,
+      "text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是，我真的。",
+      "raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是，我真的。",
+      "received_sec": 6.826113
+    },
+    {
+      "event": "revision",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 7,
+      "result_version": 8,
+      "base_hash": "78c226824215e65f1cacdd7fb74e9e6953e6641e90b034c43917eab8e9c99066",
+      "is_final": false,
+      "text": "我想杀死他，为小小报仇。可是，我真的。",
+      "source_window_id": "win_187694cc5191a848",
+      "source_span_id": "seg_0001",
+      "source_text": "我不想杀他，的不对，我想杀死他，为小小报仇。",
+      "clean_text": "我想杀死他，为小小报仇。",
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 10,
+          "expected_source": "我不想杀他，的不对，",
+          "replacement": ""
+        }
+      ],
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "model_finish_reason": "stop",
+      "model_keys": [],
+      "refiner_inference_ms": 155.196,
+      "refiner_rpc_ms": 178.34,
+      "received_sec": 7.004474
+    },
+    {
+      "event": "final",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 8,
+      "result_version": 9,
+      "base_hash": "d2a213352e94819c5731f58b429b3938facd6b3ac28c5fa0e92bef29fa506143",
+      "is_final": true,
+      "text": "我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "received_sec": 7.836743
+    },
+    {
+      "event": "revision",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "window_id": "full_transcript",
+      "base_version": 9,
+      "result_version": 10,
+      "base_hash": "a08140f717d3963fc973216275b2d9498ade2161796d1d577bc5a327e1b65133",
+      "is_final": true,
+      "text": "我想杀死他，为小小报仇。我真的是不动的呀。",
+      "source_window_id": "win_36eb8fcc8211cb54",
+      "source_span_id": "seg_0002",
+      "source_text": "可是我真的是不小心的呀。",
+      "clean_text": "我真的是不动的呀。",
+      "patches": [
+        {
+          "start_char": 0,
+          "end_char": 2,
+          "expected_source": "可是",
+          "replacement": ""
+        },
+        {
+          "start_char": 7,
+          "end_char": 9,
+          "expected_source": "小心",
+          "replacement": "动"
+        }
+      ],
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "model_finish_reason": "stop",
+      "model_keys": [],
+      "refiner_inference_ms": 135.977,
+      "refiner_rpc_ms": 137.838,
+      "received_sec": 7.975014
+    },
+    {
+      "event": "complete",
+      "session_id": "ses_75b193f3bbb440a7b586f5d90d98cf6a",
+      "result_version": 10,
+      "is_final": true,
+      "raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "text": "我想杀死他，为小小报仇。我真的是不动的呀。",
+      "refinement_disabled_reason": null,
+      "refinement_results": 2,
+      "received_sec": 7.975038
+    }
+  ]
+}

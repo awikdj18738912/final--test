@@ -1,0 +1,30 @@
+{
+  "stage": "training_check",
+  "timestamp": "2026-09-04T04:26:43.462547+00:00",
+  "status": "pass",
+  "training_exclusive_ready": true,
+  "message": "Both GPUs are visible and no CUDA compute process is active.",
+  "nvidia": {
+    "ok": true,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "driver": "580.159.04",
+        "memory_used_mib": 15,
+        "memory_total_mib": 24576,
+        "compute_capability": "8.6"
+      },
+      {
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 3090",
+        "driver": "580.159.04",
+        "memory_used_mib": 15,
+        "memory_total_mib": 24576,
+        "compute_capability": "8.6"
+      }
+    ],
+    "stderr": ""
+  },
+  "compute_processes": []
+}

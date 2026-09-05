@@ -1,0 +1,158 @@
+{
+  "benchmark": "Gate 0.5 FunASR Paraformer online",
+  "timestamp": "2026-09-04T06:33:48.556722+00:00",
+  "status": "pass",
+  "backend": {
+    "implementation": "FunASR AutoModel online cache API",
+    "model_id": "iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+    "model_path": "/home/aim0/data/models/funasr/iic/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online",
+    "revision": "master",
+    "device": "cuda:0",
+    "chunk_size": [
+      0,
+      10,
+      5
+    ],
+    "input_chunk_sec": 0.6,
+    "encoder_chunk_look_back": 4,
+    "decoder_chunk_look_back": 0
+  },
+  "environment": {
+    "funasr": "1.2.9",
+    "modelscope": "1.34.0",
+    "torch": "2.5.1",
+    "torchaudio": "2.5.1",
+    "python": "3.10.20 (main, Jun 11 2026, 15:17:37) [GCC 14.3.0]"
+  },
+  "audio": {
+    "path": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0913/BAC009S0913W0321.wav",
+    "utterance_id": "BAC009S0913W0321",
+    "duration_sec": 4.5,
+    "sample_rate": 16000,
+    "reference": "    威灵  电机  今后  兼并  美芝  压缩  机  "
+  },
+  "load_sec": 3.1356,
+  "warmup": {
+    "status": "pass",
+    "text": "威灵电基今后煎饼每日压缩机",
+    "elapsed_sec": 3.514275233261287,
+    "first_text_sec": 3.1694613280706108,
+    "input_audio_at_first_text_sec": 1.2,
+    "rtf": 0.7809500518358417
+  },
+  "buffered_samples": [
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 0.43717247480526567,
+      "first_text_sec": 0.09670408023521304,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.0971494388456146
+    }
+  ],
+  "paced_samples": [
+    {
+      "status": "pass",
+      "text": "威灵电基今后煎饼每日压缩机",
+      "elapsed_sec": 4.259803736116737,
+      "first_text_sec": 0.6571458140388131,
+      "input_audio_at_first_text_sec": 1.2,
+      "rtf": 0.946623052470386
+    }
+  ],
+  "concurrency_samples": [
+    {
+      "concurrency": 1,
+      "status": "pass",
+      "wall_elapsed_sec": 4.2600898700766265,
+      "streams": [
+        {
+          "first_text_sec": 0.6585400891490281,
+          "input_audio_at_first_text_sec": 1.2,
+          "text": "威灵电基今后煎饼每日压缩机",
+          "elapsed_sec": 4.260085709858686,
+          "rtf": 0.9466857133019302,
+          "status": "pass"
+        }
+      ],
+      "summary": {
+        "ttfp_sec": {
+          "count": 1,
+          "p50": 0.6585,
+          "p95": 0.6585,
+          "p99": 0.6585,
+          "min": 0.6585,
+          "max": 0.6585,
+          "mean": 0.6585
+        },
+        "end_to_final_sec": {
+          "count": 1,
+          "p50": 4.2601,
+          "p95": 4.2601,
+          "p99": 4.2601,
+          "min": 4.2601,
+          "max": 4.2601,
+          "mean": 4.2601
+        }
+      }
+    }
+  ],
+  "summary": {
+    "compute_rtf": {
+      "count": 1,
+      "p50": 0.0971,
+      "p95": 0.0971,
+      "p99": 0.0971,
+      "min": 0.0971,
+      "max": 0.0971,
+      "mean": 0.0971
+    },
+    "buffered_ttfp_sec": {
+      "count": 1,
+      "p50": 0.0967,
+      "p95": 0.0967,
+      "p99": 0.0967,
+      "min": 0.0967,
+      "max": 0.0967,
+      "mean": 0.0967
+    },
+    "e2e_ttfp_sec": {
+      "count": 1,
+      "p50": 0.6571,
+      "p95": 0.6571,
+      "p99": 0.6571,
+      "min": 0.6571,
+      "max": 0.6571,
+      "mean": 0.6571
+    },
+    "e2e_end_to_final_sec": {
+      "count": 1,
+      "p50": 4.2598,
+      "p95": 4.2598,
+      "p99": 4.2598,
+      "min": 4.2598,
+      "max": 4.2598,
+      "mean": 4.2598
+    },
+    "cer": {
+      "count": 1,
+      "p50": 0.3846,
+      "p95": 0.3846,
+      "p99": 0.3846,
+      "min": 0.3846,
+      "max": 0.3846,
+      "mean": 0.3846
+    },
+    "memory": {
+      "peak_used_mib": 1227,
+      "peak_used_gib": 1.198,
+      "samples": 70
+    },
+    "metric_definition": {
+      "compute_rtf": "Buffered-input elapsed time divided by audio duration; decoder throughput only.",
+      "e2e_ttfp_sec": "First non-empty text while audio chunks arrive at real-time timestamps.",
+      "e2e_end_to_final_sec": "Paced input start to final online result; this is not an offline 2-pass result.",
+      "cer": "Character error rate after removing whitespace and punctuation from AISHELL reference and hypothesis."
+    }
+  }
+}

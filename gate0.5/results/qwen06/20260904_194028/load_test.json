@@ -1,0 +1,322 @@
+{
+  "benchmark": "Gate 1 realtime WebSocket paced load",
+  "timestamp": "2026-09-04T11:40:28.447340+00:00",
+  "status": "pass",
+  "service_url": "http://127.0.0.1:8001",
+  "service_health_before_run": {
+    "status": "ok",
+    "realtime": {
+      "role": "realtime",
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-0.6B",
+      "active_sessions": 0,
+      "warmup_sec": 5.169
+    },
+    "offline": {
+      "role": "offline",
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-0.6B",
+      "active_sessions": 0,
+      "warmup_sec": 4.2
+    },
+    "sessions": 0,
+    "jobs": 0
+  },
+  "audio": "/home/aim0/data/datasets/ASR/aishell1/data/AISHELL-1/data_aishell/wav/test/S0768/BAC009S0768W0452.wav",
+  "audio_sec_per_session": 5.0,
+  "frame_ms": 250,
+  "repetitions": 3,
+  "tiers": [
+    {
+      "concurrency": 1,
+      "pass_count": 3,
+      "total_count": 3,
+      "first_result_sec": {
+        "count": 3,
+        "p50": 0.7699,
+        "p95": 0.8165,
+        "p99": 0.8207,
+        "min": 0.7697,
+        "max": 0.8217,
+        "mean": 0.7871
+      },
+      "final_result_sec": {
+        "count": 3,
+        "p50": 4.7781,
+        "p95": 4.7929,
+        "p99": 4.7942,
+        "min": 4.7777,
+        "max": 4.7945,
+        "mean": 4.7834
+      }
+    },
+    {
+      "concurrency": 2,
+      "pass_count": 6,
+      "total_count": 6,
+      "first_result_sec": {
+        "count": 6,
+        "p50": 0.7764,
+        "p95": 0.7833,
+        "p99": 0.7835,
+        "min": 0.769,
+        "max": 0.7835,
+        "mean": 0.7763
+      },
+      "final_result_sec": {
+        "count": 6,
+        "p50": 4.8012,
+        "p95": 4.8015,
+        "p99": 4.8015,
+        "min": 4.8001,
+        "max": 4.8015,
+        "mean": 4.8009
+      }
+    },
+    {
+      "concurrency": 4,
+      "pass_count": 12,
+      "total_count": 12,
+      "first_result_sec": {
+        "count": 12,
+        "p50": 0.788,
+        "p95": 0.8082,
+        "p99": 0.8087,
+        "min": 0.7677,
+        "max": 0.8089,
+        "mean": 0.788
+      },
+      "final_result_sec": {
+        "count": 12,
+        "p50": 4.8404,
+        "p95": 4.8414,
+        "p99": 4.8415,
+        "min": 4.8393,
+        "max": 4.8415,
+        "mean": 4.8404
+      }
+    }
+  ],
+  "rounds": [
+    {
+      "concurrency": 1,
+      "repeat": 1,
+      "sessions": [
+        {
+          "session_id": "ses_acd2c2ac434b4c11a7daf4bccdd0bb9d",
+          "status": "pass",
+          "first_result_sec": 0.8217278742231429,
+          "final_result_sec": 4.794517436996102,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 1,
+      "repeat": 2,
+      "sessions": [
+        {
+          "session_id": "ses_d9c641bbbe9c42b4b170c42c969fbd3a",
+          "status": "pass",
+          "first_result_sec": 0.7699036998674273,
+          "final_result_sec": 4.778093360830098,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 1,
+      "repeat": 3,
+      "sessions": [
+        {
+          "session_id": "ses_21f9cc33f0ba4a1fa190ddcd0b99de9d",
+          "status": "pass",
+          "first_result_sec": 0.7696680277585983,
+          "final_result_sec": 4.777664390858263,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 2,
+      "repeat": 1,
+      "sessions": [
+        {
+          "session_id": "ses_1a3d5b5985cb4831aff0344e2eb20d26",
+          "status": "pass",
+          "first_result_sec": 0.7690043481998146,
+          "final_result_sec": 4.8003066149540246,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_7952aea7e4434c55be26736e8fac2ae5",
+          "status": "pass",
+          "first_result_sec": 0.7823878191411495,
+          "final_result_sec": 4.800078202039003,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 2,
+      "repeat": 2,
+      "sessions": [
+        {
+          "session_id": "ses_513bf60a9381400aa5013c135a278c57",
+          "status": "pass",
+          "first_result_sec": 0.7699837433174253,
+          "final_result_sec": 4.801186226308346,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_d3b4c5661c724b15a1d5bbdf6b26cb82",
+          "status": "pass",
+          "first_result_sec": 0.7826652722433209,
+          "final_result_sec": 4.801528487354517,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 2,
+      "repeat": 3,
+      "sessions": [
+        {
+          "session_id": "ses_35e1a31538f14bf9a73df4d55884b92a",
+          "status": "pass",
+          "first_result_sec": 0.7704962240532041,
+          "final_result_sec": 4.801285138819367,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_7ec10ba91638484d80943c60149597d7",
+          "status": "pass",
+          "first_result_sec": 0.7835081489756703,
+          "final_result_sec": 4.801206931006163,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "repeat": 1,
+      "sessions": [
+        {
+          "session_id": "ses_8a2be36e995f4bba87da44fe1fae622c",
+          "status": "pass",
+          "first_result_sec": 0.768197082914412,
+          "final_result_sec": 4.841413551010191,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_a174888481004627afb4318103697acd",
+          "status": "pass",
+          "first_result_sec": 0.7832691869698465,
+          "final_result_sec": 4.841486620251089,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_370654ea41da4e608b8c8f62694abf15",
+          "status": "pass",
+          "first_result_sec": 0.7952205971814692,
+          "final_result_sec": 4.840152615215629,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_21ec460d8d7142f5b40670521eb1a9ec",
+          "status": "pass",
+          "first_result_sec": 0.8088685381226242,
+          "final_result_sec": 4.839516443200409,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "repeat": 2,
+      "sessions": [
+        {
+          "session_id": "ses_b8c62cf4d93f41aa83f312b84f5b90c2",
+          "status": "pass",
+          "first_result_sec": 0.7689671800471842,
+          "final_result_sec": 4.840579268988222,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_a22a5ed1d5ff4d3796ad13e6e5854c12",
+          "status": "pass",
+          "first_result_sec": 0.782245971262455,
+          "final_result_sec": 4.840310069266707,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_a4ff6947ac0f44d3bf87f81d16c97195",
+          "status": "pass",
+          "first_result_sec": 0.7949798372574151,
+          "final_result_sec": 4.83975240541622,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_4deaff6877304d5fa4ac22471c07a4a0",
+          "status": "pass",
+          "first_result_sec": 0.8076384318992496,
+          "final_result_sec": 4.839250061195344,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "repeat": 3,
+      "sessions": [
+        {
+          "session_id": "ses_955949ddab174f849f2355855c5f5b58",
+          "status": "pass",
+          "first_result_sec": 0.7676976113580167,
+          "final_result_sec": 4.840625726152211,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_20fe732d6bd84d4292be98554032cda5",
+          "status": "pass",
+          "first_result_sec": 0.7806755006313324,
+          "final_result_sec": 4.841158219613135,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_db06fc6bc974460190011385da8d06a9",
+          "status": "pass",
+          "first_result_sec": 0.792815484572202,
+          "final_result_sec": 4.840627488680184,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        },
+        {
+          "session_id": "ses_183d8e0234534a6fa883a844c6ad235b",
+          "status": "pass",
+          "first_result_sec": 0.8055401309393346,
+          "final_result_sec": 4.840318584814668,
+          "result_version": 6,
+          "final_text": "白云区，中落潭竹一村民。"
+        }
+      ]
+    }
+  ]
+}

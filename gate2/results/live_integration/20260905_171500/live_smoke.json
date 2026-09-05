@@ -1,0 +1,484 @@
+{
+  "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+  "timestamp": "2026-09-05T09:15:00.571420+00:00",
+  "status": "pass",
+  "service": "http://127.0.0.1:8012",
+  "health": {
+    "status": "ok",
+    "realtime": {
+      "role": "realtime",
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "active_sessions": 0,
+      "warmup_sec": 5.059
+    },
+    "gpu1_role": "refiner",
+    "sessions": 1,
+    "jobs": 0,
+    "offline": null,
+    "refiner": {
+      "role": "refiner",
+      "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+      "load_sec": 1.552,
+      "warmup_sec": 0.522,
+      "max_new_tokens": 256
+    }
+  },
+  "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000023_6bDGVHqtuFk_TEST_NET_Y0000000023_6bDGVHqtuFk_S00046.wav",
+  "audio_sec": 22.97,
+  "frame_ms": 250,
+  "raw_final_visible_sec": 22.874716,
+  "complete_sec": 23.208046,
+  "refinement_events": 3,
+  "revision_events": 1,
+  "final_raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+  "final_visible_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+  "session_snapshot": {
+    "session_id": "ses_3245329a945f49d380462e8775255b4a",
+    "tenant_id": "live-smoke-ea4b9121",
+    "language": "Chinese",
+    "quality_level": "balanced",
+    "created_at": 1788599677.3590999,
+    "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+    "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+    "result_version": 21,
+    "input_seq_no": 92,
+    "active": false,
+    "final": true,
+    "latency_ms": {
+      "worker_start": 0.802,
+      "worker_rpc_total": 2219.469,
+      "worker_rpc_max": 120.868,
+      "first_result": 833.041,
+      "refiner_rpc_total": 1365.023,
+      "refiner_rpc_max": 682.398,
+      "refiner_rpc_count": 3.0,
+      "refiner_inference_total": 1335.575,
+      "refiner_inference_max": 679.793,
+      "refiner_inference_count": 3.0,
+      "refiner_queue_total": 29.446,
+      "refiner_queue_max": 24.794,
+      "refiner_queue_count": 3.0,
+      "revision_total": 1366.134,
+      "revision_max": 682.864,
+      "revision_count": 3.0,
+      "final_result": 22865.017
+    },
+    "refinement_enabled": true,
+    "refinement_disabled_reason": null,
+    "refinement_results": [
+      {
+        "event": "refiner_reject",
+        "source_window_id": "win_1e057236ff873a1f",
+        "source_span_id": "seg_0001",
+        "validation": {
+          "accepted": false,
+          "reasons": [
+            "change_ratio_too_large"
+          ]
+        },
+        "model_finish_reason": "stop",
+        "refiner_inference_ms": 324.967,
+        "refiner_rpc_ms": 349.762
+      },
+      {
+        "event": "revision",
+        "source_window_id": "win_e45741fcc059a506",
+        "source_span_id": "seg_0002",
+        "validation": {
+          "accepted": true,
+          "reasons": []
+        },
+        "model_finish_reason": "stop",
+        "refiner_inference_ms": 679.793,
+        "refiner_rpc_ms": 682.398
+      },
+      {
+        "event": "refiner_keep",
+        "source_window_id": "win_bb9c1502f3042147",
+        "source_span_id": "seg_0003",
+        "validation": {
+          "accepted": true,
+          "reasons": []
+        },
+        "model_finish_reason": "stop",
+        "refiner_inference_ms": 330.815,
+        "refiner_rpc_ms": 332.863
+      }
+    ]
+  },
+  "events": [
+    {
+      "event": "ready",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "sample_rate": 16000,
+      "format": "pcm_s16le_mono",
+      "chunk_size_sec": 1.0,
+      "refinement_enabled": true,
+      "refiner_window_k": 1,
+      "received_sec": 0.010079
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 0,
+      "result_version": 1,
+      "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "is_final": false,
+      "text": "他在话剧里面，他。",
+      "raw_text": "他在话剧里面，他。",
+      "received_sec": 0.842556
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 1,
+      "result_version": 2,
+      "base_hash": "ac8921ed0cb0430ae108981169e5e9c2ea7995ddb5050ee1c838dc841f19bcd9",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不。",
+      "raw_text": "他在话剧里面他演我父亲啊不。",
+      "received_sec": 1.835545
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 2,
+      "result_version": 3,
+      "base_hash": "c4f98ff67623199a3adb5bfe618f863b7158e307b65d2f32d526a979777239e3",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫。",
+      "received_sec": 3.840816
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 3,
+      "result_version": 4,
+      "base_hash": "5bcd6a377f0887503b12e090074c2356f19f9d483dc115f2012499afb971d5a0",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我。",
+      "received_sec": 5.840124
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 4,
+      "result_version": 5,
+      "base_hash": "abaac2fbe8011797111cdfb754c85860ce64b88b3862d7dccff09bc4727b7e57",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好。",
+      "received_sec": 6.846925
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 5,
+      "result_version": 6,
+      "base_hash": "80a234d45a3561dfdfb731a8dcdc195b31524693a611dea560326a8825ff7219",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。",
+      "received_sec": 7.849847
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 6,
+      "result_version": 7,
+      "base_hash": "463e272a6734b4eb61b085406d2e8f8fbda25d00e3a6e1bc85d0964c8faa5dfb",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候。",
+      "received_sec": 8.853008
+    },
+    {
+      "event": "refiner_reject",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "base_version": 7,
+      "result_version": 7,
+      "base_hash": "bd3ef4dcbe89d1effd75fb136584b75330df18f6c5da1756c2388b270d8f40c4",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候。",
+      "source_window_id": "win_1e057236ff873a1f",
+      "source_span_id": "seg_0001",
+      "source_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。",
+      "clean_text": "他在话剧里面演他演他的妻子，演得特别好。",
+      "patches": [
+        {
+          "start_char": 6,
+          "end_char": 6,
+          "expected_source": "",
+          "replacement": "演"
+        },
+        {
+          "start_char": 7,
+          "end_char": 32,
+          "expected_source": "演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我",
+          "replacement": ""
+        },
+        {
+          "start_char": 37,
+          "end_char": 37,
+          "expected_source": "",
+          "replacement": "，演得特别好"
+        }
+      ],
+      "validation": {
+        "accepted": false,
+        "reasons": [
+          "change_ratio_too_large"
+        ]
+      },
+      "model_finish_reason": "stop",
+      "model_keys": [],
+      "refiner_inference_ms": 324.967,
+      "refiner_rpc_ms": 349.762,
+      "received_sec": 9.203167
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 7,
+      "result_version": 8,
+      "base_hash": "bd3ef4dcbe89d1effd75fb136584b75330df18f6c5da1756c2388b270d8f40c4",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯。",
+      "received_sec": 9.857678
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 8,
+      "result_version": 9,
+      "base_hash": "89b919bdbba926b2c448a6a4ac420f43f760c3461ca5369cb1b4a1296fe2bf04",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班。",
+      "received_sec": 10.848621
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 9,
+      "result_version": 10,
+      "base_hash": "10cb87c77dbf2f8daca7c6096e672fb3bb62f7dd70155257e9599e9c4ca8154d",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候。",
+      "received_sec": 11.846533
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 10,
+      "result_version": 11,
+      "base_hash": "c3ed03f1f6e8fcf6210470ed02d3244752acd18c340371ca48a5f0fd627d090a",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊。",
+      "received_sec": 12.852841
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 11,
+      "result_version": 12,
+      "base_hash": "bd82d8b10151cae486a98ca3fd885adce59128f6514323f1bb85fb73816113c0",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边。",
+      "received_sec": 13.843359
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 12,
+      "result_version": 13,
+      "base_hash": "65aa95d3c24ea392f295b890541b198ebf5040f329dc25078bc73d3ab03b40ea",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流怎样。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流怎样。",
+      "received_sec": 14.848214
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 13,
+      "result_version": 14,
+      "base_hash": "e5ece1bffc03f0dbfe7189982a5e8ec6783a873eb6023a70a45b7ac59661a7d3",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的。",
+      "received_sec": 15.86595
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 14,
+      "result_version": 15,
+      "base_hash": "b1f7b040ae7465429d1d44babb2506c1134af4a2dcce4c63f6a69be214644700",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。",
+      "received_sec": 16.845753
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 15,
+      "result_version": 16,
+      "base_hash": "1a152b4987fd61058324fc8c4f97ef91ec36661255db9b17a409fff33d77c9cb",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不。",
+      "received_sec": 18.867397
+    },
+    {
+      "event": "revision",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 16,
+      "result_version": 17,
+      "base_hash": "66f5f851ab5f37091316a01fcbbbd0c480597f7aef0f5f0ccc498d3409c9e9c3",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不。",
+      "source_window_id": "win_e45741fcc059a506",
+      "source_span_id": "seg_0002",
+      "source_text": "有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。",
+      "clean_text": "有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。",
+      "patches": [
+        {
+          "start_char": 8,
+          "end_char": 9,
+          "expected_source": "啊",
+          "replacement": ""
+        },
+        {
+          "start_char": 15,
+          "end_char": 16,
+          "expected_source": "啊",
+          "replacement": ""
+        },
+        {
+          "start_char": 32,
+          "end_char": 33,
+          "expected_source": "啊",
+          "replacement": ""
+        }
+      ],
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "model_finish_reason": "stop",
+      "model_keys": [
+        "汉斯"
+      ],
+      "refiner_inference_ms": 679.793,
+      "refiner_rpc_ms": 682.398,
+      "received_sec": 19.550375
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 17,
+      "result_version": 18,
+      "base_hash": "7665dcac9fb7150a7b8fc915010719a9c10c0cdff8d91edad5658740d075a202",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫。",
+      "received_sec": 19.858728
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 18,
+      "result_version": 19,
+      "base_hash": "50887f7002e3412fa2ad3bf443b44df4b36d1524c114ea8fb50e2df03b64d5ea",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了，这。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了，这。",
+      "received_sec": 20.853299
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 19,
+      "result_version": 20,
+      "base_hash": "e784f6ad9e10123e39c5fcede8f1be0727ae87724d6709d36383cd22157b3367",
+      "is_final": false,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了，这个时候。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了，这个时候。",
+      "received_sec": 21.840875
+    },
+    {
+      "event": "final",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "window_id": "full_transcript",
+      "base_version": 20,
+      "result_version": 21,
+      "base_hash": "70ee0d3016aba6248d33473bc0de595d704c8554b283e9213a760840450511aa",
+      "is_final": true,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "received_sec": 22.874716
+    },
+    {
+      "event": "refiner_keep",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "base_version": 21,
+      "result_version": 21,
+      "base_hash": "5c939c42e5607cce3fd9c371e0bc3858c5546ed45ac62c72dc63b0ebe3a082e8",
+      "is_final": true,
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "source_window_id": "win_bb9c1502f3042147",
+      "source_span_id": "seg_0003",
+      "source_text": "我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "clean_text": "我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "patches": [],
+      "validation": {
+        "accepted": true,
+        "reasons": []
+      },
+      "model_finish_reason": "stop",
+      "model_keys": [],
+      "refiner_inference_ms": 330.815,
+      "refiner_rpc_ms": 332.863,
+      "received_sec": 23.207946
+    },
+    {
+      "event": "complete",
+      "session_id": "ses_3245329a945f49d380462e8775255b4a",
+      "result_version": 21,
+      "is_final": true,
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "refinement_disabled_reason": null,
+      "refinement_results": 3,
+      "received_sec": 23.208046
+    }
+  ]
+}
