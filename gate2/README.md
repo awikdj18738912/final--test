@@ -186,6 +186,34 @@ Gate2 质量完成。
 Refiner 仍会对干净文本过度改写，Gate2 不能宣称质量单调改善。下一步应扩充并
 人工复核该清单，区分参考文本误差与模型负向编辑，并加入拼音/声学证据后重测。
 
+## 扩展评测清单（待人工复核）
+
+`build_real_audio_manifest.py` 可以从本地 WenetSpeech test-net 缓存稳定生成
+`real_audio_manifest_expanded.json`。当前清单包含 155 条不同音频：原有 35 条
+curated 样本，以及按直通、重复、口癖、自我修正、数字和中英混说各抽取 20 条的
+120 条候选。候选记录统一标记为
+`annotation_status=heuristic_pending_manual_review`，分类规则只用于覆盖面采样，
+不能作为人工真值或论文结论。
+
+先生成并检查清单：
+
+```bash
+PYTHONPATH=. python gate2/build_real_audio_manifest.py
+```
+
+人工复核并补齐 `expected_clean`、`annotation_status=curated` 后，才运行完整 GPU
+评测：
+
+```bash
+PYTHONPATH=. python -m gate2.real_audio_eval \
+  --manifest gate2/real_audio_manifest_expanded.json \
+  --url http://127.0.0.1:8012
+```
+
+评测输出会分别报告 `reviewed_sample_count`、
+`pending_manual_review_count` 和 `quality_ready`；服务成功运行不等于质量清单已
+具备正式验收资格。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为

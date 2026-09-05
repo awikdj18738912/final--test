@@ -1,0 +1,1037 @@
+{
+  "dataset": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/wenetspeech_test_net.json",
+  "dataset_note": "Generated deterministically from the local WenetSpeech test-net cache. Heuristic categories are sampling aids only; records marked heuristic_pending_manual_review must be manually reviewed before quality claims.",
+  "base_manifest": "/home/aim0/桌面/tan/Idea/gate2/real_audio_manifest.json",
+  "selection": {
+    "per_category_requested": 20,
+    "added_by_category": {
+      "passthrough": 20,
+      "repetition": 20,
+      "filler": 20,
+      "self_correction": 20,
+      "numbers": 20,
+      "english_mix": 20
+    }
+  },
+  "records": [
+    {
+      "id": "wenet_00001",
+      "line": 1,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00002",
+      "line": 2,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00003",
+      "line": 3,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00004",
+      "line": 4,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00005",
+      "line": 5,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00006",
+      "line": 6,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00007",
+      "line": 7,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00008",
+      "line": 8,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00009",
+      "line": 9,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00010",
+      "line": 10,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00011",
+      "line": 11,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00012",
+      "line": 12,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00013",
+      "line": 13,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00014",
+      "line": 14,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00015",
+      "line": 15,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00016",
+      "line": 16,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00017",
+      "line": 17,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00018",
+      "line": 18,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00019",
+      "line": 19,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00020",
+      "line": 20,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00021",
+      "line": 21,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00022",
+      "line": 22,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00023",
+      "line": 23,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00024",
+      "line": 24,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00025",
+      "line": 25,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00026",
+      "line": 26,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00027",
+      "line": 27,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00028",
+      "line": 28,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00029",
+      "line": 29,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_00030",
+      "line": 30,
+      "category": "passthrough"
+    },
+    {
+      "id": "wenet_s00309",
+      "line": 310,
+      "category": "repetition",
+      "expected_clean": "装这个监控，其实也是为了偷窥，一点小利益。"
+    },
+    {
+      "id": "wenet_self_correction",
+      "line": 2693,
+      "category": "self_correction",
+      "expected_clean": "我想杀死他，为小小报仇。可是我真的是不小心的呀。"
+    },
+    {
+      "id": "wenet_multi_revision",
+      "line": 4241,
+      "category": "self_correction"
+    },
+    {
+      "id": "wenet_filler_repetition",
+      "line": 541,
+      "category": "filler_repetition",
+      "expected_clean": "不过眼皮现在摸起来特别油油的要死而且它这个是属于按会按出手指印儿的那种看到吗它不是牢牢吸附在你的皮肤上的"
+    },
+    {
+      "id": "wenet_filler_repetition_2",
+      "line": 11479,
+      "category": "filler_repetition",
+      "expected_clean": "学习不注入血脉不注入情感这些来讲对她来讲是重复她原来的自我感"
+    },
+    {
+      "id": "heuristic_passthrough_0001",
+      "line": 8783,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0002",
+      "line": 421,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0003",
+      "line": 19252,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0004",
+      "line": 2726,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0005",
+      "line": 5187,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0006",
+      "line": 19867,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0007",
+      "line": 17858,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0008",
+      "line": 20516,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0009",
+      "line": 18910,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0010",
+      "line": 12295,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0011",
+      "line": 16412,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0012",
+      "line": 16746,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0013",
+      "line": 17685,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0014",
+      "line": 10643,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0015",
+      "line": 12347,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0016",
+      "line": 18549,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0017",
+      "line": 14403,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0018",
+      "line": 11048,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0019",
+      "line": 18907,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_passthrough_0020",
+      "line": 6569,
+      "category": "passthrough",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0021",
+      "line": 13287,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0022",
+      "line": 22057,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0023",
+      "line": 10641,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0024",
+      "line": 23679,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0025",
+      "line": 20979,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0026",
+      "line": 14425,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0027",
+      "line": 2547,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0028",
+      "line": 23152,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0029",
+      "line": 9347,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0030",
+      "line": 14914,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0031",
+      "line": 8631,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0032",
+      "line": 2072,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0033",
+      "line": 2776,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0034",
+      "line": 24620,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0035",
+      "line": 11929,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0036",
+      "line": 9327,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0037",
+      "line": 798,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0038",
+      "line": 3397,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0039",
+      "line": 11281,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_repetition_0040",
+      "line": 12953,
+      "category": "repetition",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0041",
+      "line": 8309,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0042",
+      "line": 4275,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0043",
+      "line": 3044,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0044",
+      "line": 2369,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0045",
+      "line": 24747,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0046",
+      "line": 9481,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0047",
+      "line": 23215,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0048",
+      "line": 3285,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0049",
+      "line": 17511,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0050",
+      "line": 1372,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0051",
+      "line": 15724,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0052",
+      "line": 22273,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0053",
+      "line": 3849,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0054",
+      "line": 7819,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0055",
+      "line": 12754,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0056",
+      "line": 13631,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0057",
+      "line": 8691,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0058",
+      "line": 9483,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0059",
+      "line": 15771,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_filler_0060",
+      "line": 5825,
+      "category": "filler",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0061",
+      "line": 3864,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0062",
+      "line": 7679,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0063",
+      "line": 8192,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0064",
+      "line": 12486,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0065",
+      "line": 13568,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0066",
+      "line": 11390,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0067",
+      "line": 23136,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0068",
+      "line": 18646,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0069",
+      "line": 22245,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0070",
+      "line": 6895,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0071",
+      "line": 21273,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0072",
+      "line": 14120,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0073",
+      "line": 23142,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0074",
+      "line": 169,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0075",
+      "line": 544,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0076",
+      "line": 969,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0077",
+      "line": 20289,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0078",
+      "line": 6282,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0079",
+      "line": 17295,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_self_correction_0080",
+      "line": 23162,
+      "category": "self_correction",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0081",
+      "line": 15665,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0082",
+      "line": 15853,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0083",
+      "line": 16937,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0084",
+      "line": 15025,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0085",
+      "line": 24557,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0086",
+      "line": 10246,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0087",
+      "line": 5168,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0088",
+      "line": 23134,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0089",
+      "line": 21331,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0090",
+      "line": 18902,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0091",
+      "line": 1303,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0092",
+      "line": 23494,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0093",
+      "line": 14284,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0094",
+      "line": 9512,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0095",
+      "line": 23979,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0096",
+      "line": 14366,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0097",
+      "line": 21605,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0098",
+      "line": 7341,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0099",
+      "line": 24757,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_numbers_0100",
+      "line": 22158,
+      "category": "numbers",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0101",
+      "line": 13669,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0102",
+      "line": 2919,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0103",
+      "line": 57,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0104",
+      "line": 12907,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0105",
+      "line": 11930,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0106",
+      "line": 13353,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0107",
+      "line": 11615,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0108",
+      "line": 3628,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0109",
+      "line": 8292,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0110",
+      "line": 12841,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0111",
+      "line": 5202,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0112",
+      "line": 14500,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0113",
+      "line": 6240,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0114",
+      "line": 11904,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0115",
+      "line": 12696,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0116",
+      "line": 8274,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0117",
+      "line": 8357,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0118",
+      "line": 11958,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0119",
+      "line": 13255,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "heuristic_english_mix_0120",
+      "line": 12829,
+      "category": "english_mix",
+      "annotation_status": "heuristic_pending_manual_review",
+      "expected_clean_source": "reference_default"
+    }
+  ]
+}
