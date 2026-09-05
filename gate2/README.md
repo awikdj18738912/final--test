@@ -214,6 +214,25 @@ PYTHONPATH=. python -m gate2.real_audio_eval \
 `pending_manual_review_count` 和 `quality_ready`；服务成功运行不等于质量清单已
 具备正式验收资格。
 
+### 人工标注表
+
+为避免直接编辑 JSON，可生成 Excel/表格软件可打开的
+`real_audio_annotation_sheet.csv`：
+
+```bash
+PYTHONPATH=. python gate2/build_annotation_sheet.py
+```
+
+对每条候选填写：
+
+- `expected_clean`：听完音频后的标准文本；
+- `decision`：只能填 `keep`、`correct` 或 `reject`；
+- `final_category`：人工确认后的类别；
+- `reviewer_notes`：记录重复、口癖、专名、数字或其他判断。
+
+当完成人工复核后，需将标注回写到 manifest 并将记录标记为
+`annotation_status=curated`，再运行正式 GPU 评测。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为
