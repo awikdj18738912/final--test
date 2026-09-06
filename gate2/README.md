@@ -233,6 +233,20 @@ PYTHONPATH=. python gate2/build_annotation_sheet.py
 当完成人工复核后，需将标注回写到 manifest 并将记录标记为
 `annotation_status=curated`，再运行正式 GPU 评测。
 
+### 本地音频标注页面
+
+为了在远程机器上直接播放音频，可运行本地标注服务（不使用 GPU）：
+
+```bash
+PYTHONPATH=. /home/aim0/data/conda/envs/qwen3-asr/bin/python \
+  gate2/annotation_server.py
+```
+
+然后在远程桌面的浏览器打开 `http://127.0.0.1:8030`。如果使用 SSH 本地端口转发，将远程
+8030 端口转发后在本机打开同一地址。页面只绑定 `127.0.0.1`，不会向公网开放。
+页面可以播放当前音频、切换记录、按类别/状态筛选，并在保存后安全回写
+`real_audio_annotation_sheet.csv`。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为

@@ -1,0 +1,141 @@
+<main>
+  <header>
+    <h1>Gate2 音频人工标注</h1>
+    <p id="progress" aria-live="polite">正在加载记录……</p>
+  </header>
+  <section class="filters" aria-label="筛选记录">
+    <label>类别 <select id="category-filter"></select></label>
+    <label>状态 <select id="status-filter"></select></label>
+    <label>记录 <select id="record-select"></select></label>
+  </section>
+  <section class="navigation" aria-label="切换记录">
+    <button id="previous" type="button">上一条</button>
+    <button id="next" type="button">下一条</button>
+  </section>
+  <section id="review" hidden>
+    <h2 id="record-title"></h2>
+    <audio id="audio" controls preload="metadata"></audio>
+    <dl>
+      <div><dt>时长</dt><dd id="duration"></dd></div>
+      <div><dt>当前类别</dt><dd id="current-category"></dd></div>
+      <div><dt>数据集参考文本</dt><dd id="reference-text"></dd></div>
+    </dl>
+    <label>正确文本
+      <textarea id="expected-clean" rows="4" placeholder="听完音频后填写正确、干净的文本"></textarea>
+    </label>
+    <div class="inputs">
+      <label>结论
+        <select id="decision">
+          <option value="">暂不标注</option>
+          <option value="keep">keep：无需修改</option>
+          <option value="correct">correct：需要纠正</option>
+          <option value="reject">reject：排除样本</option>
+        </select>
+      </label>
+      <label>最终类别
+        <select id="final-category">
+          <option value="passthrough">passthrough</option>
+          <option value="repetition">repetition</option>
+          <option value="filler_repetition">filler_repetition</option>
+          <option value="self_correction">self_correction</option>
+          <option value="numbers">numbers</option>
+          <option value="english_mix">english_mix</option>
+          <option value="other">other</option>
+        </select>
+      </label>
+    </div>
+    <label>备注
+      <textarea id="notes" rows="3" placeholder="例如：删除重复字；数字听不清；参考文本错误"></textarea>
+    </label>
+    <div class="save-row">
+      <button id="save" type="button">保存当前标注</button>
+      <span id="save-status" aria-live="polite"></span>
+    </div>
+  </section>
+</main>
+<style>
+  main { box-sizing: border-box; font-family: system-ui, sans-serif; margin: 0 auto; max-width: 900px; padding: 24px; color: #1f2937; }
+  h1 { margin: 0; } h2 { margin: 16px 0 8px; } p { color: #4b5563; }
+  .filters, .inputs, .navigation { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+  label { display: grid; gap: 6px; font-weight: 600; flex: 1 1 220px; }
+  select, textarea, button { font: inherit; padding: 8px; }
+  textarea { resize: vertical; width: 100%; box-sizing: border-box; font-weight: 400; }
+  button { cursor: pointer; } audio { width: 100%; margin: 12px 0; }
+  dl { display: grid; gap: 8px; margin: 12px 0; } dl div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; }
+  dt { font-weight: 600; } dd { margin: 0; white-space: pre-wrap; }
+  .save-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+  #save-status { color: #065f46; } #save-status.error { color: #991b1b; }
+  @media (max-width: 600px) { main { padding: 14px; } dl div { grid-template-columns: 1fr; gap: 2px; } }
+</style>
+<script>
+  const state = { records: [], filtered: [], current: 0 };
+  const fields = {
+    category: document.getElementById('category-filter'), status: document.getElementById('status-filter'),
+    select: document.getElementById('record-select'), review: document.getElementById('review'),
+    title: document.getElementById('record-title'), audio: document.getElementById('audio'),
+    duration: document.getElementById('duration'), currentCategory: document.getElementById('current-category'),
+    reference: document.getElementById('reference-text'), expected: document.getElementById('expected-clean'),
+    decision: document.getElementById('decision'), finalCategory: document.getElementById('final-category'),
+    notes: document.getElementById('notes'), progress: document.getElementById('progress'),
+    save: document.getElementById('save'), saveStatus: document.getElementById('save-status'),
+  };
+  function option(value, label) { const item = document.createElement('option'); item.value = value; item.textContent = label; return item; }
+  function populateFilter(element, values, allLabel) { element.replaceChildren(option('', allLabel)); [...values].sort().forEach(value => element.append(option(value, value))); }
+  function applyFilters() {
+    state.filtered = state.records.filter(record => (!fields.category.value || record.current_category === fields.category.value)
+      && (!fields.status.value || record.annotation_status === fields.status.value));
+    state.current = Math.min(state.current, Math.max(0, state.filtered.length - 1));
+    fields.select.replaceChildren(...state.filtered.map((record, index) => option(String(index), `${record.id} · ${record.annotation_status}`)));
+    render();
+  }
+  function render() {
+    const record = state.filtered[state.current];
+    fields.progress.textContent = `显示 ${state.filtered.length} / ${state.records.length} 条；当前已确认 ${state.records.filter(item => item.annotation_status === 'curated').length} 条。`;
+    fields.review.hidden = !record;
+    if (!record) return;
+    fields.select.value = String(state.current);
+    fields.title.textContent = record.id;
+    fields.audio.src = `/audio/${encodeURIComponent(record.id)}`;
+    fields.duration.textContent = `${record.duration_sec} 秒`;
+    fields.currentCategory.textContent = `${record.current_category}（${record.annotation_status}）`;
+    fields.reference.textContent = record.reference_text;
+    fields.expected.value = record.expected_clean;
+    fields.decision.value = record.decision;
+    fields.finalCategory.value = record.final_category || record.current_category;
+    fields.notes.value = record.reviewer_notes;
+    fields.saveStatus.textContent = '';
+    fields.saveStatus.className = '';
+  }
+  async function save() {
+    const record = state.filtered[state.current];
+    if (!record) return;
+    fields.save.disabled = true;
+    try {
+      const response = await fetch(`/api/records/${encodeURIComponent(record.id)}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
+        expected_clean: fields.expected.value, decision: fields.decision.value,
+        final_category: fields.finalCategory.value, reviewer_notes: fields.notes.value,
+      }) });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.detail || '保存失败');
+      const index = state.records.findIndex(item => item.id === record.id);
+      state.records[index] = payload.record;
+      const filteredIndex = state.filtered.findIndex(item => item.id === record.id);
+      state.filtered[filteredIndex] = payload.record;
+      fields.saveStatus.textContent = '已保存';
+    } catch (error) {
+      fields.saveStatus.textContent = error.message;
+      fields.saveStatus.className = 'error';
+    } finally { fields.save.disabled = false; }
+  }
+  async function start() {
+    const response = await fetch('/api/records'); const payload = await response.json(); state.records = payload.records;
+    populateFilter(fields.category, new Set(state.records.map(item => item.current_category)), '全部类别');
+    populateFilter(fields.status, new Set(state.records.map(item => item.annotation_status)), '全部状态');
+    applyFilters();
+  }
+  fields.category.addEventListener('change', applyFilters); fields.status.addEventListener('change', applyFilters);
+  fields.select.addEventListener('change', () => { state.current = Number(fields.select.value); render(); });
+  fields.previous.addEventListener('click', () => { state.current = Math.max(0, state.current - 1); render(); });
+  fields.next.addEventListener('click', () => { state.current = Math.min(state.filtered.length - 1, state.current + 1); render(); });
+  fields.save.addEventListener('click', save); start().catch(error => { fields.progress.textContent = `加载失败：${error.message}`; });
+</script>
