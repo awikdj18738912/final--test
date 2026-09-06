@@ -101,7 +101,7 @@
     fields.currentCategory.textContent = `${record.current_category}（${record.annotation_status}）`;
     fields.reference.textContent = record.reference_text;
     fields.expected.value = record.expected_clean;
-    fields.decision.value = record.decision;
+    fields.decision.value = record.decision || 'keep';
     fields.finalCategory.value = record.final_category || record.current_category;
     fields.notes.value = record.reviewer_notes;
     fields.saveStatus.textContent = '';
