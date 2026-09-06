@@ -101,8 +101,9 @@
     fields.currentCategory.textContent = `${record.current_category}（${record.annotation_status}）`;
     fields.reference.textContent = record.reference_text;
     fields.expected.value = record.expected_clean;
-    fields.decision.value = record.decision || 'keep';
-    fields.finalCategory.value = record.final_category || record.current_category;
+    const decision = record.decision || 'keep';
+    fields.decision.value = decision;
+    fields.finalCategory.value = decision === 'keep' ? 'passthrough' : (record.final_category || record.current_category);
     fields.notes.value = record.reviewer_notes;
     fields.saveStatus.textContent = '';
     fields.saveStatus.className = '';
@@ -143,6 +144,9 @@
     applyFilters();
   }
   fields.category.addEventListener('change', applyFilters); fields.status.addEventListener('change', applyFilters);
+  fields.decision.addEventListener('change', () => {
+    if (fields.decision.value === 'keep') fields.finalCategory.value = 'passthrough';
+  });
   fields.select.addEventListener('change', () => { state.current = Number(fields.select.value); render(); });
   fields.previous.addEventListener('click', () => { move(-1); });
   fields.next.addEventListener('click', () => { move(1); });

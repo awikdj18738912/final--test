@@ -108,6 +108,8 @@ def create_app(sheet: Path) -> FastAPI:
         category = update.final_category.strip()
         if decision not in DECISIONS:
             raise HTTPException(status_code=422, detail="decision must be keep, correct, reject, or empty")
+        if decision == "keep":
+            category = "passthrough"
         if category and category not in CATEGORIES:
             raise HTTPException(status_code=422, detail=f"unsupported category: {category}")
         if decision in {"keep", "correct"} and not update.expected_clean.strip():
