@@ -59,6 +59,8 @@ def load_manifest(path: Path) -> list[dict[str, Any]]:
             "category": item.get("category", "unclassified"),
             "annotation_status": item.get("annotation_status", "curated"),
             "expected_clean_source": item.get("expected_clean_source", "manual_or_reference"),
+            "decision": item.get("decision", ""),
+            "evaluation_eligible": bool(item.get("evaluation_eligible", True)),
             "audio": audio,
             "duration": float(row["duration"]),
             "reference": str(row["text"]),
@@ -69,6 +71,9 @@ def load_manifest(path: Path) -> list[dict[str, Any]]:
 
 async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
     records = load_manifest(args.manifest)
+    manifest_record_count = len(records)
+    excluded_records = [item for item in records if not item["evaluation_eligible"]]
+    records = [item for item in records if item["evaluation_eligible"]]
     if args.limit is not None:
         records = records[: args.limit]
     if args.ids:
@@ -102,6 +107,7 @@ async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
             "category": item["category"],
             "annotation_status": item["annotation_status"],
             "expected_clean_source": item["expected_clean_source"],
+            "decision": item["decision"],
             "audio": str(item["audio"]),
             "duration": item["duration"],
             "reference": item["reference"],
@@ -122,8 +128,10 @@ async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
               f"revision={samples[-1]['revision_events']} reject={samples[-1]['reject_reasons']}")
 
     by_category: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    by_decision: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for sample in samples:
         by_category[sample["category"]].append(sample)
+        by_decision[sample["decision"] or "unspecified"].append(sample)
 
     def summarize(values: list[dict[str, Any]]) -> dict[str, Any]:
         return {
@@ -142,6 +150,8 @@ async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
         "status": "pass" if samples and not any(item["status"] != "pass" for item in samples) else "fail",
         "service": args.url,
         "manifest": str(args.manifest.resolve()),
+        "manifest_record_count": manifest_record_count,
+        "excluded_record_count": len(excluded_records),
         "sample_count": len(samples),
         "annotation_status_counts": dict(Counter(item["annotation_status"] for item in samples)),
         "reviewed_sample_count": sum(item["annotation_status"] == "curated" for item in samples),
@@ -149,6 +159,7 @@ async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
         "quality_ready": all(item["annotation_status"] == "curated" for item in samples),
         "summary": summarize(samples),
         "by_category": {key: summarize(value) for key, value in sorted(by_category.items())},
+        "by_decision": {key: summarize(value) for key, value in sorted(by_decision.items())},
         "reject_reasons": dict(Counter(reason for item in samples for reason in item["reject_reasons"])),
         "samples": samples,
     }

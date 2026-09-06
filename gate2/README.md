@@ -247,6 +247,26 @@ PYTHONPATH=. /home/aim0/data/conda/envs/qwen3-asr/bin/python \
 页面可以播放当前音频、切换记录、按类别/状态筛选，并在保存后安全回写
 `real_audio_annotation_sheet.csv`。
 
+### 生成正式评测清单
+
+人工标注完成后，使用以下命令检查并生成不再依赖启发式类别的正式 manifest：
+
+```bash
+PYTHONPATH=. python gate2/curate_annotation_sheet.py --apply
+```
+
+它会将 `keep` 统一为 `passthrough`，并将参考文本与
+`expected_clean` 存在字词级差异的记录规范为 `correct`。正式清单写入
+`real_audio_manifest_curated.json`。之后使用该清单运行评测：
+
+```bash
+PYTHONPATH=. python -m gate2.real_audio_eval \
+  --manifest gate2/real_audio_manifest_curated.json \
+  --url http://127.0.0.1:8012
+```
+
+评测输出除按最终类别统计外，还会按 `keep/correct` 分组，且会明确报告被排除样本数。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为
