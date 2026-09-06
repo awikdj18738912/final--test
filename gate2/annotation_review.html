@@ -78,6 +78,7 @@
     decision: document.getElementById('decision'), finalCategory: document.getElementById('final-category'),
     notes: document.getElementById('notes'), progress: document.getElementById('progress'),
     save: document.getElementById('save'), saveStatus: document.getElementById('save-status'),
+    previous: document.getElementById('previous'), next: document.getElementById('next'),
   };
   function option(value, label) { const item = document.createElement('option'); item.value = value; item.textContent = label; return item; }
   function populateFilter(element, values, allLabel) { element.replaceChildren(option('', allLabel)); [...values].sort().forEach(value => element.append(option(value, value))); }
