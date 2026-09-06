@@ -392,6 +392,22 @@ AgenticASR-Refiner 服务重跑；两个运行的 50 条原始 ASR 终稿逐条�
 开发集，以声学置信度、N-best 分歧、拼音/词典证据及文本特征训练并验证收益预测器；再只对固定
 holdout 做一次最终验收。
 
+### Gate3 开发集文本收益预测基线：拒绝部署
+
+新增 `../gate3/text_benefit_baseline.py`，对原始 155 条开发数据做确定性分层 5 折交叉验证。
+它只使用调用 Refiner 前可见的 13 个文本特征（长度、重复、口癖、自我修正词、数字/英文、标点
+密度及规则分数），目标是“已记录的全量 Refiner 输出是否降低字符错误数”。17/155 条为正向收益。
+
+结果写入 `../gate3/results/text_benefit_baseline/text_benefit_baseline_latest.json`。所有会实际触发
+调用的阈值均未通过预先定义的门槛（精确率至少 50% 且净错误减少至少 1）：例如 0.10 阈值调用
+82 条、精确率 17.073%、净错误减少为 -12；0.15 阈值调用 11 条、精确率 0%、净错误减少 -20。
+因此文本模型被明确标记 `reject`，绝不接入服务或以固定 holdout 调参。
+
+当前 Qwen3-ASR streaming wrapper 只公开累计文本和语言，不公开 token logprob、置信度或 N-best。
+已在 Gate1 worker 增加不改变解码的 `asr_stream_metrics`（chunk 数、假设更新、回退字符、追加字符、
+不稳定度）并随 `partial/final` 和会话快照返回。下一轮开发先在新的开发数据上采集这些在线特征，
+再单独验证 vLLM logprob 是否能安全暴露；固定 50 条 holdout 保持冻结。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为

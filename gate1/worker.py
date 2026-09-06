@@ -10,10 +10,40 @@ import json
 import os
 import time
 import traceback
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import numpy as np
+
+
+@dataclass
+class HypothesisTelemetry:
+    """Online-only stability telemetry for cumulative ASR hypotheses."""
+
+    previous_text: str = ""
+    hypothesis_updates: int = 0
+    revision_chars: int = 0
+    appended_chars: int = 0
+
+    def observe(self, text: str, *, chunk_count: int) -> dict[str, int | float]:
+        common = 0
+        for previous, current in zip(self.previous_text, text):
+            if previous != current:
+                break
+            common += 1
+        if text != self.previous_text:
+            self.hypothesis_updates += 1
+            self.revision_chars += len(self.previous_text) - common
+            self.appended_chars += len(text) - common
+        self.previous_text = text
+        return {
+            "chunk_count": chunk_count,
+            "hypothesis_updates": self.hypothesis_updates,
+            "revision_chars": self.revision_chars,
+            "appended_chars": self.appended_chars,
+            "instability_ratio": round(self.revision_chars / max(1, len(text)), 6),
+        }
 
 
 def encode_response(value: dict[str, Any]) -> bytes:
@@ -42,6 +72,7 @@ class QwenWorker:
         self.args = args
         self.model: Any = None
         self.states: dict[str, Any] = {}
+        self.telemetry: dict[str, HypothesisTelemetry] = {}
         self.warmup_sec: float | None = None
 
     def load(self) -> None:
@@ -89,6 +120,7 @@ class QwenWorker:
                 language=str(request.get("language") or "Chinese"),
                 chunk_size_sec=float(request.get("chunk_size_sec", self.args.chunk_size_sec)),
             )
+            self.telemetry[session_id] = HypothesisTelemetry()
             return {"session_id": session_id, "text": ""}
         if operation == "push":
             if self.args.role != "realtime":
@@ -104,7 +136,8 @@ class QwenWorker:
                 raise ValueError("PCM16 frame must contain a non-empty even number of bytes")
             waveform = np.frombuffer(raw, dtype="<i2").astype(np.float32) / 32768.0
             self.model.streaming_transcribe(waveform, state)
-            return {"session_id": session_id, "text": state.text, "language": state.language}
+            metrics = self.telemetry[session_id].observe(state.text, chunk_count=state.chunk_id)
+            return {"session_id": session_id, "text": state.text, "language": state.language, "stream_metrics": metrics}
         if operation == "finish":
             if self.args.role != "realtime":
                 raise ValueError("finish is only valid for the realtime worker")
@@ -113,10 +146,12 @@ class QwenWorker:
             if state is None:
                 raise KeyError("unknown realtime session")
             self.model.finish_streaming_transcribe(state)
-            return {"session_id": session_id, "text": state.text, "language": state.language}
+            metrics = self.telemetry.pop(session_id, HypothesisTelemetry()).observe(state.text, chunk_count=state.chunk_id)
+            return {"session_id": session_id, "text": state.text, "language": state.language, "stream_metrics": metrics}
         if operation == "close":
             session_id = str(request["session_id"])
             self.states.pop(session_id, None)
+            self.telemetry.pop(session_id, None)
             return {"session_id": session_id, "closed": True}
         if operation == "offline_transcribe":
             if self.args.role != "offline":

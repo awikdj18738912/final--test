@@ -66,6 +66,7 @@ class SessionRecord:
     final: bool = False
     stream_started_at: float | None = None
     latency_ms: dict[str, float] = field(default_factory=dict)
+    asr_stream_metrics: dict[str, Any] = field(default_factory=dict)
     refinement: K1RefinementState | None = field(default=None, repr=False)
     refinement_tasks: set[asyncio.Task[None]] = field(default_factory=set, repr=False)
     refinement_results: list[dict[str, Any]] = field(default_factory=list)
@@ -261,6 +262,7 @@ class ServiceState:
             "active": record.active,
             "final": record.final,
             "latency_ms": record.latency_ms,
+            "asr_stream_metrics": record.asr_stream_metrics,
             "refinement_enabled": record.refinement is not None,
             "refiner_router_mode": REFINER_ROUTER_MODE if record.refinement is not None else None,
             "refinement_disabled_reason": record.refinement_disabled_reason,
@@ -703,9 +705,11 @@ async def stream_session(websocket: WebSocket, session_id: str, tenant_id: str =
                         if session.stream_started_at is not None:
                             session.latency_ms["final_result"] = round((time.perf_counter() - session.stream_started_at) * 1000, 3)
                         session.active = False
+                        session.asr_stream_metrics = dict(result.get("stream_metrics") or session.asr_stream_metrics)
                         rendered, closed = update_refinement_hypothesis(session, result["text"], is_final=True)
                         final_event = transcript_event(session, "final", rendered, True)
                         final_event["raw_text"] = result["text"]
+                        final_event["asr_stream_metrics"] = session.asr_stream_metrics
                         send_queue.put_nowait(final_event)
                     schedule_refinements(state, session, closed, send_queue)
                     await wait_for_refinements(session)
@@ -752,13 +756,16 @@ async def stream_session(websocket: WebSocket, session_id: str, tenant_id: str =
                 session.latency_ms["worker_rpc_total"] = round(session.latency_ms["worker_rpc_total"] + inference_ms, 3)
                 session.latency_ms["worker_rpc_max"] = round(max(session.latency_ms["worker_rpc_max"], inference_ms), 3)
                 if result["text"] == session.raw_text:
+                    session.asr_stream_metrics = dict(result.get("stream_metrics") or session.asr_stream_metrics)
                     continue
                 if "first_result" not in session.latency_ms and session.stream_started_at is not None:
                     session.latency_ms["first_result"] = round((time.perf_counter() - session.stream_started_at) * 1000, 3)
                 rendered, closed = update_refinement_hypothesis(session, result["text"], is_final=False)
+                session.asr_stream_metrics = dict(result.get("stream_metrics") or session.asr_stream_metrics)
                 if rendered != session.text:
                     partial_event = transcript_event(session, "partial", rendered, False)
                     partial_event["raw_text"] = result["text"]
+                    partial_event["asr_stream_metrics"] = session.asr_stream_metrics
                     send_queue.put_nowait(partial_event)
             schedule_refinements(state, session, closed, send_queue)
     except WebSocketDisconnect:

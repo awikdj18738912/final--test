@@ -1,0 +1,1508 @@
+{
+  "benchmark": "Gate3 development-only text benefit-prediction baseline",
+  "timestamp": "2026-09-06T16:32:42.386323+00:00",
+  "sample_count": 155,
+  "folds": 5,
+  "feature_names": [
+    "bias",
+    "text_length_scaled",
+    "length_ge_30",
+    "length_ge_60",
+    "self_correction_phrase",
+    "adjacent_repeat",
+    "triple_repeat",
+    "repeated_bigram",
+    "filler_marker",
+    "number_marker",
+    "latin_marker",
+    "punctuation_density",
+    "rule_score_scaled"
+  ],
+  "target": "recorded full-Refiner visible_error < raw_error",
+  "target_counts": {
+    "not_improved": 138,
+    "improved": 17
+  },
+  "oof_probability_range": [
+    0.082816,
+    0.198217
+  ],
+  "thresholds": [
+    {
+      "threshold": 0.1,
+      "calls": 82,
+      "call_rate": 0.529032,
+      "true_improvements": 14,
+      "precision": 0.170732,
+      "net_error_reduction": -12
+    },
+    {
+      "threshold": 0.15,
+      "calls": 11,
+      "call_rate": 0.070968,
+      "true_improvements": 0,
+      "precision": 0.0,
+      "net_error_reduction": -20
+    },
+    {
+      "threshold": 0.2,
+      "calls": 0,
+      "call_rate": 0.0,
+      "true_improvements": 0,
+      "precision": null,
+      "net_error_reduction": 0
+    },
+    {
+      "threshold": 0.25,
+      "calls": 0,
+      "call_rate": 0.0,
+      "true_improvements": 0,
+      "precision": null,
+      "net_error_reduction": 0
+    },
+    {
+      "threshold": 0.3,
+      "calls": 0,
+      "call_rate": 0.0,
+      "true_improvements": 0,
+      "precision": null,
+      "net_error_reduction": 0
+    },
+    {
+      "threshold": 0.35,
+      "calls": 0,
+      "call_rate": 0.0,
+      "true_improvements": 0,
+      "precision": null,
+      "net_error_reduction": 0
+    },
+    {
+      "threshold": 0.4,
+      "calls": 0,
+      "call_rate": 0.0,
+      "true_improvements": 0,
+      "precision": null,
+      "net_error_reduction": 0
+    },
+    {
+      "threshold": 0.45,
+      "calls": 0,
+      "call_rate": 0.0,
+      "true_improvements": 0,
+      "precision": null,
+      "net_error_reduction": 0
+    },
+    {
+      "threshold": 0.5,
+      "calls": 0,
+      "call_rate": 0.0,
+      "true_improvements": 0,
+      "precision": null,
+      "net_error_reduction": 0
+    }
+  ],
+  "deployment_gate": {
+    "minimum_precision": 0.5,
+    "minimum_net_error_reduction": 1,
+    "viable_thresholds": [],
+    "status": "reject",
+    "reason": "No threshold with at least one call achieves both the predeclared development precision and positive net-error-reduction gates. Do not deploy text-only routing."
+  },
+  "samples": [
+    {
+      "id": "wenet_00001",
+      "decision": "keep",
+      "raw_text": "我有的时候说不清楚，你们知道吗？",
+      "raw_error": 0,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.084316
+    },
+    {
+      "id": "wenet_00002",
+      "decision": "keep",
+      "raw_text": "那你觉得是谁要陷害你？",
+      "raw_error": 0,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.085901
+    },
+    {
+      "id": "wenet_00003",
+      "decision": "keep",
+      "raw_text": "这个问题。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.093026
+    },
+    {
+      "id": "wenet_00004",
+      "decision": "keep",
+      "raw_text": "这个人。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.092041
+    },
+    {
+      "id": "wenet_00005",
+      "decision": "keep",
+      "raw_text": "给我查下去。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.082816
+    },
+    {
+      "id": "wenet_00006",
+      "decision": "keep",
+      "raw_text": "那个房间，我根本就没去过。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.087941
+    },
+    {
+      "id": "wenet_00007",
+      "decision": "keep",
+      "raw_text": "就凭他文志松一句话，干嘛我就成嫌疑人了？",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.110525
+    },
+    {
+      "id": "wenet_00008",
+      "decision": "keep",
+      "raw_text": "你怎么能确定刘磊杀害了你妹妹？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.092254
+    },
+    {
+      "id": "wenet_00009",
+      "decision": "keep",
+      "raw_text": "他想报复我。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.085158
+    },
+    {
+      "id": "wenet_00010",
+      "decision": "keep",
+      "raw_text": "杀了我妹妹！",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.095307
+    },
+    {
+      "id": "wenet_00011",
+      "decision": "keep",
+      "raw_text": "他妈！是我害了他们。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.086509
+    },
+    {
+      "id": "wenet_00012",
+      "decision": "keep",
+      "raw_text": "但据我们所知，你曾经和张小柔发生过口角。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.09433
+    },
+    {
+      "id": "wenet_00013",
+      "decision": "keep",
+      "raw_text": "你们就因为这个就控告我谋杀吗？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.093263
+    },
+    {
+      "id": "wenet_00014",
+      "decision": "keep",
+      "raw_text": "看来我要在这里向你强调一下，我们现在办理的是刑事案件。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.110786
+    },
+    {
+      "id": "wenet_00015",
+      "decision": "keep",
+      "raw_text": "如果你在这做伪证的话，",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.093169
+    },
+    {
+      "id": "wenet_00016",
+      "decision": "keep",
+      "raw_text": "你要承担刑事责任。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.082927
+    },
+    {
+      "id": "wenet_00017",
+      "decision": "keep",
+      "raw_text": "我不知道这个恶在你心中埋藏了多少年，到底有多深。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.086766
+    },
+    {
+      "id": "wenet_00018",
+      "decision": "keep",
+      "raw_text": "我也不知道为什么会有现在这样的结果。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.085548
+    },
+    {
+      "id": "wenet_00019",
+      "decision": "keep",
+      "raw_text": "我说服不了桃子。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.085846
+    },
+    {
+      "id": "wenet_00020",
+      "decision": "keep",
+      "raw_text": "我也说服不了我自己。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.082964
+    },
+    {
+      "id": "wenet_00021",
+      "decision": "keep",
+      "raw_text": "过来的时候。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.08581
+    },
+    {
+      "id": "wenet_00022",
+      "decision": "keep",
+      "raw_text": "我们就要不择手段去赚钱。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.085919
+    },
+    {
+      "id": "wenet_00023",
+      "decision": "keep",
+      "raw_text": "冯浩强奸了石畅。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.085846
+    },
+    {
+      "id": "wenet_00024",
+      "decision": "keep",
+      "raw_text": "这事儿你知道吧？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.092148
+    },
+    {
+      "id": "wenet_00025",
+      "decision": "keep",
+      "raw_text": "我知道，我也不告诉你。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.092983
+    },
+    {
+      "id": "wenet_00026",
+      "decision": "keep",
+      "raw_text": "这不是推卸。",
+      "raw_error": 3,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.082816
+    },
+    {
+      "id": "wenet_00027",
+      "decision": "keep",
+      "raw_text": "这是实事求是啊。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.099667
+    },
+    {
+      "id": "wenet_00028",
+      "decision": "keep",
+      "raw_text": "人真的都是我杀的。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.093121
+    },
+    {
+      "id": "wenet_00029",
+      "decision": "keep",
+      "raw_text": "死者的死亡时间是晚上八点到十点半之间。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.109474
+    },
+    {
+      "id": "wenet_00030",
+      "decision": "keep",
+      "raw_text": "是从十楼坠下的。",
+      "raw_error": 0,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.109173
+    },
+    {
+      "id": "wenet_s00309",
+      "decision": "correct",
+      "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+      "raw_error": 2,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.104062
+    },
+    {
+      "id": "wenet_self_correction",
+      "decision": "correct",
+      "raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "raw_error": 8,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.107443
+    },
+    {
+      "id": "wenet_multi_revision",
+      "decision": "correct",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "raw_error": 8,
+      "visible_error": 11,
+      "improved": false,
+      "oof_benefit_probability": 0.180506
+    },
+    {
+      "id": "wenet_filler_repetition",
+      "decision": "correct",
+      "raw_text": "啊，不过眼皮现在摸起来特别特别特别油，油的要死，而且它这个是属于按会按出手指印儿的那种，看到吗？它不是牢牢吸附在你的皮肤上的。",
+      "raw_error": 5,
+      "visible_error": 2,
+      "improved": true,
+      "oof_benefit_probability": 0.110395
+    },
+    {
+      "id": "wenet_filler_repetition_2",
+      "decision": "correct",
+      "raw_text": "学习不不不注入血脉，不注入情感，这些来讲对他来讲是是重复他原来的，自我感。",
+      "raw_error": 5,
+      "visible_error": 7,
+      "improved": false,
+      "oof_benefit_probability": 0.148764
+    },
+    {
+      "id": "heuristic_passthrough_0001",
+      "decision": "keep",
+      "raw_text": "我知道不能留遗憾，这不是在打仗吗？",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.094258
+    },
+    {
+      "id": "heuristic_passthrough_0002",
+      "decision": "keep",
+      "raw_text": "小少，怎么是你？",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.086083
+    },
+    {
+      "id": "heuristic_passthrough_0003",
+      "decision": "correct",
+      "raw_text": "然后我就我，让他走了。",
+      "raw_error": 1,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.086181
+    },
+    {
+      "id": "heuristic_passthrough_0004",
+      "decision": "keep",
+      "raw_text": "他也会杀了罗志成。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.085865
+    },
+    {
+      "id": "heuristic_passthrough_0005",
+      "decision": "keep",
+      "raw_text": "我想，我人生中最有意义的经历。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.084278
+    },
+    {
+      "id": "heuristic_passthrough_0006",
+      "decision": "keep",
+      "raw_text": "小猪。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.092979
+    },
+    {
+      "id": "heuristic_passthrough_0007",
+      "decision": "keep",
+      "raw_text": "从现在开始。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.092094
+    },
+    {
+      "id": "heuristic_passthrough_0008",
+      "decision": "keep",
+      "raw_text": "哦不，毛菜对不起。",
+      "raw_error": 1,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.092929
+    },
+    {
+      "id": "heuristic_passthrough_0009",
+      "decision": "keep",
+      "raw_text": "你吃过这个吗？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.082853
+    },
+    {
+      "id": "heuristic_passthrough_0010",
+      "decision": "keep",
+      "raw_text": "生下他没多久，他父母就出车祸死了。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.086378
+    },
+    {
+      "id": "heuristic_passthrough_0011",
+      "decision": "keep",
+      "raw_text": "嘴上恭谨，心里唾骂。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.086509
+    },
+    {
+      "id": "heuristic_passthrough_0012",
+      "decision": "keep",
+      "raw_text": "那当时林正斌怎么说的？他接受了吗？",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.086637
+    },
+    {
+      "id": "heuristic_passthrough_0013",
+      "decision": "keep",
+      "raw_text": "都是让你给惯的。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.085223
+    },
+    {
+      "id": "heuristic_passthrough_0014",
+      "decision": "keep",
+      "raw_text": "阵型。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.08506
+    },
+    {
+      "id": "heuristic_passthrough_0015",
+      "decision": "keep",
+      "raw_text": "这车是大哥的车。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.08289
+    },
+    {
+      "id": "heuristic_passthrough_0016",
+      "decision": "keep",
+      "raw_text": "开个书记处会议。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.08289
+    },
+    {
+      "id": "heuristic_passthrough_0017",
+      "decision": "keep",
+      "raw_text": "客舱内的压力系统恢复了正常。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.085417
+    },
+    {
+      "id": "heuristic_passthrough_0018",
+      "decision": "keep",
+      "raw_text": "已经开了，我们现在这个手镯。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.093063
+    },
+    {
+      "id": "heuristic_passthrough_0019",
+      "decision": "keep",
+      "raw_text": "这边，镜头这边。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.086472
+    },
+    {
+      "id": "heuristic_passthrough_0020",
+      "decision": "keep",
+      "raw_text": "就能帮助我。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.08581
+    },
+    {
+      "id": "heuristic_repetition_0021",
+      "decision": "keep",
+      "raw_text": "拜拜。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.093751
+    },
+    {
+      "id": "heuristic_repetition_0022",
+      "decision": "keep",
+      "raw_text": "你们真没用啊！一个个的。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.134945
+    },
+    {
+      "id": "heuristic_repetition_0023",
+      "decision": "keep",
+      "raw_text": "快快快！",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.092321
+    },
+    {
+      "id": "heuristic_repetition_0024",
+      "decision": "keep",
+      "raw_text": "一个个打开死去女孩的遗物行李箱时，潜伏已久的恶魔突然出现，带走了灵女的魂魄。正当小胖、小瘦不知所措时，小女儿主动提出自己灵魂出窍。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.160362
+    },
+    {
+      "id": "heuristic_repetition_0025",
+      "decision": "keep",
+      "raw_text": "好，好，好吃就吃。",
+      "raw_error": 0,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.093563
+    },
+    {
+      "id": "heuristic_repetition_0026",
+      "decision": "keep",
+      "raw_text": "吉尔妈妈发现吉尔在角落里蹲着，过去拽他。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.0937
+    },
+    {
+      "id": "heuristic_repetition_0027",
+      "decision": "keep",
+      "raw_text": "那林笑笑为什么失踪呢？她为什么向唐骏忏悔？",
+      "raw_error": 3,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.093741
+    },
+    {
+      "id": "heuristic_repetition_0028",
+      "decision": "correct",
+      "raw_text": "而不是盲目的去认为信了就好，把牛都杀光了，然后去你去用用什么什么乌鸦肉去替代牛肉。",
+      "raw_error": 7,
+      "visible_error": 7,
+      "improved": false,
+      "oof_benefit_probability": 0.105756
+    },
+    {
+      "id": "heuristic_repetition_0029",
+      "decision": "keep",
+      "raw_text": "短短半年多，就暴肥两百多斤呢？食物背后究竟还有什么隐藏的元凶？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.139488
+    },
+    {
+      "id": "heuristic_repetition_0030",
+      "decision": "keep",
+      "raw_text": "我赶紧把伸出去的手缩回来，战战兢兢地看着洛爷和九爷，眼泪不住地往下流。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.147246
+    },
+    {
+      "id": "heuristic_repetition_0031",
+      "decision": "correct",
+      "raw_text": "OK，所以呢，就是其实我我这个两年半这个整个。",
+      "raw_error": 9,
+      "visible_error": 9,
+      "improved": false,
+      "oof_benefit_probability": 0.107067
+    },
+    {
+      "id": "heuristic_repetition_0032",
+      "decision": "correct",
+      "raw_text": "啊，没事儿，蹭蹭了一下。",
+      "raw_error": 2,
+      "visible_error": 1,
+      "improved": true,
+      "oof_benefit_probability": 0.122683
+    },
+    {
+      "id": "heuristic_repetition_0033",
+      "decision": "keep",
+      "raw_text": "我答应过爸爸妈妈的，我会成为最优秀的护士，专门照顾绝症病人。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.125007
+    },
+    {
+      "id": "heuristic_repetition_0034",
+      "decision": "keep",
+      "raw_text": "幼太尝了口甜米酒，不由赞叹一声：“好喝，酸酸甜甜的米酒，仿佛偷换了时空。”",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.147346
+    },
+    {
+      "id": "heuristic_repetition_0035",
+      "decision": "keep",
+      "raw_text": "十二加上二百五六G的版本，三千四百九十九，相比于iQOO七八Pro的质感更加精致，二K分辨率的屏幕也观感出色。",
+      "raw_error": 4,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.141472
+    },
+    {
+      "id": "heuristic_repetition_0036",
+      "decision": "keep",
+      "raw_text": "就是想通过一个行为测试，看看李超在面对难题时的真实反应。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.120901
+    },
+    {
+      "id": "heuristic_repetition_0037",
+      "decision": "correct",
+      "raw_text": "俺需要男人的时候，谁帮俺？谁帮俺姐姐？",
+      "raw_error": 5,
+      "visible_error": 5,
+      "improved": false,
+      "oof_benefit_probability": 0.096212
+    },
+    {
+      "id": "heuristic_repetition_0038",
+      "decision": "keep",
+      "raw_text": "慢慢的站了起来，他才是这次《电锯惊魂》游戏真正幕后的BOSS。",
+      "raw_error": 0,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.114807
+    },
+    {
+      "id": "heuristic_repetition_0039",
+      "decision": "correct",
+      "raw_text": "而且这么极端的去去去反应。",
+      "raw_error": 1,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.116365
+    },
+    {
+      "id": "heuristic_repetition_0040",
+      "decision": "keep",
+      "raw_text": "现在都会很喜欢吃饭了。刚开始怀孕的时候，感觉肚子胀胀的。",
+      "raw_error": 0,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.095292
+    },
+    {
+      "id": "heuristic_filler_0041",
+      "decision": "keep",
+      "raw_text": "但千万别因为几项评分低，呃，就觉得它不好，呃，恰恰相反，它是旗舰机里最实用，价格也最接地气的。",
+      "raw_error": 2,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.167968
+    },
+    {
+      "id": "heuristic_filler_0042",
+      "decision": "keep",
+      "raw_text": "换句话说吧，今天这场吐槽大会呀，请我一个人就够了。你看，导演组请那么多人干啥？花多少钱啊？对吧？那个张泉灵。",
+      "raw_error": 1,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.144838
+    },
+    {
+      "id": "heuristic_filler_0043",
+      "decision": "keep",
+      "raw_text": "当然，就是说，我们今天看到的使用功勋军强度比较高的是那些中低住宅、中低收入的群体。",
+      "raw_error": 3,
+      "visible_error": 8,
+      "improved": false,
+      "oof_benefit_probability": 0.118286
+    },
+    {
+      "id": "heuristic_filler_0044",
+      "decision": "keep",
+      "raw_text": "您这可是不讲兄弟交情啊！",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.099842
+    },
+    {
+      "id": "heuristic_filler_0045",
+      "decision": "keep",
+      "raw_text": "然后发出“啊”的一声赞叹和“扑哧”的笑声，你看，吃是多有意义的一件事。",
+      "raw_error": 2,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.133759
+    },
+    {
+      "id": "heuristic_filler_0046",
+      "decision": "keep",
+      "raw_text": "左右啊！鲁智深一村民全都卖出去，卖出去就给我发点烧鸡吃。保佑保佑，大吉大利！",
+      "raw_error": 13,
+      "visible_error": 15,
+      "improved": false,
+      "oof_benefit_probability": 0.15301
+    },
+    {
+      "id": "heuristic_filler_0047",
+      "decision": "keep",
+      "raw_text": "呃，巴菲特到，到比尔·盖茨，为什么总是最富的这一帮人在拼命的去做社会公益？",
+      "raw_error": 4,
+      "visible_error": 6,
+      "improved": false,
+      "oof_benefit_probability": 0.150921
+    },
+    {
+      "id": "heuristic_filler_0048",
+      "decision": "keep",
+      "raw_text": "公孙离和守约经常上ban位，孙尚香、李元芳又不太行，剩下的就是马可了。所以哪怕是削弱，只要机制不改。",
+      "raw_error": 3,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.114071
+    },
+    {
+      "id": "heuristic_filler_0049",
+      "decision": "keep",
+      "raw_text": "谁啊？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.096237
+    },
+    {
+      "id": "heuristic_filler_0050",
+      "decision": "keep",
+      "raw_text": "啊，你让我坐绿皮车，我也忍了；硬座票，你还买山寨版的。",
+      "raw_error": 0,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.09929
+    },
+    {
+      "id": "heuristic_filler_0051",
+      "decision": "keep",
+      "raw_text": "途中遇到了那个偷他车男人，少年随手抄起一把带铁钉的木板，狠狠地向那人敲打过去。",
+      "raw_error": 0,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.161527
+    },
+    {
+      "id": "heuristic_filler_0052",
+      "decision": "keep",
+      "raw_text": "究竟是为了哪般啊？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.099711
+    },
+    {
+      "id": "heuristic_filler_0053",
+      "decision": "correct",
+      "raw_text": "死死死死你个头啊！你这么看人家，人家大有会害羞吗？",
+      "raw_error": 6,
+      "visible_error": 4,
+      "improved": true,
+      "oof_benefit_probability": 0.111436
+    },
+    {
+      "id": "heuristic_filler_0054",
+      "decision": "correct",
+      "raw_text": "主观恶意或其他的目的的，有些有些编辑记者就是就是看我那个嚣张的样子看不惯，他就会写。",
+      "raw_error": 5,
+      "visible_error": 5,
+      "improved": false,
+      "oof_benefit_probability": 0.151764
+    },
+    {
+      "id": "heuristic_filler_0055",
+      "decision": "keep",
+      "raw_text": "就是能够有一批有共同理念、有很多共同观点的人走在一起。",
+      "raw_error": 0,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.117296
+    },
+    {
+      "id": "heuristic_filler_0056",
+      "decision": "keep",
+      "raw_text": "因为你的毛囊就是你的皮脂腺。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.096543
+    },
+    {
+      "id": "heuristic_filler_0057",
+      "decision": "keep",
+      "raw_text": "结果被怪物袭击，九死一生才逃了出来，两条腿就是这么没的。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.124327
+    },
+    {
+      "id": "heuristic_filler_0058",
+      "decision": "keep",
+      "raw_text": "三爷，咱真干啊！",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.117599
+    },
+    {
+      "id": "heuristic_filler_0059",
+      "decision": "correct",
+      "raw_text": "懒客的持妆散粉放在家里，经常用，我觉得这个很好用。对，就是很好用，持妆效果很好。",
+      "raw_error": 8,
+      "visible_error": 5,
+      "improved": true,
+      "oof_benefit_probability": 0.100703
+    },
+    {
+      "id": "heuristic_filler_0060",
+      "decision": "keep",
+      "raw_text": "别往心里去。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.092094
+    },
+    {
+      "id": "heuristic_self_correction_0061",
+      "decision": "keep",
+      "raw_text": "我爹的朋友不是英雄就是豪杰，他的朋友也是我的朋友。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.101748
+    },
+    {
+      "id": "heuristic_self_correction_0062",
+      "decision": "correct",
+      "raw_text": "所以，是不是地中海呢？肯定还是地中海，但是已经改善了一半儿，还多了。",
+      "raw_error": 13,
+      "visible_error": 10,
+      "improved": true,
+      "oof_benefit_probability": 0.136858
+    },
+    {
+      "id": "heuristic_self_correction_0063",
+      "decision": "keep",
+      "raw_text": "这一舒服就不对了。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.116263
+    },
+    {
+      "id": "heuristic_self_correction_0064",
+      "decision": "keep",
+      "raw_text": "我不对，刚才对不起了啊。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.100128
+    },
+    {
+      "id": "heuristic_self_correction_0065",
+      "decision": "keep",
+      "raw_text": "所以建议是先看医生啊，再用护肤产品。所以绝大多数女生应该是前三种的。",
+      "raw_error": 4,
+      "visible_error": 6,
+      "improved": false,
+      "oof_benefit_probability": 0.126485
+    },
+    {
+      "id": "heuristic_self_correction_0066",
+      "decision": "keep",
+      "raw_text": "这种痛苦，我觉得只要是没有经历过的人，肯定都体会不到那么深沉吧，应该是。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.110775
+    },
+    {
+      "id": "heuristic_self_correction_0067",
+      "decision": "keep",
+      "raw_text": "不是还是棉纺的吗？那化工的再好，也不如那棉纺的舒服啊。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.10626
+    },
+    {
+      "id": "heuristic_self_correction_0068",
+      "decision": "keep",
+      "raw_text": "应该是东北的广大农村。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.096366
+    },
+    {
+      "id": "heuristic_self_correction_0069",
+      "decision": "keep",
+      "raw_text": "不是你左右不分，是不是并线来？",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.086057
+    },
+    {
+      "id": "heuristic_self_correction_0070",
+      "decision": "keep",
+      "raw_text": "随后，巴乔吹起了口哨，宠物狗狗们摇头摆尾地跑出来，可他们不知道，等待他们的不是食物，而是子弹。",
+      "raw_error": 2,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.121268
+    },
+    {
+      "id": "heuristic_self_correction_0071",
+      "decision": "keep",
+      "raw_text": "反正我做什么都是错，做什么都不对。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.083835
+    },
+    {
+      "id": "heuristic_self_correction_0072",
+      "decision": "correct",
+      "raw_text": "不是红匪，是红军。我能活着回来，就是他们救了我。",
+      "raw_error": 4,
+      "visible_error": 6,
+      "improved": false,
+      "oof_benefit_probability": 0.106313
+    },
+    {
+      "id": "heuristic_self_correction_0073",
+      "decision": "correct",
+      "raw_text": "那那个是不是也？那那个也是创新呀？",
+      "raw_error": 4,
+      "visible_error": 5,
+      "improved": false,
+      "oof_benefit_probability": 0.093159
+    },
+    {
+      "id": "heuristic_self_correction_0074",
+      "decision": "keep",
+      "raw_text": "应该是她男朋友的吧。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.09606
+    },
+    {
+      "id": "heuristic_self_correction_0075",
+      "decision": "correct",
+      "raw_text": "都不能说是水光感，应该是油光感，有一种你好像在脸上涂了油，还是你在粉底里面混合了油之后的感觉。",
+      "raw_error": 8,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.116056
+    },
+    {
+      "id": "heuristic_self_correction_0076",
+      "decision": "correct",
+      "raw_text": "这个很不科学，对不对？难道说你面试的时候是不是也是这样的？你已经要步入这个社会了，对吧？你在学校里边，你是一个学生，你进入这个社会。",
+      "raw_error": 12,
+      "visible_error": 12,
+      "improved": false,
+      "oof_benefit_probability": 0.131016
+    },
+    {
+      "id": "heuristic_self_correction_0077",
+      "decision": "correct",
+      "raw_text": "而人类的一种交往，是不是叫犯罪过程？不是。",
+      "raw_error": 3,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.113874
+    },
+    {
+      "id": "heuristic_self_correction_0078",
+      "decision": "correct",
+      "raw_text": "你不是在跟踪我，是在干嘛？",
+      "raw_error": 6,
+      "visible_error": 6,
+      "improved": false,
+      "oof_benefit_probability": 0.103229
+    },
+    {
+      "id": "heuristic_self_correction_0079",
+      "decision": "keep",
+      "raw_text": "很扯，对不对？我今天是太衰了。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.103186
+    },
+    {
+      "id": "heuristic_self_correction_0080",
+      "decision": "correct",
+      "raw_text": "那么，我们的第一代这个企业家从哪儿来的呢？严格的说起来，应该是从承包制来的。",
+      "raw_error": 6,
+      "visible_error": 9,
+      "improved": false,
+      "oof_benefit_probability": 0.125558
+    },
+    {
+      "id": "heuristic_numbers_0081",
+      "decision": "keep",
+      "raw_text": "试图用自己的血与汗守护这个脆弱的家庭。朋友告诉少年，政府答应发放贷款给贫穷家庭。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.105916
+    },
+    {
+      "id": "heuristic_numbers_0082",
+      "decision": "keep",
+      "raw_text": "这把刷子是毛戈平的，就双头刷，很好用，很方便，哑光高光的部分还要扫在这了一块，就刚刚扫修容的上半部分。",
+      "raw_error": 2,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.135573
+    },
+    {
+      "id": "heuristic_numbers_0083",
+      "decision": "keep",
+      "raw_text": "这个我觉得是一个非常关键的东西，但是在案件里边显示不出来。",
+      "raw_error": 1,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.110894
+    },
+    {
+      "id": "heuristic_numbers_0084",
+      "decision": "keep",
+      "raw_text": "只剩下一圈麻绳挂在门框上。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.111819
+    },
+    {
+      "id": "heuristic_numbers_0085",
+      "decision": "correct",
+      "raw_text": "百分之一百纯羊毛，厚度适中，是全羊毛的一个大衣。",
+      "raw_error": 5,
+      "visible_error": 5,
+      "improved": false,
+      "oof_benefit_probability": 0.11397
+    },
+    {
+      "id": "heuristic_numbers_0086",
+      "decision": "keep",
+      "raw_text": "也不是一两次的高光时刻。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.109126
+    },
+    {
+      "id": "heuristic_numbers_0087",
+      "decision": "keep",
+      "raw_text": "我也不知道，我到底是哪一夜爆红的。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.110509
+    },
+    {
+      "id": "heuristic_numbers_0088",
+      "decision": "keep",
+      "raw_text": "但是面包的口味儿，我可以变，可以是新的，对吧？不一定说我非得那个面包老是那个黑面包，老是那一个味道。",
+      "raw_error": 0,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.154463
+    },
+    {
+      "id": "heuristic_numbers_0089",
+      "decision": "keep",
+      "raw_text": "怎么这么黑啊？拿上来看一看。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.123044
+    },
+    {
+      "id": "heuristic_numbers_0090",
+      "decision": "correct",
+      "raw_text": "中原胜利突围，牵制了蒋介石正规军三十个旅以上。",
+      "raw_error": 2,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.090442
+    },
+    {
+      "id": "heuristic_numbers_0091",
+      "decision": "keep",
+      "raw_text": "我让飞机停一下，我不想坐了。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.110426
+    },
+    {
+      "id": "heuristic_numbers_0092",
+      "decision": "keep",
+      "raw_text": "当楚良回过神来，鲁明早已装作无事发生，而楚良的冒失举动也被过道另一侧的王玉看在眼中。王玉心想：楚良，你怎么回事？所以送他一个内涵眼神。",
+      "raw_error": 4,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.137939
+    },
+    {
+      "id": "heuristic_numbers_0093",
+      "decision": "correct",
+      "raw_text": "那是一九七五年越战结束后，美国航母首次出现在越南港口。美国防长这次到河内，又将推出什么动作？",
+      "raw_error": 4,
+      "visible_error": 3,
+      "improved": true,
+      "oof_benefit_probability": 0.125458
+    },
+    {
+      "id": "heuristic_numbers_0094",
+      "decision": "keep",
+      "raw_text": "机场便宜啦！",
+      "raw_error": 4,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.09305
+    },
+    {
+      "id": "heuristic_numbers_0095",
+      "decision": "correct",
+      "raw_text": "这里面也是一个啊，绒布啊。",
+      "raw_error": 2,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.114067
+    },
+    {
+      "id": "heuristic_numbers_0096",
+      "decision": "keep",
+      "raw_text": "刚才调戏短发女的男人也突然站起来，一直说英语的他开始说泰语，脸上开始冒青筋。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.125442
+    },
+    {
+      "id": "heuristic_numbers_0097",
+      "decision": "correct",
+      "raw_text": "我觉得你经过这五百年。",
+      "raw_error": 3,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.088765
+    },
+    {
+      "id": "heuristic_numbers_0098",
+      "decision": "keep",
+      "raw_text": "那下面我就开始和大家分享这五大自学编程的绝招。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.11177
+    },
+    {
+      "id": "heuristic_numbers_0099",
+      "decision": "keep",
+      "raw_text": "买这款车要的不光是动力，那么它的舒适性一定要考虑进去，空气悬架的舒适度是咱们普通悬架所比拟不了的。在这里要说一下。",
+      "raw_error": 0,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.137039
+    },
+    {
+      "id": "heuristic_numbers_0100",
+      "decision": "keep",
+      "raw_text": "你等我一下啊！",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.116637
+    },
+    {
+      "id": "heuristic_english_mix_0101",
+      "decision": "correct",
+      "raw_text": "就是用到了百分之一的水杨酸（BHA），再加上白柳树皮，是温和的调节你肌肤的角质。",
+      "raw_error": 4,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.144444
+    },
+    {
+      "id": "heuristic_english_mix_0102",
+      "decision": "keep",
+      "raw_text": "跟刚刚所有产品一样，就是它吸收的很快，腋下吸收完了以后是那种凉飕飕的一个感觉，还不错。这一款呢，因为它是 cream 的质地。",
+      "raw_error": 5,
+      "visible_error": 10,
+      "improved": false,
+      "oof_benefit_probability": 0.198217
+    },
+    {
+      "id": "heuristic_english_mix_0103",
+      "decision": "correct",
+      "raw_text": "B幺二这楼。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.098702
+    },
+    {
+      "id": "heuristic_english_mix_0104",
+      "decision": "correct",
+      "raw_text": "呃，说我我就是，挣钱就够了。你挣那么多钱干啥？是吧？你要命还是要钱？对吗？但是其实胃口觉得就是这样子，就是做好自己的事情就OK了。",
+      "raw_error": 12,
+      "visible_error": 11,
+      "improved": true,
+      "oof_benefit_probability": 0.12765
+    },
+    {
+      "id": "heuristic_english_mix_0105",
+      "decision": "correct",
+      "raw_text": "IP六八防水防尘，当然，我们依旧不推荐你带着下水啊，毕竟进了水，官方不保。",
+      "raw_error": 2,
+      "visible_error": 0,
+      "improved": true,
+      "oof_benefit_probability": 0.135304
+    },
+    {
+      "id": "heuristic_english_mix_0106",
+      "decision": "keep",
+      "raw_text": "购买自主研发的新型战斗直升机LCH。",
+      "raw_error": 1,
+      "visible_error": 1,
+      "improved": false,
+      "oof_benefit_probability": 0.092396
+    },
+    {
+      "id": "heuristic_english_mix_0107",
+      "decision": "keep",
+      "raw_text": "还幻想了自己演出的成功，《Smile》这首歌出自卓别林《摩登时代》，歌词的第一句是：“当你的心在疼，但还是要微笑。”",
+      "raw_error": 4,
+      "visible_error": 4,
+      "improved": false,
+      "oof_benefit_probability": 0.151885
+    },
+    {
+      "id": "heuristic_english_mix_0108",
+      "decision": "keep",
+      "raw_text": "捕捉了一条电锯系列的DLC，用第三部完全延伸了一条新的故事线和角色。",
+      "raw_error": 2,
+      "visible_error": 2,
+      "improved": false,
+      "oof_benefit_probability": 0.147814
+    },
+    {
+      "id": "heuristic_english_mix_0109",
+      "decision": "correct",
+      "raw_text": "iPhone十二呢，相较于十一提升幅度较大；，相较iPhone十二Pro呢，缩水较少。",
+      "raw_error": 18,
+      "visible_error": 15,
+      "improved": true,
+      "oof_benefit_probability": 0.120941
+    },
+    {
+      "id": "heuristic_english_mix_0110",
+      "decision": "keep",
+      "raw_text": "比如说，你要去学习 React Native 这样子的一个技术，去做一些移动端的这样子的应用程序。",
+      "raw_error": 9,
+      "visible_error": 12,
+      "improved": false,
+      "oof_benefit_probability": 0.142575
+    },
+    {
+      "id": "heuristic_english_mix_0111",
+      "decision": "keep",
+      "raw_text": "在ICU里面。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.097932
+    },
+    {
+      "id": "heuristic_english_mix_0112",
+      "decision": "keep",
+      "raw_text": "全新C级轿车将会凭借着旗舰级S级轿车提供的高科技功能，吸引更多的用户。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.115111
+    },
+    {
+      "id": "heuristic_english_mix_0113",
+      "decision": "keep",
+      "raw_text": "结果，我们负责IT的同学不知道左整右整，就跟我格式化了。",
+      "raw_error": 0,
+      "visible_error": 0,
+      "improved": false,
+      "oof_benefit_probability": 0.094186
+    },
+    {
+      "id": "heuristic_english_mix_0114",
+      "decision": "correct",
+      "raw_text": "缺点是转子马达和单扬声器，一千五百九十九的热米Q三Pro八加一百二八G，搭配了线性马达双扬声器。",
+      "raw_error": 18,
+      "visible_error": 18,
+      "improved": false,
+      "oof_benefit_probability": 0.135617
+    },
+    {
+      "id": "heuristic_english_mix_0115",
+      "decision": "keep",
+      "raw_text": "其实这个跟我们四十五年前设立的那个logo是。",
+      "raw_error": 4,
+      "visible_error": 7,
+      "improved": false,
+      "oof_benefit_probability": 0.13606
+    },
+    {
+      "id": "heuristic_english_mix_0116",
+      "decision": "correct",
+      "raw_text": "到了四千元的Find X三。",
+      "raw_error": 8,
+      "visible_error": 3,
+      "improved": true,
+      "oof_benefit_probability": 0.111829
+    },
+    {
+      "id": "heuristic_english_mix_0117",
+      "decision": "correct",
+      "raw_text": "所以，S R E U虽然是旗舰水平，但还是感觉价格太贵了。",
+      "raw_error": 2,
+      "visible_error": 3,
+      "improved": false,
+      "oof_benefit_probability": 0.097972
+    },
+    {
+      "id": "heuristic_english_mix_0118",
+      "decision": "correct",
+      "raw_text": "史尧春，八加二百五十六G，五千九百九十九，刚好压边儿。",
+      "raw_error": 18,
+      "visible_error": 18,
+      "improved": false,
+      "oof_benefit_probability": 0.129798
+    },
+    {
+      "id": "heuristic_english_mix_0119",
+      "decision": "keep",
+      "raw_text": "你在干嘛的视频？",
+      "raw_error": 5,
+      "visible_error": 5,
+      "improved": false,
+      "oof_benefit_probability": 0.08289
+    },
+    {
+      "id": "heuristic_english_mix_0120",
+      "decision": "correct",
+      "raw_text": "这样子的一个一个一个一个岗位，总体来说，这几个职业其实没有分得那么清楚。也就是，如果你要去做美工的话，人家可能会觉得，哎，你就是会去设计网页，对吗？然后你去啊去做网页设计师的话，那么可能PS的这些呃切图啊什么的技巧。",
+      "raw_error": 16,
+      "visible_error": 19,
+      "improved": false,
+      "oof_benefit_probability": 0.196197
+    }
+  ]
+}

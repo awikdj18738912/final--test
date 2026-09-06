@@ -85,6 +85,10 @@ GPU1 异步生成 clean window；校验通过后发送版本化 `revision`，无
 异常发送 `refiner_reject/refiner_error` 并保留原文，最后以 `complete` 关闭会话。
 `raw_text` 始终保留原始 ASR 文本，`text` 是客户端当前展示文本。
 
+每次 ASR 累计假设更新还会携带 `asr_stream_metrics`：已处理 chunk 数、假设更新次数、被后续
+假设替换的前缀字符数、追加字符数及不稳定度。它们只描述在线已经观察到的文本演化，不改变
+Qwen3-ASR 解码或客户端展示；会话最终快照保留这些指标，供后续 Gate3 收益预测训练使用。
+
 真实音频单路与 1/2/4 路阶梯测试：
 
 ```bash
