@@ -35,6 +35,7 @@ _TRIPLE_DISFLUENCY_CHARS = frozenset("不是这那我他她它啊嗯呃死")
 _DOUBLE_LEAD_DISFLUENCY_CHARS = frozenset("不也是其这那我你他她它")
 _DOUBLE_CHAR = re.compile(rf"(?=({_CJK})\1)")
 _TRIPLE_CHAR = re.compile(rf"({_CJK})\1{{2,}}")
+_REPEATED_BIGRAM = re.compile(rf"(?=({_CJK}{{2}})\1)")
 
 
 @dataclass(frozen=True)
@@ -89,5 +90,18 @@ def route(raw_text: str) -> RouteDecision:
     if len(doubled_chars) >= 2:
         score += 2
         reasons.append("multiple_double_leads:" + "".join(sorted(doubled_chars)))
+    else:
+        repeated_bigrams = {match.group(1) for match in _REPEATED_BIGRAM.finditer(text)}
+        # ASR may emit "其其实也也是" or "其其实也是也是" for the same
+        # dysfluency.  Requiring the function-word double lead as well as a
+        # repeated bigram avoids selecting a repeated phrase by itself.
+        if doubled_chars and repeated_bigrams:
+            score += 2
+            reasons.append(
+                "double_lead_with_repeated_bigram:"
+                + "".join(sorted(doubled_chars))
+                + "/"
+                + ",".join(sorted(repeated_bigrams))
+            )
 
     return RouteDecision(score >= 2, score, tuple(reasons))

@@ -1,0 +1,146 @@
+{
+  "benchmark": "Gate1 + Gate2 K1 real-audio asynchronous integration smoke",
+  "timestamp": "2026-09-06T12:43:15.086542+00:00",
+  "status": "pass",
+  "service": "http://127.0.0.1:8012",
+  "health": {
+    "status": "ok",
+    "realtime": {
+      "role": "realtime",
+      "model": "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B",
+      "active_sessions": 0,
+      "warmup_sec": 4.313
+    },
+    "gpu1_role": "refiner",
+    "refiner_router_mode": "conservative",
+    "sessions": 0,
+    "jobs": 0,
+    "offline": null,
+    "refiner": {
+      "role": "refiner",
+      "model": "/home/aim0/data/models/ASR/AgenticASR-Refiner",
+      "load_sec": 1.57,
+      "warmup_sec": 0.519,
+      "max_new_tokens": 256,
+      "stop_token_ids": [
+        1,
+        130073
+      ]
+    }
+  },
+  "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00000.wav",
+  "audio_sec": 1.8,
+  "frame_ms": 250,
+  "raw_final_visible_sec": 1.834779,
+  "complete_sec": 1.834836,
+  "refinement_events": 1,
+  "revision_events": 0,
+  "final_raw_text": "我有的时候说不清楚，你们知道吗？",
+  "final_visible_text": "我有的时候说不清楚，你们知道吗？",
+  "session_snapshot": {
+    "session_id": "ses_92b938ed6d0740f7b4db503fe19ef80a",
+    "tenant_id": "live-smoke-17a56509",
+    "language": "Chinese",
+    "quality_level": "balanced",
+    "created_at": 1788698593.2480052,
+    "raw_text": "我有的时候说不清楚，你们知道吗？",
+    "text": "我有的时候说不清楚，你们知道吗？",
+    "result_version": 2,
+    "input_seq_no": 8,
+    "active": false,
+    "final": true,
+    "latency_ms": {
+      "worker_start": 1.076,
+      "worker_rpc_total": 620.889,
+      "worker_rpc_max": 535.19,
+      "first_result": 1276.727,
+      "final_result": 1823.791
+    },
+    "refinement_enabled": true,
+    "refiner_router_mode": "conservative",
+    "refinement_disabled_reason": null,
+    "refinement_results": [
+      {
+        "event": "refiner_skipped",
+        "session_id": "ses_92b938ed6d0740f7b4db503fe19ef80a",
+        "source_span_id": "seg_0001",
+        "source_text": "我有的时候说不清楚，你们知道吗？",
+        "base_version": 2,
+        "result_version": 2,
+        "base_hash": "9fe7f532e675fbb9bc3c835a8362dd653468bd8512c37b7c4a315ace2dab5e9b",
+        "is_final": true,
+        "text": "我有的时候说不清楚，你们知道吗？",
+        "router": {
+          "call_refiner": false,
+          "score": 0,
+          "reasons": []
+        }
+      }
+    ]
+  },
+  "events": [
+    {
+      "event": "ready",
+      "session_id": "ses_92b938ed6d0740f7b4db503fe19ef80a",
+      "sample_rate": 16000,
+      "format": "pcm_s16le_mono",
+      "chunk_size_sec": 1.0,
+      "refinement_enabled": true,
+      "refiner_window_k": 1,
+      "refiner_router_mode": "conservative",
+      "received_sec": 0.011948
+    },
+    {
+      "event": "partial",
+      "session_id": "ses_92b938ed6d0740f7b4db503fe19ef80a",
+      "window_id": "full_transcript",
+      "base_version": 0,
+      "result_version": 1,
+      "base_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "is_final": false,
+      "text": "我有的时候说不清楚。",
+      "raw_text": "我有的时候说不清楚。",
+      "received_sec": 1.287812
+    },
+    {
+      "event": "final",
+      "session_id": "ses_92b938ed6d0740f7b4db503fe19ef80a",
+      "window_id": "full_transcript",
+      "base_version": 1,
+      "result_version": 2,
+      "base_hash": "70e123ab659b611562ef9a1c4924b346f60f736c8b27f5c2ff12cc3a4e7f4367",
+      "is_final": true,
+      "text": "我有的时候说不清楚，你们知道吗？",
+      "raw_text": "我有的时候说不清楚，你们知道吗？",
+      "received_sec": 1.834779
+    },
+    {
+      "event": "refiner_skipped",
+      "session_id": "ses_92b938ed6d0740f7b4db503fe19ef80a",
+      "source_span_id": "seg_0001",
+      "source_text": "我有的时候说不清楚，你们知道吗？",
+      "base_version": 2,
+      "result_version": 2,
+      "base_hash": "9fe7f532e675fbb9bc3c835a8362dd653468bd8512c37b7c4a315ace2dab5e9b",
+      "is_final": true,
+      "text": "我有的时候说不清楚，你们知道吗？",
+      "router": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      },
+      "received_sec": 1.834794
+    },
+    {
+      "event": "complete",
+      "session_id": "ses_92b938ed6d0740f7b4db503fe19ef80a",
+      "result_version": 2,
+      "is_final": true,
+      "raw_text": "我有的时候说不清楚，你们知道吗？",
+      "text": "我有的时候说不清楚，你们知道吗？",
+      "refinement_disabled_reason": null,
+      "refinement_results": 1,
+      "received_sec": 1.834836
+    }
+  ]
+}

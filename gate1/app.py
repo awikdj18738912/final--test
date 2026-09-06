@@ -8,6 +8,7 @@ import base64
 import hashlib
 import json
 import os
+import signal
 import subprocess
 import sys
 import time
@@ -21,6 +22,7 @@ from fastapi import FastAPI, File, Form, Header, HTTPException, Query, UploadFil
 from pydantic import BaseModel, Field
 
 from gate2.streaming import K1RefinementState
+from gate3.rule_router import RouteDecision, route
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +41,7 @@ GPU1_ROLE = os.environ.get("GATE1_GPU1_ROLE", "offline").lower()
 REFINER_MODEL = os.environ.get("GATE1_REFINER_MODEL", "/home/aim0/data/models/ASR/AgenticASR-Refiner")
 REFINER_TIMEOUT_SEC = float(os.environ.get("GATE1_REFINER_TIMEOUT_SEC", "10"))
 REFINER_MAX_NEW_TOKENS = int(os.environ.get("GATE1_REFINER_MAX_NEW_TOKENS", "256"))
+REFINER_ROUTER_MODE = os.environ.get("GATE1_REFINER_ROUTER", "conservative").lower()
 
 
 class SessionCreate(BaseModel):
@@ -133,7 +136,16 @@ class WorkerProcess:
         environment["PYTHONPATH"] = str(ROOT) if not existing_pythonpath else f"{ROOT}:{existing_pythonpath}"
         with self.log_path.open("w", encoding="utf-8") as log:
             self.process = subprocess.Popen(
-                self.command(), cwd=ROOT, env=environment, stdout=log, stderr=subprocess.STDOUT, text=True
+                self.command(),
+                cwd=ROOT,
+                env=environment,
+                stdout=log,
+                stderr=subprocess.STDOUT,
+                text=True,
+                # vLLM starts EngineCore as a child.  Isolating this worker in
+                # its own process group lets shutdown release GPU memory even
+                # if that child does not exit with the Python wrapper.
+                start_new_session=True,
             )
         deadline = time.monotonic() + 180
         last_error = "worker socket was not created"
@@ -169,11 +181,13 @@ class WorkerProcess:
 
     def stop(self) -> None:
         if self.process is not None and self.process.poll() is None:
-            self.process.terminate()
+            with suppress(ProcessLookupError):
+                os.killpg(os.getpgid(self.process.pid), signal.SIGTERM)
             try:
                 self.process.wait(timeout=20)
             except subprocess.TimeoutExpired:
-                self.process.kill()
+                with suppress(ProcessLookupError):
+                    os.killpg(os.getpgid(self.process.pid), signal.SIGKILL)
                 self.process.wait(timeout=10)
         self.socket_path.unlink(missing_ok=True)
 
@@ -200,6 +214,8 @@ class ServiceState:
     def __init__(self) -> None:
         if GPU1_ROLE not in {"offline", "refiner"}:
             raise ValueError("GATE1_GPU1_ROLE must be offline or refiner")
+        if REFINER_ROUTER_MODE not in {"conservative", "all", "off"}:
+            raise ValueError("GATE1_REFINER_ROUTER must be conservative, all, or off")
         RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
         self.realtime = WorkerProcess("realtime", RUNTIME_DIR / "realtime.sock", REALTIME_MODEL, 0, REALTIME_GPU_MEMORY)
         self.offline = (
@@ -246,6 +262,7 @@ class ServiceState:
             "final": record.final,
             "latency_ms": record.latency_ms,
             "refinement_enabled": record.refinement is not None,
+            "refiner_router_mode": REFINER_ROUTER_MODE if record.refinement is not None else None,
             "refinement_disabled_reason": record.refinement_disabled_reason,
             "refinement_results": record.refinement_results,
         }
@@ -339,6 +356,7 @@ async def refine_span(
     session: SessionRecord,
     span_id: str,
     queue: asyncio.Queue[dict[str, Any] | None],
+    router_decision: RouteDecision | None = None,
 ) -> None:
     if state.refiner is None:
         return
@@ -409,6 +427,7 @@ async def refine_span(
                     "model_keys": result["keys"],
                     "refiner_inference_ms": round(inference_ms, 3),
                     "refiner_rpc_ms": round(rpc_ms, 3),
+                    "router": router_decision.to_dict() if router_decision is not None else None,
                 }
             )
             session.refinement_results.append(
@@ -422,6 +441,7 @@ async def refine_span(
                     "model_generated_tokens": result["generated_tokens"],
                     "refiner_inference_ms": round(inference_ms, 3),
                     "refiner_rpc_ms": round(rpc_ms, 3),
+                    "router": router_decision.to_dict() if router_decision is not None else None,
                 }
             )
         await queue.put(event)
@@ -451,13 +471,42 @@ def schedule_refinements(
     spans: list[Any],
     queue: asyncio.Queue[dict[str, Any] | None],
 ) -> None:
+    if state.refiner is None:
+        return
     for span in spans:
+        decision = route_span(span.text)
+        if not decision.call_refiner:
+            skipped = {
+                "event": "refiner_skipped",
+                "session_id": session.session_id,
+                "source_span_id": span.span_id,
+                "source_text": span.text,
+                "base_version": session.result_version,
+                "result_version": session.result_version,
+                "base_hash": hashlib.sha256(session.text.encode("utf-8")).hexdigest(),
+                "is_final": session.final,
+                "text": session.text,
+                "router": decision.to_dict(),
+            }
+            session.refinement_results.append(skipped.copy())
+            queue.put_nowait(skipped)
+            continue
         task = asyncio.create_task(
-            refine_span(state, session, span.span_id, queue),
+            refine_span(state, session, span.span_id, queue, decision),
             name=f"refine-{session.session_id}-{span.span_id}",
         )
         session.refinement_tasks.add(task)
         task.add_done_callback(session.refinement_tasks.discard)
+
+
+def route_span(raw_text: str) -> RouteDecision:
+    """Choose a Refiner policy while retaining explicit benchmark escape hatches."""
+
+    if REFINER_ROUTER_MODE == "all":
+        return RouteDecision(True, 0, ("router_all",))
+    if REFINER_ROUTER_MODE == "off":
+        return RouteDecision(False, 0, ("router_off",))
+    return route(raw_text)
 
 
 async def wait_for_refinements(session: SessionRecord) -> None:
@@ -530,6 +579,7 @@ async def health() -> dict[str, Any]:
         "status": "ok",
         "realtime": await state.realtime.rpc({"op": "health"}),
         "gpu1_role": GPU1_ROLE,
+        "refiner_router_mode": REFINER_ROUTER_MODE if GPU1_ROLE == "refiner" else None,
         "sessions": len(state.sessions),
         "jobs": len(state.jobs),
     }
@@ -629,6 +679,7 @@ async def stream_session(websocket: WebSocket, session_id: str, tenant_id: str =
                 "chunk_size_sec": REALTIME_CHUNK_SEC,
                 "refinement_enabled": session.refinement is not None,
                 "refiner_window_k": 1 if session.refinement is not None else None,
+                "refiner_router_mode": REFINER_ROUTER_MODE if session.refinement is not None else None,
             }
         )
         while True:

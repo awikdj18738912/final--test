@@ -11,6 +11,7 @@ class RuleRouterTest(unittest.TestCase):
 
     def test_multiple_double_leads_is_selected(self) -> None:
         self.assertCall("装这个监控，其其实也也是为了偷窥。", "multiple_double_leads")
+        self.assertCall("装这个监控，其其实也是也是为了偷窥。", "double_lead_with_repeated_bigram")
 
     def test_explicit_self_correction_is_selected(self) -> None:
         self.assertCall("我不想杀他，的不对，我想杀死他。", "explicit_self_correction")
@@ -25,6 +26,7 @@ class RuleRouterTest(unittest.TestCase):
         for text in (
             "拜拜。", "好好好吃就吃。", "慢慢的站了起来。", "一个个打开。",
             "战战兢兢地看着他。", "爸爸妈妈都来了。", "酸酸甜甜的米酒。",
+            "一个一个一个岗位。",
         ):
             self.assertFalse(route(text).call_refiner, text)
 

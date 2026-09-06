@@ -9,12 +9,19 @@ processes with fixed GPU visibility. GPU1 has two mutually exclusive roles:
 - `GATE1_GPU1_ROLE=offline`（默认）：one independent Qwen3-ASR offline worker.
 - `GATE1_GPU1_ROLE=refiner`：one local AgenticASR-Refiner worker for asynchronous
   Gate2 K=1 clean-window revisions; the offline API returns 503 in this mode.
+  `GATE1_REFINER_ROUTER=conservative` is the default: only Gate3 high-evidence
+  windows are submitted. Use `all` only to reproduce the previous full-call
+  baseline, or `off` to emit audited skips for every closed span.
 
 The initial storage is in-memory. It is intentionally a Gate1 baseline, not a
 restart-safe production system: sessions, jobs, and idempotency records are
 lost when the API process stops. The worker boundary is retained so Redis,
 durable jobs, GPU1 arbitration, and a second ASR backend can be added without
 placing CUDA work in FastAPI's event loop.
+
+Each GPU worker runs in a separate process group. Stopping the service signals
+the entire group, so vLLM's `EngineCore` child cannot remain orphaned and hold
+GPU memory after its wrapper exits.
 
 ## Start
 
@@ -74,9 +81,9 @@ base64-encoded `pcm16_b64`.
 
 在 Refiner 模式中，`partial/final` 先返回 Qwen3-ASR 原始累计假设，稳定源片段在
 GPU1 异步生成 clean window；校验通过后发送版本化 `revision`，无修改发送
-`refiner_keep`，拒绝或异常发送 `refiner_reject/refiner_error` 并保留原文，最后以
-`complete` 关闭会话。`raw_text` 始终保留原始 ASR 文本，`text` 是客户端当前展示
-文本。
+`refiner_keep`，被 Gate3 路由器跳过时发送带规则分数/原因的 `refiner_skipped`；拒绝或
+异常发送 `refiner_reject/refiner_error` 并保留原文，最后以 `complete` 关闭会话。
+`raw_text` 始终保留原始 ASR 文本，`text` 是客户端当前展示文本。
 
 真实音频单路与 1/2/4 路阶梯测试：
 

@@ -1,6 +1,6 @@
 import asyncio
 
-from gate1.app import SessionRecord, refine_span, transcript_event
+from gate1.app import SessionRecord, schedule_refinements, wait_for_refinements, refine_span, transcript_event
 from gate2.streaming import K1RefinementState
 
 
@@ -74,8 +74,77 @@ def test_async_refiner_emits_revision_and_failure_keeps_source() -> None:
     assert rejected.text == "这个方案，呃呃，后面再讨论。"
 
 
+def test_router_skips_clean_span_without_an_rpc() -> None:
+    class MustNotCallRefiner:
+        async def rpc(self, payload, timeout=30):  # noqa: ANN001, ARG002
+            raise AssertionError(f"router should have skipped this RPC: {payload}")
+
+    class FakeState:
+        refiner = MustNotCallRefiner()
+
+    async def run_case() -> tuple[SessionRecord, dict]:
+        session = SessionRecord("ses_skip", "tenant", "Chinese", "balanced", 0.0)
+        session.refinement = K1RefinementState(session.session_id)
+        span = session.refinement.update_hypothesis("爸爸妈妈都来了。", is_final=True)[0]
+        session.raw_text = session.refinement.render()
+        session.text = session.raw_text
+        queue = asyncio.Queue()
+        schedule_refinements(FakeState(), session, [span], queue)
+        await wait_for_refinements(session)
+        return session, queue.get_nowait()
+
+    session, event = asyncio.run(run_case())
+    assert event["event"] == "refiner_skipped"
+    assert event["router"]["call_refiner"] is False
+    assert event["router"]["reasons"] == []
+    assert session.refinement_results == [event]
+
+
+def test_router_submits_explicit_retraction_and_records_decision() -> None:
+    class FakeRefiner:
+        def __init__(self) -> None:
+            self.calls = 0
+
+        async def rpc(self, payload, timeout=30):  # noqa: ANN001, ARG002
+            self.calls += 1
+            return {
+                "text": payload["active_source_window"],
+                "keys": [],
+                "finish_reason": "eos",
+                "stop_token_id": 130073,
+                "generated_tokens": 1,
+                "key_suffix_present": False,
+                "inference_sec": 0.001,
+            }
+
+    class FakeState:
+        def __init__(self) -> None:
+            self.refiner = FakeRefiner()
+
+    async def run_case() -> tuple[SessionRecord, dict, FakeState]:
+        state = FakeState()
+        session = SessionRecord("ses_call", "tenant", "Chinese", "balanced", 0.0)
+        session.refinement = K1RefinementState(session.session_id)
+        span = session.refinement.update_hypothesis("不对，我想重新说一遍。", is_final=True)[0]
+        session.raw_text = session.refinement.render()
+        session.text = session.raw_text
+        queue = asyncio.Queue()
+        schedule_refinements(state, session, [span], queue)
+        await wait_for_refinements(session)
+        return session, queue.get_nowait(), state
+
+    session, event, state = asyncio.run(run_case())
+    assert state.refiner.calls == 1
+    assert event["event"] == "refiner_keep"
+    assert event["router"]["call_refiner"] is True
+    assert "explicit_self_correction" in event["router"]["reasons"]
+    assert session.refinement_results[0]["router"] == event["router"]
+
+
 if __name__ == "__main__":
     test_whole_window_events_are_versioned_and_hashed()
     test_session_lock_is_asyncio_lock()
     test_async_refiner_emits_revision_and_failure_keeps_source()
+    test_router_skips_clean_span_without_an_rpc()
+    test_router_submits_explicit_retraction_and_records_decision()
     print("gate1 state tests passed")

@@ -328,6 +328,27 @@ PYTHONPATH=. /home/aim0/data/conda/envs/qwen3-asr/bin/python \
   -m unittest discover -s gate3/tests -v
 ```
 
+### Gate3 服务接入与真实音频冒烟（2026-09-06）
+
+`gate1.app` 已在稳定源片段关闭后调用路由器，而不是直接创建 Refiner RPC。默认
+`GATE1_REFINER_ROUTER=conservative`；`all` 仅用于复现 Gate2 全量调用基线，`off`
+用于审计所有跳过。WebSocket 的 `ready`、`/health` 和会话快照均暴露当前模式；每个
+`revision/refiner_keep/refiner_skipped` 事件都携带 `router={call_refiner, score, reasons}`。
+
+真实 GPU 冒烟在临时本地服务上验证了两条路径（服务随后已停止）：
+
+- 干净的 `wenet_00001` 产生 `refiner_skipped`，没有 GPU1 RPC，原始终稿和展示终稿均为
+  “我有的时候说不清楚，你们知道吗？”，证据为
+  `../gate3/results/live_router/20260906_204315/live_smoke.json`；
+- S00309 本次流式 ASR 的等价变体为“其其实也是也是”（不同于离线记录中的“其其实也也是”）。
+  新的“功能词重复开头 + 相邻双字词重复”组合规则命中，终稿在 4.322 秒可见，272ms 后收到
+  正确 revision“其其实也是”，证据为
+  `../gate3/results/live_router/20260906_204722/live_smoke.json`。
+
+为避免 GPU 配额被无意占用，worker 现在各自运行在独立进程组内；服务关闭时会终止整个
+进程组，实测不再留下 vLLM `EngineCore` 孤儿进程。上述两条只是功能冒烟，不替代独立
+155 条人工复核集的完整端到端复测。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为
