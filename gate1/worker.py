@@ -46,6 +46,74 @@ class HypothesisTelemetry:
         }
 
 
+@dataclass
+class LogprobTelemetry:
+    """Privacy-preserving summary of one vLLM generation result.
+
+    Qwen's public wrapper exposes only decoded text.  When explicitly enabled
+    for development experiments, the worker observes the underlying vLLM
+    output and retains scalar statistics only; token ids, candidate tokens and
+    raw logprob tables never leave the worker.
+    """
+
+    generation_count: int = 0
+    latest: dict[str, int | float | bool] | None = None
+
+    def reset(self) -> None:
+        """Exclude model warm-up and any previous stream from this session."""
+
+        self.generation_count = 0
+        self.latest = None
+
+    def observe_outputs(self, outputs: Any) -> None:
+        self.generation_count += 1
+        summary: dict[str, int | float | bool] = {
+            "logprob_available": False,
+            "logprob_generation_count": self.generation_count,
+            "logprob_token_count": 0,
+        }
+        try:
+            completion = outputs[0].outputs[0]
+            positions = completion.logprobs
+            token_ids = completion.token_ids
+            if not positions or not token_ids:
+                self.latest = summary
+                return
+            chosen = []
+            margins = []
+            for token_id, candidates in zip(token_ids, positions):
+                selected = candidates.get(token_id)
+                if selected is None:
+                    continue
+                chosen.append(float(selected.logprob))
+                alternatives = [float(item.logprob) for candidate_id, item in candidates.items() if candidate_id != token_id]
+                if alternatives:
+                    margins.append(float(selected.logprob) - max(alternatives))
+            if not chosen:
+                self.latest = summary
+                return
+            summary.update({
+                "logprob_available": True,
+                "logprob_token_count": len(chosen),
+                "mean_token_logprob": round(sum(chosen) / len(chosen), 6),
+                "min_token_logprob": round(min(chosen), 6),
+            })
+            if margins:
+                summary["mean_top1_margin"] = round(sum(margins) / len(margins), 6)
+            self.latest = summary
+        except (AttributeError, IndexError, KeyError, TypeError):
+            # Instrumentation must never affect decoding if an upstream vLLM
+            # result shape changes or logprobs are unavailable.
+            self.latest = summary
+
+    def metrics(self) -> dict[str, int | float | bool]:
+        return dict(self.latest or {
+            "logprob_available": False,
+            "logprob_generation_count": self.generation_count,
+            "logprob_token_count": 0,
+        })
+
+
 def encode_response(value: dict[str, Any]) -> bytes:
     return (json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n").encode("utf-8")
 
@@ -73,6 +141,7 @@ class QwenWorker:
         self.model: Any = None
         self.states: dict[str, Any] = {}
         self.telemetry: dict[str, HypothesisTelemetry] = {}
+        self.logprob_telemetry = LogprobTelemetry() if args.collect_logprob_telemetry else None
         self.warmup_sec: float | None = None
 
     def load(self) -> None:
@@ -86,6 +155,24 @@ class QwenWorker:
             max_inference_batch_size=1,
             max_new_tokens=self.args.max_new_tokens,
         )
+        if self.logprob_telemetry is not None:
+            from vllm import SamplingParams
+
+            # Preserve greedy decoding settings exactly and request only the
+            # selected token plus one alternative for a margin statistic.
+            self.model.sampling_params = SamplingParams(
+                temperature=0.0,
+                max_tokens=self.args.max_new_tokens,
+                logprobs=1,
+            )
+            original_generate = self.model.model.generate
+
+            def capture_generate(*args: Any, **kwargs: Any) -> Any:
+                outputs = original_generate(*args, **kwargs)
+                self.logprob_telemetry.observe_outputs(outputs)
+                return outputs
+
+            self.model.model.generate = capture_generate
 
     def warmup(self) -> None:
         """Run the first ASR request before accepting user traffic."""
@@ -109,6 +196,7 @@ class QwenWorker:
                 "model": self.args.model,
                 "active_sessions": len(self.states),
                 "warmup_sec": self.warmup_sec,
+                "logprob_telemetry_enabled": self.logprob_telemetry is not None,
             }
         if operation == "start":
             if self.args.role != "realtime":
@@ -121,6 +209,8 @@ class QwenWorker:
                 chunk_size_sec=float(request.get("chunk_size_sec", self.args.chunk_size_sec)),
             )
             self.telemetry[session_id] = HypothesisTelemetry()
+            if self.logprob_telemetry is not None:
+                self.logprob_telemetry.reset()
             return {"session_id": session_id, "text": ""}
         if operation == "push":
             if self.args.role != "realtime":
@@ -137,6 +227,8 @@ class QwenWorker:
             waveform = np.frombuffer(raw, dtype="<i2").astype(np.float32) / 32768.0
             self.model.streaming_transcribe(waveform, state)
             metrics = self.telemetry[session_id].observe(state.text, chunk_count=state.chunk_id)
+            if self.logprob_telemetry is not None:
+                metrics.update(self.logprob_telemetry.metrics())
             return {"session_id": session_id, "text": state.text, "language": state.language, "stream_metrics": metrics}
         if operation == "finish":
             if self.args.role != "realtime":
@@ -147,6 +239,8 @@ class QwenWorker:
                 raise KeyError("unknown realtime session")
             self.model.finish_streaming_transcribe(state)
             metrics = self.telemetry.pop(session_id, HypothesisTelemetry()).observe(state.text, chunk_count=state.chunk_id)
+            if self.logprob_telemetry is not None:
+                metrics.update(self.logprob_telemetry.metrics())
             return {"session_id": session_id, "text": state.text, "language": state.language, "stream_metrics": metrics}
         if operation == "close":
             session_id = str(request["session_id"])
@@ -208,6 +302,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-model-len", type=int, default=8192)
     parser.add_argument("--max-new-tokens", type=int, default=256)
     parser.add_argument("--chunk-size-sec", type=float, default=1.0)
+    parser.add_argument(
+        "--collect-logprob-telemetry",
+        action="store_true",
+        help="Experimental: emit scalar vLLM token-logprob summaries without changing decoded text.",
+    )
     return parser.parse_args()
 
 

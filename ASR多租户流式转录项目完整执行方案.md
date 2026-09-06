@@ -2245,6 +2245,19 @@ vLLM `EngineCore` 子进程可能遗留显存的问题：GPU worker 现在处于
 和不稳定度，并把该字段放入 partial/final 事件及会话最终快照。下一阶段先使用**新的开发数据**
 采集此稳定性证据，再评估 vLLM logprob 的可用性与性能影响；50 条 holdout 继续冻结，不参与调参。
 
+#### Gate 3 vLLM logprob 可行性 smoke（2026-09-07）
+
+本地安装的 vLLM `SamplingParams` 支持 `logprobs`，而 Qwen wrapper 虽会丢弃完整生成对象，仍可在
+worker 内以默认关闭的观测包装器提取标量，不改动其输入、贪婪参数或返回文本。对同一条 5 秒
+AISHELL 音频，默认流式模式与开启 `--collect-logprob-telemetry` 的最终文本逐字相同：
+`未灵电机今后兼并美之压缩机。`。实验模式成功返回最后一次解码的 6 个 token 的
+`mean_token_logprob=-0.154402`、`min_token_logprob=-0.894519`；不会输出 token 或候选词。
+
+因此该信号可以作为**新开发集**的候选特征采集，服务侧仅在显式设置
+`GATE1_COLLECT_LOGPROB_TELEMETRY=1` 时开启，默认关闭，且每个流开始时重置计数以排除 worker
+warm-up。这个单条 smoke 只证明接口和文本一致性，不证明置信度与 Refiner 收益相关；仍需新开发集
+训练/交叉验证，固定 50 条 holdout 保持冻结。
+
 ### Gate 2.5：Refiner 复现与安全回改有效
 
 - 完成 Offline、$K=1/2/3$ 基线，趋势能够复现论文结论；

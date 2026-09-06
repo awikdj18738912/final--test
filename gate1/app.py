@@ -42,6 +42,7 @@ REFINER_MODEL = os.environ.get("GATE1_REFINER_MODEL", "/home/aim0/data/models/AS
 REFINER_TIMEOUT_SEC = float(os.environ.get("GATE1_REFINER_TIMEOUT_SEC", "10"))
 REFINER_MAX_NEW_TOKENS = int(os.environ.get("GATE1_REFINER_MAX_NEW_TOKENS", "256"))
 REFINER_ROUTER_MODE = os.environ.get("GATE1_REFINER_ROUTER", "conservative").lower()
+COLLECT_LOGPROB_TELEMETRY = os.environ.get("GATE1_COLLECT_LOGPROB_TELEMETRY", "").lower() in {"1", "true", "yes", "on"}
 
 
 class SessionCreate(BaseModel):
@@ -124,6 +125,8 @@ class WorkerProcess:
         ]
         if self.role == "realtime":
             command.extend(["--chunk-size-sec", str(REALTIME_CHUNK_SEC)])
+            if COLLECT_LOGPROB_TELEMETRY:
+                command.append("--collect-logprob-telemetry")
         return command
 
     async def start(self) -> None:

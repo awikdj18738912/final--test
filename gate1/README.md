@@ -89,6 +89,11 @@ GPU1 异步生成 clean window；校验通过后发送版本化 `revision`，无
 假设替换的前缀字符数、追加字符数及不稳定度。它们只描述在线已经观察到的文本演化，不改变
 Qwen3-ASR 解码或客户端展示；会话最终快照保留这些指标，供后续 Gate3 收益预测训练使用。
 
+开发集采集可额外设置 `GATE1_COLLECT_LOGPROB_TELEMETRY=1`。此开关默认关闭；开启时以相同的
+贪婪解码参数请求 vLLM 返回 logprob，但仅在 `asr_stream_metrics` 输出当前流最后一次解码的标量
+摘要（`mean_token_logprob`、`min_token_logprob`、token 数），不会输出 token、候选词或原始概率表。
+它尚不是置信度阈值，也不能直接用于生产路由；仅可用于新的 Gate3 开发集特征采集。
+
 真实音频单路与 1/2/4 路阶梯测试：
 
 ```bash
