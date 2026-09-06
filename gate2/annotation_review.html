@@ -9,8 +9,8 @@
     <label>记录 <select id="record-select"></select></label>
   </section>
   <section class="navigation" aria-label="切换记录">
-    <button id="previous" type="button">上一条</button>
-    <button id="next" type="button">下一条</button>
+    <button id="previous" type="button">保存并上一条</button>
+    <button id="next" type="button">保存并下一条</button>
   </section>
   <section id="review" hidden>
     <h2 id="record-title"></h2>
@@ -109,7 +109,7 @@
   }
   async function save() {
     const record = state.filtered[state.current];
-    if (!record) return;
+    if (!record) return false;
     fields.save.disabled = true;
     try {
       const response = await fetch(`/api/records/${encodeURIComponent(record.id)}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
@@ -123,10 +123,18 @@
       const filteredIndex = state.filtered.findIndex(item => item.id === record.id);
       state.filtered[filteredIndex] = payload.record;
       fields.saveStatus.textContent = '已保存';
+      return true;
     } catch (error) {
       fields.saveStatus.textContent = error.message;
       fields.saveStatus.className = 'error';
+      return false;
     } finally { fields.save.disabled = false; }
+  }
+  async function move(delta) {
+    const saved = await save();
+    if (!saved) return;
+    state.current = Math.max(0, Math.min(state.filtered.length - 1, state.current + delta));
+    render();
   }
   async function start() {
     const response = await fetch('/api/records'); const payload = await response.json(); state.records = payload.records;
@@ -136,7 +144,7 @@
   }
   fields.category.addEventListener('change', applyFilters); fields.status.addEventListener('change', applyFilters);
   fields.select.addEventListener('change', () => { state.current = Number(fields.select.value); render(); });
-  fields.previous.addEventListener('click', () => { state.current = Math.max(0, state.current - 1); render(); });
-  fields.next.addEventListener('click', () => { state.current = Math.min(state.filtered.length - 1, state.current + 1); render(); });
+  fields.previous.addEventListener('click', () => { move(-1); });
+  fields.next.addEventListener('click', () => { move(1); });
   fields.save.addEventListener('click', save); start().catch(error => { fields.progress.textContent = `加载失败：${error.message}`; });
 </script>
