@@ -1,0 +1,81 @@
+{
+  "benchmark": "Gate3 independent-holdout policy comparison",
+  "timestamp": "2026-09-06T15:35:25.861010+00:00",
+  "route_run": "/home/aim0/桌面/tan/Idea/gate3/results/holdout_route_instrumented/20260906_233502/real_audio_eval.json",
+  "all_refine_run": "/home/aim0/桌面/tan/Idea/gate3/results/holdout_all/20260906_232531/real_audio_eval.json",
+  "sample_count": 50,
+  "raw_transcript_mismatch_count": 0,
+  "raw_transcript_mismatch_ids": [],
+  "policies": {
+    "conservative_route": {
+      "router": {
+        "router_mode": "conservative",
+        "refiner_calls": 0,
+        "router_skips": 61,
+        "refiner_rpcs": 0
+      },
+      "overall": {
+        "samples": 50,
+        "raw_cer": 0.088188,
+        "output_cer": 0.088188,
+        "delta_cer_vs_raw": 0.0,
+        "negative_edit_rate": 0.0,
+        "changed_rate": 0.0
+      },
+      "by_manual_decision": {
+        "correct": {
+          "samples": 16,
+          "raw_cer": 0.137472,
+          "output_cer": 0.137472,
+          "delta_cer_vs_raw": 0.0,
+          "negative_edit_rate": 0.0,
+          "changed_rate": 0.0
+        },
+        "keep": {
+          "samples": 34,
+          "raw_cer": 0.059873,
+          "output_cer": 0.059873,
+          "delta_cer_vs_raw": 0.0,
+          "negative_edit_rate": 0.0,
+          "changed_rate": 0.0
+        }
+      }
+    },
+    "refine_all": {
+      "router": {
+        "router_mode": "all",
+        "refiner_calls": null,
+        "router_skips": null,
+        "refiner_rpcs": null,
+        "note": "This pre-instrumentation artifact does not retain counts; all closed windows were selected by configuration."
+      },
+      "overall": {
+        "samples": 50,
+        "raw_cer": 0.088188,
+        "output_cer": 0.10356,
+        "delta_cer_vs_raw": 0.015372,
+        "negative_edit_rate": 0.26,
+        "changed_rate": 0.46
+      },
+      "by_manual_decision": {
+        "correct": {
+          "samples": 16,
+          "raw_cer": 0.137472,
+          "output_cer": 0.113082,
+          "delta_cer_vs_raw": -0.02439,
+          "negative_edit_rate": 0.1875,
+          "changed_rate": 0.6875
+        },
+        "keep": {
+          "samples": 34,
+          "raw_cer": 0.059873,
+          "output_cer": 0.098089,
+          "delta_cer_vs_raw": 0.038217,
+          "negative_edit_rate": 0.294118,
+          "changed_rate": 0.352941
+        }
+      }
+    }
+  },
+  "interpretation": "This is a held-out policy comparison. The conservative rule set must not be tuned against these results; use them to motivate a separately trained/validated benefit predictor."
+}

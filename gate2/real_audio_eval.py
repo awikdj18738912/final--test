@@ -95,6 +95,11 @@ async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
         raw_error = edit_distance(raw_norm, expected_norm)
         visible_error = edit_distance(visible_norm, expected_norm)
         refinements = result.get("session_snapshot", {}).get("refinement_results", [])
+        router_calls = sum(
+            bool(refinement.get("router", {}).get("call_refiner"))
+            for refinement in refinements
+        )
+        router_skips = sum(refinement.get("event") == "refiner_skipped" for refinement in refinements)
         reject_reasons = [
             reason
             for refinement in refinements
@@ -121,6 +126,11 @@ async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
             "changed_from_raw": visible_norm != raw_norm,
             "negative_edit": visible_error > raw_error,
             "revision_events": int(result.get("revision_events", 0)),
+            "router_call_count": router_calls,
+            "router_skip_count": router_skips,
+            "refiner_rpc_count": int(
+                result.get("session_snapshot", {}).get("latency_ms", {}).get("refiner_rpc_count", 0)
+            ),
             "reject_reasons": sorted(set(reject_reasons)),
             "status": result.get("status"),
         })
@@ -139,6 +149,10 @@ async def evaluate(args: argparse.Namespace) -> dict[str, Any]:
             "raw_cer": round(sum(item["raw_error"] for item in values) / max(1, sum(len(normalize(item["expected_clean"])) for item in values)), 6),
             "visible_cer": round(sum(item["visible_error"] for item in values) / max(1, sum(len(normalize(item["expected_clean"])) for item in values)), 6),
             "revision_rate": round(sum(item["revision_events"] > 0 for item in values) / max(1, len(values)), 6),
+            "router_call_rate": round(sum(item["router_call_count"] > 0 for item in values) / max(1, len(values)), 6),
+            "router_calls": sum(item["router_call_count"] for item in values),
+            "router_skips": sum(item["router_skip_count"] for item in values),
+            "refiner_rpcs": sum(item["refiner_rpc_count"] for item in values),
             "negative_edit_rate": round(sum(item["negative_edit"] for item in values) / max(1, len(values)), 6),
             "changed_rate": round(sum(item["changed_from_raw"] for item in values) / max(1, len(values)), 6),
             "reject_rate": round(sum(bool(item["reject_reasons"]) for item in values) / max(1, len(values)), 6),
