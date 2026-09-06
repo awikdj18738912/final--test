@@ -1,0 +1,73 @@
+{
+  "benchmark": "Gate2 real-audio quality evaluation",
+  "timestamp": "2026-09-06T11:29:07.259334+00:00",
+  "status": "pass",
+  "service": "http://127.0.0.1:8012",
+  "manifest": "/home/aim0/桌面/tan/Idea/gate2/real_audio_manifest_curated.json",
+  "manifest_record_count": 155,
+  "excluded_record_count": 0,
+  "sample_count": 1,
+  "annotation_status_counts": {
+    "curated": 1
+  },
+  "reviewed_sample_count": 1,
+  "pending_manual_review_count": 0,
+  "quality_ready": true,
+  "summary": {
+    "samples": 1,
+    "raw_cer": 0.166667,
+    "visible_cer": 0.0,
+    "revision_rate": 1.0,
+    "negative_edit_rate": 0.0,
+    "changed_rate": 1.0,
+    "reject_rate": 0.0
+  },
+  "by_category": {
+    "repetition": {
+      "samples": 1,
+      "raw_cer": 0.166667,
+      "visible_cer": 0.0,
+      "revision_rate": 1.0,
+      "negative_edit_rate": 0.0,
+      "changed_rate": 1.0,
+      "reject_rate": 0.0
+    }
+  },
+  "by_decision": {
+    "correct": {
+      "samples": 1,
+      "raw_cer": 0.166667,
+      "visible_cer": 0.0,
+      "revision_rate": 1.0,
+      "negative_edit_rate": 0.0,
+      "changed_rate": 1.0,
+      "reject_rate": 0.0
+    }
+  },
+  "reject_reasons": {},
+  "samples": [
+    {
+      "id": "wenet_s00309",
+      "line": 310,
+      "category": "repetition",
+      "annotation_status": "curated",
+      "expected_clean_source": "manual",
+      "decision": "correct",
+      "audio": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/segments/TEST_NET_Y0000000000_-KTKHdZ2fb8_TEST_NET_Y0000000000_-KTKHdZ2fb8_S00309.wav",
+      "duration": 4.45,
+      "reference": "装这个监控其其实也是也是为了偷窥一点小利",
+      "expected_clean": "装这个监控，其实也是为了偷窥，一点小利益。",
+      "raw_text": "装这个监控，其其实也是也是为了偷窥，一点小利益。",
+      "visible_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+      "raw_error": 3,
+      "visible_error": 0,
+      "raw_cer": 0.166667,
+      "visible_cer": 0.0,
+      "changed_from_raw": true,
+      "negative_edit": false,
+      "revision_events": 1,
+      "reject_reasons": [],
+      "status": "pass"
+    }
+  ]
+}

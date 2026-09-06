@@ -267,6 +267,24 @@ PYTHONPATH=. python -m gate2.real_audio_eval \
 
 评测输出除按最终类别统计外，还会按 `keep/correct` 分组，且会明确报告被排除样本数。
 
+## 155 条人工复核真实音频评测（2026-09-06）
+
+已完成 155 条不同 WenetSpeech 音频的人工复核并在 GPU0 Qwen3-ASR-1.7B、GPU1
+AgenticASR-Refiner 的实际流式服务上重跑。正式评测清单是
+`real_audio_manifest_curated.json`，完整证据是
+`results/real_audio_eval_curated/20260906_194020/real_audio_eval.json`。所有 155 条均完成，
+没有排除样本。
+
+| 分组 | 样本数 | 原始 ASR CER | 展示文本 CER | 负向编辑率 |
+|---|---:|---:|---:|---:|
+| 全部 | 155 | 11.489% | 12.020% | 21.935% |
+| `correct` | 37 | 23.898% | 20.568% | 21.622% |
+| `keep` / `passthrough` | 118 | 5.683% | 8.020% | 22.034% |
+
+`correct` 组有收益，但 118 条应当保持原文的样本被过度改写；整体 CER 反而上升
+0.531 个百分点。因此本次实验只证明了链路可运行和部分纠错收益，**Gate2 质量验收仍未通过**。下一步应实现选择性纠错，先拦截
+`keep` 类低收益窗口，再引入拼音/声学证据改善 `correct` 类的收益和误拒绝。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为
