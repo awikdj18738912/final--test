@@ -1,0 +1,2805 @@
+{
+  "benchmark": "Gate3 conservative rule-router replay",
+  "timestamp": "2026-09-06T12:32:07.059597+00:00",
+  "source_evaluation": "/home/aim0/桌面/tan/Idea/gate2/results/real_audio_eval_curated/20260906_194020/real_audio_eval.json",
+  "method": "offline counterfactual; selected samples reuse recorded Gate2 visible_text",
+  "sample_count": 155,
+  "comparisons": {
+    "skip_all": {
+      "samples": 155,
+      "cer": 0.114892,
+      "error_characters": 368,
+      "raw_cer": 0.114892,
+      "delta_cer_vs_raw": 0.0,
+      "improved_rate": 0.0,
+      "negative_edit_rate": 0.0,
+      "changed_from_raw_rate": 0.0,
+      "refiner_call_rate": 0.141935
+    },
+    "refine_all": {
+      "samples": 155,
+      "cer": 0.1202,
+      "error_characters": 385,
+      "raw_cer": 0.114892,
+      "delta_cer_vs_raw": 0.005308,
+      "improved_rate": 0.109677,
+      "negative_edit_rate": 0.219355,
+      "changed_from_raw_rate": 0.354839,
+      "refiner_call_rate": 0.141935
+    },
+    "rule_route": {
+      "samples": 155,
+      "cer": 0.113019,
+      "error_characters": 362,
+      "raw_cer": 0.114892,
+      "delta_cer_vs_raw": -0.001873,
+      "improved_rate": 0.025806,
+      "negative_edit_rate": 0.032258,
+      "changed_from_raw_rate": 0.058065,
+      "refiner_call_rate": 0.141935
+    }
+  },
+  "by_manual_decision": {
+    "correct": {
+      "skip_all": {
+        "samples": 37,
+        "cer": 0.238981,
+        "error_characters": 244,
+        "raw_cer": 0.238981,
+        "delta_cer_vs_raw": 0.0,
+        "improved_rate": 0.0,
+        "negative_edit_rate": 0.0,
+        "changed_from_raw_rate": 0.0,
+        "refiner_call_rate": 0.243243
+      },
+      "refine_all": {
+        "samples": 37,
+        "cer": 0.205681,
+        "error_characters": 210,
+        "raw_cer": 0.238981,
+        "delta_cer_vs_raw": -0.033301,
+        "improved_rate": 0.459459,
+        "negative_edit_rate": 0.216216,
+        "changed_from_raw_rate": 0.702703,
+        "refiner_call_rate": 0.243243
+      },
+      "rule_route": {
+        "samples": 37,
+        "cer": 0.226249,
+        "error_characters": 231,
+        "raw_cer": 0.238981,
+        "delta_cer_vs_raw": -0.012733,
+        "improved_rate": 0.108108,
+        "negative_edit_rate": 0.081081,
+        "changed_from_raw_rate": 0.189189,
+        "refiner_call_rate": 0.243243
+      },
+      "rule_call_coverage": 0.243243
+    },
+    "keep": {
+      "skip_all": {
+        "samples": 118,
+        "cer": 0.056829,
+        "error_characters": 124,
+        "raw_cer": 0.056829,
+        "delta_cer_vs_raw": 0.0,
+        "improved_rate": 0.0,
+        "negative_edit_rate": 0.0,
+        "changed_from_raw_rate": 0.0,
+        "refiner_call_rate": 0.110169
+      },
+      "refine_all": {
+        "samples": 118,
+        "cer": 0.080202,
+        "error_characters": 175,
+        "raw_cer": 0.056829,
+        "delta_cer_vs_raw": 0.023373,
+        "improved_rate": 0.0,
+        "negative_edit_rate": 0.220339,
+        "changed_from_raw_rate": 0.245763,
+        "refiner_call_rate": 0.110169
+      },
+      "rule_route": {
+        "samples": 118,
+        "cer": 0.060037,
+        "error_characters": 131,
+        "raw_cer": 0.056829,
+        "delta_cer_vs_raw": 0.003208,
+        "improved_rate": 0.0,
+        "negative_edit_rate": 0.016949,
+        "changed_from_raw_rate": 0.016949,
+        "refiner_call_rate": 0.110169
+      },
+      "rule_call_coverage": 0.110169
+    }
+  },
+  "reason_distribution": {
+    "explicit_self_correction": 6,
+    "multiple_double_leads": 6,
+    "not_but_is_correction": 3,
+    "should_be_correction": 6,
+    "triple_disfluency": 2
+  },
+  "samples": [
+    {
+      "id": "wenet_00001",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我有的时候说不清楚你们知道吗",
+      "raw_text": "我有的时候说不清楚，你们知道吗？",
+      "refine_all_text": "我有时候说不清楚，你们知道吗？",
+      "rule_route_text": "我有的时候说不清楚，你们知道吗？",
+      "raw_error": 0,
+      "refine_all_error": 1,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00002",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "那你觉得是谁要陷害你",
+      "raw_text": "那你觉得是谁要陷害你？",
+      "refine_all_text": "你觉得是谁要陷害你？",
+      "rule_route_text": "那你觉得是谁要陷害你？",
+      "raw_error": 0,
+      "refine_all_error": 1,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00003",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这个问题",
+      "raw_text": "这个问题。",
+      "refine_all_text": "这个问题。",
+      "rule_route_text": "这个问题。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00004",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这个人",
+      "raw_text": "这个人。",
+      "refine_all_text": "这个人。",
+      "rule_route_text": "这个人。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00005",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "给我查下去",
+      "raw_text": "给我查下去。",
+      "refine_all_text": "给我查下去。",
+      "rule_route_text": "给我查下去。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00006",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "那个房间我根本就没去过",
+      "raw_text": "那个房间，我根本就没去过。",
+      "refine_all_text": "那个房间，我根本就没去过。",
+      "rule_route_text": "那个房间，我根本就没去过。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00007",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "就凭他文知松一句话干嘛我就成嫌疑人啦",
+      "raw_text": "就凭他文志松一句话，干嘛我就成嫌疑人了？",
+      "refine_all_text": "就凭他文志松一句话，干嘛我就成嫌疑人了？",
+      "rule_route_text": "就凭他文志松一句话，干嘛我就成嫌疑人了？",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00008",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "你怎么能确定刘磊杀害了你妹妹",
+      "raw_text": "你怎么能确定刘磊杀害了你妹妹？",
+      "refine_all_text": "你怎么能确定刘磊杀害了你妹妹？",
+      "rule_route_text": "你怎么能确定刘磊杀害了你妹妹？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00009",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "他想报复我",
+      "raw_text": "他想报复我。",
+      "refine_all_text": "他想报复我。",
+      "rule_route_text": "他想报复我。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00010",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "杀了我妹妹",
+      "raw_text": "杀了我妹妹！",
+      "refine_all_text": "杀了我妹妹！",
+      "rule_route_text": "杀了我妹妹！",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00011",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "他妈是我害了他们",
+      "raw_text": "他妈！是我害了他们。",
+      "refine_all_text": "他妈！是我害了他们。",
+      "rule_route_text": "他妈！是我害了他们。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00012",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "但据我们所知你曾经和张晓柔发生过口角",
+      "raw_text": "但据我们所知，你曾经和张小柔发生过口角。",
+      "refine_all_text": "但据我们所知，你曾经和张柔发生过口角。",
+      "rule_route_text": "但据我们所知，你曾经和张小柔发生过口角。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00013",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "你们就因为这个就控告我谋杀吗",
+      "raw_text": "你们就因为这个就控告我谋杀吗？",
+      "refine_all_text": "你们就因为这个就控告我谋杀吗？",
+      "rule_route_text": "你们就因为这个就控告我谋杀吗？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00014",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "看来我要在这里向你强调一下我们现在办理的是刑事案件",
+      "raw_text": "看来我要在这里向你强调一下，我们现在办理的是刑事案件。",
+      "refine_all_text": "看来我要在这里向你强调一下，我们现在办理的是刑事案件。",
+      "rule_route_text": "看来我要在这里向你强调一下，我们现在办理的是刑事案件。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00015",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "如果你在这做伪证的话",
+      "raw_text": "如果你在这做伪证的话，",
+      "refine_all_text": "如果你在这做伪证的话",
+      "rule_route_text": "如果你在这做伪证的话，",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00016",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "你要承担刑事责任",
+      "raw_text": "你要承担刑事责任。",
+      "refine_all_text": "你要承担刑事责任。",
+      "rule_route_text": "你要承担刑事责任。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00017",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我不知道这个恶在你心中埋藏了多少年到底有多深",
+      "raw_text": "我不知道这个恶在你心中埋藏了多少年，到底有多深。",
+      "refine_all_text": "我不知道这个恶在你心中埋藏了多少年，到底有多深。",
+      "rule_route_text": "我不知道这个恶在你心中埋藏了多少年，到底有多深。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00018",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我也不知道为什么会有现在这样的结果",
+      "raw_text": "我也不知道为什么会有现在这样的结果。",
+      "refine_all_text": "我也不知道为什么会有现在这样的结果。",
+      "rule_route_text": "我也不知道为什么会有现在这样的结果。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00019",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我说服不了桃子",
+      "raw_text": "我说服不了桃子。",
+      "refine_all_text": "我说服不了桃子。",
+      "rule_route_text": "我说服不了桃子。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00020",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我也说服不了我自己",
+      "raw_text": "我也说服不了我自己。",
+      "refine_all_text": "我也说服不了我自己。",
+      "rule_route_text": "我也说服不了我自己。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00021",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "回来的时候",
+      "raw_text": "过来的时候。",
+      "refine_all_text": "过来的时候。",
+      "rule_route_text": "过来的时候。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00022",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我们就要不择手段的去赚钱",
+      "raw_text": "我们就要不择手段去赚钱。",
+      "refine_all_text": "我们就要不择手段去赚钱。",
+      "rule_route_text": "我们就要不择手段去赚钱。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00023",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "冯浩强奸了石畅",
+      "raw_text": "冯浩强奸了石畅。",
+      "refine_all_text": "冯浩强奸了石畅。",
+      "rule_route_text": "冯浩强奸了石畅。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00024",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这事儿你知道吧",
+      "raw_text": "这事儿你知道吧？",
+      "refine_all_text": "这事儿你知道吧？",
+      "rule_route_text": "这事儿你知道吧？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00025",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我知道我也不告诉你",
+      "raw_text": "我知道，我也不告诉你。",
+      "refine_all_text": "我知道，我也不告诉你。",
+      "rule_route_text": "我知道，我也不告诉你。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00026",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这不是投义气",
+      "raw_text": "这不是推卸。",
+      "refine_all_text": "这不是推卸。",
+      "rule_route_text": "这不是推卸。",
+      "raw_error": 3,
+      "refine_all_error": 3,
+      "rule_route_error": 3,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00027",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这是实事求是啊",
+      "raw_text": "这是实事求是啊。",
+      "refine_all_text": "这是实事求是啊。",
+      "rule_route_text": "这是实事求是啊。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00028",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "人真的都是我杀的",
+      "raw_text": "人真的都是我杀的。",
+      "refine_all_text": "人真的都是我杀的。",
+      "rule_route_text": "人真的都是我杀的。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00029",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "死者的死亡时间是晚上八点到十点半之间",
+      "raw_text": "死者的死亡时间是晚上八点到十点半之间。",
+      "refine_all_text": "死者的死亡时间是晚上八点到十点半之间。",
+      "rule_route_text": "死者的死亡时间是晚上八点到十点半之间。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_00030",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "是从十楼坠下的",
+      "raw_text": "是从十楼坠下的。",
+      "refine_all_text": "是从10楼坠下的。",
+      "rule_route_text": "是从十楼坠下的。",
+      "raw_error": 0,
+      "refine_all_error": 2,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_s00309",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "装这个监控，其实也是为了偷窥，一点小利益。",
+      "raw_text": "装这个监控，其其实也也是为了偷窥，一点小利益。",
+      "refine_all_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+      "rule_route_text": "装这个监控，其实也是为了偷窥，一点小利益。",
+      "raw_error": 2,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "multiple_double_leads:也其"
+        ]
+      }
+    },
+    {
+      "id": "wenet_self_correction",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "raw_text": "我不想杀他，的不对，我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "refine_all_text": "我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "rule_route_text": "我想杀死他，为小小报仇。可是我真的是不小心的呀。",
+      "raw_error": 8,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "explicit_self_correction"
+        ]
+      }
+    },
+    {
+      "id": "wenet_multi_revision",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "他在话剧里面他演我丈夫他演我丈夫演得特别好我演他的妻子有一次排练的时候啊我们家汉斯啊来探班休息的时候我看这两个男人啊在旁边交流怎样面对一个强势的女人的心得我一下子分不清到底哪个是我丈夫了这个时候赵立新的太太",
+      "raw_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "refine_all_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候，我们家汉斯来探班，休息的时候我看这两个男人在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "rule_route_text": "他在话剧里面他演我父亲啊不，他演我丈夫，他演我丈夫演的特别好，我演他的妻子。有一次排练的时候啊，我们家汉斯啊来探班，休息的时候我看这两个男人啊在旁边交流，怎样面对一个强势的女人的心得。我一下子分不清到底哪个是我丈夫了。这个时候，赵立新的太太。",
+      "raw_error": 8,
+      "refine_all_error": 11,
+      "rule_route_error": 8,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_filler_repetition",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "不过眼皮现在摸起来特别油油的要死而且它这个是属于按会按出手指印儿的那种看到吗它不是牢牢吸附在你的皮肤上的",
+      "raw_text": "啊，不过眼皮现在摸起来特别特别特别油，油的要死，而且它这个是属于按会按出手指印儿的那种，看到吗？它不是牢牢吸附在你的皮肤上的。",
+      "refine_all_text": "不过眼皮现在摸起来特别油，要死，而且它这个是属于按会按出手指印儿的那种，看到吗？它不是牢牢吸附在你的皮肤上的。",
+      "rule_route_text": "啊，不过眼皮现在摸起来特别特别特别油，油的要死，而且它这个是属于按会按出手指印儿的那种，看到吗？它不是牢牢吸附在你的皮肤上的。",
+      "raw_error": 5,
+      "refine_all_error": 2,
+      "rule_route_error": 5,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "wenet_filler_repetition_2",
+      "category": "filler_repetition",
+      "decision": "correct",
+      "expected_clean": "学习不注入血脉不注入情感这些来讲对她来讲是重复她原来的自我感",
+      "raw_text": "学习不不不注入血脉，不注入情感，这些来讲对他来讲是是重复他原来的，自我感。",
+      "refine_all_text": "学习不注入情感，这些来讲对他来讲是重复他原来的，自我感。",
+      "rule_route_text": "学习不注入情感，这些来讲对他来讲是重复他原来的，自我感。",
+      "raw_error": 5,
+      "refine_all_error": 7,
+      "rule_route_error": 7,
+      "route": {
+        "call_refiner": true,
+        "score": 4,
+        "reasons": [
+          "triple_disfluency:不",
+          "multiple_double_leads:不是"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0001",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我知道不能留遗憾这不是在打仗嘛",
+      "raw_text": "我知道不能留遗憾，这不是在打仗吗？",
+      "refine_all_text": "我知道不能留遗憾，这不是在打仗吗？",
+      "rule_route_text": "我知道不能留遗憾，这不是在打仗吗？",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0002",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "夏超怎么是你",
+      "raw_text": "小少，怎么是你？",
+      "refine_all_text": "小少，怎么是你？",
+      "rule_route_text": "小少，怎么是你？",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0003",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "然后我就让他走了",
+      "raw_text": "然后我就我，让他走了。",
+      "refine_all_text": "然后我就让他走了。",
+      "rule_route_text": "然后我就我，让他走了。",
+      "raw_error": 1,
+      "refine_all_error": 0,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0004",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "他也会杀了罗志成",
+      "raw_text": "他也会杀了罗志成。",
+      "refine_all_text": "他也会杀了罗志成。",
+      "rule_route_text": "他也会杀了罗志成。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0005",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我想我人生中最有意义的经历",
+      "raw_text": "我想，我人生中最有意义的经历。",
+      "refine_all_text": "我想，我人生中最有意义的经历。",
+      "rule_route_text": "我想，我人生中最有意义的经历。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0006",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "小朱",
+      "raw_text": "小猪。",
+      "refine_all_text": "小猪。",
+      "rule_route_text": "小猪。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0007",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "从现在开始",
+      "raw_text": "从现在开始。",
+      "refine_all_text": "从现在开始。",
+      "rule_route_text": "从现在开始。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0008",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "哦不冒菜对不起",
+      "raw_text": "哦不，毛菜对不起。",
+      "refine_all_text": "毛菜对不起。",
+      "rule_route_text": "哦不，毛菜对不起。",
+      "raw_error": 1,
+      "refine_all_error": 3,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0009",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "你吃过这个吗",
+      "raw_text": "你吃过这个吗？",
+      "refine_all_text": "你吃过这个吗？",
+      "rule_route_text": "你吃过这个吗？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0010",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "生下她没多久她父母就出车祸死了",
+      "raw_text": "生下他没多久，他父母就出车祸死了。",
+      "refine_all_text": "生下他没多久，他父母就出车祸死了。",
+      "rule_route_text": "生下他没多久，他父母就出车祸死了。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0011",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "嘴上恭谨心里唾骂",
+      "raw_text": "嘴上恭谨，心里唾骂。",
+      "refine_all_text": "嘴上恭谨，心里唾骂。",
+      "rule_route_text": "嘴上恭谨，心里唾骂。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0012",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "那当时林生斌怎么说的他接受了吗",
+      "raw_text": "那当时林正斌怎么说的？他接受了吗？",
+      "refine_all_text": "那当时林正斌怎么说的？他接受了吗？",
+      "rule_route_text": "那当时林正斌怎么说的？他接受了吗？",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0013",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "都让你给惯的",
+      "raw_text": "都是让你给惯的。",
+      "refine_all_text": "都是让你给惯的。",
+      "rule_route_text": "都是让你给惯的。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0014",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "振兴",
+      "raw_text": "阵型。",
+      "refine_all_text": "阵型。",
+      "rule_route_text": "阵型。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0015",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这车是大哥的车",
+      "raw_text": "这车是大哥的车。",
+      "refine_all_text": "这车是大哥的车。",
+      "rule_route_text": "这车是大哥的车。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0016",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "开个书记处会议",
+      "raw_text": "开个书记处会议。",
+      "refine_all_text": "开个书记处会议。",
+      "rule_route_text": "开个书记处会议。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0017",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "客舱内的压力系统恢复了正常",
+      "raw_text": "客舱内的压力系统恢复了正常。",
+      "refine_all_text": "客舱内的压力系统恢复了正常。",
+      "rule_route_text": "客舱内的压力系统恢复了正常。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0018",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "已经开了我们现在这个手镯",
+      "raw_text": "已经开了，我们现在这个手镯。",
+      "refine_all_text": "已经开了，我们现在这个手镯。",
+      "rule_route_text": "已经开了，我们现在这个手镯。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0019",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这边儿镜头这边儿",
+      "raw_text": "这边，镜头这边。",
+      "refine_all_text": "这边镜头这边。",
+      "rule_route_text": "这边，镜头这边。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_passthrough_0020",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "就能帮助我们",
+      "raw_text": "就能帮助我。",
+      "refine_all_text": "就能帮助我。",
+      "rule_route_text": "就能帮助我。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0021",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "拜拜",
+      "raw_text": "拜拜。",
+      "refine_all_text": "拜拜。",
+      "rule_route_text": "拜拜。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0022",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "你们真没用啊一个儿个儿的",
+      "raw_text": "你们真没用啊！一个个的。",
+      "refine_all_text": "你们真没用啊！一个个的。",
+      "rule_route_text": "你们真没用啊！一个个的。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0023",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "快快快",
+      "raw_text": "快快快！",
+      "refine_all_text": "快快快！",
+      "rule_route_text": "快快快！",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0024",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "一个个打开死去女孩儿的遗物行李箱时潜伏已久的恶魔突然出现带走了灵女的魂魄正当小胖小兽不知所措时小女儿主动提出自己灵魂出窍",
+      "raw_text": "一个个打开死去女孩的遗物行李箱时，潜伏已久的恶魔突然出现，带走了灵女的魂魄。正当小胖、小瘦不知所措时，小女儿主动提出自己灵魂出窍。",
+      "refine_all_text": "一个个打开死去女孩的遗物行李箱时，潜伏已久的恶魔突然出现，带走了灵女的魂魄。正当小胖、小瘦不知所措时，小女儿主动提出自己灵魂出窍。",
+      "rule_route_text": "一个个打开死去女孩的遗物行李箱时，潜伏已久的恶魔突然出现，带走了灵女的魂魄。正当小胖、小瘦不知所措时，小女儿主动提出自己灵魂出窍。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0025",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "好好好吃就吃",
+      "raw_text": "好，好，好吃就吃。",
+      "refine_all_text": "好吃就吃。",
+      "rule_route_text": "好，好，好吃就吃。",
+      "raw_error": 0,
+      "refine_all_error": 2,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0026",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "吉尔妈妈发现吉尔在角落里蹲着过去拽她",
+      "raw_text": "吉尔妈妈发现吉尔在角落里蹲着，过去拽他。",
+      "refine_all_text": "吉尔妈妈发现吉尔在角落里蹲着，过去拽他。",
+      "rule_route_text": "吉尔妈妈发现吉尔在角落里蹲着，过去拽他。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0027",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "那林潇潇为什么失踪呢他为什么向唐骏忏悔",
+      "raw_text": "那林笑笑为什么失踪呢？她为什么向唐骏忏悔？",
+      "refine_all_text": "林笑笑为什么失踪呢？她为什么向唐骏忏悔？",
+      "rule_route_text": "那林笑笑为什么失踪呢？她为什么向唐骏忏悔？",
+      "raw_error": 3,
+      "refine_all_error": 4,
+      "rule_route_error": 3,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0028",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "而不是盲目地去认为新的就好把牛都杀光了然后你去用什么乌鸦肉去替代牛肉",
+      "raw_text": "而不是盲目的去认为信了就好，把牛都杀光了，然后去你去用用什么什么乌鸦肉去替代牛肉。",
+      "refine_all_text": "而不是盲目的去认为信了就好，把牛都杀光了，然后去用用什么什么乌鸦肉去替代牛肉。",
+      "rule_route_text": "而不是盲目的去认为信了就好，把牛都杀光了，然后去你去用用什么什么乌鸦肉去替代牛肉。",
+      "raw_error": 7,
+      "refine_all_error": 7,
+      "rule_route_error": 7,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0029",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "短短半年多就暴肥两百多斤呢食物背后究竟还有什么隐藏的元凶",
+      "raw_text": "短短半年多，就暴肥两百多斤呢？食物背后究竟还有什么隐藏的元凶？",
+      "refine_all_text": "短短半年多，就暴肥两百多斤呢？食物背后究竟还有什么隐藏的元凶？",
+      "rule_route_text": "短短半年多，就暴肥两百多斤呢？食物背后究竟还有什么隐藏的元凶？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0030",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我赶紧把伸出去的手缩回来战战兢兢的看着洛爷和九爷眼泪不住的往下流",
+      "raw_text": "我赶紧把伸出去的手缩回来，战战兢兢地看着洛爷和九爷，眼泪不住地往下流。",
+      "refine_all_text": "我赶紧把伸出去的手缩回来，战战兢兢地看着洛爷和九爷，眼泪不住地往下流。",
+      "rule_route_text": "我赶紧把伸出去的手缩回来，战战兢兢地看着洛爷和九爷，眼泪不住地往下流。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "multiple_double_leads:兢战"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_repetition_0031",
+      "category": "filler_repetition",
+      "decision": "correct",
+      "expected_clean": "OK就是我这个两年半整个儿",
+      "raw_text": "OK，所以呢，就是其实我我这个两年半这个整个。",
+      "refine_all_text": "OK，所以呢，就是其实我我这个两年半这个整个。",
+      "rule_route_text": "OK，所以呢，就是其实我我这个两年半这个整个。",
+      "raw_error": 9,
+      "refine_all_error": 9,
+      "rule_route_error": 9,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0032",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "嗯没事儿蹭了一下",
+      "raw_text": "啊，没事儿，蹭蹭了一下。",
+      "refine_all_text": "没事儿，蹭了一下。",
+      "rule_route_text": "啊，没事儿，蹭蹭了一下。",
+      "raw_error": 2,
+      "refine_all_error": 1,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0033",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我答应过爸爸妈妈的我会成为最优秀的护士专门照顾绝症病人",
+      "raw_text": "我答应过爸爸妈妈的，我会成为最优秀的护士，专门照顾绝症病人。",
+      "refine_all_text": "我答应过爸爸妈妈的，我会成为最优秀的护士，专门照顾绝症病人。",
+      "rule_route_text": "我答应过爸爸妈妈的，我会成为最优秀的护士，专门照顾绝症病人。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "multiple_double_leads:妈爸"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_repetition_0034",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "佑太尝了口甜米酒不由赞叹一声好喝酸酸甜甜的米酒仿佛偷换了时空",
+      "raw_text": "幼太尝了口甜米酒，不由赞叹一声：“好喝，酸酸甜甜的米酒，仿佛偷换了时空。”",
+      "refine_all_text": "幼太尝了口甜米酒，不由赞叹一声：“好喝，酸酸甜甜的米酒，仿佛偷换了时空。”",
+      "rule_route_text": "幼太尝了口甜米酒，不由赞叹一声：“好喝，酸酸甜甜的米酒，仿佛偷换了时空。”",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "multiple_double_leads:甜酸"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_repetition_0035",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "十二加上二百五十六G的版本三千四百九十九相比于IQOO七八PRO的质感更加精致二K分辨率的屏幕也观感出色",
+      "raw_text": "十二加上二百五六G的版本，三千四百九十九，相比于iQOO七八Pro的质感更加精致，二K分辨率的屏幕也观感出色。",
+      "refine_all_text": "十二加上二百五六G的版本，三千四百九十九，相比于iQOO七八Pro的质感更加精致，二K分辨率的屏幕也观感出色。",
+      "rule_route_text": "十二加上二百五六G的版本，三千四百九十九，相比于iQOO七八Pro的质感更加精致，二K分辨率的屏幕也观感出色。",
+      "raw_error": 4,
+      "refine_all_error": 4,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0036",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "就是想通过一个行为测试看看李超在面对难题时的真实反应",
+      "raw_text": "就是想通过一个行为测试，看看李超在面对难题时的真实反应。",
+      "refine_all_text": "就是想通过一个行为测试，看看李超在面对难题时的真实反应。",
+      "rule_route_text": "就是想通过一个行为测试，看看李超在面对难题时的真实反应。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0037",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "俺需要男人的时候谁帮俺解决",
+      "raw_text": "俺需要男人的时候，谁帮俺？谁帮俺姐姐？",
+      "refine_all_text": "俺需要男人的时候，谁帮俺？谁帮俺姐姐？",
+      "rule_route_text": "俺需要男人的时候，谁帮俺？谁帮俺姐姐？",
+      "raw_error": 5,
+      "refine_all_error": 5,
+      "rule_route_error": 5,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0038",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "慢慢的站了起来他才是这次电锯惊魂游戏真正幕后的BOSS",
+      "raw_text": "慢慢的站了起来，他才是这次《电锯惊魂》游戏真正幕后的BOSS。",
+      "refine_all_text": "慢慢站了起来，他才是这次《电锯惊魂》游戏真正幕后的BOSS。",
+      "rule_route_text": "慢慢的站了起来，他才是这次《电锯惊魂》游戏真正幕后的BOSS。",
+      "raw_error": 0,
+      "refine_all_error": 1,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0039",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "而且这么极端地去去去反应",
+      "raw_text": "而且这么极端的去去去反应。",
+      "refine_all_text": "而且这么极端的去去反应。",
+      "rule_route_text": "而且这么极端的去去去反应。",
+      "raw_error": 1,
+      "refine_all_error": 2,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_repetition_0040",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "现在都会很喜欢吃饭了刚开始怀孕的时候感觉肚子胀胀的",
+      "raw_text": "现在都会很喜欢吃饭了。刚开始怀孕的时候，感觉肚子胀胀的。",
+      "refine_all_text": "现在都会很喜欢吃饭了。刚开始怀孕的时候，感觉肚子胀的。",
+      "rule_route_text": "现在都会很喜欢吃饭了。刚开始怀孕的时候，感觉肚子胀胀的。",
+      "raw_error": 0,
+      "refine_all_error": 1,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0041",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "但千万别因为几项评分儿低呃就觉得它不好啊恰恰相反它是旗舰机里最实用价格也最接地气的",
+      "raw_text": "但千万别因为几项评分低，呃，就觉得它不好，呃，恰恰相反，它是旗舰机里最实用，价格也最接地气的。",
+      "refine_all_text": "但千万别因为几项评分低，觉得它不好，恰恰相反，它是旗舰机里最实用，价格也最接地气的。",
+      "rule_route_text": "但千万别因为几项评分低，呃，就觉得它不好，呃，恰恰相反，它是旗舰机里最实用，价格也最接地气的。",
+      "raw_error": 2,
+      "refine_all_error": 4,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0042",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "换句话说吧今天这场吐槽大会啊请我一个人就够了你看导演组请那么多人干啥花多少钱啊对吧那个张泉灵",
+      "raw_text": "换句话说吧，今天这场吐槽大会呀，请我一个人就够了。你看，导演组请那么多人干啥？花多少钱啊？对吧？那个张泉灵。",
+      "refine_all_text": "换句话说，今天这场吐槽大会请我一个人就够了。你看，导演组请那么多人干啥？花多少钱啊？对吧？张泉灵。",
+      "rule_route_text": "换句话说吧，今天这场吐槽大会呀，请我一个人就够了。你看，导演组请那么多人干啥？花多少钱啊？对吧？那个张泉灵。",
+      "raw_error": 1,
+      "refine_all_error": 4,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0043",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "当然就是说我们今天看到的使用公积金强度比较高的是那些中低住宅中低收入的群体",
+      "raw_text": "当然，就是说，我们今天看到的使用功勋军强度比较高的是那些中低住宅、中低收入的群体。",
+      "refine_all_text": "我们今天看到的使用功勋军强度比较高的是那些中低住宅、中低收入的群体。",
+      "rule_route_text": "当然，就是说，我们今天看到的使用功勋军强度比较高的是那些中低住宅、中低收入的群体。",
+      "raw_error": 3,
+      "refine_all_error": 8,
+      "rule_route_error": 3,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0044",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "您这可是不讲兄弟交情啊",
+      "raw_text": "您这可是不讲兄弟交情啊！",
+      "refine_all_text": "您这可是不讲兄弟交情啊！",
+      "rule_route_text": "您这可是不讲兄弟交情啊！",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0045",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "然后发出啊的一声赞叹和噗嗤的笑声你看吃是多有意义的一件事",
+      "raw_text": "然后发出“啊”的一声赞叹和“扑哧”的笑声，你看，吃是多有意义的一件事。",
+      "refine_all_text": "然后发出“啊”的赞叹和“扑哧”的笑声，你看，吃是多有意义的一件事。",
+      "rule_route_text": "然后发出“啊”的一声赞叹和“扑哧”的笑声，你看，吃是多有意义的一件事。",
+      "raw_error": 2,
+      "refine_all_error": 4,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0046",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "保佑我啊今天一车梨全部都卖出去卖出去回家给我妈买烧鸡吃保佑保佑大吉大利",
+      "raw_text": "左右啊！鲁智深一村民全都卖出去，卖出去就给我发点烧鸡吃。保佑保佑，大吉大利！",
+      "refine_all_text": "左右啊！鲁智深一村民全都卖出去，卖出去就给我发点烧鸡吃。保佑，大吉大利！",
+      "rule_route_text": "左右啊！鲁智深一村民全都卖出去，卖出去就给我发点烧鸡吃。保佑保佑，大吉大利！",
+      "raw_error": 13,
+      "refine_all_error": 15,
+      "rule_route_error": 13,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0047",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "嗯巴菲特到到比尔盖茨为什么总是最富的这一帮人在拼命地去做社会公益啊",
+      "raw_text": "呃，巴菲特到，到比尔·盖茨，为什么总是最富的这一帮人在拼命的去做社会公益？",
+      "refine_all_text": "巴菲特到比尔·盖茨为什么总是最富这一帮人在拼命的去做社会公益？",
+      "rule_route_text": "呃，巴菲特到，到比尔·盖茨，为什么总是最富的这一帮人在拼命的去做社会公益？",
+      "raw_error": 4,
+      "refine_all_error": 6,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0048",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "公孙离和守约经常上BAN位孙尚香李元芳又不太行剩下的就是马可了所以哪怕是削弱只要机制不改",
+      "raw_text": "公孙离和守约经常上ban位，孙尚香、李元芳又不太行，剩下的就是马可了。所以哪怕是削弱，只要机制不改。",
+      "refine_all_text": "公孙离和守约经常上ban位，孙尚香、李元芳又不太行，剩下的就是马可了。所以哪怕是削弱，只要机制不改。",
+      "rule_route_text": "公孙离和守约经常上ban位，孙尚香、李元芳又不太行，剩下的就是马可了。所以哪怕是削弱，只要机制不改。",
+      "raw_error": 3,
+      "refine_all_error": 3,
+      "rule_route_error": 3,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0049",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "谁啊",
+      "raw_text": "谁啊？",
+      "refine_all_text": "谁啊？",
+      "rule_route_text": "谁啊？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0050",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "啊你让我坐绿皮车我也忍了硬座票你还买山寨版的",
+      "raw_text": "啊，你让我坐绿皮车，我也忍了；硬座票，你还买山寨版的。",
+      "refine_all_text": "你让我坐绿皮车，我也忍了。硬座票，你还买山寨版的。",
+      "rule_route_text": "啊，你让我坐绿皮车，我也忍了；硬座票，你还买山寨版的。",
+      "raw_error": 0,
+      "refine_all_error": 1,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0051",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "途中遇到了那个偷他车男人少年随手抄起一把带铁钉的木板狠狠地向那人敲打过去",
+      "raw_text": "途中遇到了那个偷他车男人，少年随手抄起一把带铁钉的木板，狠狠地向那人敲打过去。",
+      "refine_all_text": "途中遇到了偷他车男人，少年随手抄起一把带铁钉的木板，狠狠地向那人敲打过去。",
+      "rule_route_text": "途中遇到了那个偷他车男人，少年随手抄起一把带铁钉的木板，狠狠地向那人敲打过去。",
+      "raw_error": 0,
+      "refine_all_error": 2,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0052",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "究竟是为了哪般啊",
+      "raw_text": "究竟是为了哪般啊？",
+      "refine_all_text": "究竟是为了哪般啊？",
+      "rule_route_text": "究竟是为了哪般啊？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0053",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "死你个头啊你这么看人家人家当然会害羞嘛",
+      "raw_text": "死死死死你个头啊！你这么看人家，人家大有会害羞吗？",
+      "refine_all_text": "死死你个头啊！你这么看人家，人家大有会害羞吗？",
+      "rule_route_text": "死死你个头啊！你这么看人家，人家大有会害羞吗？",
+      "raw_error": 6,
+      "refine_all_error": 4,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "triple_disfluency:死"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_filler_0054",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "主观恶意或其它的目的的有些编辑记者就是看我那个嚣张的样子看不惯他就会写",
+      "raw_text": "主观恶意或其他的目的的，有些有些编辑记者就是就是看我那个嚣张的样子看不惯，他就会写。",
+      "refine_all_text": "主观恶意或其他的目的的，有些有些编辑记者就是就是看我那个嚣张的样子看不惯，他就会写。",
+      "rule_route_text": "主观恶意或其他的目的的，有些有些编辑记者就是就是看我那个嚣张的样子看不惯，他就会写。",
+      "raw_error": 5,
+      "refine_all_error": 5,
+      "rule_route_error": 5,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0055",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "就是能够有一批有共同理念有很多共同观点的人走在一起",
+      "raw_text": "就是能够有一批有共同理念、有很多共同观点的人走在一起。",
+      "refine_all_text": "能够有一批有共同理念、有很多共同观点的人走在一起。",
+      "rule_route_text": "就是能够有一批有共同理念、有很多共同观点的人走在一起。",
+      "raw_error": 0,
+      "refine_all_error": 2,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0056",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "因为你的毛囊就是你的皮脂腺",
+      "raw_text": "因为你的毛囊就是你的皮脂腺。",
+      "refine_all_text": "因为你的毛囊就是你的皮脂腺。",
+      "rule_route_text": "因为你的毛囊就是你的皮脂腺。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0057",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "结果被怪物袭击九死一生才逃了出来两条腿就是这么没的",
+      "raw_text": "结果被怪物袭击，九死一生才逃了出来，两条腿就是这么没的。",
+      "refine_all_text": "结果被怪物袭击，九死一生才逃了出来，两条腿就是这么没的。",
+      "rule_route_text": "结果被怪物袭击，九死一生才逃了出来，两条腿就是这么没的。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0058",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "三爷咱真干啊",
+      "raw_text": "三爷，咱真干啊！",
+      "refine_all_text": "三爷，咱真干啊！",
+      "rule_route_text": "三爷，咱真干啊！",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0059",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "兰蔻的持妆散粉放在家里经常用我觉得这个很好用持妆效果很好",
+      "raw_text": "懒客的持妆散粉放在家里，经常用，我觉得这个很好用。对，就是很好用，持妆效果很好。",
+      "refine_all_text": "懒客的持妆散粉放在家里，经常用，我觉得这个很好用。很好用，持妆效果很好。",
+      "rule_route_text": "懒客的持妆散粉放在家里，经常用，我觉得这个很好用。对，就是很好用，持妆效果很好。",
+      "raw_error": 8,
+      "refine_all_error": 5,
+      "rule_route_error": 8,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_filler_0060",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "别往心里去啊",
+      "raw_text": "别往心里去。",
+      "refine_all_text": "别往心里去。",
+      "rule_route_text": "别往心里去。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0061",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我爹的朋友不是英雄就是豪杰他的朋友也是我的朋友",
+      "raw_text": "我爹的朋友不是英雄就是豪杰，他的朋友也是我的朋友。",
+      "refine_all_text": "我爹的朋友不是英雄就是豪杰，他的朋友也是我的朋友。",
+      "rule_route_text": "我爹的朋友不是英雄就是豪杰，他的朋友也是我的朋友。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0062",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "是地中海但是已经改善了一半还多了",
+      "raw_text": "所以，是不是地中海呢？肯定还是地中海，但是已经改善了一半儿，还多了。",
+      "refine_all_text": "是不是地中海呢？肯定还是地中海，但是已经改善了一半，还多了。",
+      "rule_route_text": "所以，是不是地中海呢？肯定还是地中海，但是已经改善了一半儿，还多了。",
+      "raw_error": 13,
+      "refine_all_error": 10,
+      "rule_route_error": 13,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0063",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "是一舒服就不对了",
+      "raw_text": "这一舒服就不对了。",
+      "refine_all_text": "这一舒服就不对了。",
+      "rule_route_text": "这一舒服就不对了。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "explicit_self_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0064",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我不对刚才对不起啦",
+      "raw_text": "我不对，刚才对不起了啊。",
+      "refine_all_text": "我不对，刚才对不起了啊。",
+      "rule_route_text": "我不对，刚才对不起了啊。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "explicit_self_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0065",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "所以这一次先看医生啊再用护肤产品所以绝大多数女生应该是前三种",
+      "raw_text": "所以建议是先看医生啊，再用护肤产品。所以绝大多数女生应该是前三种的。",
+      "refine_all_text": "所以建议是先看医生，再用护肤产品。所以绝大多数女生应该是前3种的。",
+      "rule_route_text": "所以建议是先看医生，再用护肤产品。所以绝大多数女生应该是前3种的。",
+      "raw_error": 4,
+      "refine_all_error": 6,
+      "rule_route_error": 6,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "should_be_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0066",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这种痛苦我觉得只要是没有经历过的人他肯定都体会不到那么深层吧应该是",
+      "raw_text": "这种痛苦，我觉得只要是没有经历过的人，肯定都体会不到那么深沉吧，应该是。",
+      "refine_all_text": "这种痛苦，我觉得只要是没有经历过的人，肯定都体会不到那么深沉吧，应该是。",
+      "rule_route_text": "这种痛苦，我觉得只要是没有经历过的人，肯定都体会不到那么深沉吧，应该是。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "should_be_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0067",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "不是还是棉纺的嘛那化工的再好也不如那棉纺的舒服啊",
+      "raw_text": "不是还是棉纺的吗？那化工的再好，也不如那棉纺的舒服啊。",
+      "refine_all_text": "不是还是棉纺的吗？那化工的再好，也不如那棉纺的舒服啊。",
+      "rule_route_text": "不是还是棉纺的吗？那化工的再好，也不如那棉纺的舒服啊。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0068",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "应该是东北的广大农村",
+      "raw_text": "应该是东北的广大农村。",
+      "refine_all_text": "应该是东北的广大农村。",
+      "rule_route_text": "应该是东北的广大农村。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "should_be_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0069",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "不是你左右不分是不是并线来",
+      "raw_text": "不是你左右不分，是不是并线来？",
+      "refine_all_text": "不是你左右不分，是不是并线来？",
+      "rule_route_text": "不是你左右不分，是不是并线来？",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "not_but_is_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0070",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "随后巴乔吹起了口哨宠物狗狗们摇头摆尾地跑出来可它们不知道等待它们的不是食物而是子弹",
+      "raw_text": "随后，巴乔吹起了口哨，宠物狗狗们摇头摆尾地跑出来，可他们不知道，等待他们的不是食物，而是子弹。",
+      "refine_all_text": "随后，巴乔吹起了口哨，宠物狗们摇头摆尾地跑出来，可他们不知道，等待他们的不是食物，而是子弹。",
+      "rule_route_text": "随后，巴乔吹起了口哨，宠物狗狗们摇头摆尾地跑出来，可他们不知道，等待他们的不是食物，而是子弹。",
+      "raw_error": 2,
+      "refine_all_error": 3,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0071",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "反正我做什么都是错的做什么都不对",
+      "raw_text": "反正我做什么都是错，做什么都不对。",
+      "refine_all_text": "反正我做什么都是错，做什么都不对。",
+      "rule_route_text": "反正我做什么都是错，做什么都不对。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "explicit_self_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0072",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "是红军我能活着回来就是他们救了我",
+      "raw_text": "不是红匪，是红军。我能活着回来，就是他们救了我。",
+      "refine_all_text": "不是红匪，是红军。我能活着回来，他们救了我。",
+      "rule_route_text": "不是红匪，是红军。我能活着回来，他们救了我。",
+      "raw_error": 4,
+      "refine_all_error": 6,
+      "rule_route_error": 6,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "not_but_is_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0073",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "那那个是不是也是创新呀",
+      "raw_text": "那那个是不是也？那那个也是创新呀？",
+      "refine_all_text": "是不是也？那也是创新呀？",
+      "rule_route_text": "那那个是不是也？那那个也是创新呀？",
+      "raw_error": 4,
+      "refine_all_error": 5,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0074",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "应该是她男朋友的吧",
+      "raw_text": "应该是她男朋友的吧。",
+      "refine_all_text": "应该是她男朋友的吧。",
+      "rule_route_text": "应该是她男朋友的吧。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "should_be_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0075",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "应该是油光感有一种你好像在脸上涂了油还是你在粉底里面混合了油之后的感觉",
+      "raw_text": "都不能说是水光感，应该是油光感，有一种你好像在脸上涂了油，还是你在粉底里面混合了油之后的感觉。",
+      "refine_all_text": "应该是油光感，有一种你好像在脸上涂了油，还是你在粉底里面混合了油之后的感觉。",
+      "rule_route_text": "应该是油光感，有一种你好像在脸上涂了油，还是你在粉底里面混合了油之后的感觉。",
+      "raw_error": 8,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "should_be_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0076",
+      "category": "filler_repetition",
+      "decision": "correct",
+      "expected_clean": "这个很不合适  男同学你面试的时候是不是也是这样的你已经要步入这个社会了 你在学校里面也是一个学生你进入这个社会",
+      "raw_text": "这个很不科学，对不对？难道说你面试的时候是不是也是这样的？你已经要步入这个社会了，对吧？你在学校里边，你是一个学生，你进入这个社会。",
+      "refine_all_text": "这个很不科学，对不对？难道说你面试的时候是不是也是这样的？你已经要步入这个社会了，对吧？你在学校里边，你是一个学生，你进入这个社会。",
+      "rule_route_text": "这个很不科学，对不对？难道说你面试的时候是不是也是这样的？你已经要步入这个社会了，对吧？你在学校里边，你是一个学生，你进入这个社会。",
+      "raw_error": 12,
+      "refine_all_error": 12,
+      "rule_route_error": 12,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "explicit_self_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0077",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "而人类的一种交往不是叫犯罪过程",
+      "raw_text": "而人类的一种交往，是不是叫犯罪过程？不是。",
+      "refine_all_text": "而人类的一种交往，是不是叫犯罪过程？不是。",
+      "rule_route_text": "而人类的一种交往，是不是叫犯罪过程？不是。",
+      "raw_error": 3,
+      "refine_all_error": 3,
+      "rule_route_error": 3,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0078",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "你在跟踪我",
+      "raw_text": "你不是在跟踪我，是在干嘛？",
+      "refine_all_text": "你不是在跟踪我，是在干嘛？",
+      "rule_route_text": "你不是在跟踪我，是在干嘛？",
+      "raw_error": 6,
+      "refine_all_error": 6,
+      "rule_route_error": 6,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "not_but_is_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0079",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "很扯对不对我今天真是太衰了",
+      "raw_text": "很扯，对不对？我今天是太衰了。",
+      "refine_all_text": "很扯，对不对？我今天是太衰了。",
+      "rule_route_text": "很扯，对不对？我今天是太衰了。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "explicit_self_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_self_correction_0080",
+      "category": "self_correction",
+      "decision": "correct",
+      "expected_clean": "那么我们的第一代这个企业家严格的说起来应该是从承包制来的",
+      "raw_text": "那么，我们的第一代这个企业家从哪儿来的呢？严格的说起来，应该是从承包制来的。",
+      "refine_all_text": "我们第一代这个企业家从哪儿来的呢？严格的说起来，应该是从承包制来的。",
+      "rule_route_text": "我们第一代这个企业家从哪儿来的呢？严格的说起来，应该是从承包制来的。",
+      "raw_error": 6,
+      "refine_all_error": 9,
+      "rule_route_error": 9,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "should_be_correction"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_numbers_0081",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "试图用自己的血与汗守护这个脆弱的家庭朋友告诉少年政府答应发放贷款给贫穷家庭",
+      "raw_text": "试图用自己的血与汗守护这个脆弱的家庭。朋友告诉少年，政府答应发放贷款给贫穷家庭。",
+      "refine_all_text": "试图用自己的血与汗守护这个脆弱的家庭。朋友告诉少年，政府答应发放贷款给贫穷家庭。",
+      "rule_route_text": "试图用自己的血与汗守护这个脆弱的家庭。朋友告诉少年，政府答应发放贷款给贫穷家庭。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0082",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这把刷子是毛戈平的啊就双头刷很好用很方便哑光高光的部分还要扫在这里一块就刚刚扫修容的上半部分",
+      "raw_text": "这把刷子是毛戈平的，就双头刷，很好用，很方便，哑光高光的部分还要扫在这了一块，就刚刚扫修容的上半部分。",
+      "refine_all_text": "把刷子是毛戈平的，就双头刷，很好用，很方便，哑光高光的部分还要扫在这一块，就刚刚扫修容的上半部分。",
+      "rule_route_text": "这把刷子是毛戈平的，就双头刷，很好用，很方便，哑光高光的部分还要扫在这了一块，就刚刚扫修容的上半部分。",
+      "raw_error": 2,
+      "refine_all_error": 3,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0083",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "这个我觉得是一个非常关键的东西但是在案卷里边显示不出来",
+      "raw_text": "这个我觉得是一个非常关键的东西，但是在案件里边显示不出来。",
+      "refine_all_text": "我觉得是一个非常关键的东西，但是在案件里边显示不出来。",
+      "rule_route_text": "这个我觉得是一个非常关键的东西，但是在案件里边显示不出来。",
+      "raw_error": 1,
+      "refine_all_error": 3,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0084",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "只剩下一圈儿麻绳儿挂在门框上",
+      "raw_text": "只剩下一圈麻绳挂在门框上。",
+      "refine_all_text": "只剩下一圈麻绳挂在门框上。",
+      "rule_route_text": "只剩下一圈麻绳挂在门框上。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0085",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "100%纯羊毛厚度适中是全羊毛的一个大衣",
+      "raw_text": "百分之一百纯羊毛，厚度适中，是全羊毛的一个大衣。",
+      "refine_all_text": "百分之一百纯羊毛，厚度适中，是全羊毛的一个大衣。",
+      "rule_route_text": "百分之一百纯羊毛，厚度适中，是全羊毛的一个大衣。",
+      "raw_error": 5,
+      "refine_all_error": 5,
+      "rule_route_error": 5,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0086",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "也不是一两次的高光时刻",
+      "raw_text": "也不是一两次的高光时刻。",
+      "refine_all_text": "也不是一两次的高光时刻。",
+      "rule_route_text": "也不是一两次的高光时刻。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0087",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我也不知道我到底是哪一夜爆红的",
+      "raw_text": "我也不知道，我到底是哪一夜爆红的。",
+      "refine_all_text": "我也不知道，我到底是哪一夜爆红的。",
+      "rule_route_text": "我也不知道，我到底是哪一夜爆红的。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0088",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "但是面包的口味儿我可以变可以是新的对吧不一定说我非得那个面包老是那个黑面包老是那一个味道",
+      "raw_text": "但是面包的口味儿，我可以变，可以是新的，对吧？不一定说我非得那个面包老是那个黑面包，老是那一个味道。",
+      "refine_all_text": "但是面包的口味儿，我可以变，可以是新的，对吧？不一定说我非得那个面包老是那个黑面包，老是那个味道。",
+      "rule_route_text": "但是面包的口味儿，我可以变，可以是新的，对吧？不一定说我非得那个面包老是那个黑面包，老是那一个味道。",
+      "raw_error": 0,
+      "refine_all_error": 1,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0089",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "怎么这么黑啊拿上来看一下",
+      "raw_text": "怎么这么黑啊？拿上来看一看。",
+      "refine_all_text": "怎么这么黑啊？拿上来看一看。",
+      "rule_route_text": "怎么这么黑啊？拿上来看一看。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0090",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "中原胜利突围牵制了蒋介石正规军30个旅以上",
+      "raw_text": "中原胜利突围，牵制了蒋介石正规军三十个旅以上。",
+      "refine_all_text": "中原胜利突围，牵制了蒋介石正规军30个旅以上。",
+      "rule_route_text": "中原胜利突围，牵制了蒋介石正规军三十个旅以上。",
+      "raw_error": 2,
+      "refine_all_error": 0,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0091",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "我让飞机停一下我不想坐了",
+      "raw_text": "我让飞机停一下，我不想坐了。",
+      "refine_all_text": "我让飞机停一下，我不想坐了。",
+      "rule_route_text": "我让飞机停一下，我不想坐了。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0092",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "当楚良回过神儿来鲁明早已装作无事发生而楚良的冒失举动也被过道另一侧的王郁看在眼中王郁心想楚良你怎么回事儿所以送他一个内涵眼神",
+      "raw_text": "当楚良回过神来，鲁明早已装作无事发生，而楚良的冒失举动也被过道另一侧的王玉看在眼中。王玉心想：楚良，你怎么回事？所以送他一个内涵眼神。",
+      "refine_all_text": "当楚良回过神来，鲁明早已装作无事发生，而楚良的冒失举动也被过道另一侧的王玉看在眼中。王玉心想：楚良，你怎么回事？所以送他一个内涵眼神。",
+      "rule_route_text": "当楚良回过神来，鲁明早已装作无事发生，而楚良的冒失举动也被过道另一侧的王玉看在眼中。王玉心想：楚良，你怎么回事？所以送他一个内涵眼神。",
+      "raw_error": 4,
+      "refine_all_error": 4,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0093",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "那是1957年越战结束后美国航母首次出现在越南港口美国防长这次到河内又将推出什么动作",
+      "raw_text": "那是一九七五年越战结束后，美国航母首次出现在越南港口。美国防长这次到河内，又将推出什么动作？",
+      "refine_all_text": "那是在1975年越战结束后，美国航母首次出现在越南港口。美国防长这次到河内，又将推出什么动作？",
+      "rule_route_text": "那是一九七五年越战结束后，美国航母首次出现在越南港口。美国防长这次到河内，又将推出什么动作？",
+      "raw_error": 4,
+      "refine_all_error": 3,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0094",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "尝一尝啊便宜啦",
+      "raw_text": "机场便宜啦！",
+      "refine_all_text": "机场便宜啦！",
+      "rule_route_text": "机场便宜啦！",
+      "raw_error": 4,
+      "refine_all_error": 4,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0095",
+      "category": "filler_repetition",
+      "decision": "correct",
+      "expected_clean": "这里面也是一个绒布",
+      "raw_text": "这里面也是一个啊，绒布啊。",
+      "refine_all_text": "这里面也是一个绒布。",
+      "rule_route_text": "这里面也是一个啊，绒布啊。",
+      "raw_error": 2,
+      "refine_all_error": 0,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0096",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "刚才调戏短发女的男人也突然站起来一直说英语的他开始说泰语脸上开始冒青筋",
+      "raw_text": "刚才调戏短发女的男人也突然站起来，一直说英语的他开始说泰语，脸上开始冒青筋。",
+      "refine_all_text": "刚才调戏短发女的男人也突然站起来，一直说英语的他开始说泰语，脸上开始冒青筋。",
+      "rule_route_text": "刚才调戏短发女的男人也突然站起来，一直说英语的他开始说泰语，脸上开始冒青筋。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0097",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "我觉得你经过这500年",
+      "raw_text": "我觉得你经过这五百年。",
+      "refine_all_text": "我觉得你经过这500年。",
+      "rule_route_text": "我觉得你经过这五百年。",
+      "raw_error": 3,
+      "refine_all_error": 0,
+      "rule_route_error": 3,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0098",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "那下面我就开始和大家分享这五大自学编程的绝招",
+      "raw_text": "那下面我就开始和大家分享这五大自学编程的绝招。",
+      "refine_all_text": "那下面我就开始和大家分享这五大自学编程的绝招。",
+      "rule_route_text": "那下面我就开始和大家分享这五大自学编程的绝招。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0099",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "买这款车要的不光是动力那么它的舒适性一定要考虑进去空气悬架的舒适度是咱们普通悬架所比拟不了的在这里要说一下",
+      "raw_text": "买这款车要的不光是动力，那么它的舒适性一定要考虑进去，空气悬架的舒适度是咱们普通悬架所比拟不了的。在这里要说一下。",
+      "refine_all_text": "买这款车要的不光是动力，那么它的舒适性一定要考虑进去，空气悬架的舒适度是咱们普通悬架所比拟不了的。在这里说一下。",
+      "rule_route_text": "买这款车要的不光是动力，那么它的舒适性一定要考虑进去，空气悬架的舒适度是咱们普通悬架所比拟不了的。在这里要说一下。",
+      "raw_error": 0,
+      "refine_all_error": 1,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_numbers_0100",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "你等我一下啊",
+      "raw_text": "你等我一下啊！",
+      "refine_all_text": "你等我一下啊！",
+      "rule_route_text": "你等我一下啊！",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0101",
+      "category": "english_mix",
+      "decision": "correct",
+      "expected_clean": "就是用到了1%的水杨酸BHA再加上白柳树皮是温和的调节你肌肤的角质",
+      "raw_text": "就是用到了百分之一的水杨酸（BHA），再加上白柳树皮，是温和的调节你肌肤的角质。",
+      "refine_all_text": "就是用到了百分之一的水杨酸（BHA），再加上白柳树皮，是温和的调节你肌肤的角质。",
+      "rule_route_text": "就是用到了百分之一的水杨酸（BHA），再加上白柳树皮，是温和的调节你肌肤的角质。",
+      "raw_error": 4,
+      "refine_all_error": 4,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0102",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "跟刚刚所有产品一样就是它吸收的很快腋下吸收完了以后是那种凉飕飕的一个感觉还不错这一款呢因为它是QUEEN的质地",
+      "raw_text": "跟刚刚所有产品一样，就是它吸收的很快，腋下吸收完了以后是那种凉飕飕的一个感觉，还不错。这一款呢，因为它是 cream 的质地。",
+      "refine_all_text": "跟刚刚所有产品一样，它吸收很快，腋下吸收完了以后是那种凉飕的一个感觉，还不错。这一款因为它是cream的质地。",
+      "rule_route_text": "跟刚刚所有产品一样，它吸收很快，腋下吸收完了以后是那种凉飕的一个感觉，还不错。这一款因为它是cream的质地。",
+      "raw_error": 5,
+      "refine_all_error": 10,
+      "rule_route_error": 10,
+      "route": {
+        "call_refiner": true,
+        "score": 2,
+        "reasons": [
+          "multiple_double_leads:刚飕"
+        ]
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0103",
+      "category": "english_mix",
+      "decision": "correct",
+      "expected_clean": "B12这楼",
+      "raw_text": "B幺二这楼。",
+      "refine_all_text": "B幺二这楼。",
+      "rule_route_text": "B幺二这楼。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0104",
+      "category": "filler_repetition",
+      "decision": "correct",
+      "expected_clean": "我就是挣钱就够了你挣那么多钱干啥你要命还是要钱但是其实VICCO觉得就是这样子就是做好自己的事情就OK了",
+      "raw_text": "呃，说我我就是，挣钱就够了。你挣那么多钱干啥？是吧？你要命还是要钱？对吗？但是其实胃口觉得就是这样子，就是做好自己的事情就OK了。",
+      "refine_all_text": "说我是挣钱就够了。你挣那么多钱干啥？是吧？你要命还是要钱？对吗？但是其实胃口觉得就是这样子，就是做好自己的事情就OK了。",
+      "rule_route_text": "呃，说我我就是，挣钱就够了。你挣那么多钱干啥？是吧？你要命还是要钱？对吗？但是其实胃口觉得就是这样子，就是做好自己的事情就OK了。",
+      "raw_error": 12,
+      "refine_all_error": 11,
+      "rule_route_error": 12,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0105",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "IP68防水防尘当然我们依旧不推荐你带着下水啊毕竟进了水官方不保",
+      "raw_text": "IP六八防水防尘，当然，我们依旧不推荐你带着下水啊，毕竟进了水，官方不保。",
+      "refine_all_text": "IP68防水防尘，当然，我们依旧不推荐你带着下水啊，毕竟进了水，官方不保。",
+      "rule_route_text": "IP六八防水防尘，当然，我们依旧不推荐你带着下水啊，毕竟进了水，官方不保。",
+      "raw_error": 2,
+      "refine_all_error": 0,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0106",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "购买自主研发的轻型战斗直升机LCH",
+      "raw_text": "购买自主研发的新型战斗直升机LCH。",
+      "refine_all_text": "购买自主研发的新型战斗直升机LCH。",
+      "rule_route_text": "购买自主研发的新型战斗直升机LCH。",
+      "raw_error": 1,
+      "refine_all_error": 1,
+      "rule_route_error": 1,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0107",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "还幻想了自己演出的成功SMILE这首歌出自卓别林摩登时代歌词的第一句是当你的心在疼但还是要微笑",
+      "raw_text": "还幻想了自己演出的成功，《Smile》这首歌出自卓别林《摩登时代》，歌词的第一句是：“当你的心在疼，但还是要微笑。”",
+      "refine_all_text": "还幻想了自己演出的成功，《Smile》这首歌出自卓别林《摩登时代》，歌词的第一句是：“当你的心在疼，但还是要微笑。”",
+      "rule_route_text": "还幻想了自己演出的成功，《Smile》这首歌出自卓别林《摩登时代》，歌词的第一句是：“当你的心在疼，但还是要微笑。”",
+      "raw_error": 4,
+      "refine_all_error": 4,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0108",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "补足了一条电锯系列的DLC用第三部完全延伸了一条新的故事线和角色",
+      "raw_text": "捕捉了一条电锯系列的DLC，用第三部完全延伸了一条新的故事线和角色。",
+      "refine_all_text": "捕捉了一条电锯系列的DLC，用第三部完全延伸了一条新的故事线和角色。",
+      "rule_route_text": "捕捉了一条电锯系列的DLC，用第三部完全延伸了一条新的故事线和角色。",
+      "raw_error": 2,
+      "refine_all_error": 2,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0109",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "IPHONE12呢相较于11提升幅度较大相较IPHONE12PRO呢缩水较少",
+      "raw_text": "iPhone十二呢，相较于十一提升幅度较大；，相较iPhone十二Pro呢，缩水较少。",
+      "refine_all_text": "iPhone 12，相较于11提升幅度较大。iPhone 12 Pro呢，缩水较少。",
+      "rule_route_text": "iPhone十二呢，相较于十一提升幅度较大；，相较iPhone十二Pro呢，缩水较少。",
+      "raw_error": 18,
+      "refine_all_error": 15,
+      "rule_route_error": 18,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0110",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "比如说你要去学习REACTNATIVE这样子的一个技术去做一些移动端的这样子的应用程序",
+      "raw_text": "比如说，你要去学习 React Native 这样子的一个技术，去做一些移动端的这样子的应用程序。",
+      "refine_all_text": "你要去学习 React Native 这样子的一个技术，去做一些移动端的这样子的应用程序。",
+      "rule_route_text": "比如说，你要去学习 React Native 这样子的一个技术，去做一些移动端的这样子的应用程序。",
+      "raw_error": 9,
+      "refine_all_error": 12,
+      "rule_route_error": 9,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0111",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "在ICU里面",
+      "raw_text": "在ICU里面。",
+      "refine_all_text": "在ICU里面。",
+      "rule_route_text": "在ICU里面。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0112",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "全新C级轿车将会凭借着旗舰级S级轿车提供的高科技功能吸引更多的用户",
+      "raw_text": "全新C级轿车将会凭借着旗舰级S级轿车提供的高科技功能，吸引更多的用户。",
+      "refine_all_text": "全新C级轿车将会凭借着旗舰级S级轿车提供的高科技功能，吸引更多的用户。",
+      "rule_route_text": "全新C级轿车将会凭借着旗舰级S级轿车提供的高科技功能，吸引更多的用户。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0113",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "结果我们负责IT的同学不知道左整右整就跟我格式化了",
+      "raw_text": "结果，我们负责IT的同学不知道左整右整，就跟我格式化了。",
+      "refine_all_text": "结果，我们负责IT的同学不知道左整右整，就跟我格式化了。",
+      "rule_route_text": "结果，我们负责IT的同学不知道左整右整，就跟我格式化了。",
+      "raw_error": 0,
+      "refine_all_error": 0,
+      "rule_route_error": 0,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0114",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "缺点是转子马达和单扬声器1599的REALMEQ3PRO八加128G搭配了线性马达双扬声器",
+      "raw_text": "缺点是转子马达和单扬声器，一千五百九十九的热米Q三Pro八加一百二八G，搭配了线性马达双扬声器。",
+      "refine_all_text": "缺点是转子马达和单扬声器，一千五百九十九的热米Q三Pro八加一百二八G，搭配了线性马达双扬声器。",
+      "rule_route_text": "缺点是转子马达和单扬声器，一千五百九十九的热米Q三Pro八加一百二八G，搭配了线性马达双扬声器。",
+      "raw_error": 18,
+      "refine_all_error": 18,
+      "rule_route_error": 18,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0115",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "其实这个跟我们四十五年前设立的那个LOGO是",
+      "raw_text": "其实这个跟我们四十五年前设立的那个logo是。",
+      "refine_all_text": "其实这个跟我们45年前设立的那个logo是。",
+      "rule_route_text": "其实这个跟我们四十五年前设立的那个logo是。",
+      "raw_error": 4,
+      "refine_all_error": 7,
+      "rule_route_error": 4,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0116",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "到了4000元的FINDX3",
+      "raw_text": "到了四千元的Find X三。",
+      "refine_all_text": "到了4000元的Find X3。",
+      "rule_route_text": "到了四千元的Find X三。",
+      "raw_error": 8,
+      "refine_all_error": 3,
+      "rule_route_error": 8,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0117",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "所以S21U虽然是旗舰水平但还是感觉价格太贵了",
+      "raw_text": "所以，S R E U虽然是旗舰水平，但还是感觉价格太贵了。",
+      "refine_all_text": "所以，SRE U虽然旗舰水平，但还是感觉价格太贵了。",
+      "rule_route_text": "所以，S R E U虽然是旗舰水平，但还是感觉价格太贵了。",
+      "raw_error": 2,
+      "refine_all_error": 3,
+      "rule_route_error": 2,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0118",
+      "category": "numbers",
+      "decision": "correct",
+      "expected_clean": "11UITRA 8加256G 5999刚好压边儿",
+      "raw_text": "史尧春，八加二百五十六G，五千九百九十九，刚好压边儿。",
+      "refine_all_text": "史尧春，八加二百五十六G，五千九百九十九，刚好压边儿。",
+      "rule_route_text": "史尧春，八加二百五十六G，五千九百九十九，刚好压边儿。",
+      "raw_error": 18,
+      "refine_all_error": 18,
+      "rule_route_error": 18,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0119",
+      "category": "passthrough",
+      "decision": "keep",
+      "expected_clean": "NEVER在干嘛的视频",
+      "raw_text": "你在干嘛的视频？",
+      "refine_all_text": "你在干嘛的视频？",
+      "rule_route_text": "你在干嘛的视频？",
+      "raw_error": 5,
+      "refine_all_error": 5,
+      "rule_route_error": 5,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    },
+    {
+      "id": "heuristic_english_mix_0120",
+      "category": "repetition",
+      "decision": "correct",
+      "expected_clean": "这样子的一个岗位总体来说这几个职业其实没有分得那么清楚也就是如果你要去做美工的话人家可能会觉得你就是会设计网页，然后你去做网页设计师的话，那么可能PS的这些切图的技巧",
+      "raw_text": "这样子的一个一个一个一个岗位，总体来说，这几个职业其实没有分得那么清楚。也就是，如果你要去做美工的话，人家可能会觉得，哎，你就是会去设计网页，对吗？然后你去啊去做网页设计师的话，那么可能PS的这些呃切图啊什么的技巧。",
+      "refine_all_text": "这样子的一个一个一个一个岗位，总体来说，这几个职业其实没有分得那么清楚。如果你要去做美工的话，人家可能会觉得。你会去设计网页，对吗？去做网页设计师的话，可能PS的这些切图什么的技巧。",
+      "rule_route_text": "这样子的一个一个一个一个岗位，总体来说，这几个职业其实没有分得那么清楚。也就是，如果你要去做美工的话，人家可能会觉得，哎，你就是会去设计网页，对吗？然后你去啊去做网页设计师的话，那么可能PS的这些呃切图啊什么的技巧。",
+      "raw_error": 16,
+      "refine_all_error": 19,
+      "rule_route_error": 16,
+      "route": {
+        "call_refiner": false,
+        "score": 0,
+        "reasons": []
+      }
+    }
+  ]
+}
