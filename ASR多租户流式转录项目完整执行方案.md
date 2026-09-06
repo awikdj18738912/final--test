@@ -2195,6 +2195,20 @@ vLLM `EngineCore` 子进程可能遗留显存的问题：GPU worker 现在处于
 实验是构建不参与规则分析的人工复核留出音频集，并以保守路由模式完整评测其 CER、负向编辑率、
 调用率、首字/终稿/回改延迟；之后才考虑提升召回率的拼音、声学置信度或 N-best 特征。
 
+#### Gate 3 独立留出集已准备（待人工复核）
+
+已新增 `gate3/build_holdout_manifest.py`，以正式 155 条人工复核 manifest 的行号为排除集，
+从本地 WenetSpeech test-net 缓存确定性抽取 50 条新音频；生成
+`gate3/real_audio_manifest_holdout.json` 与
+`gate3/real_audio_holdout_annotation_sheet.csv`。检查确认 50 条内部 ID/行号均唯一，与 155 条
+重叠为 0。抽样配额为直通 35、重复 4、口癖 3、自我修正 3、数字 3、中英混说 2；这些只是
+覆盖分层，所有记录初始状态均为 `pending_manual_review`。
+
+已在 `127.0.0.1:8030` 启动现有人工标注页面（只读本地音频和 CSV，不使用 GPU）。完成 50 条
+人工复核后，应使用独立命令将 CSV 固化为 holdout manifest；随后仅在该留出集上运行保守路由的
+真实 ASR+Refiner 服务，报告 `SKIP / ALL / ROUTE` 的 CER、负向编辑率、Refiner 调用率和
+端到端延迟。留出集完成前，不再根据其结果更改路由规则。
+
 ### Gate 2.5：Refiner 复现与安全回改有效
 
 - 完成 Offline、$K=1/2/3$ 基线，趋势能够复现论文结论；

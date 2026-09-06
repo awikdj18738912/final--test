@@ -349,6 +349,27 @@ PYTHONPATH=. /home/aim0/data/conda/envs/qwen3-asr/bin/python \
 进程组，实测不再留下 vLLM `EngineCore` 孤儿进程。上述两条只是功能冒烟，不替代独立
 155 条人工复核集的完整端到端复测。
 
+### Gate3 独立留出集：待人工复核
+
+已由 `../gate3/build_holdout_manifest.py` 从同一 WenetSpeech test-net 缓存确定性抽取
+50 条新音频，输出为 `../gate3/real_audio_manifest_holdout.json` 及
+`../gate3/real_audio_holdout_annotation_sheet.csv`。它按行号排除了正式 155 条清单，脚本
+校验结果为重叠 `0`；组成是 35 条直通控制、4 条重复、3 条口癖、3 条自我修正、3 条数字、
+2 条中英混说。类别只用于覆盖抽样，不能当作标签。
+
+人工复核服务使用 CPU、不会加载 ASR 或 Refiner：
+
+```bash
+PYTHONPATH=. /home/aim0/data/conda/envs/qwen3-asr/bin/python \
+  -m gate2.annotation_server \
+  --sheet gate3/real_audio_holdout_annotation_sheet.csv \
+  --host 127.0.0.1 --port 8030
+```
+
+每条听完后保留默认 `keep`（页面会写为 `passthrough`）；若音频证明原始转写需要改正，选择
+`correct` 并把 `expected_clean` 改为你认可的最终文本。50 条全部完成后，使用单独的 manifest
+固化脚本生成留出真值，再启动一次真实路由服务做端到端验收；此前不得把这批数据用于调整规则。
+
 ## 真实音频异步集成与并发基线（2026-09-05）
 
 `gate1.app` 现可通过 `GATE1_GPU1_ROLE=refiner` 将 GPU0 固定为

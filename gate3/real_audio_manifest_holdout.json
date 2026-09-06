@@ -1,0 +1,376 @@
+{
+  "dataset": "/home/aim0/data/datasets/ASR/wenetspeech_test_net/wenetspeech_test_net.json",
+  "dataset_note": "Independent Gate3 holdout. Selection strata only support coverage; manual review is required before any quality claim.",
+  "excluded_manifest": "/home/aim0/桌面/tan/Idea/gate2/real_audio_manifest_curated.json",
+  "excluded_record_count": 155,
+  "selection": {
+    "requested": {
+      "passthrough": 35,
+      "repetition": 4,
+      "filler": 3,
+      "self_correction": 3,
+      "numbers": 3,
+      "english_mix": 2
+    },
+    "selected": {
+      "passthrough": 35,
+      "repetition": 4,
+      "filler": 3,
+      "self_correction": 3,
+      "numbers": 3,
+      "english_mix": 2
+    }
+  },
+  "records": [
+    {
+      "id": "gate3_holdout_001",
+      "line": 15170,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_002",
+      "line": 19757,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_003",
+      "line": 2073,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_004",
+      "line": 6285,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_005",
+      "line": 13116,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_006",
+      "line": 565,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_007",
+      "line": 20359,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_008",
+      "line": 24112,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_009",
+      "line": 15442,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_010",
+      "line": 16745,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_011",
+      "line": 21477,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_012",
+      "line": 1117,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_013",
+      "line": 15820,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_014",
+      "line": 13101,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_015",
+      "line": 3780,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_016",
+      "line": 9950,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_017",
+      "line": 22434,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_018",
+      "line": 21096,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_019",
+      "line": 3700,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_020",
+      "line": 11254,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_021",
+      "line": 20825,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_022",
+      "line": 7978,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_023",
+      "line": 12074,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_024",
+      "line": 20330,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_025",
+      "line": 15734,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_026",
+      "line": 19555,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_027",
+      "line": 24421,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_028",
+      "line": 5997,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_029",
+      "line": 3193,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_030",
+      "line": 8150,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_031",
+      "line": 15680,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_032",
+      "line": 4563,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_033",
+      "line": 1823,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_034",
+      "line": 21656,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_035",
+      "line": 6246,
+      "category": "passthrough",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_036",
+      "line": 10234,
+      "category": "repetition",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_037",
+      "line": 19995,
+      "category": "repetition",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_038",
+      "line": 23752,
+      "category": "repetition",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_039",
+      "line": 22195,
+      "category": "repetition",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_040",
+      "line": 3237,
+      "category": "filler",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_041",
+      "line": 9176,
+      "category": "filler",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_042",
+      "line": 4335,
+      "category": "filler",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_043",
+      "line": 23154,
+      "category": "self_correction",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_044",
+      "line": 24167,
+      "category": "self_correction",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_045",
+      "line": 49,
+      "category": "self_correction",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_046",
+      "line": 15092,
+      "category": "numbers",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_047",
+      "line": 12743,
+      "category": "numbers",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_048",
+      "line": 6963,
+      "category": "numbers",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_049",
+      "line": 2885,
+      "category": "english_mix",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    },
+    {
+      "id": "gate3_holdout_050",
+      "line": 12862,
+      "category": "english_mix",
+      "annotation_status": "pending_manual_review",
+      "expected_clean_source": "reference_default"
+    }
+  ]
+}
