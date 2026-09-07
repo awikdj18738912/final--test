@@ -18,6 +18,14 @@ class RuleRouterTest(unittest.TestCase):
         self.assertCall("不是红匪，是红军。", "not_but_is_correction")
         self.assertCall("都不能说是水光感，应该是油光感。", "should_be_correction")
 
+    def test_explicit_self_correction_without_asr_punctuation_is_selected(self) -> None:
+        self.assertCall("我是一个苹果嗯不对我是一个梨", "explicit_self_correction")
+
+    def test_judgement_about_us_is_not_mistaken_for_self_correction(self) -> None:
+        decision = route("这样做不对我们都应该反对")
+        self.assertFalse(decision.call_refiner)
+        self.assertNotIn("explicit_self_correction", decision.reasons)
+
     def test_disfluency_triple_is_selected(self) -> None:
         self.assertCall("学习不不不注入血脉。", "triple_disfluency")
         self.assertCall("死死死死你个头啊。", "triple_disfluency")

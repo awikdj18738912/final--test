@@ -17,7 +17,13 @@ _SELF_CORRECTION_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     # Standalone "不对" normally means a judgement ("这就不对了") rather
     # than a retraction.  It becomes useful evidence when it introduces a new
     # utterance, for example "不对，我想说…".
-    ("explicit_self_correction", re.compile(r"(?:不对|说错了?|讲错了?|口误)[，,。！？!?]\s*(?:我|是|应该|想|要)")),
+    (
+        "explicit_self_correction",
+        re.compile(
+            r"(?:不对|说错了?|讲错了?|口误)(?:[，,。！？!?]\s*)?"
+            r"(?:我(?:是|想|要)|是|应该|想|要)"
+        ),
+    ),
     ("explicit_rephrasing", re.compile(r"(?:重新说|重说|我的意思)")),
     # Require a nearby corrective "是", so ordinary usages such as "不是一般的"
     # do not cause a call by themselves.
