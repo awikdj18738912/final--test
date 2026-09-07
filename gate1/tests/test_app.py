@@ -1,6 +1,6 @@
 import asyncio
 
-from gate1.app import SessionRecord, schedule_refinements, wait_for_refinements, refine_span, transcript_event
+from gate1.app import FRONTEND_PATH, SessionRecord, schedule_refinements, wait_for_refinements, refine_span, transcript_event
 from gate2.streaming import K1RefinementState
 
 
@@ -26,6 +26,15 @@ def test_session_lock_is_asyncio_lock() -> None:
 
     asyncio.run(use_lock())
     assert session.input_seq_no == 1
+
+
+def test_frontend_is_bundled_with_realtime_and_offline_controls() -> None:
+    html = FRONTEND_PATH.read_text(encoding="utf-8")
+
+    assert 'id="start-recording"' in html
+    assert 'id="offline-form"' in html
+    assert 'new WebSocket' in html
+    assert '/offline/jobs' in html
 
 
 def test_async_refiner_emits_revision_and_failure_keeps_source() -> None:
@@ -144,6 +153,7 @@ def test_router_submits_explicit_retraction_and_records_decision() -> None:
 if __name__ == "__main__":
     test_whole_window_events_are_versioned_and_hashed()
     test_session_lock_is_asyncio_lock()
+    test_frontend_is_bundled_with_realtime_and_offline_controls()
     test_async_refiner_emits_revision_and_failure_keeps_source()
     test_router_skips_clean_span_without_an_rpc()
     test_router_submits_explicit_retraction_and_records_decision()

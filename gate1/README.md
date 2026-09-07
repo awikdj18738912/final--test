@@ -32,6 +32,11 @@ can take about a minute.
 /home/aim0/data/conda/envs/qwen3-asr/bin/python -m uvicorn gate1.app:app --host 127.0.0.1 --port 8000
 ```
 
+启动完成后直接打开 `http://127.0.0.1:8000/` 使用内置前端。页面支持浏览器麦克风实时流式
+转写、Qwen 原文与 Refiner 修订对照、事件时间线、Gate3 流式遥测，以及完整音频文件的非流式
+上传。麦克风功能要求浏览器从 localhost 或 HTTPS 访问；远程服务器应先建立 SSH 端口转发。
+非流式上传只在 `GATE1_GPU1_ROLE=offline` 时可用，Refiner 模式下页面会显示相应提示。
+
 The service owns `gate1/runtime/realtime.sock`, `offline.sock`, worker logs,
 and temporary uploaded audio. Stop Uvicorn to terminate both worker children.
 Use a different runtime location when running multiple instances:

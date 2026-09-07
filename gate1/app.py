@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, File, Form, Header, HTTPException, Query, UploadFile, WebSocket, WebSocketDisconnect
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from gate2.streaming import K1RefinementState
@@ -26,6 +27,7 @@ from gate3.rule_router import RouteDecision, route
 
 
 ROOT = Path(__file__).resolve().parents[1]
+FRONTEND_PATH = ROOT / "gate1" / "frontend" / "index.html"
 RUNTIME_DIR = Path(os.environ.get("GATE1_RUNTIME_DIR", ROOT / "gate1" / "runtime"))
 REALTIME_MODEL = os.environ.get("GATE1_REALTIME_MODEL", "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B")
 OFFLINE_MODEL = os.environ.get("GATE1_OFFLINE_MODEL", "/home/aim0/data/models/ASR/Qwen3-ASR-1.7B")
@@ -575,6 +577,11 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Dual-3090 ASR Gate 1", version="0.1.0", lifespan=lifespan)
+
+
+@app.get("/", include_in_schema=False)
+async def frontend() -> FileResponse:
+    return FileResponse(FRONTEND_PATH)
 
 
 @app.get("/health")

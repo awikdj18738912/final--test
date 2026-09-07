@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Qwen3-ASR 实验台</title>
+  <style>
+    :root {
+      --bg: #090d12;
+      --panel: #111821;
+      --panel-soft: #161f2a;
+      --line: #263241;
+      --text: #e8eef5;
+      --muted: #8f9cac;
+      --accent: #5ee0b8;
+      --accent-soft: rgba(94, 224, 184, .12);
+      --blue: #68a9ff;
+      --warn: #f5c96a;
+      --danger: #ff7f87;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(39, 89, 92, .25), transparent 30rem),
+        radial-gradient(circle at 88% 0%, rgba(48, 65, 110, .24), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button, input, select { font: inherit; }
+    button { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 56px; }
+    .topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { margin: 7px 0 6px; font-size: clamp(28px, 4vw, 46px); letter-spacing: -.045em; line-height: 1.06; }
+    .subtitle { margin: 0; color: var(--muted); max-width: 700px; line-height: 1.65; }
+    .health-pill { display: inline-flex; align-items: center; gap: 9px; flex: 0 0 auto; padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(17,24,33,.78); color: var(--muted); font-size: 13px; }
+    .health-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--warn); box-shadow: 0 0 14px currentColor; }
+    .health-pill.ok .health-dot { background: var(--accent); }
+    .health-pill.bad .health-dot { background: var(--danger); }
+
+    .toolbar { display: grid; grid-template-columns: minmax(180px, 1fr) 180px auto; gap: 12px; margin-bottom: 18px; }
+    .field { display: grid; gap: 7px; }
+    label { color: var(--muted); font-size: 12px; font-weight: 650; }
+    input, select {
+      width: 100%; min-height: 42px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 11px;
+      background: #0c1219; color: var(--text); outline: none;
+    }
+    input:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(104,169,255,.11); }
+    .mode-chip { align-self: end; min-height: 42px; display: flex; align-items: center; padding: 0 13px; border: 1px solid var(--line); border-radius: 11px; color: var(--muted); font-size: 13px; background: var(--panel); }
+
+    .tabs { display: flex; gap: 7px; padding: 5px; width: fit-content; border: 1px solid var(--line); border-radius: 13px; background: #0c1219; margin-bottom: 18px; }
+    .tab { border: 0; border-radius: 9px; padding: 9px 16px; background: transparent; color: var(--muted); cursor: pointer; }
+    .tab.active { background: var(--panel-soft); color: var(--text); box-shadow: inset 0 0 0 1px rgba(255,255,255,.04); }
+    .view[hidden] { display: none; }
+
+    .grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(290px, .75fr); gap: 18px; }
+    .stack { display: grid; gap: 18px; align-content: start; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(22,31,42,.94), rgba(14,20,28,.94)); overflow: hidden; box-shadow: 0 18px 45px rgba(0,0,0,.16); }
+    .card-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 19px; border-bottom: 1px solid var(--line); }
+    .card-title { margin: 0; font-size: 14px; font-weight: 720; }
+    .card-note { color: var(--muted); font-size: 12px; }
+    .card-body { padding: 19px; }
+
+    .transcript { min-height: 180px; font-size: clamp(20px, 3vw, 29px); line-height: 1.75; letter-spacing: .015em; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .placeholder { color: #657383; }
+    .raw-block { padding: 14px 19px 17px; border-top: 1px solid var(--line); background: rgba(0,0,0,.13); }
+    .raw-label { margin-bottom: 7px; color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .raw-text { min-height: 24px; color: #b2bfcc; line-height: 1.6; white-space: pre-wrap; }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; }
+    .button { border: 1px solid var(--line); border-radius: 11px; padding: 10px 15px; background: var(--panel-soft); cursor: pointer; transition: transform .15s ease, border-color .15s ease, opacity .15s ease; }
+    .button:hover:not(:disabled) { transform: translateY(-1px); border-color: #40536a; }
+    .button:disabled { opacity: .42; cursor: not-allowed; }
+    .button.primary { background: var(--accent); border-color: var(--accent); color: #07120f; font-weight: 760; }
+    .button.danger { color: var(--danger); }
+    .recording .button.primary { background: var(--danger); border-color: var(--danger); }
+    .record-indicator { display: inline-flex; align-items: center; gap: 7px; margin-left: auto; color: var(--muted); font-size: 12px; }
+    .record-indicator span { width: 8px; height: 8px; border-radius: 50%; background: #536171; }
+    .recording .record-indicator span { background: var(--danger); animation: pulse 1.2s infinite; }
+    @keyframes pulse { 50% { opacity: .35; transform: scale(.8); } }
+
+    .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .metric { min-height: 76px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(8,13,18,.32); }
+    .metric-name { color: var(--muted); font-size: 11px; line-height: 1.35; }
+    .metric-value { margin-top: 6px; font-size: 20px; font-weight: 720; font-variant-numeric: tabular-nums; }
+    .metric-value.small { font-size: 14px; line-height: 1.5; }
+
+    .events { max-height: 328px; overflow: auto; }
+    .event { display: grid; grid-template-columns: 70px 105px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(38,50,65,.68); font-size: 12px; }
+    .event:last-child { border: 0; }
+    .event-time { color: #697787; font-variant-numeric: tabular-nums; }
+    .event-type { color: var(--blue); font-weight: 670; }
+    .event-text { color: #b8c4d0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .notice { padding: 12px 14px; border: 1px solid rgba(245,201,106,.26); border-radius: 12px; background: rgba(245,201,106,.07); color: #d9c796; line-height: 1.55; font-size: 12px; }
+    .error { border-color: rgba(255,127,135,.4); background: rgba(255,127,135,.08); color: #ffb5ba; }
+    .status-line { min-height: 22px; margin-top: 13px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    .drop-zone { display: grid; place-items: center; gap: 8px; min-height: 180px; padding: 24px; border: 1px dashed #425367; border-radius: 15px; background: rgba(8,13,18,.24); text-align: center; cursor: pointer; }
+    .drop-zone.drag { border-color: var(--accent); background: var(--accent-soft); }
+    .drop-title { font-size: 17px; font-weight: 700; }
+    .drop-copy { color: var(--muted); font-size: 13px; }
+    .file-name { color: var(--accent); font-size: 13px; overflow-wrap: anywhere; }
+    .offline-result { min-height: 140px; line-height: 1.8; white-space: pre-wrap; font-size: 20px; }
+    .footer { margin-top: 22px; color: #637181; font-size: 12px; text-align: center; }
+
+    @media (max-width: 820px) {
+      .topbar { display: grid; }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .mode-chip { grid-column: 1 / -1; }
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 20px, 1180px); padding-top: 18px; }
+      .toolbar { grid-template-columns: 1fr; }
+      .mode-chip { grid-column: auto; }
+      .event { grid-template-columns: 58px 88px 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Local speech workspace</div>
+        <h1>Qwen3-ASR 实验台</h1>
+        <p class="subtitle">实时观察 Qwen 原始假设、AgenticASR 修订事件和 Gate3 遥测，也可以提交完整音频进行非流式转写。</p>
+      </div>
+      <div id="health-pill" class="health-pill">
+        <span class="health-dot"></span>
+        <span id="health-text">正在连接服务</span>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="公共设置">
+      <div class="field">
+        <label for="tenant-id">租户标识</label>
+        <input id="tenant-id" value="frontend-demo" autocomplete="off" maxlength="128">
+      </div>
+      <div class="field">
+        <label for="language">识别语言</label>
+        <select id="language">
+          <option value="Chinese">中文</option>
+          <option value="English">English</option>
+          <option value="Cantonese">粤语</option>
+        </select>
+      </div>
+      <div id="service-mode" class="mode-chip">GPU 模式：读取中</div>
+    </section>
+
+    <nav class="tabs" aria-label="转写方式">
+      <button class="tab active" type="button" data-view="realtime-view">实时流式</button>
+      <button class="tab" type="button" data-view="offline-view">文件非流式</button>
+    </nav>
+
+    <section id="realtime-view" class="view">
+      <div class="grid">
+        <div class="stack">
+          <article class="card">
+            <div class="card-head">
+              <h2 class="card-title">当前转写</h2>
+              <span id="session-label" class="card-note">尚未创建会话</span>
+            </div>
+            <div id="visible-text" class="card-body transcript placeholder">点击“开始录音”后讲话</div>
+            <div class="raw-block">
+              <div class="raw-label">Qwen 原始文本</div>
+              <div id="raw-text" class="raw-text placeholder">等待原始假设</div>
+            </div>
+          </article>
+
+          <article id="recording-card" class="card">
+            <div class="card-body">
+              <div class="controls">
+                <button id="start-recording" class="button primary" type="button">开始录音</button>
+                <button id="stop-recording" class="button danger" type="button" disabled>结束并转写</button>
+                <button id="clear-realtime" class="button" type="button">清空</button>
+                <div class="record-indicator"><span></span><b id="record-state">待机</b></div>
+              </div>
+              <div id="realtime-status" class="status-line">麦克风音频会在浏览器中转换为 16 kHz PCM，并发送到当前服务器。</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2 class="card-title">事件时间线</h2>
+              <span class="card-note">partial / final / revision</span>
+            </div>
+            <div id="events" class="card-body events"><div class="placeholder">暂无事件</div></div>
+          </article>
+        </div>
+
+        <aside class="stack">
+          <article class="card">
+            <div class="card-head"><h2 class="card-title">流式遥测</h2><span class="card-note">当前会话</span></div>
+            <div class="card-body metrics">
+              <div class="metric"><div class="metric-name">音频块</div><div id="metric-chunks" class="metric-value">—</div></div>
+              <div class="metric"><div class="metric-name">假设更新</div><div id="metric-updates" class="metric-value">—</div></div>
+              <div class="metric"><div class="metric-name">回退字符</div><div id="metric-revisions" class="metric-value">—</div></div>
+              <div class="metric"><div class="metric-name">不稳定度</div><div id="metric-instability" class="metric-value">—</div></div>
+              <div class="metric"><div class="metric-name">平均 token logprob</div><div id="metric-mean-logprob" class="metric-value small">未启用</div></div>
+              <div class="metric"><div class="metric-name">最低 token logprob</div><div id="metric-min-logprob" class="metric-value small">未启用</div></div>
+            </div>
+          </article>
+          <div class="notice">浏览器麦克风要求从 <b>localhost</b> 或 HTTPS 页面访问。远程机器建议使用 SSH 端口转发后打开本地地址。</div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="offline-view" class="view" hidden>
+      <div class="grid">
+        <div class="stack">
+          <article class="card">
+            <div class="card-head"><h2 class="card-title">上传完整音频</h2><span class="card-note">非流式任务</span></div>
+            <form id="offline-form" class="card-body">
+              <input id="audio-file" type="file" accept="audio/*,.wav,.flac,.mp3,.m4a" hidden>
+              <label id="drop-zone" class="drop-zone" for="audio-file">
+                <span class="drop-title">选择或拖入音频文件</span>
+                <span class="drop-copy">由服务器读取完整文件后一次性转写</span>
+                <span id="file-name" class="file-name"></span>
+              </label>
+              <div class="controls" style="margin-top:14px">
+                <button id="submit-offline" class="button primary" type="submit" disabled>开始转写</button>
+                <button id="cancel-offline" class="button danger" type="button" disabled>取消任务</button>
+              </div>
+              <div id="offline-status" class="status-line">请选择一个音频文件。</div>
+            </form>
+          </article>
+          <article class="card">
+            <div class="card-head"><h2 class="card-title">转写结果</h2><span id="job-label" class="card-note">尚无任务</span></div>
+            <div id="offline-result" class="card-body offline-result placeholder">任务完成后在这里显示文本</div>
+          </article>
+        </div>
+        <aside class="stack">
+          <article class="card">
+            <div class="card-head"><h2 class="card-title">任务信息</h2></div>
+            <div class="card-body metrics">
+              <div class="metric"><div class="metric-name">状态</div><div id="job-status" class="metric-value small">—</div></div>
+              <div class="metric"><div class="metric-name">音频时长</div><div id="job-duration" class="metric-value small">—</div></div>
+              <div class="metric"><div class="metric-name">排队耗时</div><div id="job-queue" class="metric-value small">—</div></div>
+              <div class="metric"><div class="metric-name">推理耗时</div><div id="job-inference" class="metric-value small">—</div></div>
+            </div>
+          </article>
+          <div id="offline-notice" class="notice">非流式接口仅在 <b>GATE1_GPU1_ROLE=offline</b> 时可用；Refiner 模式下 GPU1 已被纠错模型占用。</div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="footer">所有推理均由当前 FastAPI 服务处理 · API 文档位于 <span>/docs</span></footer>
+  </main>
+
+  <script>
+    const state = {
+      health: null,
+      socket: null,
+      sessionId: null,
+      audioContext: null,
+      processor: null,
+      source: null,
+      stream: null,
+      stopping: false,
+      events: [],
+      jobId: null,
+      pollTimer: null,
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const tenantInput = $('tenant-id');
+    tenantInput.value = localStorage.getItem('asrTenantId') || 'frontend-demo';
+    tenantInput.addEventListener('change', () => localStorage.setItem('asrTenantId', tenantInput.value.trim()));
+
+    function tenantId() {
+      const value = tenantInput.value.trim();
+      if (!value) throw new Error('请先填写租户标识');
+      return value;
+    }
+
+    function messageOf(error) {
+      return error instanceof Error ? error.message : String(error);
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, options);
+      let body;
+      try { body = await response.json(); } catch { body = null; }
+      if (!response.ok) {
+        const detail = body && body.detail ? body.detail : `${response.status} ${response.statusText}`;
+        throw new Error(detail);
+      }
+      return body;
+    }
+
+    async function refreshHealth() {
+      const pill = $('health-pill');
+      try {
+        const health = await api('/health');
+        state.health = health;
+        pill.className = 'health-pill ok';
+        $('health-text').textContent = '服务已就绪';
+        const role = health.gpu1_role === 'refiner' ? '流式 + Refiner' : '流式 + 非流式';
+        $('service-mode').textContent = `GPU 模式：${role}`;
+        $('offline-notice').classList.toggle('error', health.gpu1_role !== 'offline');
+      } catch (error) {
+        state.health = null;
+        pill.className = 'health-pill bad';
+        $('health-text').textContent = '服务不可用';
+        $('service-mode').textContent = 'GPU 模式：连接失败';
+      }
+    }
+
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach((item) => item.classList.toggle('active', item === tab));
+        document.querySelectorAll('.view').forEach((view) => { view.hidden = view.id !== tab.dataset.view; });
+      });
+    });
+
+    function setRealtimeStatus(text, isError = false) {
+      $('realtime-status').textContent = text;
+      $('realtime-status').style.color = isError ? 'var(--danger)' : '';
+    }
+
+    function setText(element, text, placeholder) {
+      element.textContent = text || placeholder;
+      element.classList.toggle('placeholder', !text);
+    }
+
+    function resetMetrics() {
+      ['metric-chunks', 'metric-updates', 'metric-revisions', 'metric-instability'].forEach((id) => { $(id).textContent = '—'; });
+      $('metric-mean-logprob').textContent = '未启用';
+      $('metric-min-logprob').textContent = '未启用';
+    }
+
+    function renderMetrics(metrics = {}) {
+      const values = {
+        'metric-chunks': metrics.chunk_count,
+        'metric-updates': metrics.hypothesis_updates,
+        'metric-revisions': metrics.revision_chars,
+        'metric-instability': metrics.instability_ratio,
+      };
+      Object.entries(values).forEach(([id, value]) => { $(id).textContent = value ?? '—'; });
+      $('metric-mean-logprob').textContent = metrics.logprob_available ? Number(metrics.mean_token_logprob).toFixed(4) : '未启用';
+      $('metric-min-logprob').textContent = metrics.logprob_available ? Number(metrics.min_token_logprob).toFixed(4) : '未启用';
+    }
+
+    function addEvent(event) {
+      const text = event.text || event.raw_text || event.detail || '';
+      state.events.unshift({ time: new Date().toLocaleTimeString(), type: event.event || 'unknown', text });
+      state.events = state.events.slice(0, 60);
+      $('events').innerHTML = state.events.map((item) => `
+        <div class="event">
+          <span class="event-time">${escapeHtml(item.time)}</span>
+          <span class="event-type">${escapeHtml(item.type)}</span>
+          <span class="event-text" title="${escapeHtml(item.text)}">${escapeHtml(item.text || '—')}</span>
+        </div>`).join('');
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+    }
+
+    function resample(input, inputRate, outputRate) {
+      if (inputRate === outputRate) return input;
+      const outputLength = Math.max(1, Math.round(input.length * outputRate / inputRate));
+      const output = new Float32Array(outputLength);
+      const ratio = inputRate / outputRate;
+      for (let index = 0; index < outputLength; index += 1) {
+        const position = index * ratio;
+        const left = Math.floor(position);
+        const right = Math.min(left + 1, input.length - 1);
+        const fraction = position - left;
+        output[index] = input[left] * (1 - fraction) + input[right] * fraction;
+      }
+      return output;
+    }
+
+    function floatToPcm16(input) {
+      const output = new Int16Array(input.length);
+      for (let index = 0; index < input.length; index += 1) {
+        const sample = Math.max(-1, Math.min(1, input[index]));
+        output[index] = sample < 0 ? sample * 32768 : sample * 32767;
+      }
+      return output.buffer;
+    }
+
+    async function openMicrophone() {
+      state.stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true }, video: false });
+      state.audioContext = new AudioContext();
+      state.source = state.audioContext.createMediaStreamSource(state.stream);
+      state.processor = state.audioContext.createScriptProcessor(4096, 1, 1);
+      const silent = state.audioContext.createGain();
+      silent.gain.value = 0;
+      state.processor.onaudioprocess = (audioEvent) => {
+        if (!state.socket || state.socket.readyState !== WebSocket.OPEN || state.stopping) return;
+        const samples = audioEvent.inputBuffer.getChannelData(0);
+        state.socket.send(floatToPcm16(resample(samples, state.audioContext.sampleRate, 16000)));
+      };
+      state.source.connect(state.processor);
+      state.processor.connect(silent);
+      silent.connect(state.audioContext.destination);
+    }
+
+    async function closeMicrophone() {
+      if (state.processor) { state.processor.disconnect(); state.processor.onaudioprocess = null; }
+      if (state.source) state.source.disconnect();
+      if (state.stream) state.stream.getTracks().forEach((track) => track.stop());
+      if (state.audioContext && state.audioContext.state !== 'closed') await state.audioContext.close();
+      state.processor = null;
+      state.source = null;
+      state.stream = null;
+      state.audioContext = null;
+    }
+
+    function handleStreamEvent(event) {
+      addEvent(event);
+      if (event.raw_text !== undefined) setText($('raw-text'), event.raw_text, '等待原始假设');
+      if (event.text !== undefined) setText($('visible-text'), event.text, '等待转写结果');
+      if (event.asr_stream_metrics) renderMetrics(event.asr_stream_metrics);
+      if (event.event === 'ready') {
+        setRealtimeStatus(event.refinement_enabled ? `录音中；Refiner 路由：${event.refiner_router_mode}` : '录音中；当前为纯 ASR 模式');
+      } else if (event.event === 'revision') {
+        setRealtimeStatus('收到 Refiner 修订，展示文本已更新');
+      } else if (event.event === 'error') {
+        setRealtimeStatus(event.detail || '流式服务出错', true);
+      } else if (event.event === 'complete') {
+        finishRealtimeUi('转写完成');
+      }
+    }
+
+    function finishRealtimeUi(message) {
+      $('recording-card').classList.remove('recording');
+      $('record-state').textContent = '待机';
+      $('start-recording').disabled = false;
+      $('stop-recording').disabled = true;
+      setRealtimeStatus(message);
+      closeMicrophone();
+      state.stopping = false;
+    }
+
+    $('start-recording').addEventListener('click', async () => {
+      $('start-recording').disabled = true;
+      setRealtimeStatus('正在创建会话并申请麦克风…');
+      try {
+        if (!state.health) await refreshHealth();
+        if (!state.health) throw new Error('ASR 服务尚未就绪');
+        const tenant = tenantId();
+        const session = await api('/sessions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Idempotency-Key': crypto.randomUUID() },
+          body: JSON.stringify({ tenant_id: tenant, mode: 'realtime', language: $('language').value, quality_level: 'balanced' }),
+        });
+        state.sessionId = session.session_id;
+        $('session-label').textContent = state.sessionId;
+        const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const socketUrl = `${protocol}//${location.host}/sessions/${encodeURIComponent(state.sessionId)}/stream?tenant_id=${encodeURIComponent(tenant)}`;
+        state.socket = new WebSocket(socketUrl);
+        state.socket.onmessage = (message) => handleStreamEvent(JSON.parse(message.data));
+        state.socket.onerror = () => setRealtimeStatus('WebSocket 连接失败', true);
+        state.socket.onclose = () => {
+          if (!state.stopping && $('recording-card').classList.contains('recording')) finishRealtimeUi('连接已关闭');
+        };
+        await new Promise((resolve, reject) => {
+          state.socket.addEventListener('open', resolve, { once: true });
+          state.socket.addEventListener('error', () => reject(new Error('无法建立流式连接')), { once: true });
+        });
+        await openMicrophone();
+        $('recording-card').classList.add('recording');
+        $('record-state').textContent = '录音中';
+        $('stop-recording').disabled = false;
+      } catch (error) {
+        await closeMicrophone();
+        if (state.socket) state.socket.close();
+        $('start-recording').disabled = false;
+        setRealtimeStatus(messageOf(error), true);
+      }
+    });
+
+    $('stop-recording').addEventListener('click', async () => {
+      state.stopping = true;
+      $('stop-recording').disabled = true;
+      $('record-state').textContent = '收尾中';
+      setRealtimeStatus('正在完成最后一次解码并等待 Refiner…');
+      await closeMicrophone();
+      if (state.socket && state.socket.readyState === WebSocket.OPEN) state.socket.send(JSON.stringify({ event: 'end' }));
+    });
+
+    $('clear-realtime').addEventListener('click', () => {
+      setText($('visible-text'), '', '点击“开始录音”后讲话');
+      setText($('raw-text'), '', '等待原始假设');
+      $('session-label').textContent = '尚未创建会话';
+      state.events = [];
+      $('events').innerHTML = '<div class="placeholder">暂无事件</div>';
+      resetMetrics();
+    });
+
+    const fileInput = $('audio-file');
+    const dropZone = $('drop-zone');
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      $('file-name').textContent = file ? `${file.name} · ${(file.size / 1024 / 1024).toFixed(2)} MB` : '';
+      $('submit-offline').disabled = !file;
+      $('offline-status').textContent = file ? '文件已就绪。' : '请选择一个音频文件。';
+    });
+    ['dragenter', 'dragover'].forEach((name) => dropZone.addEventListener(name, (event) => { event.preventDefault(); dropZone.classList.add('drag'); }));
+    ['dragleave', 'drop'].forEach((name) => dropZone.addEventListener(name, (event) => { event.preventDefault(); dropZone.classList.remove('drag'); }));
+    dropZone.addEventListener('drop', (event) => {
+      if (!event.dataTransfer.files.length) return;
+      fileInput.files = event.dataTransfer.files;
+      fileInput.dispatchEvent(new Event('change'));
+    });
+
+    function renderJob(job) {
+      $('job-label').textContent = job.job_id || '—';
+      $('job-status').textContent = job.status || '—';
+      $('job-duration').textContent = job.audio_sec == null ? '—' : `${Number(job.audio_sec).toFixed(2)} s`;
+      const latency = job.latency_ms || {};
+      $('job-queue').textContent = latency.queue_wait == null ? '—' : `${Number(latency.queue_wait).toFixed(1)} ms`;
+      $('job-inference').textContent = latency.worker_rpc == null ? '—' : `${Number(latency.worker_rpc).toFixed(1)} ms`;
+      if (job.text) setText($('offline-result'), job.text, '任务完成后在这里显示文本');
+      $('offline-status').textContent = job.error ? `失败：${job.error}` : `任务状态：${job.status}`;
+      const terminal = ['succeeded', 'failed', 'cancelled'].includes(job.status);
+      $('cancel-offline').disabled = terminal;
+      if (terminal && state.pollTimer) { clearInterval(state.pollTimer); state.pollTimer = null; }
+    }
+
+    async function pollJob() {
+      if (!state.jobId) return;
+      try { renderJob(await api(`/offline/jobs/${encodeURIComponent(state.jobId)}?tenant_id=${encodeURIComponent(tenantId())}`)); }
+      catch (error) { $('offline-status').textContent = messageOf(error); }
+    }
+
+    $('offline-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const file = fileInput.files[0];
+      if (!file) return;
+      $('submit-offline').disabled = true;
+      $('offline-status').textContent = '正在上传…';
+      try {
+        const form = new FormData();
+        form.append('file', file);
+        form.append('tenant_id', tenantId());
+        form.append('language', $('language').value);
+        const job = await api('/offline/jobs', { method: 'POST', headers: { 'Idempotency-Key': crypto.randomUUID() }, body: form });
+        state.jobId = job.job_id;
+        renderJob(job);
+        $('cancel-offline').disabled = false;
+        state.pollTimer = setInterval(pollJob, 1000);
+        await pollJob();
+      } catch (error) {
+        $('offline-status').textContent = messageOf(error);
+        $('offline-result').textContent = '未能创建非流式任务';
+        $('offline-result').classList.add('placeholder');
+      } finally {
+        $('submit-offline').disabled = false;
+      }
+    });
+
+    $('cancel-offline').addEventListener('click', async () => {
+      if (!state.jobId) return;
+      try {
+        renderJob(await api(`/offline/jobs/${encodeURIComponent(state.jobId)}/cancel?tenant_id=${encodeURIComponent(tenantId())}`, { method: 'POST' }));
+      } catch (error) { $('offline-status').textContent = messageOf(error); }
+    });
+
+    resetMetrics();
+    refreshHealth();
+    setInterval(refreshHealth, 10000);
+  </script>
+</body>
+</html>

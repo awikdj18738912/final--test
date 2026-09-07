@@ -66,3 +66,11 @@ def test_logprob_telemetry_reset_excludes_worker_warmup() -> None:
         "logprob_generation_count": 0,
         "logprob_token_count": 0,
     }
+
+
+if __name__ == "__main__":
+    test_hypothesis_telemetry_counts_only_replaced_prefix_characters()
+    test_logprob_telemetry_keeps_only_scalar_summary()
+    test_logprob_telemetry_fails_closed_when_vllm_does_not_return_it()
+    test_logprob_telemetry_reset_excludes_worker_warmup()
+    print("gate1 worker telemetry tests passed")
