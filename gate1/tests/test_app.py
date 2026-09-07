@@ -1,6 +1,15 @@
 import asyncio
 
-from gate1.app import FRONTEND_PATH, SessionRecord, schedule_refinements, wait_for_refinements, refine_span, transcript_event
+from gate1.app import (
+    FRONTEND_PATH,
+    Gpu1SwitchConflict,
+    ServiceState,
+    SessionRecord,
+    refine_span,
+    schedule_refinements,
+    transcript_event,
+    wait_for_refinements,
+)
 from gate2.streaming import K1RefinementState
 
 
@@ -35,6 +44,67 @@ def test_frontend_is_bundled_with_realtime_and_offline_controls() -> None:
     assert 'id="offline-form"' in html
     assert 'new WebSocket' in html
     assert '/offline/jobs' in html
+    assert '/runtime/gpu1-role' in html
+
+
+def test_idle_gpu1_worker_can_switch_without_restarting_gpu0() -> None:
+    created = []
+
+    class FakeWorker:
+        def __init__(self, role: str) -> None:
+            self.role = role
+            self.started = False
+            self.stopped = False
+            created.append(self)
+
+        async def start(self) -> None:
+            self.started = True
+
+        def stop(self) -> None:
+            self.stopped = True
+
+    class FakeState(ServiceState):
+        def __init__(self) -> None:
+            self.gpu1_role = "offline"
+            self.gpu1_lock = asyncio.Lock()
+            self.offline = FakeWorker("offline")
+            self.refiner = None
+            self.sessions = {}
+            self.jobs = {}
+
+        def build_gpu1_process(self, role: str):  # noqa: ANN201
+            return FakeWorker(role)
+
+    state = FakeState()
+    previous = state.offline
+    changed = asyncio.run(state.switch_gpu1_role("refiner"))
+
+    assert changed is True
+    assert previous.stopped is True
+    assert state.gpu1_role == "refiner"
+    assert state.offline is None
+    assert state.refiner is created[-1]
+    assert state.refiner.started is True
+
+
+def test_gpu1_switch_rejects_an_active_realtime_session() -> None:
+    class FakeState(ServiceState):
+        def __init__(self) -> None:
+            self.gpu1_role = "offline"
+            self.gpu1_lock = asyncio.Lock()
+            self.offline = None
+            self.refiner = None
+            session = SessionRecord("active", "tenant", "Chinese", "balanced", 0.0)
+            session.active = True
+            self.sessions = {session.session_id: session}
+            self.jobs = {}
+
+    try:
+        asyncio.run(FakeState().switch_gpu1_role("refiner"))
+    except Gpu1SwitchConflict:
+        pass
+    else:
+        raise AssertionError("GPU1 switch must reject an active realtime session")
 
 
 def test_async_refiner_emits_revision_and_failure_keeps_source() -> None:
@@ -154,6 +224,8 @@ if __name__ == "__main__":
     test_whole_window_events_are_versioned_and_hashed()
     test_session_lock_is_asyncio_lock()
     test_frontend_is_bundled_with_realtime_and_offline_controls()
+    test_idle_gpu1_worker_can_switch_without_restarting_gpu0()
+    test_gpu1_switch_rejects_an_active_realtime_session()
     test_async_refiner_emits_revision_and_failure_keeps_source()
     test_router_skips_clean_span_without_an_rpc()
     test_router_submits_explicit_retraction_and_records_decision()

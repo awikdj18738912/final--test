@@ -35,7 +35,9 @@ can take about a minute.
 启动完成后直接打开 `http://127.0.0.1:8000/` 使用内置前端。页面支持浏览器麦克风实时流式
 转写、Qwen 原文与 Refiner 修订对照、事件时间线、Gate3 流式遥测，以及完整音频文件的非流式
 上传。麦克风功能要求浏览器从 localhost 或 HTTPS 访问；远程服务器应先建立 SSH 端口转发。
-非流式上传只在 `GATE1_GPU1_ROLE=offline` 时可用，Refiner 模式下页面会显示相应提示。
+页面右上方可在 GPU1 的 Qwen 非流式模型和 AgenticASR-Refiner 之间动态切换，不需要重启
+FastAPI 或 GPU0；切换会卸载当前 GPU1 模型并加载目标模型，通常需要约一分钟。存在实时会话、
+未完成的 Refiner 修订或非流式任务时，后端会拒绝切换，避免中断正在执行的工作。
 
 The service owns `gate1/runtime/realtime.sock`, `offline.sock`, worker logs,
 and temporary uploaded audio. Stop Uvicorn to terminate both worker children.

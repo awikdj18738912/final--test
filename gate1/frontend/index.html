@@ -53,7 +53,9 @@
       background: #0c1219; color: var(--text); outline: none;
     }
     input:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(104,169,255,.11); }
-    .mode-chip { align-self: end; min-height: 42px; display: flex; align-items: center; padding: 0 13px; border: 1px solid var(--line); border-radius: 11px; color: var(--muted); font-size: 13px; background: var(--panel); }
+    .mode-chip { align-self: end; min-height: 42px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 5px 6px 5px 13px; border: 1px solid var(--line); border-radius: 11px; color: var(--muted); font-size: 13px; background: var(--panel); }
+    .mode-switch { border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; background: #0c1219; color: var(--accent); font-size: 11px; cursor: pointer; white-space: nowrap; }
+    .mode-switch:disabled { opacity: .45; cursor: wait; }
 
     .tabs { display: flex; gap: 7px; padding: 5px; width: fit-content; border: 1px solid var(--line); border-radius: 13px; background: #0c1219; margin-bottom: 18px; }
     .tab { border: 0; border-radius: 9px; padding: 9px 16px; background: transparent; color: var(--muted); cursor: pointer; }
@@ -152,7 +154,10 @@
           <option value="Cantonese">粤语</option>
         </select>
       </div>
-      <div id="service-mode" class="mode-chip">GPU 模式：读取中</div>
+      <div class="mode-chip">
+        <span id="service-mode">GPU 模式：读取中</span>
+        <button id="switch-gpu1" class="mode-switch" type="button" disabled>切换模型</button>
+      </div>
     </section>
 
     <nav class="tabs" aria-label="转写方式">
@@ -302,17 +307,42 @@
         const health = await api('/health');
         state.health = health;
         pill.className = 'health-pill ok';
-        $('health-text').textContent = '服务已就绪';
+        $('health-text').textContent = health.gpu1_switching ? '正在切换 GPU1' : '服务已就绪';
         const role = health.gpu1_role === 'refiner' ? '流式 + Refiner' : '流式 + 非流式';
-        $('service-mode').textContent = `GPU 模式：${role}`;
+        $('service-mode').textContent = health.gpu1_switching ? 'GPU 模式：正在加载模型…' : `GPU 模式：${role}`;
+        $('switch-gpu1').textContent = health.gpu1_role === 'refiner' ? '切换至非流式' : '启动 Refiner';
+        $('switch-gpu1').disabled = health.gpu1_switching;
         $('offline-notice').classList.toggle('error', health.gpu1_role !== 'offline');
       } catch (error) {
         state.health = null;
         pill.className = 'health-pill bad';
         $('health-text').textContent = '服务不可用';
         $('service-mode').textContent = 'GPU 模式：连接失败';
+        $('switch-gpu1').disabled = true;
       }
     }
+
+    $('switch-gpu1').addEventListener('click', async () => {
+      if (!state.health) return;
+      const target = state.health.gpu1_role === 'refiner' ? 'offline' : 'refiner';
+      const targetName = target === 'refiner' ? 'AgenticASR-Refiner' : 'Qwen 非流式模型';
+      if (!window.confirm(`GPU1 将停止当前模型并加载 ${targetName}，过程约需一分钟。确定继续吗？`)) return;
+      $('switch-gpu1').disabled = true;
+      $('service-mode').textContent = `GPU 模式：正在加载 ${targetName}…`;
+      $('health-pill').className = 'health-pill';
+      $('health-text').textContent = '正在切换 GPU1';
+      try {
+        await api('/runtime/gpu1-role', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ role: target }),
+        });
+        await refreshHealth();
+      } catch (error) {
+        window.alert(messageOf(error));
+        await refreshHealth();
+      }
+    });
 
     document.querySelectorAll('.tab').forEach((tab) => {
       tab.addEventListener('click', () => {

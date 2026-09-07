@@ -54,6 +54,14 @@ class SessionCreate(BaseModel):
     quality_level: str = "balanced"
 
 
+class Gpu1RoleChange(BaseModel):
+    role: str
+
+
+class Gpu1SwitchConflict(RuntimeError):
+    """Raised when live work makes a GPU1 model switch unsafe."""
+
+
 @dataclass
 class SessionRecord:
     session_id: str
@@ -224,19 +232,22 @@ class ServiceState:
             raise ValueError("GATE1_REFINER_ROUTER must be conservative, all, or off")
         RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
         self.realtime = WorkerProcess("realtime", RUNTIME_DIR / "realtime.sock", REALTIME_MODEL, 0, REALTIME_GPU_MEMORY)
-        self.offline = (
-            WorkerProcess("offline", RUNTIME_DIR / "offline.sock", OFFLINE_MODEL, 1, OFFLINE_GPU_MEMORY)
-            if GPU1_ROLE == "offline"
-            else None
-        )
-        self.refiner = (
-            RefinerProcess(RUNTIME_DIR / "refiner.sock", REFINER_MODEL, 1)
-            if GPU1_ROLE == "refiner"
-            else None
-        )
+        self.gpu1_role = GPU1_ROLE
+        self.gpu1_lock = asyncio.Lock()
+        self.gpu1_switching = False
+        self.offline: WorkerProcess | None = self.build_gpu1_process("offline") if GPU1_ROLE == "offline" else None
+        self.refiner: RefinerProcess | None = self.build_gpu1_process("refiner") if GPU1_ROLE == "refiner" else None
         self.sessions: dict[str, SessionRecord] = {}
         self.jobs: dict[str, OfflineJob] = {}
         self.idempotency: dict[tuple[str, str, str], str] = {}
+
+    @staticmethod
+    def build_gpu1_process(role: str) -> WorkerProcess | RefinerProcess:
+        if role == "offline":
+            return WorkerProcess("offline", RUNTIME_DIR / "offline.sock", OFFLINE_MODEL, 1, OFFLINE_GPU_MEMORY)
+        if role == "refiner":
+            return RefinerProcess(RUNTIME_DIR / "refiner.sock", REFINER_MODEL, 1)
+        raise ValueError("GPU1 role must be offline or refiner")
 
     async def start(self) -> None:
         await self.realtime.start()
@@ -251,6 +262,55 @@ class ServiceState:
             self.offline.stop()
         if self.refiner is not None:
             self.refiner.stop()
+
+    async def switch_gpu1_role(self, role: str) -> bool:
+        """Replace the idle GPU1 worker without restarting the API or GPU0."""
+
+        role = role.strip().lower()
+        if role not in {"offline", "refiner"}:
+            raise ValueError("GPU1 role must be offline or refiner")
+        async with self.gpu1_lock:
+            if role == self.gpu1_role:
+                return False
+            if any(session.active for session in self.sessions.values()):
+                raise Gpu1SwitchConflict("请先结束当前实时转写，再切换 GPU1 模型")
+            if any(
+                any(not task.done() for task in session.refinement_tasks)
+                for session in self.sessions.values()
+            ):
+                raise Gpu1SwitchConflict("请等待 Refiner 修订完成后再切换 GPU1 模型")
+            if any(job.status in {"queued", "running"} for job in self.jobs.values()):
+                raise Gpu1SwitchConflict("请等待或取消当前非流式任务，再切换 GPU1 模型")
+
+            self.gpu1_switching = True
+            previous_role = self.gpu1_role
+            previous = self.offline if previous_role == "offline" else self.refiner
+            if previous is not None:
+                await asyncio.to_thread(previous.stop)
+            self.offline = None
+            self.refiner = None
+
+            replacement = self.build_gpu1_process(role)
+            try:
+                await replacement.start()
+            except Exception as exc:
+                try:
+                    await asyncio.to_thread(replacement.stop)
+                    # Restore the previous role so a failed model load does not
+                    # leave the service permanently without a GPU1 worker.
+                    restored = self.build_gpu1_process(previous_role)
+                    await restored.start()
+                    self.offline = restored if previous_role == "offline" else None
+                    self.refiner = restored if previous_role == "refiner" else None
+                finally:
+                    self.gpu1_switching = False
+                raise RuntimeError(f"无法加载 {role} 模型，已恢复 {previous_role} 模式: {exc}") from exc
+
+            self.offline = replacement if role == "offline" else None
+            self.refiner = replacement if role == "refiner" else None
+            self.gpu1_role = role
+            self.gpu1_switching = False
+            return True
 
     @staticmethod
     def public_session(record: SessionRecord) -> dict[str, Any]:
@@ -590,14 +650,35 @@ async def health() -> dict[str, Any]:
     result = {
         "status": "ok",
         "realtime": await state.realtime.rpc({"op": "health"}),
-        "gpu1_role": GPU1_ROLE,
-        "refiner_router_mode": REFINER_ROUTER_MODE if GPU1_ROLE == "refiner" else None,
+        "gpu1_role": state.gpu1_role,
+        "gpu1_switching": state.gpu1_switching,
+        "refiner_router_mode": REFINER_ROUTER_MODE if state.gpu1_role == "refiner" else None,
         "sessions": len(state.sessions),
         "jobs": len(state.jobs),
     }
     result["offline"] = await state.offline.rpc({"op": "health"}) if state.offline is not None else None
     result["refiner"] = await state.refiner.rpc({"op": "health"}) if state.refiner is not None else None
     return result
+
+
+@app.post("/runtime/gpu1-role")
+async def switch_gpu1_role(request: Gpu1RoleChange) -> dict[str, Any]:
+    state: ServiceState = app.state.service
+    try:
+        changed = await state.switch_gpu1_role(request.role)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except Gpu1SwitchConflict as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    worker = state.offline if state.gpu1_role == "offline" else state.refiner
+    return {
+        "status": "ok",
+        "gpu1_role": state.gpu1_role,
+        "changed": changed,
+        "worker": await worker.rpc({"op": "health"}) if worker is not None else None,
+    }
 
 
 @app.post("/sessions", status_code=201)
