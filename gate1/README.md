@@ -100,7 +100,9 @@ GPU1 异步生成 clean window；校验通过后发送版本化 `revision`，无
 实时页面提供默认关闭的“数字格式化”会话开关。开启后，包含中文数字的关闭窗口会以
 `number_normalization_requested` 原因提交 Refiner；关闭时数字本身不会突破保守路由。阿拉伯数字输出
 仍必须通过源文本的中文/阿拉伯数字等价性检查。该开关只影响新建的实时会话，并且只在 GPU1 为
-Refiner 模式时可用。
+Refiner 模式时可用。页面会持久化开关选择，并在录音开始后锁定它，避免把录音中的界面变化误认为
+已经更新当前会话。`complete` 事件会返回各类 Refiner 结果计数，页面明确显示本次是修订、保持、拒绝
+还是未触发。
 
 每次 ASR 累计假设更新还会携带 `asr_stream_metrics`：已处理 chunk 数、假设更新次数、被后续
 假设替换的前缀字符数、追加字符数及不稳定度。它们只描述在线已经观察到的文本演化，不改变
@@ -116,6 +118,10 @@ Qwen3-ASR 解码或客户端展示；会话最终快照保留这些指标，供�
 ```bash
 /home/aim0/data/conda/envs/qwen3-asr/bin/python -m gate2.live_smoke \
   --url http://127.0.0.1:8012 --audio /path/to/audio.wav
+
+# 数字格式化端到端测试必须显式开启同一个会话开关
+/home/aim0/data/conda/envs/qwen3-asr/bin/python -m gate2.live_smoke \
+  --url http://127.0.0.1:8012 --audio /path/to/number-audio.wav --normalize-numbers
 
 /home/aim0/data/conda/envs/qwen3-asr/bin/python -m gate2.live_concurrency \
   --url http://127.0.0.1:8012 --audio /path/to/audio.wav --levels 1 2 4

@@ -289,8 +289,13 @@
 
     const $ = (id) => document.getElementById(id);
     const tenantInput = $('tenant-id');
+    const normalizeNumbersInput = $('normalize-numbers');
     tenantInput.value = localStorage.getItem('asrTenantId') || 'frontend-demo';
     tenantInput.addEventListener('change', () => localStorage.setItem('asrTenantId', tenantInput.value.trim()));
+    normalizeNumbersInput.checked = localStorage.getItem('asrNormalizeNumbers') === 'true';
+    normalizeNumbersInput.addEventListener('change', () => {
+      localStorage.setItem('asrNormalizeNumbers', String(normalizeNumbersInput.checked));
+    });
 
     function tenantId() {
       const value = tenantInput.value.trim();
@@ -324,7 +329,10 @@
         $('service-mode').textContent = health.gpu1_switching ? 'GPU 模式：正在加载模型…' : `GPU 模式：${role}`;
         $('switch-gpu1').textContent = health.gpu1_role === 'refiner' ? '切换至非流式' : '启动 Refiner';
         $('switch-gpu1').disabled = health.gpu1_switching;
-        $('normalize-numbers').disabled = health.gpu1_role !== 'refiner' || health.gpu1_switching;
+        normalizeNumbersInput.disabled = health.gpu1_role !== 'refiner'
+          || health.gpu1_switching
+          || $('recording-card').classList.contains('recording')
+          || state.stopping;
         $('offline-notice').classList.toggle('error', health.gpu1_role !== 'offline');
       } catch (error) {
         state.health = null;
@@ -471,11 +479,32 @@
         const numberMode = event.normalize_numbers ? '；数字格式化已开启' : '';
         setRealtimeStatus(event.refinement_enabled ? `录音中；Refiner 路由：${event.refiner_router_mode}${numberMode}` : '录音中；当前为纯 ASR 模式');
       } else if (event.event === 'revision') {
-        setRealtimeStatus('收到 Refiner 修订，展示文本已更新');
-      } else if (event.event === 'error') {
+        setRealtimeStatus(`Refiner 已修订：${event.source_text || '原片段'} → ${event.clean_text || event.text}`);
+      } else if (event.event === 'refiner_keep') {
+        setRealtimeStatus('Refiner 已执行，模型判断无需修改');
+      } else if (event.event === 'refiner_reject') {
+        const reasons = event.validation && event.validation.reasons ? event.validation.reasons.join(', ') : '未通过校验';
+        setRealtimeStatus(`Refiner 已执行，但结果被拒绝：${reasons}`, true);
+      } else if (event.event === 'refiner_skipped') {
+        setRealtimeStatus('当前片段未检测到纠错触发条件，Refiner 未调用');
+      } else if (event.event === 'refiner_error' || event.event === 'error') {
         setRealtimeStatus(event.detail || '流式服务出错', true);
       } else if (event.event === 'complete') {
-        finishRealtimeUi('转写完成');
+        const summary = event.refinement_summary || {};
+        const numberMode = event.normalize_numbers ? '；数字格式化已开启' : '；数字格式化未开启';
+        let message = `转写完成${numberMode}`;
+        if (summary.revision) {
+          message += `；Refiner 已修订 ${summary.revision} 个片段`;
+        } else if (summary.refiner_reject) {
+          message += `；Refiner 调用结果被拒绝 ${summary.refiner_reject} 次，请查看事件时间线`;
+        } else if (summary.refiner_keep) {
+          message += `；Refiner 已执行但判断无需修改`;
+        } else if (summary.refiner_skipped) {
+          message += `；未检测到纠错触发条件`;
+        } else {
+          message += `；没有可处理的文本片段`;
+        }
+        finishRealtimeUi(message);
       }
     }
 
@@ -484,6 +513,7 @@
       $('record-state').textContent = '待机';
       $('start-recording').disabled = false;
       $('stop-recording').disabled = true;
+      normalizeNumbersInput.disabled = !state.health || state.health.gpu1_role !== 'refiner' || state.health.gpu1_switching;
       setRealtimeStatus(message);
       closeMicrophone();
       state.stopping = false;
@@ -495,6 +525,7 @@
       try {
         if (!state.health) await refreshHealth();
         if (!state.health) throw new Error('ASR 服务尚未就绪');
+        normalizeNumbersInput.disabled = true;
         const tenant = tenantId();
         const session = await api('/sessions', {
           method: 'POST',
@@ -504,7 +535,7 @@
             mode: 'realtime',
             language: $('language').value,
             quality_level: 'balanced',
-            normalize_numbers: $('normalize-numbers').checked,
+            normalize_numbers: normalizeNumbersInput.checked,
           }),
         });
         state.sessionId = session.session_id;
@@ -529,6 +560,7 @@
         await closeMicrophone();
         if (state.socket) state.socket.close();
         $('start-recording').disabled = false;
+        normalizeNumbersInput.disabled = !state.health || state.health.gpu1_role !== 'refiner' || state.health.gpu1_switching;
         setRealtimeStatus(messageOf(error), true);
       }
     });

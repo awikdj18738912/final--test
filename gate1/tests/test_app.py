@@ -8,6 +8,7 @@ from gate1.app import (
     refine_span,
     route_span,
     schedule_refinements,
+    summarize_refinement_results,
     transcript_event,
     wait_for_refinements,
 )
@@ -48,6 +49,26 @@ def test_frontend_is_bundled_with_realtime_and_offline_controls() -> None:
     assert '/offline/jobs' in html
     assert '/runtime/gpu1-role' in html
     assert 'id="normalize-numbers"' in html
+    assert "asrNormalizeNumbers" in html
+    assert "refinement_summary" in html
+    assert "normalizeNumbersInput.disabled = true" in html
+
+
+def test_refinement_summary_counts_terminal_outcomes() -> None:
+    results = [
+        {"event": "revision"},
+        {"event": "revision"},
+        {"event": "refiner_skipped"},
+        {"event": "unknown"},
+    ]
+
+    assert summarize_refinement_results(results) == {
+        "revision": 2,
+        "refiner_keep": 0,
+        "refiner_reject": 0,
+        "refiner_skipped": 1,
+        "refiner_error": 0,
+    }
 
 
 def test_idle_gpu1_worker_can_switch_without_restarting_gpu0() -> None:
@@ -282,6 +303,7 @@ if __name__ == "__main__":
     test_whole_window_events_are_versioned_and_hashed()
     test_session_lock_is_asyncio_lock()
     test_frontend_is_bundled_with_realtime_and_offline_controls()
+    test_refinement_summary_counts_terminal_outcomes()
     test_idle_gpu1_worker_can_switch_without_restarting_gpu0()
     test_gpu1_switch_rejects_an_active_realtime_session()
     test_number_normalization_is_an_explicit_route_override()

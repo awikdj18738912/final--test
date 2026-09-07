@@ -371,6 +371,18 @@ def job_or_404(state: ServiceState, job_id: str, tenant_id: str) -> OfflineJob:
     return job
 
 
+def summarize_refinement_results(results: list[dict[str, Any]]) -> dict[str, int]:
+    """Count each terminal Refiner outcome for API and UI diagnostics."""
+
+    event_names = ("revision", "refiner_keep", "refiner_reject", "refiner_skipped", "refiner_error")
+    summary = {name: 0 for name in event_names}
+    for result in results:
+        event = str(result.get("event", ""))
+        if event in summary:
+            summary[event] += 1
+    return summary
+
+
 def transcript_event(session: SessionRecord, event: str, text: str, is_final: bool) -> dict[str, Any]:
     prior = session.text
     session.result_version += 1
@@ -654,7 +666,10 @@ app = FastAPI(title="Dual-3090 ASR Gate 1", version="0.1.0", lifespan=lifespan)
 
 @app.get("/", include_in_schema=False)
 async def frontend() -> FileResponse:
-    return FileResponse(FRONTEND_PATH)
+    return FileResponse(
+        FRONTEND_PATH,
+        headers={"Cache-Control": "no-store, max-age=0", "Pragma": "no-cache"},
+    )
 
 
 @app.get("/health")
@@ -828,8 +843,10 @@ async def stream_session(websocket: WebSocket, session_id: str, tenant_id: str =
                             "is_final": True,
                             "raw_text": session.raw_text,
                             "text": session.text,
+                            "normalize_numbers": session.normalize_numbers,
                             "refinement_disabled_reason": session.refinement_disabled_reason,
                             "refinement_results": len(session.refinement_results),
+                            "refinement_summary": summarize_refinement_results(session.refinement_results),
                         }
                     )
                     normal_completion = True

@@ -49,7 +49,12 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
         response = await client.post(
             "/sessions",
             headers={"Idempotency-Key": f"live-{uuid.uuid4().hex}"},
-            json={"tenant_id": tenant_id, "mode": "realtime", "language": "Chinese"},
+            json={
+                "tenant_id": tenant_id,
+                "mode": "realtime",
+                "language": "Chinese",
+                "normalize_numbers": args.normalize_numbers,
+            },
         )
         response.raise_for_status()
         session_id = response.json()["session_id"]
@@ -106,6 +111,7 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
         "audio": str(args.audio.resolve()),
         "audio_sec": len(pcm) / 2 / 16000,
         "frame_ms": args.frame_ms,
+        "normalize_numbers": args.normalize_numbers,
         "raw_final_visible_sec": final_events[0]["received_sec"] if final_events else None,
         "complete_sec": complete["received_sec"],
         "refinement_events": len(refinements),
@@ -130,6 +136,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--audio", type=Path, default=DEFAULT_AUDIO)
     parser.add_argument("--audio-sec", type=float, default=5.0)
     parser.add_argument("--frame-ms", type=int, default=250)
+    parser.add_argument(
+        "--normalize-numbers",
+        action="store_true",
+        help="request Chinese-number normalization for this realtime session",
+    )
     parser.add_argument("--timeout", type=float, default=60.0)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "results" / "live_integration")
     return parser.parse_args()
