@@ -6,6 +6,7 @@ from gate1.app import (
     ServiceState,
     SessionRecord,
     refine_span,
+    route_span,
     schedule_refinements,
     transcript_event,
     wait_for_refinements,
@@ -46,6 +47,7 @@ def test_frontend_is_bundled_with_realtime_and_offline_controls() -> None:
     assert 'new WebSocket' in html
     assert '/offline/jobs' in html
     assert '/runtime/gpu1-role' in html
+    assert 'id="normalize-numbers"' in html
 
 
 def test_idle_gpu1_worker_can_switch_without_restarting_gpu0() -> None:
@@ -106,6 +108,17 @@ def test_gpu1_switch_rejects_an_active_realtime_session() -> None:
         pass
     else:
         raise AssertionError("GPU1 switch must reject an active realtime session")
+
+
+def test_number_normalization_is_an_explicit_route_override() -> None:
+    text = "这个商品一千五百九十九元。"
+
+    default = route_span(text)
+    enabled = route_span(text, normalize_numbers=True)
+
+    assert default.call_refiner is False
+    assert enabled.call_refiner is True
+    assert "number_normalization_requested" in enabled.reasons
 
 
 def test_async_refiner_emits_revision_and_failure_keeps_source() -> None:
@@ -271,6 +284,7 @@ if __name__ == "__main__":
     test_frontend_is_bundled_with_realtime_and_offline_controls()
     test_idle_gpu1_worker_can_switch_without_restarting_gpu0()
     test_gpu1_switch_rejects_an_active_realtime_session()
+    test_number_normalization_is_an_explicit_route_override()
     test_async_refiner_emits_revision_and_failure_keeps_source()
     test_explicit_self_correction_large_deletion_emits_revision()
     test_router_skips_clean_span_without_an_rpc()

@@ -86,6 +86,11 @@
     .record-indicator { display: inline-flex; align-items: center; gap: 7px; margin-left: auto; color: var(--muted); font-size: 12px; }
     .record-indicator span { width: 8px; height: 8px; border-radius: 50%; background: #536171; }
     .recording .record-indicator span { background: var(--danger); animation: pulse 1.2s infinite; }
+    .option-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--text); cursor: pointer; }
+    .option-row input[type="checkbox"] { width: 18px; height: 18px; min-height: 0; accent-color: var(--accent); }
+    .option-copy { display: grid; gap: 2px; }
+    .option-copy strong { font-size: 13px; }
+    .option-copy small { color: var(--muted); font-size: 11px; line-height: 1.45; }
     @keyframes pulse { 50% { opacity: .35; transform: scale(.8); } }
 
     .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -188,6 +193,13 @@
                 <button id="clear-realtime" class="button" type="button">清空</button>
                 <div class="record-indicator"><span></span><b id="record-state">待机</b></div>
               </div>
+              <label class="option-row" for="normalize-numbers">
+                <input id="normalize-numbers" type="checkbox">
+                <span class="option-copy">
+                  <strong>数字格式化</strong>
+                  <small>将“一千五百九十九元”等数字表达交给 Refiner 规范化；仅在 Refiner 模式可用</small>
+                </span>
+              </label>
               <div id="realtime-status" class="status-line">麦克风音频会在浏览器中转换为 16 kHz PCM，并发送到当前服务器。</div>
             </div>
           </article>
@@ -312,6 +324,7 @@
         $('service-mode').textContent = health.gpu1_switching ? 'GPU 模式：正在加载模型…' : `GPU 模式：${role}`;
         $('switch-gpu1').textContent = health.gpu1_role === 'refiner' ? '切换至非流式' : '启动 Refiner';
         $('switch-gpu1').disabled = health.gpu1_switching;
+        $('normalize-numbers').disabled = health.gpu1_role !== 'refiner' || health.gpu1_switching;
         $('offline-notice').classList.toggle('error', health.gpu1_role !== 'offline');
       } catch (error) {
         state.health = null;
@@ -455,7 +468,8 @@
       if (event.text !== undefined) setText($('visible-text'), event.text, '等待转写结果');
       if (event.asr_stream_metrics) renderMetrics(event.asr_stream_metrics);
       if (event.event === 'ready') {
-        setRealtimeStatus(event.refinement_enabled ? `录音中；Refiner 路由：${event.refiner_router_mode}` : '录音中；当前为纯 ASR 模式');
+        const numberMode = event.normalize_numbers ? '；数字格式化已开启' : '';
+        setRealtimeStatus(event.refinement_enabled ? `录音中；Refiner 路由：${event.refiner_router_mode}${numberMode}` : '录音中；当前为纯 ASR 模式');
       } else if (event.event === 'revision') {
         setRealtimeStatus('收到 Refiner 修订，展示文本已更新');
       } else if (event.event === 'error') {
@@ -485,7 +499,13 @@
         const session = await api('/sessions', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Idempotency-Key': crypto.randomUUID() },
-          body: JSON.stringify({ tenant_id: tenant, mode: 'realtime', language: $('language').value, quality_level: 'balanced' }),
+          body: JSON.stringify({
+            tenant_id: tenant,
+            mode: 'realtime',
+            language: $('language').value,
+            quality_level: 'balanced',
+            normalize_numbers: $('normalize-numbers').checked,
+          }),
         });
         state.sessionId = session.session_id;
         $('session-label').textContent = state.sessionId;

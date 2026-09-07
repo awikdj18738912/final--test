@@ -8,6 +8,7 @@ import base64
 import hashlib
 import json
 import os
+import re
 import signal
 import subprocess
 import sys
@@ -45,6 +46,7 @@ REFINER_TIMEOUT_SEC = float(os.environ.get("GATE1_REFINER_TIMEOUT_SEC", "10"))
 REFINER_MAX_NEW_TOKENS = int(os.environ.get("GATE1_REFINER_MAX_NEW_TOKENS", "256"))
 REFINER_ROUTER_MODE = os.environ.get("GATE1_REFINER_ROUTER", "conservative").lower()
 COLLECT_LOGPROB_TELEMETRY = os.environ.get("GATE1_COLLECT_LOGPROB_TELEMETRY", "").lower() in {"1", "true", "yes", "on"}
+CHINESE_NUMBER_PATTERN = re.compile(r"[零〇一二两三四五六七八九十百千万亿]")
 
 
 class SessionCreate(BaseModel):
@@ -52,6 +54,7 @@ class SessionCreate(BaseModel):
     mode: str = "realtime"
     language: str = "Chinese"
     quality_level: str = "balanced"
+    normalize_numbers: bool = False
 
 
 class Gpu1RoleChange(BaseModel):
@@ -69,6 +72,7 @@ class SessionRecord:
     language: str
     quality_level: str
     created_at: float
+    normalize_numbers: bool = False
     raw_text: str = ""
     text: str = ""
     result_version: int = 0
@@ -319,6 +323,7 @@ class ServiceState:
             "tenant_id": record.tenant_id,
             "language": record.language,
             "quality_level": record.quality_level,
+            "normalize_numbers": record.normalize_numbers,
             "created_at": record.created_at,
             "raw_text": record.raw_text,
             "text": record.text,
@@ -545,7 +550,7 @@ def schedule_refinements(
     if state.refiner is None:
         return
     for span in spans:
-        decision = route_span(span.text)
+        decision = route_span(span.text, normalize_numbers=session.normalize_numbers)
         if not decision.call_refiner:
             skipped = {
                 "event": "refiner_skipped",
@@ -570,14 +575,18 @@ def schedule_refinements(
         task.add_done_callback(session.refinement_tasks.discard)
 
 
-def route_span(raw_text: str) -> RouteDecision:
+def route_span(raw_text: str, *, normalize_numbers: bool = False) -> RouteDecision:
     """Choose a Refiner policy while retaining explicit benchmark escape hatches."""
 
     if REFINER_ROUTER_MODE == "all":
         return RouteDecision(True, 0, ("router_all",))
     if REFINER_ROUTER_MODE == "off":
         return RouteDecision(False, 0, ("router_off",))
-    return route(raw_text)
+    decision = route(raw_text)
+    if normalize_numbers and CHINESE_NUMBER_PATTERN.search(raw_text):
+        reasons = tuple(dict.fromkeys((*decision.reasons, "number_normalization_requested")))
+        return RouteDecision(True, max(1, decision.score), reasons)
+    return decision
 
 
 async def wait_for_refinements(session: SessionRecord) -> None:
@@ -700,6 +709,7 @@ async def create_session(request: SessionCreate, idempotency_key: str | None = H
         language=request.language,
         quality_level=request.quality_level,
         created_at=time.time(),
+        normalize_numbers=request.normalize_numbers,
     )
     if state.refiner is not None:
         session.refinement = K1RefinementState(session.session_id)
@@ -777,6 +787,7 @@ async def stream_session(websocket: WebSocket, session_id: str, tenant_id: str =
                 "refinement_enabled": session.refinement is not None,
                 "refiner_window_k": 1 if session.refinement is not None else None,
                 "refiner_router_mode": REFINER_ROUTER_MODE if session.refinement is not None else None,
+                "normalize_numbers": session.normalize_numbers,
             }
         )
         while True:
