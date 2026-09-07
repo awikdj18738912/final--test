@@ -416,6 +416,11 @@ Qwen3-ASR-1.7B 流式 ASR、GPU1 固定为本地约 4B AgenticASR-Refiner。服�
 Diff/Patch 与校验后发送 `revision/refiner_keep/refiner_reject`，最后发送
 `complete`。原始 `raw_text` 与客户端展示 `text` 分开保存。
 
+2026-09-07 修复了显式自我修正被通用 60% 修改比例门误拒的问题。对于路由已确认的
+`explicit_self_correction`，仅当 clean text 是源窗口中原本存在的非空连续片段时，允许大比例
+删除；普通大范围改写、空输出和新增实质字符仍被拒绝。回归句“我是一个苹果，嗯，不对，我是
+一个梨。”现在产生“我是一个梨。”的 `revision`，Gate2 单元测试由 22 项增至 24 项。
+
 首轮真实音频发现模型用 `<|im_end|>`（token ID `130073`）结束响应，而旧适配器
 只检查 `</s>`（ID `1`），导致正确输出被误报为 `generation_max_tokens`。现在从
 模型 `generation_config.json` 读取所有 EOS，并显式加入模板结束 token；同一

@@ -11,6 +11,7 @@ from gate1.app import (
     wait_for_refinements,
 )
 from gate2.streaming import K1RefinementState
+from gate3.rule_router import RouteDecision
 
 
 def test_whole_window_events_are_versioned_and_hashed() -> None:
@@ -153,6 +154,50 @@ def test_async_refiner_emits_revision_and_failure_keeps_source() -> None:
     assert rejected.text == "这个方案，呃呃，后面再讨论。"
 
 
+def test_explicit_self_correction_large_deletion_emits_revision() -> None:
+    class FakeRefiner:
+        async def rpc(self, payload, timeout=30):  # noqa: ANN001, ARG002
+            assert payload["active_source_window"] == "我是一个苹果，嗯，不对，我是一个梨。"
+            return {
+                "text": "我是一个梨。",
+                "keys": [],
+                "finish_reason": "stop",
+                "stop_token_id": 130073,
+                "generated_tokens": 5,
+                "key_suffix_present": False,
+                "inference_sec": 0.001,
+            }
+
+    class FakeState:
+        refiner = FakeRefiner()
+
+    async def run_case() -> tuple[SessionRecord, dict]:
+        session = SessionRecord("ses_self_correct", "tenant", "Chinese", "balanced", 0.0)
+        session.refinement = K1RefinementState(session.session_id)
+        span = session.refinement.update_hypothesis(
+            "我是一个苹果，嗯，不对，我是一个梨。", is_final=True
+        )[0]
+        session.raw_text = session.refinement.render()
+        session.text = session.raw_text
+        session.result_version = 1
+        session.final = True
+        queue = asyncio.Queue()
+        await refine_span(
+            FakeState(),
+            session,
+            span.span_id,
+            queue,
+            RouteDecision(True, 2, ("explicit_self_correction",)),
+        )
+        return session, queue.get_nowait()
+
+    session, event = asyncio.run(run_case())
+    assert event["event"] == "revision"
+    assert event["text"] == "我是一个梨。"
+    assert event["validation"]["accepted"] is True
+    assert session.text == "我是一个梨。"
+
+
 def test_router_skips_clean_span_without_an_rpc() -> None:
     class MustNotCallRefiner:
         async def rpc(self, payload, timeout=30):  # noqa: ANN001, ARG002
@@ -227,6 +272,7 @@ if __name__ == "__main__":
     test_idle_gpu1_worker_can_switch_without_restarting_gpu0()
     test_gpu1_switch_rejects_an_active_realtime_session()
     test_async_refiner_emits_revision_and_failure_keeps_source()
+    test_explicit_self_correction_large_deletion_emits_revision()
     test_router_skips_clean_span_without_an_rpc()
     test_router_submits_explicit_retraction_and_records_decision()
     print("gate1 state tests passed")

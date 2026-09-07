@@ -380,7 +380,9 @@
     }
 
     function addEvent(event) {
-      const text = event.text || event.raw_text || event.detail || '';
+      const rejection = event.validation && event.validation.reasons && event.validation.reasons.length
+        ? `拒绝原因：${event.validation.reasons.join(', ')}` : '';
+      const text = rejection || event.detail || event.text || event.raw_text || '';
       state.events.unshift({ time: new Date().toLocaleTimeString(), type: event.event || 'unknown', text });
       state.events = state.events.slice(0, 60);
       $('events').innerHTML = state.events.map((item) => `

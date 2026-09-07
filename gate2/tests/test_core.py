@@ -272,6 +272,45 @@ class StreamingTextTests(unittest.TestCase):
         self.assertEqual(decision.event, "reject")
         self.assertEqual(state.render(), "原文。")
 
+    def test_explicit_self_correction_allows_grounded_large_deletion(self) -> None:
+        source = "我是一个苹果，嗯，不对，我是一个梨。"
+        state = K1RefinementState("self-correction")
+        span = state.update_hypothesis(source, is_final=True)[0]
+
+        conservative = state.apply(
+            span_id=span.span_id,
+            clean_text="我是一个梨。",
+            tenant_id="tenant-a",
+        )
+        self.assertEqual(conservative.event, "reject")
+        self.assertIn("change_ratio_too_large", conservative.validation.reasons)
+
+        allowed = state.apply(
+            span_id=span.span_id,
+            clean_text="我是一个梨。",
+            tenant_id="tenant-a",
+            allow_self_correction_deletion=True,
+        )
+        self.assertEqual(allowed.event, "replace")
+        self.assertTrue(allowed.validation.accepted)
+        self.assertEqual(state.render(), "我是一个梨。")
+
+    def test_self_correction_exception_does_not_allow_new_content(self) -> None:
+        source = "我是一个苹果，嗯，不对，我是一个梨。"
+        state = K1RefinementState("self-correction-new-content")
+        span = state.update_hypothesis(source, is_final=True)[0]
+
+        decision = state.apply(
+            span_id=span.span_id,
+            clean_text="我是一只梨。",
+            tenant_id="tenant-a",
+            allow_self_correction_deletion=True,
+        )
+
+        self.assertEqual(decision.event, "reject")
+        self.assertIn("change_ratio_too_large", decision.validation.reasons)
+        self.assertIn("ungrounded_content_addition", decision.validation.reasons)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -84,6 +84,7 @@ class K1RefinementState:
         clean_text: str,
         tenant_id: str,
         generation_complete: bool = True,
+        allow_self_correction_deletion: bool = False,
     ) -> SpanDecision:
         window = self.window(span_id)
         patch_set = self.compiler.diff(window=window, clean_text=clean_text, correction_type="streaming_k1")
@@ -93,6 +94,7 @@ class K1RefinementState:
             clean_text=clean_text,
             tenant_id=tenant_id,
             evidence=[],
+            allow_self_correction_deletion=allow_self_correction_deletion,
         )
         if not generation_complete:
             validation = ValidationResult(

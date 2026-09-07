@@ -349,6 +349,7 @@ class PatchValidator:
         tenant_id: str,
         evidence: Iterable[Evidence] = (),
         pass_through: bool = False,
+        allow_self_correction_deletion: bool = False,
     ) -> ValidationResult:
         reasons: list[str] = []
         evidence_by_id = {item.evidence_id: item for item in evidence}
@@ -363,7 +364,16 @@ class PatchValidator:
         changed = sum(max(item.end_char - item.start_char, len(item.replacement)) for item in patch_set.patches)
         if changed > self.max_changed_chars:
             reasons.append("change_span_too_large")
-        if window.current_text and changed / len(window.current_text) > self.max_change_ratio:
+        self_correction_deletion = (
+            allow_self_correction_deletion
+            and bool(clean_text.strip())
+            and clean_text in window.current_text
+        )
+        if (
+            window.current_text
+            and changed / len(window.current_text) > self.max_change_ratio
+            and not self_correction_deletion
+        ):
             reasons.append("change_ratio_too_large")
         try:
             applied = PatchCompiler.apply(window.current_text, patch_set.patches)

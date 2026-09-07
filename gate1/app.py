@@ -461,6 +461,10 @@ async def refine_span(
                 clean_text=str(result["text"]),
                 tenant_id=session.tenant_id,
                 generation_complete=generation_complete,
+                allow_self_correction_deletion=(
+                    router_decision is not None
+                    and "explicit_self_correction" in router_decision.reasons
+                ),
             )
             add_latency(session, "refiner_rpc", rpc_ms)
             add_latency(session, "refiner_inference", inference_ms)
